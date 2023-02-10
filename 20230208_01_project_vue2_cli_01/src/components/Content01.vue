@@ -6,8 +6,8 @@
             <div>姓（漢字）<input type="text" v-model="koJinJoHoZhy.cpNamesei" />
                 <span class="errorMessage" id="cpNameseiWarmingTextFormat"
                     v-if="cpNameseiWarmingTextFormatFlag">フォーマットが間違っています。漢字で入力してください。</span>
-                <span class="errorMessage" id="cpNameserWarmingTextToLong"
-                    v-if="cpNameserWarmingTextToLongFlag">入力した漢字が長すぎます。再入力してください。</span>
+                <span class="errorMessage" id="cpNameseiWarmingTextToLong"
+                    v-if="cpNameseiWarmingTextToLongFlag">入力した漢字が長すぎます。再入力してください。</span>
             </div>
             <div>名（漢字）<input type="text" v-model="koJinJoHoZhy.cpNameMei" />
                 <span class="errorMessage" id="cpNameMeiWarmingTextFormat"
@@ -18,8 +18,8 @@
             <div>セイ<input type="text" v-model="koJinJoHoZhy.cpNameseikana" />
                 <span class="errorMessage" id="cpNameseikanaWarmingTextFormat"
                     v-if="cpNameseikanaWarmingTextFormatFlag">フォーマットが間違っています。カタカナで入力してください。</span>
-                <span class="errorMessage" id="cpNameserkaneWarmingTextToLong"
-                    v-if="cpNameserkaneWarmingTextToLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
+                <span class="errorMessage" id="cpNameseikaneWarmingTextToLong"
+                    v-if="cpNameseikaneWarmingTextToLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
             </div>
             <div>メイ<input type="text" v-model="koJinJoHoZhy.cpNamemeikana" />
                 <span class="errorMessage" id="cpNamemeikanaWarmingTextFormat"
@@ -127,10 +127,7 @@
     </div>
 </template>
 <script>
-// import { Datepicker, Timepicker, DatetimePicker, DateRangePicker } from '@livelybone/vue-datepicker';
 import Datepicker from 'vuejs-datepicker';
-
-
 import axios from 'axios'
 export default {
     data() {
@@ -151,16 +148,17 @@ export default {
                 cpKinmusakiname: ""
             },
             // 電話番号の正規表現
-            phoneReg: /^0[789]0-[0-9]{4}-[0-9]{4}$/,
-            // cuAlphlastnameWarmingText: "",
-            // cuAlphlastnameWarmingTextFlag: false,
-            // cuAlphlastnameWarmingTextNotAlph: "ローマ字ではありません",
+            regPhone: /^0[789]0-[0-9]{4}-[0-9]{4}$/,
+            regKanji: /^[\u4E00-\u9FA5]/g,
+            regEnglish: /[a-zA-Z]/g,
+            regKana: /^[\u30A0-\u30FF]+$/,
+
             cpNameseiWarmingTextFormatFlag: false,
-            cpNameserWarmingTextToLongFlag: false,
+            cpNameseiWarmingTextToLongFlag: false,
             cpNameMeiWarmingTextFormatFlag: false,
             cpNameMeiWarmingTextTooLongFlag: false,
             cpNameseikanaWarmingTextFormatFlag: false,
-            cpNameserkaneWarmingTextToLongFlag: false,
+            cpNameseikaneWarmingTextToLongFlag: false,
             cpNamemeikanaWarmingTextFormatFlag: false,
             cpNamemeikanaWarmingTextToLongFlag: false,
             cuAlphlastnameWarmingTextFormatFlag: false,
@@ -230,7 +228,26 @@ export default {
             result = zenkakuKana2Hankaku(str);
             obj.value = result;
             return result;
+        },
+        judgKanji(str) {
+            console.log(str.value)
+            return this.regKanji.test(str);
+        },
+        judgKana(str) {
+            return this.regKana.test(str);
+        },
+        judgEnglish(str) {
+            return this.regEnglish.test(str);
+        },
+        judgPhone(str) {
+            return this.regPhone.test(str);
+        },
+        judgLength(str, num) {
+            str = ""+str.value;
+            // return str.value.length>num;
+            return str.length <= num;
         }
+
     },
     components: {
         datepicker: Datepicker
@@ -239,71 +256,86 @@ export default {
         // 'koJinJoHoZhy.cuAlphfirstname': function () {
         //     console.log("tmp");
         // },
-        /*
-        'koJinJoHoZhy.cpDenwa': function () {
-            // console.log("tmp");
-            if (this.phoneReg.test(this.koJinJoHoZhy.cpDenwa)) {
-                console.log('OK');
-                this.cuAlphlastnameWarmingTextFlag = false;
+        
+        // 'koJinJoHoZhy.cpNamesei': function () {
+        //     // console.log("tmp");
+        //     if (this.regPhone.test(this.koJinJoHoZhy.cpDenwa)) {
+        //         console.log('OK');
+        //         this.cuAlphlastnameWarmingTextFlag = false;
 
-            } else {
-                console.log('wrong');
-                this.cuAlphlastnameWarmingText = this.cuAlphlastnameWarmingTextNotAlph;
-                this.cuAlphlastnameWarmingTextFlag = true;
-            }
+        //     } else {
+        //         console.log('wrong');
+        //         this.cuAlphlastnameWarmingText = this.cuAlphlastnameWarmingTextNotAlph;
+        //         this.cuAlphlastnameWarmingTextFlag = true;
+        //     }
+        // }
+        // ,
+        'koJinJoHoZhy.cpNamesei': function () {
+            // cpNameseiWarmingTextFormatFlag = juo
+            // this.cpNameseiWarmingTextToLongFlag = this.judgLength(this.koJinJoHoZhy.cpNameSei, 40);
+            this.cpNameseiWarmingTextFormatFlag = !this.judgKanji(this.koJinJoHoZhy.cpNameSei);
+            console.log(this.judgKanji(this.koJinJoHoZhy.cpNameSei));
+            // this.cpNameseiWarmingTextFormatFlag = true;
+            // this.cpNameseiWarmingTextToLongFlag = true;
+            // this.cpNameseiWarmingTextFormatFlag = true;
         }
-        */
-        'koJinJoHoZhy.cpNameSei': function () {
-            
-        },
-        'koJinJoHoZhy.': function () {
+        // ,
+        // 'koJinJoHoZhy.': function () {
 
-        },
-        'koJinJoHoZhy.': function () {
+        // },
+        // 'koJinJoHoZhy.': function () {
 
-        },
-        'koJinJoHoZhy.': function () {
+        // },
+        // 'koJinJoHoZhy.': function () {
 
-        },
-        'koJinJoHoZhy.': function () {
+        // },
+        // 'koJinJoHoZhy.': function () {
 
-        },
-        'koJinJoHoZhy.': function () {
+        // },
+        // 'koJinJoHoZhy.': function () {
 
-        },
-        'koJinJoHoZhy.': function () {
+        // },
+        // 'koJinJoHoZhy.': function () {
 
-        },
-        'koJinJoHoZhy.': function () {
+        // },
+        // 'koJinJoHoZhy.': function () {
 
-        },
-        'koJinJoHoZhy.': function () {
+        // },
+        // 'koJinJoHoZhy.': function () {
 
-        },
-        'koJinJoHoZhy.': function () {
+        // },
+        // 'koJinJoHoZhy.': function () {
 
-        },
-        'koJinJoHoZhy.': function () {
+        // },
+        // 'koJinJoHoZhy.': function () {
 
-        },
-        'koJinJoHoZhy.': function () {
+        // },
+        // 'koJinJoHoZhy.': function () {
 
-        },
-        'koJinJoHoZhy.': function () {
+        // },
+        // 'koJinJoHoZhy.': function () {
 
-        },
-        'koJinJoHoZhy.': function () {
+        // },
+        // 'koJinJoHoZhy.': function () {
 
-        },
-        'koJinJoHoZhy.': function () {
+        // },
+        // 'koJinJoHoZhy.': function () {
 
-        },
-        'koJinJoHoZhy.': function () {
+        // },
+        // 'koJinJoHoZhy.': function () {
 
-        },
-        'koJinJoHoZhy.': function () {
+        // },
+        // 'koJinJoHoZhy.': function () {
 
-        },
+        // },
+    }
+    ,
+    created (){
+        // // var  cpNameseiWarmingTextFormatFlag = true;
+        // this.cpNameseiWarmingTextFormatFlag = new Boolean;
+        // this.cpNameseiWarmingTextFormatFlag = new Boolean;
+        // // this.cpNameseiWarmingTextFormatFlag = 
+            // this.cpNameseiWarmingTextToLongFlag = true;
     }
 
 }
