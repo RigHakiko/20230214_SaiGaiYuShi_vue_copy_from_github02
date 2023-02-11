@@ -118,7 +118,7 @@
         </div>
         <div>
             <input type="button" value="push" @click="add" />
-            <input type="button" value="push" @click="add" />
+            <input type="button" value="push" @click="add2" />
         </div>
     </div>
 </template>
@@ -181,6 +181,10 @@ export default {
         add() {
             axios.post('http://localhost:8813/ko-jin-jo-ho-zhy/save', this.koJinJoHoZhy).then();
         },
+        // 尝试弄第2个
+        add2() {
+            axios.post('http://localhost:8813/ko-jin-jo-ho-zhy/save', this.koJinJoHoZhy).then();
+        },
         // 英数字的全角转换为半角
         zenkakuAlphNum2hankaku(str) {
             return str.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function (s) {
@@ -221,14 +225,14 @@ export default {
         CtoH(obj) {
             let str = obj.value;
             let result = "";
-            result = zenkakuAlphNum2hankaku(str);
+            result = this.zenkakuAlphNum2hankaku(str);
             obj.value = result;
             return result;
         },
         CHoH(sss) {
             let str = sss.value;
             let result = "";
-            result = zenkakuKana2Hankaku(str);
+            result = this.zenkakuKana2Hankaku(str);
             obj.value = result;
             return result;
         },
@@ -266,7 +270,7 @@ export default {
             // console.log(this.koJinJoHoZhy.cpNamesei);
             // console.log(this.regKanji.test(this.koJinJoHoZhy.cpNamesei));
             // console.log(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNamesei));
-            this.cpNameseiWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNamesei.length<=40);
+            this.cpNameseiWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNamesei.length <= 40);
         }
         ,
         'koJinJoHoZhy.cpNameMei': function () {
@@ -275,12 +279,16 @@ export default {
         },
 
         'koJinJoHoZhy.cpNameseikana': function () {
+            this.CtoH(this.koJinJoHoZhy.cpNameseikana);
+            this.CHoH(this.koJinJoHoZhy.cpNameseikana);
             // this.cpNameseikanaWarmingTextFormatFlag = !(this.regKana.test(this.koJinJoHoZhy.Nameseikana));
             // this.cpNameseiWarmingTextToLongFlag = this.koJinJoHoZhy.Nameseikana.length > 40;
             this.cpNameseikanaWarmingTextFormatFlag = !(/^[\u30A0-\u30FF]+$/g.test(this.koJinJoHoZhy.Nameseikana));
             this.cpNameseiWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNameseikana.length <= 40);
         },
         'koJinJoHoZhy.cpNamemeikana': function () {
+            CtoH(this.koJinJoHoZhy.cpNamemeikana);
+            CHoH(this.koJinJoHoZhy.cpNamemeikana);
             this.cpNamemeikanaWarmingTextFormatFlag = !(this.regKana.test(this.koJinJoHoZhy.cpNamemeikana));
             this.cpNamemeiWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNamemeikana.length <= 40);
         },
