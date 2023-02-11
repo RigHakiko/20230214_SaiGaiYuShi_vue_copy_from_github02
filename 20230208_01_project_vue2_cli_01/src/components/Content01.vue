@@ -55,16 +55,12 @@
         </div>
         <div>
             <label>性別</label>
-            <!-- <select v-model="koJinJoHoZhy.cpSex">
-                <option disabled value="">please select</option>
-                <option>male</option>
-                <option>female</option>
-                <option>other</option>
-            </select> -->
-            <input type="radio" name="sex" id="男" value="男" checked v-model="koJinJoHoZhy.cpSex" />男
-            <input type="radio" name="sex" id="女" value="女" v-model="koJinJoHoZhy.cpSex" />女
-            <input type="radio" name="sex" id="Decline to State" value="Decline to State"
-                v-model="koJinJoHoZhy.cpSex" />Decline to State（声明拒否）
+            <input type="radio" name="sex" id="男" value="男" checked v-model="koJinJoHoZhy.cpSex"
+                :checked="koJinJoHoZhy.cpSex" />男
+            <input type="radio" name="sex" id="女" value="女" v-model="koJinJoHoZhy.cpSex"
+                :checked="koJinJoHoZhy.cpSex" />女
+            <input type="radio" name="sex" id="Decline to State" value="Decline to State" v-model="koJinJoHoZhy.cpSex"
+                :checked="koJinJoHoZhy.cpSex" />Decline to State（声明拒否）
             <span class="errorMessage" id="cpSexWarmingTextNotSelected"
                 v-if="cpSexWarmingTextNotSelectedFlag">性別を選んでください</span>
         </div>
@@ -132,6 +128,7 @@ import axios from 'axios'
 export default {
     data() {
         return {
+            // 面前数据作为json格式保存
             koJinJoHoZhy: {
                 cpNamesei: "",
                 cpNameMei: "",
@@ -149,9 +146,12 @@ export default {
             },
             // 電話番号の正規表現
             regPhone: /^0[789]0-[0-9]{4}-[0-9]{4}$/,
-            regKanji: /^[\u4E00-\u9FA5]/g,
-            regEnglish: /[a-zA-Z]/g,
-            regKana: /^[\u30A0-\u30FF]+$/,
+            // 漢字の正規表現
+            regKanji: /^[\u4E00-\u9FA5]+$/g,
+            // 英語の正規表現
+            regEnglish: /^[a-zA-Z]+$/g,
+            // カタカナの正規表現
+            regKana: /^[\u30A0-\u30FF]+$/g,
 
             cpNameseiWarmingTextFormatFlag: false,
             cpNameseiWarmingTextToLongFlag: false,
@@ -177,14 +177,17 @@ export default {
         }
     },
     methods: {
+        // 通过网络保存到数据库
         add() {
             axios.post('http://localhost:8813/ko-jin-jo-ho-zhy/save', this.koJinJoHoZhy).then();
         },
+        // 英数字的全角转换为半角
         zenkakuAlphNum2hankaku(str) {
             return str.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function (s) {
                 return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
             });
         },
+        // カタカナ的全角转换为半角
         zenkakuKana2Hankaku(str) {
             var kanaMap = {
                 "ガ": "ｶﾞ", "ギ": "ｷﾞ", "グ": "ｸﾞ", "ゲ": "ｹﾞ", "ゴ": "ｺﾞ",
@@ -243,7 +246,7 @@ export default {
             return this.regPhone.test(str);
         },
         judgLength(str, num) {
-            str = ""+str.value;
+            str = "" + str.value;
             // return str.value.length>num;
             return str.length <= num;
         }
@@ -253,90 +256,69 @@ export default {
         datepicker: Datepicker
     },
     watch: {
-        // 'koJinJoHoZhy.cuAlphfirstname': function () {
-        //     console.log("tmp");
-        // },
-        
-        // 'koJinJoHoZhy.cpNamesei': function () {
-        //     // console.log("tmp");
-        //     if (this.regPhone.test(this.koJinJoHoZhy.cpDenwa)) {
-        //         console.log('OK');
-        //         this.cuAlphlastnameWarmingTextFlag = false;
-
-        //     } else {
-        //         console.log('wrong');
-        //         this.cuAlphlastnameWarmingText = this.cuAlphlastnameWarmingTextNotAlph;
-        //         this.cuAlphlastnameWarmingTextFlag = true;
-        //     }
-        // }
-        // ,
         'koJinJoHoZhy.cpNamesei': function () {
-            // cpNameseiWarmingTextFormatFlag = juo
-            // this.cpNameseiWarmingTextToLongFlag = this.judgLength(this.koJinJoHoZhy.cpNameSei, 40);
-            this.cpNameseiWarmingTextFormatFlag = !this.judgKanji(this.koJinJoHoZhy.cpNameSei);
-            console.log(this.judgKanji(this.koJinJoHoZhy.cpNameSei));
-            // this.cpNameseiWarmingTextFormatFlag = true;
-            // this.cpNameseiWarmingTextToLongFlag = true;
-            // this.cpNameseiWarmingTextFormatFlag = true;
+            // this.cpNameseiWarmingTextToLongFlag = !this.koJinJoHoZhy.cpNamesei.length <= 40;
+            // this.cpNameseiWarmingTextFormatFlag = !this.regKanji.test(this.koJinJoHoZhy.cpNamesei);
+            // this.cpNameseiWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNamesei.length <= 40);
+            // console.log(this.koJinJoHoZhy.cpNamesei.length);
+            this.cpNameseiWarmingTextFormatFlag = !(this.regKanji.test(this.koJinJoHoZhy.cpNamesei));
+            console.log(this.regKanji);
+            console.log(this.koJinJoHoZhy.cpNamesei);
+            console.log(this.regKanji.test(this.koJinJoHoZhy.cpNamesei));
+            console.log(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNamesei));
         }
-        // ,
-        // 'koJinJoHoZhy.': function () {
+        ,
+        'koJinJoHoZhy.cpNameMei': function () {
+            this.cpNameMeiWarmingTextFormatFlag = !(this.regKanji.test(this.koJinJoHoZhy.cpNameMei));
+            this.cpNameMeiWarmingTextTooLongFlag = this.koJinJoHoZhy.cpNameMei.length > 40;
+        },
 
-        // },
-        // 'koJinJoHoZhy.': function () {
-
-        // },
-        // 'koJinJoHoZhy.': function () {
-
-        // },
-        // 'koJinJoHoZhy.': function () {
-
-        // },
-        // 'koJinJoHoZhy.': function () {
-
-        // },
-        // 'koJinJoHoZhy.': function () {
-
-        // },
-        // 'koJinJoHoZhy.': function () {
-
-        // },
-        // 'koJinJoHoZhy.': function () {
-
-        // },
-        // 'koJinJoHoZhy.': function () {
-
-        // },
-        // 'koJinJoHoZhy.': function () {
-
-        // },
-        // 'koJinJoHoZhy.': function () {
-
-        // },
-        // 'koJinJoHoZhy.': function () {
-
-        // },
-        // 'koJinJoHoZhy.': function () {
-
-        // },
-        // 'koJinJoHoZhy.': function () {
-
-        // },
-        // 'koJinJoHoZhy.': function () {
-
-        // },
-        // 'koJinJoHoZhy.': function () {
-
-        // },
+        'koJinJoHoZhy.cpNameseikana': function () {
+            this.cpNameseikanaWarmingTextFormatFlag = !(this.regKana.test(this.koJinJoHoZhy.Nameseikana));
+            this.cpNameseiWarmingTextToLongFlag = this.koJinJoHoZhy.Nameseikana.length > 40;
+        },
+        'koJinJoHoZhy.cpNamemeikana': function () {
+            this.cpNamemeikanaWarmingTextFormatFlag = !(this.regKana.test(this.koJinJoHoZhy.cpNamemeikana))
+            this.cpNamemeiWarmingTextToLongFlag = this.koJinJoHoZhy.cpNamemeikana.length > 40;
+        },
+        'koJinJoHoZhy.cuAlphlastname': function () {
+            this.cuAlphlastnameWarmingTextFormatFlag = !(this.regEnglish.test(this.koJinJoHoZhy.cuAlphlastname))
+            // this.cuAlphlastnameWarmingTextTooLongFlag = this.koJinJoHoZhy.cuAlphlastname.length > 40;
+        },
+        'koJinJoHoZhy.cuAlphfirstname': function () {
+            this.cuAlphlastnameWarmingTextFormatFlag = !(this.regEnglish.test(this.koJinJoHoZhy.cuAlphfirstname))
+            // this.cuAlphlastnameWarmingTextTooLongFlag= this.koJinJoHoZhy.cuAlphfirstname.length>40;
+        },
+        'koJinJoHoZhy.cpCountry': function () {
+            this.cpCountryWarmingTextNotSelectedFlag = (this.koJinJoHoZhy.cpCountry == "")
+        },
+        'koJinJoHoZhy.cpBirthdate': function () {
+            this.cpBirthdateWarmingTextFormatFlag = (this.koJinJoHoZhy.cpBirthdate == "")
+        },
+        'koJinJoHoZhy.cpSex': function () {
+            this.cpSexWarmingTextNotSelectedFlag = (this.koJinJoHoZhy.cpSex == "")
+        },
+        'koJinJoHoZhy.': function () {
+            this.cpDenwaWarmingTextFormatFlag = !(this.regPhone.test(this.koJinJoHoZhy.cpDenwa));
+        },
+        'koJinJoHoZhy.cpPhone': function () {
+            this.cpPhoneWarmingTextFormatFlag = !(this.regPhone.test(this.koJinJoHoZhy.cpPhone));
+        },
+        'koJinJoHoZhy.cpShokugyocode': function () {
+            this.cpShokugyocodeWarmingTextNotSelectedFLag = (this.koJinJoHoZhy.cpShokugyocode == "");
+        },
+        'koJinJoHoZhy.cpKinmusakiname': function () {
+            this.cpKinmusakinameWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpKinmusakiname > 40);
+        }
     }
-    ,
-    created (){
-        // // var  cpNameseiWarmingTextFormatFlag = true;
-        // this.cpNameseiWarmingTextFormatFlag = new Boolean;
-        // this.cpNameseiWarmingTextFormatFlag = new Boolean;
-        // // this.cpNameseiWarmingTextFormatFlag = 
-            // this.cpNameseiWarmingTextToLongFlag = true;
-    }
+    // ,
+    // created() {
+    //     // // var  cpNameseiWarmingTextFormatFlag = true;
+    //     // this.cpNameseiWarmingTextFormatFlag = new Boolean;
+    //     // this.cpNameseiWarmingTextFormatFlag = new Boolean;
+    //     // // this.cpNameseiWarmingTextFormatFlag = 
+    //     // this.cpNameseiWarmingTextToLongFlag = true;
+    // }
 
 }
 </script>
