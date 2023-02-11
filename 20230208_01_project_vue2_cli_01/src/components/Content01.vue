@@ -34,10 +34,10 @@
                     v-if="cuAlphlastnameWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
             </div>
             <div>名（ローマ字）<input type="text" v-model="koJinJoHoZhy.cuAlphfirstname" />
-                <span class="errorMessage" id="cuAlphlastnameWarmingTextFormat"
-                    v-if="cuAlphlastnameWarmingTextFormatFlag">フォーマットが間違っています。ローマ字で入力してください。</span>
-                <span class="errorMessage" id="cuAlphlastnameWarmingTextTooLong"
-                    v-if="cuAlphlastnameWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
+                <span class="errorMessage" id="cuAlphfirstnameWarmingTextFormat"
+                    v-if="cuAlphfirstnameWarmingTextFormatFlag">フォーマットが間違っています。ローマ字で入力してください。</span>
+                <span class="errorMessage" id="cuAlphfirstnameWarmingTextTooLong"
+                    v-if="cuAlphfirstnameWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
             </div>
         </div>
         <div>
@@ -163,8 +163,8 @@ export default {
             cpNamemeikanaWarmingTextToLongFlag: false,
             cuAlphlastnameWarmingTextFormatFlag: false,
             cuAlphlastnameWarmingTextTooLongFlag: false,
-            cuAlphlastnameWarmingTextFormatFlag: false,
-            cuAlphlastnameWarmingTextTooLongFlag: false,
+            cuAlphfirstnameWarmingTextFormatFlag: false,
+            cuAlphfirstnameWarmingTextTooLongFlag: false,
             cpCountryWarmingTextNotSelectedFlag: false,
             cpSexWarmingTextNotSelectedFlag: false,
             cpBirthdateWarmingTextFormatFlag: false,
@@ -261,32 +261,37 @@ export default {
             // this.cpNameseiWarmingTextFormatFlag = !this.regKanji.test(this.koJinJoHoZhy.cpNamesei);
             // this.cpNameseiWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNamesei.length <= 40);
             // console.log(this.koJinJoHoZhy.cpNamesei.length);
-            this.cpNameseiWarmingTextFormatFlag = !(this.regKanji.test(this.koJinJoHoZhy.cpNamesei));
-            console.log(this.regKanji);
-            console.log(this.koJinJoHoZhy.cpNamesei);
-            console.log(this.regKanji.test(this.koJinJoHoZhy.cpNamesei));
-            console.log(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNamesei));
+            this.cpNameseiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNamesei));
+            // console.log(this.regKanji);
+            // console.log(this.koJinJoHoZhy.cpNamesei);
+            // console.log(this.regKanji.test(this.koJinJoHoZhy.cpNamesei));
+            // console.log(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNamesei));
+            this.cpNameseiWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNamesei.length<=40);
         }
         ,
         'koJinJoHoZhy.cpNameMei': function () {
-            this.cpNameMeiWarmingTextFormatFlag = !(this.regKanji.test(this.koJinJoHoZhy.cpNameMei));
-            this.cpNameMeiWarmingTextTooLongFlag = this.koJinJoHoZhy.cpNameMei.length > 40;
+            this.cpNameMeiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNameMei));
+            this.cpNameMeiWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNameMei.length <= 40);
         },
 
         'koJinJoHoZhy.cpNameseikana': function () {
-            this.cpNameseikanaWarmingTextFormatFlag = !(this.regKana.test(this.koJinJoHoZhy.Nameseikana));
-            this.cpNameseiWarmingTextToLongFlag = this.koJinJoHoZhy.Nameseikana.length > 40;
+            // this.cpNameseikanaWarmingTextFormatFlag = !(this.regKana.test(this.koJinJoHoZhy.Nameseikana));
+            // this.cpNameseiWarmingTextToLongFlag = this.koJinJoHoZhy.Nameseikana.length > 40;
+            this.cpNameseikanaWarmingTextFormatFlag = !(/^[\u30A0-\u30FF]+$/g.test(this.koJinJoHoZhy.Nameseikana));
+            this.cpNameseiWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNameseikana.length <= 40);
         },
         'koJinJoHoZhy.cpNamemeikana': function () {
-            this.cpNamemeikanaWarmingTextFormatFlag = !(this.regKana.test(this.koJinJoHoZhy.cpNamemeikana))
-            this.cpNamemeiWarmingTextToLongFlag = this.koJinJoHoZhy.cpNamemeikana.length > 40;
+            this.cpNamemeikanaWarmingTextFormatFlag = !(this.regKana.test(this.koJinJoHoZhy.cpNamemeikana));
+            this.cpNamemeiWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNamemeikana.length <= 40);
         },
         'koJinJoHoZhy.cuAlphlastname': function () {
-            this.cuAlphlastnameWarmingTextFormatFlag = !(this.regEnglish.test(this.koJinJoHoZhy.cuAlphlastname))
+            // this.cuAlphlastnameWarmingTextFormatFlag = !(this.regEnglish.test(this.koJinJoHoZhy.cuAlphlastname))
+            // // this.cuAlphlastnameWarmingTextTooLongFlag = this.koJinJoHoZhy.cuAlphlastname.length > 40;
+            this.cuAlphlastnameWarmingTextFormatFlag = !(/^[a-zA-Z]+$/g.test(this.koJinJoHoZhy.cuAlphlastname))
             // this.cuAlphlastnameWarmingTextTooLongFlag = this.koJinJoHoZhy.cuAlphlastname.length > 40;
         },
         'koJinJoHoZhy.cuAlphfirstname': function () {
-            this.cuAlphlastnameWarmingTextFormatFlag = !(this.regEnglish.test(this.koJinJoHoZhy.cuAlphfirstname))
+            this.cuAlphfirstnameWarmingTextFormatFlag = !(/^[a-zA-Z]+$/g.test(this.koJinJoHoZhy.cuAlphfirstname))
             // this.cuAlphlastnameWarmingTextTooLongFlag= this.koJinJoHoZhy.cuAlphfirstname.length>40;
         },
         'koJinJoHoZhy.cpCountry': function () {
@@ -302,13 +307,14 @@ export default {
             this.cpDenwaWarmingTextFormatFlag = !(this.regPhone.test(this.koJinJoHoZhy.cpDenwa));
         },
         'koJinJoHoZhy.cpPhone': function () {
-            this.cpPhoneWarmingTextFormatFlag = !(this.regPhone.test(this.koJinJoHoZhy.cpPhone));
+            // this.cpPhoneWarmingTextFormatFlag = !(this.regPhone.test(this.koJinJoHoZhy.cpPhone));
+            this.cpPhoneWarmingTextFormatFlag = !(/^0[789]0-[0-9]{4}-[0-9]{4}$/.test(this.koJinJoHoZhy.cpPhone));
         },
         'koJinJoHoZhy.cpShokugyocode': function () {
             this.cpShokugyocodeWarmingTextNotSelectedFLag = (this.koJinJoHoZhy.cpShokugyocode == "");
         },
         'koJinJoHoZhy.cpKinmusakiname': function () {
-            this.cpKinmusakinameWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpKinmusakiname > 40);
+            this.cpKinmusakinameWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpKinmusakiname.length <= 40);
         }
     }
     // ,
