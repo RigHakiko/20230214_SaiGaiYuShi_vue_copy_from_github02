@@ -50,7 +50,7 @@
                 <option>spain</option>
             </select>
             <span class="errorMessage" id="cpCountryWarmingTextNotSelected"
-                v-if="cpCountryWarmingTextNotSelectedFlag">国籍を選択してください</span>
+                v-if="cpCountryWarmingTextNotSelectedFlag">国籍を選択してください。</span>
 
         </div>
         <div>
@@ -62,7 +62,7 @@
             <input type="radio" name="sex" id="Decline to State" value="Decline to State" v-model="koJinJoHoZhy.cpSex"
                 :checked="koJinJoHoZhy.cpSex" />Decline to State（声明拒否）
             <span class="errorMessage" id="cpSexWarmingTextNotSelected"
-                v-if="cpSexWarmingTextNotSelectedFlag">性別を選んでください</span>
+                v-if="cpSexWarmingTextNotSelectedFlag">性別を選んでください。</span>
         </div>
         <div>
             <label>生年月日</label>
@@ -171,7 +171,7 @@ export default {
             cpBirthdateWarmingTextFormatFlag: false,
             // cpDenwaWarmingTextTooLongFlag: false,
             cpDenwaWarmingTextFormatFlag: false,
-            // cpPhoneWarmingTextTooLongFlag: false,
+            cpPhoneWarmingTextTooLongFlag: false,
             cpPhoneWarmingTextFormatFlag: false,
             cpShokugyocodeWarmingTextNotSelectedFLag: false,
             cpKinmusakinameWarmingTextTooLongFlag: false,
