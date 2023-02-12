@@ -214,7 +214,7 @@ export default {
             this.cpNameseiCheck();
             this.cpNameMeiCheck();
             this.cpNameseikanaCheck();
-            this.cpNameseikanaCheck();
+            this.cpNamemeikanaCheck();
             this.cuAlphlastnameCheck();
             this.cuAlphfirstnameCheck();
             this.cpCountryCheck();
@@ -329,10 +329,10 @@ export default {
             this.cpNameseikanaChecked = ((!(this.cpNameseikanaWarmingTextFormatFlag)) && (!(this.cpNameseikaneWarmingTextToLongFlag)));
 
         },
-        cpNameseikanaCheck() {
+        cpNamemeikanaCheck() {
             this.cpNamemeikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNamemeikana));
             this.cpNamemeiWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNamemeikana.length <= 40);
-            this.cpNameseikanaChecked = ((!(this.cpNamemeikanaWarmingTextFormatFlag)) && (!(this.cpNamemeiWarmingTextToLongFlag)));
+            this.cpNamemeikanaChecked = ((!(this.cpNamemeikanaWarmingTextFormatFlag)) && (!(this.cpNamemeiWarmingTextToLongFlag)));
         },
         cuAlphlastnameCheck() {
             this.cuAlphlastnameWarmingTextFormatFlag = !(/^[a-zA-Z]+$/g.test(this.koJinJoHoZhy.cuAlphlastname))
