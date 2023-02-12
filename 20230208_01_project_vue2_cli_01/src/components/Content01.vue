@@ -7,13 +7,13 @@
                 <span class="errorMessage" id="cpNameseiWarmingTextFormat"
                     v-if="cpNameseiWarmingTextFormatFlag">フォーマットが間違っています。漢字で入力してください。</span>
                 <span class="errorMessage" id="cpNameseiWarmingTextToLong"
-                    v-if="cpNameseiWarmingTextToLongFlag">入力した漢字が長すぎます。再入力してください。</span>
+                    v-if="cpNameseiWarmingTextToLongFlag">入力した内容が長すぎます。再入力してください。</span>
             </div>
             <div>名（漢字）<input type="text" v-model="koJinJoHoZhy.cpNameMei" />
                 <span class="errorMessage" id="cpNameMeiWarmingTextFormat"
                     v-if="cpNameMeiWarmingTextFormatFlag">フォーマットが間違っています。漢字で入力してください。</span>
                 <span class="errorMessage" id="cpNameMeiWarmingTextTooLong"
-                    v-if="cpNameMeiWarmingTextTooLongFlag">入力した漢字が長すぎます。再入力してください。</span>
+                    v-if="cpNameMeiWarmingTextTooLongFlag">入力した内容が長すぎます。再入力してください。</span>
             </div>
             <div>セイ<input type="text" v-model="koJinJoHoZhy.cpNameseikana" />
                 <span class="errorMessage" id="cpNameseikanaWarmingTextFormat"
