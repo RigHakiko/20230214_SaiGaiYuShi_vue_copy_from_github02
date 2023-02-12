@@ -3,29 +3,29 @@
         <div>基本情報</div>
         <div>
             <label>名前</label>
-            <div>姓（漢字）<input type="text" v-model="koJinJoHoZhy.cpNameSei" />
-                <span class="errorMessage" id="cpNameSeiWarmingTextFormat"
-                    v-if="cpNameSeiWarmingTextFormatFlag">フォーマットが間違っています。漢字で入力してください。</span>
-                <span class="errorMessage" id="cpNameSeiWarmingTextTooLong"
-                    v-if="cpNameSeiWarmingTextTooLongFlag">入力した内容が長すぎます。再入力してください。</span>
+            <div>姓（漢字）<input type="text" v-model="koJinJoHoZhy.cpNamesei" />
+                <span class="errorMessage" id="cpNameseiWarmingTextFormat"
+                    v-if="cpNameseiWarmingTextFormatFlag">フォーマットが間違っています。漢字で入力してください。</span>
+                <span class="errorMessage" id="cpNameseiWarmingTextTooLong"
+                    v-if="cpNameseiWarmingTextTooLongFlag">入力した内容が長すぎます。再入力してください。</span>
             </div>
-            <div>名（漢字）<input type="text" v-model="koJinJoHoZhy.cpNameMei" />
-                <span class="errorMessage" id="cpNameMeiWarmingTextFormat"
-                    v-if="cpNameMeiWarmingTextFormatFlag">フォーマットが間違っています。漢字で入力してください。</span>
-                <span class="errorMessage" id="cpNameMeiWarmingTextTooLong"
-                    v-if="cpNameMeiWarmingTextTooLongFlag">入力した内容が長すぎます。再入力してください。</span>
+            <div>名（漢字）<input type="text" v-model="koJinJoHoZhy.cpNamemei" />
+                <span class="errorMessage" id="cpNamemeiWarmingTextFormat"
+                    v-if="cpNamemeiWarmingTextFormatFlag">フォーマットが間違っています。漢字で入力してください。</span>
+                <span class="errorMessage" id="cpNamemeiWarmingTextTooLong"
+                    v-if="cpNamemeiWarmingTextTooLongFlag">入力した内容が長すぎます。再入力してください。</span>
             </div>
-            <div>セイ<input type="text" v-model="koJinJoHoZhy.cpNameSeikana" />
-                <span class="errorMessage" id="cpNameSeikanaWarmingTextFormat"
-                    v-if="cpNameSeikanaWarmingTextFormatFlag">フォーマットが間違っています。カタカナで入力してください。</span>
-                <span class="errorMessage" id="cpNameSeikaneWarmingTextTooLong"
-                    v-if="cpNameSeikaneWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
+            <div>セイ<input type="text" v-model="koJinJoHoZhy.cpNameseikana" />
+                <span class="errorMessage" id="cpNameseikanaWarmingTextFormat"
+                    v-if="cpNameseikanaWarmingTextFormatFlag">フォーマットが間違っています。カタカナで入力してください。</span>
+                <span class="errorMessage" id="cpNameseikaneWarmingTextTooLong"
+                    v-if="cpNameseikaneWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
             </div>
-            <div>メイ<input type="text" v-model="koJinJoHoZhy.cpNameMeikana" />
-                <span class="errorMessage" id="cpNameMeikanaWarmingTextFormat"
-                    v-if="cpNameMeikanaWarmingTextFormatFlag">フォーマットが間違っています。カタカナで入力してください。</span>
-                <span class="errorMessage" id="cpNameMeikanaWarmingTextTooLong"
-                    v-if="cpNameMeikanaWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
+            <div>メイ<input type="text" v-model="koJinJoHoZhy.cpNamemeikana" />
+                <span class="errorMessage" id="cpNamemeikanaWarmingTextFormat"
+                    v-if="cpNamemeikanaWarmingTextFormatFlag">フォーマットが間違っています。カタカナで入力してください。</span>
+                <span class="errorMessage" id="cpNamemeikanaWarmingTextTooLong"
+                    v-if="cpNamemeikanaWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
             </div>
             <div>姓（ローマ字）<input type="text" v-model="koJinJoHoZhy.cuAlphlastname" />
                 <span class="errorMessage" id="cuAlphlastnameWarmingTextFormat"
@@ -125,10 +125,10 @@ export default {
         return {
             // 数据作为json格式保存
             koJinJoHoZhy: {
-                cpNameSei: "",
-                cpNameMei: "",
-                cpNameSeikana: "",
-                cpNameMeikana: "",
+                cpNamesei: "",
+                cpNamemei: "",
+                cpNameseikana: "",
+                cpNamemeikana: "",
                 cuAlphlastname: "",
                 cuAlphfirstname: "",
                 cpCountry: "",
@@ -141,14 +141,14 @@ export default {
             },
 
             // 各个错误信息的flag, true为显示信息, false表示不显示
-            cpNameSeiWarmingTextFormatFlag: false,
-            cpNameSeiWarmingTextTooLongFlag: false,
-            cpNameMeiWarmingTextFormatFlag: false,
-            cpNameMeiWarmingTextTooLongFlag: false,
-            cpNameSeikanaWarmingTextFormatFlag: false,
-            cpNameSeikaneWarmingTextTooLongFlag: false,
-            cpNameMeikanaWarmingTextFormatFlag: false,
-            cpNameMeikanaWarmingTextTooLongFlag: false,
+            cpNameseiWarmingTextFormatFlag: false,
+            cpNameseiWarmingTextTooLongFlag: false,
+            cpNamemeiWarmingTextFormatFlag: false,
+            cpNamemeiWarmingTextTooLongFlag: false,
+            cpNameseikanaWarmingTextFormatFlag: false,
+            cpNameseikaneWarmingTextTooLongFlag: false,
+            cpNamemeikanaWarmingTextFormatFlag: false,
+            cpNamemeikanaWarmingTextTooLongFlag: false,
             cuAlphlastnameWarmingTextFormatFlag: false,
             cuAlphlastnameWarmingTextTooLongFlag: false,
             cuAlphfirstnameWarmingTextFormatFlag: false,
@@ -181,10 +181,10 @@ export default {
             }
 
             // 对所有信息check
-            this.cpNameSeiCheck();
-            this.cpNameMeiCheck();
-            this.cpNameSeikanaCheck();
-            this.cpNameMeikanaCheck();
+            this.cpNameseiCheck();
+            this.cpNamemeiCheck();
+            this.cpNameseikanaCheck();
+            this.cpNamemeikanaCheck();
             this.cuAlphlastnameCheck();
             this.cuAlphfirstnameCheck();
             this.cpCountryCheck();
@@ -196,10 +196,10 @@ export default {
             this.cpKinmusakinameCheck();
 
             // 根据各个错误信息的显示与否去得到各个信息是否正确
-            this.cpNameSeiChecked = ((!(this.cpNameSeiWarmingTextFormatFlag)) && (!(this.cpNameSeiWarmingTextTooLongFlag)));
-            this.cpNameMeiChecked = ((!(this.cpNameMeiWarmingTextFormatFlag)) && (!(this.cpNameMeiWarmingTextTooLongFlag)));
-            this.cpNameSeikanaChecked = ((!(this.cpNameSeikanaWarmingTextFormatFlag)) && (!(this.cpNameSeikaneWarmingTextTooLongFlag)));
-            this.cpNameMeikanaChecked = ((!(this.cpNameMeikanaWarmingTextFormatFlag)) && (!(this.cpNameMeiWarmingTextTooLongFlag)));
+            this.cpNameseiChecked = ((!(this.cpNameseiWarmingTextFormatFlag)) && (!(this.cpNameseiWarmingTextTooLongFlag)));
+            this.cpNamemeiChecked = ((!(this.cpNamemeiWarmingTextFormatFlag)) && (!(this.cpNamemeiWarmingTextTooLongFlag)));
+            this.cpNameseikanaChecked = ((!(this.cpNameseikanaWarmingTextFormatFlag)) && (!(this.cpNameseikaneWarmingTextTooLongFlag)));
+            this.cpNamemeikanaChecked = ((!(this.cpNamemeikanaWarmingTextFormatFlag)) && (!(this.cpNamemeiWarmingTextTooLongFlag)));
             this.cuAlphlastnameChecked = ((!(this.cuAlphlastnameWarmingTextFormatFlag)) && (!(this.cuAlphlastnameWarmingTextTooLongFlag)));
             this.cuAlphfirstnameChecked = ((!(this.cuAlphfirstnameWarmingTextFormatFlag)) && (!(this.cuAlphfirstnameWarmingTextTooLongFlag)));
             this.cpCountryChecked = !(this.cpCountryWarmingTextNotSelectedFlag);
@@ -212,10 +212,10 @@ export default {
 
             // 如果所有信息正确, 则checkedAllFlag为true
             this.checkedAllFlag =
-                this.cpNameSeiChecked &&
-                this.cpNameMeiChecked &&
-                this.cpNameSeikanaChecked &&
-                this.cpNameMeikanaChecked &&
+                this.cpNameseiChecked &&
+                this.cpNamemeiChecked &&
+                this.cpNameseikanaChecked &&
+                this.cpNamemeikanaChecked &&
                 this.cuAlphlastnameChecked &&
                 this.cuAlphfirstnameChecked &&
                 this.cpCountryChecked &&
@@ -272,30 +272,30 @@ export default {
                 .replace(/゜/g, 'ﾟ');
         },
         convertSeiKana() {
-            this.koJinJoHoZhy.cpNameSeikana = this.zenkakuAlphNum2hankaku(this.koJinJoHoZhy.cpNameSeikana);
-            this.koJinJoHoZhy.cpNameSeikana = this.zenkakuKana2Hankaku(this.koJinJoHoZhy.cpNameSeikana);
+            this.koJinJoHoZhy.cpNameseikana = this.zenkakuAlphNum2hankaku(this.koJinJoHoZhy.cpNameseikana);
+            this.koJinJoHoZhy.cpNameseikana = this.zenkakuKana2Hankaku(this.koJinJoHoZhy.cpNameseikana);
         },
         convertMeiKana() {
-            this.koJinJoHoZhy.cpNameMeikana = this.zenkakuAlphNum2hankaku(this.koJinJoHoZhy.cpNameMeikana);
-            this.koJinJoHoZhy.cpNameMeikana = this.zenkakuKana2Hankaku(this.koJinJoHoZhy.cpNameMeikana);
+            this.koJinJoHoZhy.cpNamemeikana = this.zenkakuAlphNum2hankaku(this.koJinJoHoZhy.cpNamemeikana);
+            this.koJinJoHoZhy.cpNamemeikana = this.zenkakuKana2Hankaku(this.koJinJoHoZhy.cpNamemeikana);
         },
 
         // 下面是各个信息的check函数
-        cpNameSeiCheck() {
-            this.cpNameSeiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNameMei));
-            this.cpNameSeiWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNameSei.length <= 40);
+        cpNameseiCheck() {
+            this.cpNameseiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNamesei));
+            this.cpNameseiWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNamesei.length <= 40);
         },
-        cpNameMeiCheck() {
-            this.cpNameMeiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNameMei));
-            this.cpNameMeiWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNameMei.length <= 40);
+        cpNamemeiCheck() {
+            this.cpNamemeiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNamemei));
+            this.cpNamemeiWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNamemei.length <= 40);
         },
-        cpNameSeikanaCheck() {
-            this.cpNameSeikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNameSeikana));
-            this.cpNameSeikaneWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNameSeikana.length <= 40);
+        cpNameseikanaCheck() {
+            this.cpNameseikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNameseikana));
+            this.cpNameseikaneWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNameseikana.length <= 40);
         },
-        cpNameMeikanaCheck() {
-            this.cpNameMeikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNameMeikana));
-            this.cpNameMeiWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNameMeikana.length <= 40);
+        cpNamemeikanaCheck() {
+            this.cpNamemeikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNamemeikana));
+            this.cpNamemeiWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNamemeikana.length <= 40);
         },
         cuAlphlastnameCheck() {
             this.cuAlphlastnameWarmingTextFormatFlag = !(/^[a-zA-Z]+$/g.test(this.koJinJoHoZhy.cuAlphlastname))
@@ -334,21 +334,21 @@ export default {
     watch: {
         // 监视各个信息的变化, 随之去展示或不展示错误提示信息
 
-        'koJinJoHoZhy.cpNameSei': function () {
-            this.cpNameSeiCheck();
+        'koJinJoHoZhy.cpNamesei': function () {
+            this.cpNameseiCheck();
         }
         ,
-        'koJinJoHoZhy.cpNameMei': function () {
-            this.cpNameMeiCheck();
+        'koJinJoHoZhy.cpNamemei': function () {
+            this.cpNamemeiCheck();
         },
 
-        'koJinJoHoZhy.cpNameSeikana': function () {
+        'koJinJoHoZhy.cpNameseikana': function () {
             this.convertSeiKana();
-            this.cpNameSeikanaCheck()
+            this.cpNameseikanaCheck()
         },
-        'koJinJoHoZhy.cpNameMeikana': function () {
+        'koJinJoHoZhy.cpNamemeikana': function () {
             this.convertMeiKana();
-            this.cpNameMeikanaCheck();
+            this.cpNamemeikanaCheck();
         },
         'koJinJoHoZhy.cuAlphlastname': function () {
             this.cuAlphlastnameCheck();
