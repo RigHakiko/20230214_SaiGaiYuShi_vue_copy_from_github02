@@ -123,7 +123,7 @@ import axios from 'axios'
 export default {
     data() {
         return {
-            // 面前数据作为json格式保存
+            // 数据作为json格式保存
             koJinJoHoZhy: {
                 cpNameSei: "",
                 cpNameMei: "",
@@ -140,7 +140,7 @@ export default {
                 cpKinmusakiname: ""
             },
 
-            // 各个错误信息的flag, true为显示信息
+            // 各个错误信息的flag, true为显示信息, false表示不显示
             cpNameSeiWarmingTextFormatFlag: false,
             cpNameSeiWarmingTextTooLongFlag: false,
             cpNameMeiWarmingTextFormatFlag: false,
@@ -161,7 +161,7 @@ export default {
             cpShokugyocodeWarmingTextNotSelectedFLag: false,
             cpKinmusakinameWarmingTextTooLongFlag: false,
 
-            // 無職
+            // 無職flag
             musyokuFlag: false,
 
             // 各个信息是否通过验证的flag
@@ -190,11 +190,12 @@ export default {
         add() {
             axios.post('http://localhost:8813/ko-jin-jo-ho-zhy/save', this.koJinJoHoZhy).then();
         },
-        // 尝试弄第2个
+        // 弄第2个add方法
         add2() {
             if (this.musyokuFlag) {
                 this.koJinJoHoZhy.cpKinmusakiname = "";
             }
+
             // 对所有信息check
             this.cpNameSeiCheck();
             this.cpNameMeiCheck();
@@ -212,7 +213,6 @@ export default {
 
 
             this.cpNameSeiChecked = ((!(this.cpNameSeiWarmingTextFormatFlag)) && (!(this.cpNameSeiWarmingTextTooLongFlag)));
-            // this.cpNameMeiChecked = ((!())&&(!()));
             this.cpNameMeiChecked = ((!(this.cpNameMeiWarmingTextFormatFlag)) && (!(this.cpNameMeiWarmingTextTooLongFlag)));
             this.cpNameSeikanaChecked = ((!(this.cpNameSeikanaWarmingTextFormatFlag)) && (!(this.cpNameSeikaneWarmingTextTooLongFlag)));
             this.cpNameMeikanaChecked = ((!(this.cpNameMeikanaWarmingTextFormatFlag)) && (!(this.cpNameMeiWarmingTextTooLongFlag)));
@@ -221,7 +221,6 @@ export default {
             this.cpCountryChecked = !(this.cpCountryWarmingTextNotSelectedFlag);
             this.cpBirthdateChecked = !(this.cpBirthdateWarmingTextFormatFlag);
             this.cpSexChecked = !this.cpSexWarmingTextNotSelectedFlag;
-
             this.cpDenwaChecked = !this.cpDenwaWarmingTextFormatFlag;
             this.cpPhoneChecked = !(this.cpPhoneWarmingTextFormatFlag);
             this.cpShokugyocodeChecked = ((!(this.musyokuFlag)) && (!(this.cpShokugyocodeWarmingTextNotSelectedFLag)));
@@ -286,23 +285,23 @@ export default {
                 .replace(/゛/g, 'ﾞ')
                 .replace(/゜/g, 'ﾟ');
         },
-        judgKanji(str) {
-            console.log(str.value)
-            return this.regKanji.test(str);
-        },
-        judgKana(str) {
-            return this.regKana.test(str);
-        },
-        judgEnglish(str) {
-            return this.regEnglish.test(str);
-        },
-        judgPhone(str) {
-            return this.regPhone.test(str);
-        },
-        judgLength(str, num) {
-            str = "" + str.value;
-            return str.length <= num;
-        },
+        // judgKanji(str) {
+        //     console.log(str.value)
+        //     return this.regKanji.test(str);
+        // },
+        // judgKana(str) {
+        //     return this.regKana.test(str);
+        // },
+        // judgEnglish(str) {
+        //     return this.regEnglish.test(str);
+        // },
+        // judgPhone(str) {
+        //     return this.regPhone.test(str);
+        // },
+        // judgLength(str, num) {
+        //     str = "" + str.value;
+        //     return str.length <= num;
+        // },
         convertSeiKana() {
             this.koJinJoHoZhy.cpNameSeikana = this.zenkakuAlphNum2hankaku(this.koJinJoHoZhy.cpNameSeikana);
             this.koJinJoHoZhy.cpNameSeikana = this.zenkakuKana2Hankaku(this.koJinJoHoZhy.cpNameSeikana);
@@ -312,21 +311,18 @@ export default {
             this.koJinJoHoZhy.cpNameMeikana = this.zenkakuKana2Hankaku(this.koJinJoHoZhy.cpNameMeikana);
         },
 
+        // 下面是各个信息的check
         cpNameSeiCheck() {
-
             this.cpNameSeiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNameMei));
             this.cpNameSeiWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNameSei.length <= 40);
         },
         cpNameMeiCheck() {
             this.cpNameMeiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNameMei));
             this.cpNameMeiWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNameMei.length <= 40);
-
-
         },
         cpNameSeikanaCheck() {
             this.cpNameSeikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNameSeikana));
             this.cpNameSeikaneWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNameSeikana.length <= 40);
-
         },
         cpNameMeikanaCheck() {
             this.cpNameMeikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNameMeikana));
