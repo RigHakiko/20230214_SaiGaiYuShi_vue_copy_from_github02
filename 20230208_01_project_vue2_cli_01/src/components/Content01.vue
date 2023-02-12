@@ -201,8 +201,8 @@ export default {
         },
         // 尝试弄第2个
         add2() {
-            if(this.musyokuFlag){
-                this.koJinJoHoZhy.cpKinmusakiname="";
+            if (this.musyokuFlag) {
+                this.koJinJoHoZhy.cpKinmusakiname = "";
             }
             axios.post('http://localhost:8813/ko-jin-jo-ho-zhy/save', this.koJinJoHoZhy).then();
         },
@@ -297,8 +297,45 @@ export default {
             this.koJinJoHoZhy.cpNamemeikana = this.zenkakuAlphNum2hankaku(this.koJinJoHoZhy.cpNamemeikana);
             this.koJinJoHoZhy.cpNamemeikana = this.zenkakuKana2Hankaku(this.koJinJoHoZhy.cpNamemeikana);
         },
-        
+        cpNameseiCheck() {
 
+        },
+        cpNameMeiCheck(){
+
+       },
+       cpNameseikanaCheck(){
+
+       },
+       cpNameseikanaCheck(){
+
+       },
+       cuAlphlastnameCheck(){
+
+       },
+       cuAlphfirstnameCheck(){
+
+       },
+       cpCountryCheck(){
+
+       },
+       cpBirthdateCheck(){
+
+       },
+       cpSexCheck(){
+
+       },
+       cpDenwaCheck(){
+
+       },
+       cpPhoneCheck(){
+
+       },
+       cpShokugyocodeCheck(){
+
+       },
+       cpKinmusakinameCheck(){
+
+       }
     },
     components: {
         datepicker: Datepicker
