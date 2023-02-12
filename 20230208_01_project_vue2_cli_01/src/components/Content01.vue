@@ -385,7 +385,7 @@ export default {
             this.cpSexWarmingTextNotSelectedFlag = (this.koJinJoHoZhy.cpSex == "")
         },
         cpDenwaCheck() {
-            this.cpDenwaWarmingTextFormatFlag = !(/^0[789]0-[0-9]{4}-[0-9]{4}$/.test(this.koJinJoHoZhy.cpDenwa));
+            this.cpDenwaWarmingTextFormatFlag = (this.koJinJoHoZhy.cpDenwa == "")||(!(/^0[789]0-[0-9]{4}-[0-9]{4}$/.test(this.koJinJoHoZhy.cpDenwa)));
         },
         cpPhoneCheck() {
             this.cpPhoneWarmingTextFormatFlag = !(/^0[789]0-[0-9]{4}-[0-9]{4}$/.test(this.koJinJoHoZhy.cpPhone));
