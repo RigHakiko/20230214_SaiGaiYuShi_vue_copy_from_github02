@@ -175,6 +175,7 @@ export default {
         },
         // 弄第2个add方法
         add2() {
+            //在发布时, 去判断是否是无职, 无职的话清空工作地点信息
             if (this.musyokuFlag) {
                 this.koJinJoHoZhy.cpKinmusakiname = "";
             }
@@ -194,7 +195,7 @@ export default {
             this.cpShokugyocodeCheck();
             this.cpKinmusakinameCheck();
 
-
+            // 根据各个错误信息的显示与否去得到各个信息是否正确
             this.cpNameSeiChecked = ((!(this.cpNameSeiWarmingTextFormatFlag)) && (!(this.cpNameSeiWarmingTextTooLongFlag)));
             this.cpNameMeiChecked = ((!(this.cpNameMeiWarmingTextFormatFlag)) && (!(this.cpNameMeiWarmingTextTooLongFlag)));
             this.cpNameSeikanaChecked = ((!(this.cpNameSeikanaWarmingTextFormatFlag)) && (!(this.cpNameSeikaneWarmingTextTooLongFlag)));
@@ -209,6 +210,7 @@ export default {
             this.cpShokugyocodeChecked = ((!(this.musyokuFlag)) && (!(this.cpShokugyocodeWarmingTextNotSelectedFLag)));
             this.cpKinmusakinameChecked = !(this.cpKinmusakinameWarmingTextTooLongFlag);
 
+            // 如果所有信息正确, 则checkedAllFlag为true
             this.checkedAllFlag =
                 this.cpNameSeiChecked &&
                 this.cpNameMeiChecked &&
@@ -223,6 +225,7 @@ export default {
                 this.cpPhoneChecked &&
                 this.cpKinmusakinameChecked;
 
+            // 所有信息都正确的话就去发布
             if (this.checkedAllFlag) {
                 axios.post('http://localhost:8813/ko-jin-jo-ho-zhy/save', this.koJinJoHoZhy).then();
             } else {
@@ -294,7 +297,7 @@ export default {
             this.koJinJoHoZhy.cpNameMeikana = this.zenkakuKana2Hankaku(this.koJinJoHoZhy.cpNameMeikana);
         },
 
-        // 下面是各个信息的check
+        // 下面是各个信息的check函数
         cpNameSeiCheck() {
             this.cpNameSeiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNameMei));
             this.cpNameSeiWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNameSei.length <= 40);
@@ -346,6 +349,8 @@ export default {
     components: {
     },
     watch: {
+        // 监视各个信息的变化, 随之去展示或不展示错误提示信息
+
         'koJinJoHoZhy.cpNameSei': function () {
             this.cpNameSeiCheck();
         }
