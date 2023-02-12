@@ -164,23 +164,6 @@ export default {
             // 無職flag
             musyokuFlag: false,
 
-            // 各个信息是否通过验证的flag
-            checkedFlags: {
-                cpNameSeiChecked: false,
-                cpNameMeiChecked: false,
-                cpNameSeikanaChecked: false,
-                cpNameMeikanaChecked: false,
-                cuAlphlastnameChecked: false,
-                cuAlphfirstnameChecked: false,
-                cpCountryChecked: false,
-                cpBirthdateChecked: false,
-                cpSexChecked: false,
-                cpDenwaChecked: false,
-                cpShokugyocodeChecked: false,
-                cpPhoneChecked: false,
-                cpKinmusakinameChecked: false
-            },
-
             // 所有信息通过的flag
             checkedAllFlag: false
         }
