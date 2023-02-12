@@ -139,14 +139,6 @@ export default {
                 cpShokugyocode: "",
                 cpKinmusakiname: ""
             },
-            // // 電話番号の正規表現
-            // regPhone: /^0[789]0-[0-9]{4}-[0-9]{4}$/,
-            // // 漢字の正規表現
-            // regKanji: /^[\u4E00-\u9FA5]+$/g,
-            // // 英語の正規表現
-            // regEnglish: /^[a-zA-Z]+$/g,
-            // // カタカナの正規表現
-            // regKana: /^[\u30A0-\u30FF]+$/g,
 
             // 各个错误信息的flag, true为显示信息
             cpNameSeiWarmingTextFormatFlag: false,
