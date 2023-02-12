@@ -227,24 +227,6 @@ export default {
             this.cpShokugyocodeChecked = ((!(this.musyokuFlag)) && (!(this.cpShokugyocodeWarmingTextNotSelectedFLag)));
             this.cpKinmusakinameChecked = !(this.cpKinmusakinameWarmingTextTooLongFlag);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             this.checkedAllFlag =
                 this.cpNameSeiChecked &&
                 this.cpNameMeiChecked &&
