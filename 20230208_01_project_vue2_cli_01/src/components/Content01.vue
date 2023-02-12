@@ -67,7 +67,6 @@
         <div>
             <label>生年月日</label>
             <div>
-                <!-- <datepicker v-model="koJinJoHoZhy.cpBirthdate"></datepicker> -->
                 <input type="date" v-model="koJinJoHoZhy.cpBirthdate" />
                 <span class="errorMessage" id="cpBirthdateWarmingTextFormat" v-if="cpBirthdateWarmingTextFormatFlag">
                     日付を入力してください。</span>
@@ -78,8 +77,6 @@
             <div>
                 <input type="text" v-model="koJinJoHoZhy.cpDenwa" />
             </div>
-            <!-- <span class="errorMessage" id="cpDenwaWarmingTextTooLong"
-                v-if="cpDenwaWarmingTextTooLongFlag">入力した電話番号が長すぎます。再入力してください。</span> -->
             <span class="errorMessage" id="cpDenwaWarmingTextFormat"
                 v-if="cpDenwaWarmingTextFormatFlag">フォーマットが間違っています。電話番号を入力してください。</span>
 
@@ -89,8 +86,6 @@
             <div>
                 <input type="text" v-model="koJinJoHoZhy.cpPhone" />
             </div>
-            <!-- <span class="errorMessage" id="cpPhoneWarmingTextTooLong"
-                v-if="cpPhoneWarmingTextTooLongFlag">入力した電話番号が長すぎます。再入力してください。</span> -->
             <span class="errorMessage" id="cpPhoneWarmingTextFormat"
                 v-if="cpPhoneWarmingTextFormatFlag">フォーマットが間違っています。電話番号を入力してください。</span>
         </div>
@@ -124,7 +119,6 @@
     </div>
 </template>
 <script>
-// import Datepicker from 'vuejs-datepicker';
 import axios from 'axios'
 export default {
     data() {
@@ -170,9 +164,7 @@ export default {
             cpCountryWarmingTextNotSelectedFlag: false,
             cpSexWarmingTextNotSelectedFlag: false,
             cpBirthdateWarmingTextFormatFlag: false,
-            // cpDenwaWarmingTextTooLongFlag: false,
             cpDenwaWarmingTextFormatFlag: false,
-            cpPhoneWarmingTextTooLongFlag: false,
             cpPhoneWarmingTextFormatFlag: false,
             cpShokugyocodeWarmingTextNotSelectedFLag: false,
             cpKinmusakinameWarmingTextTooLongFlag: false,
@@ -399,7 +391,6 @@ export default {
         }
     },
     components: {
-        // datepicker: Datepicker
     },
     watch: {
         'koJinJoHoZhy.cpNameSei': function () {
