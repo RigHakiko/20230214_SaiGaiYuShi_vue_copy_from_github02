@@ -284,34 +284,6 @@ export default {
                 .replace(/゛/g, 'ﾞ')
                 .replace(/゜/g, 'ﾟ');
         },
-        // CtoH(obj) {
-        //     let str = obj.value;
-        //     let result = "";
-        //     result = this.zenkakuAlphNum2hankaku(str);
-        //     obj.value = result;
-        //     return result;
-        // },
-        // CtoH(obj) {
-        //     let str = obj.value;
-        //     let result = "";
-        //     result = this.zenkakuAlphNum2hankaku(str);
-        //     obj.value = result;
-        //     return result;
-        // },
-        // CHoH(sss) {
-        //     let str = sss.value;
-        //     let result = "";
-        //     result = this.zenkakuKana2Hankaku(str);
-        //     obj.value = result;
-        //     return result;
-        // },
-        // CHoH(sss) {
-        //     let str = sss.value;
-        //     let result = "";
-        //     result = this.zenkakuKana2Hankaku(str);
-        //     obj.value = result;
-        //     return result;
-        // },
         judgKanji(str) {
             console.log(str.value)
             return this.regKanji.test(str);
@@ -327,7 +299,6 @@ export default {
         },
         judgLength(str, num) {
             str = "" + str.value;
-            // return str.value.length>num;
             return str.length <= num;
         },
         convertSeiKana() {
@@ -409,15 +380,7 @@ export default {
     },
     watch: {
         'koJinJoHoZhy.cpNamesei': function () {
-            // this.cpNameseiWarmingTextToLongFlag = !this.koJinJoHoZhy.cpNamesei.length <= 40;
-            // this.cpNameseiWarmingTextFormatFlag = !this.regKanji.test(this.koJinJoHoZhy.cpNamesei);
-            // this.cpNameseiWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNamesei.length <= 40);
-            // console.log(this.koJinJoHoZhy.cpNamesei.length);
             this.cpNameseiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNamesei));
-            // console.log(this.regKanji);
-            // console.log(this.koJinJoHoZhy.cpNamesei);
-            // console.log(this.regKanji.test(this.koJinJoHoZhy.cpNamesei));
-            // console.log(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNamesei));
             this.cpNameseiWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNamesei.length <= 40);
         }
         ,
@@ -428,24 +391,15 @@ export default {
 
         'koJinJoHoZhy.cpNameseikana': function () {
             this.convertSeiKana();
-            // this.cpNameseikanaWarmingTextFormatFlag = !(this.regKana.test(this.koJinJoHoZhy.Nameseikana));
-            // this.cpNameseiWarmingTextToLongFlag = this.koJinJoHoZhy.Nameseikana.length > 40;
-            // this.cpNameseikanaWarmingTextFormatFlag = !(/^[\u30A0-\u30FF]+$/g.test(this.koJinJoHoZhy.Nameseikana));
             this.cpNameseikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNameseikana));
             this.cpNameseikaneWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNameseikana.length <= 40);
         },
         'koJinJoHoZhy.cpNamemeikana': function () {
             this.convertMeiKana();
-            // CtoH(this.koJinJoHoZhy.cpNamemeikana);
-            // CHoH(this.koJinJoHoZhy.cpNamemeikana);
-
-            // this.cpNamemeikanaWarmingTextFormatFlag = !(this.regKana.test(this.koJinJoHoZhy.cpNamemeikana));
             this.cpNamemeikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNamemeikana));
             this.cpNamemeiWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNamemeikana.length <= 40);
         },
         'koJinJoHoZhy.cuAlphlastname': function () {
-            // this.cuAlphlastnameWarmingTextFormatFlag = !(this.regEnglish.test(this.koJinJoHoZhy.cuAlphlastname))
-            // // this.cuAlphlastnameWarmingTextTooLongFlag = this.koJinJoHoZhy.cuAlphlastname.length > 40;
             this.cuAlphlastnameWarmingTextFormatFlag = !(/^[a-zA-Z]+$/g.test(this.koJinJoHoZhy.cuAlphlastname))
             this.cuAlphlastnameWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cuAlphlastname.length <= 40);
         },
@@ -463,11 +417,9 @@ export default {
             this.cpSexWarmingTextNotSelectedFlag = (this.koJinJoHoZhy.cpSex == "")
         },
         'koJinJoHoZhy.cpDenwa': function () {
-            // this.cpDenwaWarmingTextFormatFlag = !(this.regPhone.test(this.koJinJoHoZhy.cpDenwa));
             this.cpDenwaWarmingTextFormatFlag = !(/^0[789]0-[0-9]{4}-[0-9]{4}$/.test(this.koJinJoHoZhy.cpDenwa));
         },
         'koJinJoHoZhy.cpPhone': function () {
-            // this.cpPhoneWarmingTextFormatFlag = !(this.regPhone.test(this.koJinJoHoZhy.cpPhone));
             this.cpPhoneWarmingTextFormatFlag = !(/^0[789]0-[0-9]{4}-[0-9]{4}$/.test(this.koJinJoHoZhy.cpPhone));
         },
         'koJinJoHoZhy.cpShokugyocode': function () {
@@ -478,15 +430,6 @@ export default {
             this.cpKinmusakinameWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpKinmusakiname.length <= 40);
         }
     }
-    // ,
-    // created() {
-    //     // // var  cpNameseiWarmingTextFormatFlag = true;
-    //     // this.cpNameseiWarmingTextFormatFlag = new Boolean;
-    //     // this.cpNameseiWarmingTextFormatFlag = new Boolean;
-    //     // // this.cpNameseiWarmingTextFormatFlag = 
-    //     // this.cpNameseiWarmingTextToLongFlag = true;
-    // }
-
 }
 </script>
 <style>
