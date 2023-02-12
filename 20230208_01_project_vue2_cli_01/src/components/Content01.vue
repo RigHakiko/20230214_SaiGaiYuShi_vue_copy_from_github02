@@ -3,11 +3,11 @@
         <div>基本情報</div>
         <div>
             <label>名前</label>
-            <div>姓（漢字）<input type="text" v-model="koJinJoHoZhy.cpNamesei" />
-                <span class="errorMessage" id="cpNameseiWarmingTextFormat"
-                    v-if="cpNameseiWarmingTextFormatFlag">フォーマットが間違っています。漢字で入力してください。</span>
-                <span class="errorMessage" id="cpNameseiWarmingTextTooLong"
-                    v-if="cpNameseiWarmingTextTooLongFlag">入力した内容が長すぎます。再入力してください。</span>
+            <div>姓（漢字）<input type="text" v-model="koJinJoHoZhy.cpNameSei" />
+                <span class="errorMessage" id="cpNameSeiWarmingTextFormat"
+                    v-if="cpNameSeiWarmingTextFormatFlag">フォーマットが間違っています。漢字で入力してください。</span>
+                <span class="errorMessage" id="cpNameSeiWarmingTextTooLong"
+                    v-if="cpNameSeiWarmingTextTooLongFlag">入力した内容が長すぎます。再入力してください。</span>
             </div>
             <div>名（漢字）<input type="text" v-model="koJinJoHoZhy.cpNameMei" />
                 <span class="errorMessage" id="cpNameMeiWarmingTextFormat"
@@ -15,11 +15,11 @@
                 <span class="errorMessage" id="cpNameMeiWarmingTextTooLong"
                     v-if="cpNameMeiWarmingTextTooLongFlag">入力した内容が長すぎます。再入力してください。</span>
             </div>
-            <div>セイ<input type="text" v-model="koJinJoHoZhy.cpNameseikana" />
-                <span class="errorMessage" id="cpNameseikanaWarmingTextFormat"
-                    v-if="cpNameseikanaWarmingTextFormatFlag">フォーマットが間違っています。カタカナで入力してください。</span>
-                <span class="errorMessage" id="cpNameseikaneWarmingTextTooLong"
-                    v-if="cpNameseikaneWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
+            <div>セイ<input type="text" v-model="koJinJoHoZhy.cpNameSeikana" />
+                <span class="errorMessage" id="cpNameSeikanaWarmingTextFormat"
+                    v-if="cpNameSeikanaWarmingTextFormatFlag">フォーマットが間違っています。カタカナで入力してください。</span>
+                <span class="errorMessage" id="cpNameSeikaneWarmingTextTooLong"
+                    v-if="cpNameSeikaneWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
             </div>
             <div>メイ<input type="text" v-model="koJinJoHoZhy.cpNamemeikana" />
                 <span class="errorMessage" id="cpNamemeikanaWarmingTextFormat"
@@ -131,9 +131,9 @@ export default {
         return {
             // 面前数据作为json格式保存
             koJinJoHoZhy: {
-                cpNamesei: "",
+                cpNameSei: "",
                 cpNameMei: "",
-                cpNameseikana: "",
+                cpNameSeikana: "",
                 cpNamemeikana: "",
                 cuAlphlastname: "",
                 cuAlphfirstname: "",
@@ -155,12 +155,12 @@ export default {
             // regKana: /^[\u30A0-\u30FF]+$/g,
 
             // 各个错误信息的flag, true为显示信息
-            cpNameseiWarmingTextFormatFlag: false,
-            cpNameseiWarmingTextTooLongFlag: false,
+            cpNameSeiWarmingTextFormatFlag: false,
+            cpNameSeiWarmingTextTooLongFlag: false,
             cpNameMeiWarmingTextFormatFlag: false,
             cpNameMeiWarmingTextTooLongFlag: false,
-            cpNameseikanaWarmingTextFormatFlag: false,
-            cpNameseikaneWarmingTextTooLongFlag: false,
+            cpNameSeikanaWarmingTextFormatFlag: false,
+            cpNameSeikaneWarmingTextTooLongFlag: false,
             cpNamemeikanaWarmingTextFormatFlag: false,
             cpNamemeikanaWarmingTextTooLongFlag: false,
             cuAlphlastnameWarmingTextFormatFlag: false,
@@ -182,9 +182,9 @@ export default {
 
             // 各个信息是否通过验证的flag
             checkedFlags: {
-                cpNameseiChecked: false,
+                cpNameSeiChecked: false,
                 cpNameMeiChecked: false,
-                cpNameseikanaChecked: false,
+                cpNameSeikanaChecked: false,
                 cpNamemeikanaChecked: false,
                 cuAlphlastnameChecked: false,
                 cuAlphfirstnameChecked: false,
@@ -212,9 +212,9 @@ export default {
                 this.koJinJoHoZhy.cpKinmusakiname = "";
             }
             // 对所有信息check
-            this.cpNameseiCheck();
+            this.cpNameSeiCheck();
             this.cpNameMeiCheck();
-            this.cpNameseikanaCheck();
+            this.cpNameSeikanaCheck();
             this.cpNamemeikanaCheck();
             this.cuAlphlastnameCheck();
             this.cuAlphfirstnameCheck();
@@ -227,10 +227,10 @@ export default {
             this.cpKinmusakinameCheck();
 
 
-            this.cpNameseiChecked = ((!(this.cpNameseiWarmingTextFormatFlag)) && (!(this.cpNameseiWarmingTextTooLongFlag)));
+            this.cpNameSeiChecked = ((!(this.cpNameSeiWarmingTextFormatFlag)) && (!(this.cpNameSeiWarmingTextTooLongFlag)));
             // this.cpNameMeiChecked = ((!())&&(!()));
             this.cpNameMeiChecked = ((!(this.cpNameMeiWarmingTextFormatFlag)) && (!(this.cpNameMeiWarmingTextTooLongFlag)));
-            this.cpNameseikanaChecked = ((!(this.cpNameseikanaWarmingTextFormatFlag)) && (!(this.cpNameseikaneWarmingTextTooLongFlag)));
+            this.cpNameSeikanaChecked = ((!(this.cpNameSeikanaWarmingTextFormatFlag)) && (!(this.cpNameSeikaneWarmingTextTooLongFlag)));
             this.cpNamemeikanaChecked = ((!(this.cpNamemeikanaWarmingTextFormatFlag)) && (!(this.cpNamemeiWarmingTextTooLongFlag)));
             this.cuAlphlastnameChecked = ((!(this.cuAlphlastnameWarmingTextFormatFlag)) && (!(this.cuAlphlastnameWarmingTextTooLongFlag)));
             this.cuAlphfirstnameChecked = ((!(this.cuAlphfirstnameWarmingTextFormatFlag)) && (!(this.cuAlphfirstnameWarmingTextTooLongFlag)));
@@ -262,9 +262,9 @@ export default {
 
 
             this.checkedAllFlag =
-                this.cpNameseiChecked &&
+                this.cpNameSeiChecked &&
                 this.cpNameMeiChecked &&
-                this.cpNameseikanaChecked &&
+                this.cpNameSeikanaChecked &&
                 this.cpNamemeikanaChecked &&
                 this.cuAlphlastnameChecked &&
                 this.cuAlphfirstnameChecked &&
@@ -338,18 +338,18 @@ export default {
             return str.length <= num;
         },
         convertSeiKana() {
-            this.koJinJoHoZhy.cpNameseikana = this.zenkakuAlphNum2hankaku(this.koJinJoHoZhy.cpNameseikana);
-            this.koJinJoHoZhy.cpNameseikana = this.zenkakuKana2Hankaku(this.koJinJoHoZhy.cpNameseikana);
+            this.koJinJoHoZhy.cpNameSeikana = this.zenkakuAlphNum2hankaku(this.koJinJoHoZhy.cpNameSeikana);
+            this.koJinJoHoZhy.cpNameSeikana = this.zenkakuKana2Hankaku(this.koJinJoHoZhy.cpNameSeikana);
         },
         convertMeiKana() {
             this.koJinJoHoZhy.cpNamemeikana = this.zenkakuAlphNum2hankaku(this.koJinJoHoZhy.cpNamemeikana);
             this.koJinJoHoZhy.cpNamemeikana = this.zenkakuKana2Hankaku(this.koJinJoHoZhy.cpNamemeikana);
         },
 
-        cpNameseiCheck() {
+        cpNameSeiCheck() {
 
-            this.cpNameseiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNamesei));
-            this.cpNameseiWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNamesei.length <= 40);
+            this.cpNameSeiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpName　ei));
+            this.cpNameSeiWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNameSei.length <= 40);
         },
         cpNameMeiCheck() {
             this.cpNameMeiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNameMei));
@@ -357,9 +357,9 @@ export default {
 
 
         },
-        cpNameseikanaCheck() {
-            this.cpNameseikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNameseikana));
-            this.cpNameseikaneWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNameseikana.length <= 40);
+        cpNameSeikanaCheck() {
+            this.cpNameSeikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNameSeikana));
+            this.cpNameSeikaneWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNameSeikana.length <= 40);
 
         },
         cpNamemeikanaCheck() {
@@ -402,17 +402,17 @@ export default {
         // datepicker: Datepicker
     },
     watch: {
-        'koJinJoHoZhy.cpNamesei': function () {
-            this.cpNameseiCheck();
+        'koJinJoHoZhy.cpNameSei': function () {
+            this.cpNameSeiCheck();
         }
         ,
         'koJinJoHoZhy.cpNameMei': function () {
             this.cpNameMeiCheck();
         },
 
-        'koJinJoHoZhy.cpNameseikana': function () {
+        'koJinJoHoZhy.cpNameSeikana': function () {
             this.convertSeiKana();
-            this.cpNameseikanaCheck()
+            this.cpNameSeikanaCheck()
         },
         'koJinJoHoZhy.cpNamemeikana': function () {
             this.convertMeiKana();
