@@ -21,11 +21,11 @@
                 <span class="errorMessage" id="cpNameSeikaneWarmingTextTooLong"
                     v-if="cpNameSeikaneWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
             </div>
-            <div>メイ<input type="text" v-model="koJinJoHoZhy.cpNamemeikana" />
-                <span class="errorMessage" id="cpNamemeikanaWarmingTextFormat"
-                    v-if="cpNamemeikanaWarmingTextFormatFlag">フォーマットが間違っています。カタカナで入力してください。</span>
-                <span class="errorMessage" id="cpNamemeikanaWarmingTextTooLong"
-                    v-if="cpNamemeikanaWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
+            <div>メイ<input type="text" v-model="koJinJoHoZhy.cpNameMeikana" />
+                <span class="errorMessage" id="cpNameMeikanaWarmingTextFormat"
+                    v-if="cpNameMeikanaWarmingTextFormatFlag">フォーマットが間違っています。カタカナで入力してください。</span>
+                <span class="errorMessage" id="cpNameMeikanaWarmingTextTooLong"
+                    v-if="cpNameMeikanaWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
             </div>
             <div>姓（ローマ字）<input type="text" v-model="koJinJoHoZhy.cuAlphlastname" />
                 <span class="errorMessage" id="cuAlphlastnameWarmingTextFormat"
@@ -134,7 +134,7 @@ export default {
                 cpNameSei: "",
                 cpNameMei: "",
                 cpNameSeikana: "",
-                cpNamemeikana: "",
+                cpNameMeikana: "",
                 cuAlphlastname: "",
                 cuAlphfirstname: "",
                 cpCountry: "",
@@ -161,8 +161,8 @@ export default {
             cpNameMeiWarmingTextTooLongFlag: false,
             cpNameSeikanaWarmingTextFormatFlag: false,
             cpNameSeikaneWarmingTextTooLongFlag: false,
-            cpNamemeikanaWarmingTextFormatFlag: false,
-            cpNamemeikanaWarmingTextTooLongFlag: false,
+            cpNameMeikanaWarmingTextFormatFlag: false,
+            cpNameMeikanaWarmingTextTooLongFlag: false,
             cuAlphlastnameWarmingTextFormatFlag: false,
             cuAlphlastnameWarmingTextTooLongFlag: false,
             cuAlphfirstnameWarmingTextFormatFlag: false,
@@ -185,7 +185,7 @@ export default {
                 cpNameSeiChecked: false,
                 cpNameMeiChecked: false,
                 cpNameSeikanaChecked: false,
-                cpNamemeikanaChecked: false,
+                cpNameMeikanaChecked: false,
                 cuAlphlastnameChecked: false,
                 cuAlphfirstnameChecked: false,
                 cpCountryChecked: false,
@@ -215,7 +215,7 @@ export default {
             this.cpNameSeiCheck();
             this.cpNameMeiCheck();
             this.cpNameSeikanaCheck();
-            this.cpNamemeikanaCheck();
+            this.cpNameMeikanaCheck();
             this.cuAlphlastnameCheck();
             this.cuAlphfirstnameCheck();
             this.cpCountryCheck();
@@ -231,7 +231,7 @@ export default {
             // this.cpNameMeiChecked = ((!())&&(!()));
             this.cpNameMeiChecked = ((!(this.cpNameMeiWarmingTextFormatFlag)) && (!(this.cpNameMeiWarmingTextTooLongFlag)));
             this.cpNameSeikanaChecked = ((!(this.cpNameSeikanaWarmingTextFormatFlag)) && (!(this.cpNameSeikaneWarmingTextTooLongFlag)));
-            this.cpNamemeikanaChecked = ((!(this.cpNamemeikanaWarmingTextFormatFlag)) && (!(this.cpNamemeiWarmingTextTooLongFlag)));
+            this.cpNameMeikanaChecked = ((!(this.cpNameMeikanaWarmingTextFormatFlag)) && (!(this.cpNameMeiWarmingTextTooLongFlag)));
             this.cuAlphlastnameChecked = ((!(this.cuAlphlastnameWarmingTextFormatFlag)) && (!(this.cuAlphlastnameWarmingTextTooLongFlag)));
             this.cuAlphfirstnameChecked = ((!(this.cuAlphfirstnameWarmingTextFormatFlag)) && (!(this.cuAlphfirstnameWarmingTextTooLongFlag)));
             this.cpCountryChecked = !(this.cpCountryWarmingTextNotSelectedFlag);
@@ -265,7 +265,7 @@ export default {
                 this.cpNameSeiChecked &&
                 this.cpNameMeiChecked &&
                 this.cpNameSeikanaChecked &&
-                this.cpNamemeikanaChecked &&
+                this.cpNameMeikanaChecked &&
                 this.cuAlphlastnameChecked &&
                 this.cuAlphfirstnameChecked &&
                 this.cpCountryChecked &&
@@ -342,8 +342,8 @@ export default {
             this.koJinJoHoZhy.cpNameSeikana = this.zenkakuKana2Hankaku(this.koJinJoHoZhy.cpNameSeikana);
         },
         convertMeiKana() {
-            this.koJinJoHoZhy.cpNamemeikana = this.zenkakuAlphNum2hankaku(this.koJinJoHoZhy.cpNamemeikana);
-            this.koJinJoHoZhy.cpNamemeikana = this.zenkakuKana2Hankaku(this.koJinJoHoZhy.cpNamemeikana);
+            this.koJinJoHoZhy.cpNameMeikana = this.zenkakuAlphNum2hankaku(this.koJinJoHoZhy.cpNameMeikana);
+            this.koJinJoHoZhy.cpNameMeikana = this.zenkakuKana2Hankaku(this.koJinJoHoZhy.cpNameMeikana);
         },
 
         cpNameSeiCheck() {
@@ -362,9 +362,9 @@ export default {
             this.cpNameSeikaneWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNameSeikana.length <= 40);
 
         },
-        cpNamemeikanaCheck() {
-            this.cpNamemeikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNamemeikana));
-            this.cpNamemeiWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNamemeikana.length <= 40);
+        cpNameMeikanaCheck() {
+            this.cpNameMeikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNameMeikana));
+            this.cpNameMeiWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNameMeikana.length <= 40);
         },
         cuAlphlastnameCheck() {
             this.cuAlphlastnameWarmingTextFormatFlag = !(/^[a-zA-Z]+$/g.test(this.koJinJoHoZhy.cuAlphlastname))
@@ -414,9 +414,9 @@ export default {
             this.convertSeiKana();
             this.cpNameSeikanaCheck()
         },
-        'koJinJoHoZhy.cpNamemeikana': function () {
+        'koJinJoHoZhy.cpNameMeikana': function () {
             this.convertMeiKana();
-            this.cpNamemeikanaCheck();
+            this.cpNameMeikanaCheck();
         },
         'koJinJoHoZhy.cuAlphlastname': function () {
             this.cuAlphlastnameCheck();
