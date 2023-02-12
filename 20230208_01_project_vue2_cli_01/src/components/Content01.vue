@@ -77,10 +77,10 @@
             <div>
                 <input type="text" v-model="koJinJoHoZhy.cpDenwa" />
             </div>
-            <span class="errorMessage" id="cpDenwaWarmingTextTooLong"
-                v-if="cpDenwaWarmingTextTooLongFlag">入力した電話番号が長すぎます。再入力してください。</span>
+            <!-- <span class="errorMessage" id="cpDenwaWarmingTextTooLong"
+                v-if="cpDenwaWarmingTextTooLongFlag">入力した電話番号が長すぎます。再入力してください。</span> -->
             <span class="errorMessage" id="cpDenwaWarmingTextFormat"
-                v-if="cpDenwaWarmingTextFormatFlag">フォーマットが間違っています。数字を入力してください。</span>
+                v-if="cpDenwaWarmingTextFormatFlag">フォーマットが間違っています。電話番号を入力してください。</span>
 
         </div>
         <div>
@@ -88,10 +88,10 @@
             <div>
                 <input type="text" v-model="koJinJoHoZhy.cpPhone" />
             </div>
-            <span class="errorMessage" id="cpPhoneWarmingTextTooLong"
-                v-if="cpPhoneWarmingTextTooLongFlag">入力した電話番号が長すぎます。再入力してください。</span>
+            <!-- <span class="errorMessage" id="cpPhoneWarmingTextTooLong"
+                v-if="cpPhoneWarmingTextTooLongFlag">入力した電話番号が長すぎます。再入力してください。</span> -->
             <span class="errorMessage" id="cpPhoneWarmingTextFormat"
-                v-if="cpPhoneWarmingTextFormatFlag">フォーマットが間違っています。数字を入力してください。</span>
+                v-if="cpPhoneWarmingTextFormatFlag">フォーマットが間違っています。電話番号を入力してください。</span>
         </div>
         <div>
             <label>職業</label>
