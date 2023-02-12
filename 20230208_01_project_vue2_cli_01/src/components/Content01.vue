@@ -153,6 +153,7 @@ export default {
             // // カタカナの正規表現
             // regKana: /^[\u30A0-\u30FF]+$/g,
 
+            // 各个错误信息的flag, true为显示信息
             cpNameseiWarmingTextFormatFlag: false,
             cpNameseiWarmingTextToLongFlag: false,
             cpNameMeiWarmingTextFormatFlag: false,
@@ -178,6 +179,7 @@ export default {
             // 無職
             musyokuFlag: false,
 
+            // 各个信息是否通过验证的flag
             checkedFlags: {
                 cpNameseiChecked: false,
                 cpNameMeiChecked: false,
@@ -191,7 +193,10 @@ export default {
                 cpDenwaChecked: false,
                 cpPhoneChecked: false,
                 cpKinmusakinameChecked: false
-            }
+            },
+
+            // 所有信息通过的flag
+            checkedAllFlag: false
         }
     },
     methods: {
@@ -204,7 +209,42 @@ export default {
             if (this.musyokuFlag) {
                 this.koJinJoHoZhy.cpKinmusakiname = "";
             }
-            axios.post('http://localhost:8813/ko-jin-jo-ho-zhy/save', this.koJinJoHoZhy).then();
+            // 对所有信息check
+            cpNameseiCheck();
+            cpNameMeiCheck();
+            cpNameseikanaCheck();
+            cpNameseikanaCheck();
+            cuAlphlastnameCheck();
+            cuAlphfirstnameCheck();
+            cpCountryCheck();
+            cpBirthdateCheck();
+            cpSexCheck();
+            cpDenwaCheck();
+            cpPhoneCheck();
+            cpShokugyocodeCheck();
+            cpKinmusakinameCheck();
+
+            this.checkedAllFlag =
+                cpNameseiChecked &&
+                cpNameMeiChecked &&
+                cpNameseikanaChecked &&
+                cpNamemeikanaChecked &&
+                cuAlphlastnameChecked &&
+                cuAlphfirstnameChecked &&
+                cpCountryChecked &&
+                cpBirthdateChecked &&
+                cpSexChecked &&
+                cpDenwaChecked &&
+                cpPhoneChecked &&
+                cpKinmusakinameChecked;
+
+            if (this.checkedAllFlag) {
+                axios.post('http://localhost:8813/ko-jin-jo-ho-zhy/save', this.koJinJoHoZhy).then();
+            } else {
+                alert("输入有误")
+            }
+
+
         },
         // 英数字的全角转换为半角
         zenkakuAlphNum2hankaku(str) {
@@ -297,45 +337,61 @@ export default {
             this.koJinJoHoZhy.cpNamemeikana = this.zenkakuAlphNum2hankaku(this.koJinJoHoZhy.cpNamemeikana);
             this.koJinJoHoZhy.cpNamemeikana = this.zenkakuKana2Hankaku(this.koJinJoHoZhy.cpNamemeikana);
         },
+
         cpNameseiCheck() {
 
+            this.cpNameseiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNamesei));
+            this.cpNameseiWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNamesei.length <= 40);
+            this.cpNameseiChecked = ((!(this.cpNameseiWarmingTextFormatFlag)) && (!(this.cpNameseiWarmingTextToLongFlag)))
         },
-        cpNameMeiCheck(){
+        cpNameMeiCheck() {
+            this.cpNameMeiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNameMei));
+            this.cpNameMeiWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNameMei.length <= 40);
 
-       },
-       cpNameseikanaCheck(){
+        },
+        cpNameseikanaCheck() {
+            this.cpNameseikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNameseikana));
+            this.cpNameseikaneWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNameseikana.length <= 40);
 
-       },
-       cpNameseikanaCheck(){
+        },
+        cpNameseikanaCheck() {
+            this.cpNamemeikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNamemeikana));
+            this.cpNamemeiWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNamemeikana.length <= 40);
 
-       },
-       cuAlphlastnameCheck(){
+        },
+        cuAlphlastnameCheck() {
+            this.cuAlphlastnameWarmingTextFormatFlag = !(/^[a-zA-Z]+$/g.test(this.koJinJoHoZhy.cuAlphlastname))
+            this.cuAlphlastnameWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cuAlphlastname.length <= 40);
 
-       },
-       cuAlphfirstnameCheck(){
+        },
+        cuAlphfirstnameCheck() {
+            this.cuAlphfirstnameWarmingTextFormatFlag = !(/^[a-zA-Z]+$/g.test(this.koJinJoHoZhy.cuAlphfirstname))
+            this.cuAlphfirstnameWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cuAlphfirstname.length <= 40);
 
-       },
-       cpCountryCheck(){
+        },
+        cpCountryCheck() {
+            this.cpCountryWarmingTextNotSelectedFlag = (this.koJinJoHoZhy.cpCountry == "")
+        },
+        cpBirthdateCheck() {
+            this.cpBirthdateWarmingTextFormatFlag = (this.koJinJoHoZhy.cpBirthdate == "")
 
-       },
-       cpBirthdateCheck(){
-
-       },
-       cpSexCheck(){
-
-       },
-       cpDenwaCheck(){
-
-       },
-       cpPhoneCheck(){
-
-       },
-       cpShokugyocodeCheck(){
-
-       },
-       cpKinmusakinameCheck(){
-
-       }
+        },
+        cpSexCheck() {
+            this.cpSexWarmingTextNotSelectedFlag = (this.koJinJoHoZhy.cpSex == "")
+        },
+        cpDenwaCheck() {
+            this.cpDenwaWarmingTextFormatFlag = !(this.regPhone.test(this.koJinJoHoZhy.cpDenwa));
+        },
+        cpPhoneCheck() {
+            this.cpPhoneWarmingTextFormatFlag = !(/^0[789]0-[0-9]{4}-[0-9]{4}$/.test(this.koJinJoHoZhy.cpPhone));
+        },
+        cpShokugyocodeCheck() {
+            this.musyokuFlag = (this.koJinJoHoZhy.cpShokugyocode == "05");
+            this.cpShokugyocodeWarmingTextNotSelectedFLag = ((this.musyokuFlag != "05")(this.koJinJoHoZhy.cpShokugyocode == ""));
+        },
+        cpKinmusakinameCheck() {
+            this.cpKinmusakinameWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpKinmusakiname.length <= 40);
+        }
     },
     components: {
         datepicker: Datepicker
