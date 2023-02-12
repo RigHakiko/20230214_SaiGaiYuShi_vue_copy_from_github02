@@ -391,7 +391,7 @@ export default {
         },
         cpShokugyocodeCheck() {
             this.musyokuFlag = (this.koJinJoHoZhy.cpShokugyocode == "05");
-            this.cpShokugyocodeWarmingTextNotSelectedFLag = ((this.musyokuFlag != "05")&&(this.koJinJoHoZhy.cpShokugyocode == ""));
+            this.cpShokugyocodeWarmingTextNotSelectedFLag = ((this.musyokuFlag != "05") && (this.koJinJoHoZhy.cpShokugyocode == ""));
         },
         cpKinmusakinameCheck() {
             this.cpKinmusakinameWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpKinmusakiname.length <= 40);
@@ -402,54 +402,47 @@ export default {
     },
     watch: {
         'koJinJoHoZhy.cpNamesei': function () {
-            this.cpNameseiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNamesei));
-            this.cpNameseiWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNamesei.length <= 40);
+            this.cpNameseiCheck();
         }
         ,
         'koJinJoHoZhy.cpNameMei': function () {
-            this.cpNameMeiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNameMei));
-            this.cpNameMeiWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNameMei.length <= 40);
+            this.cpNameMeiCheck();
         },
 
         'koJinJoHoZhy.cpNameseikana': function () {
             this.convertSeiKana();
-            this.cpNameseikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNameseikana));
-            this.cpNameseikaneWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNameseikana.length <= 40);
+            this.cpNameseikanaCheck()
         },
         'koJinJoHoZhy.cpNamemeikana': function () {
             this.convertMeiKana();
-            this.cpNamemeikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNamemeikana));
-            this.cpNamemeiWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNamemeikana.length <= 40);
+            this.cpNamemeikanaCheck();
         },
         'koJinJoHoZhy.cuAlphlastname': function () {
-            this.cuAlphlastnameWarmingTextFormatFlag = !(/^[a-zA-Z]+$/g.test(this.koJinJoHoZhy.cuAlphlastname))
-            this.cuAlphlastnameWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cuAlphlastname.length <= 40);
+            this.cuAlphlastnameCheck();
         },
         'koJinJoHoZhy.cuAlphfirstname': function () {
-            this.cuAlphfirstnameWarmingTextFormatFlag = !(/^[a-zA-Z]+$/g.test(this.koJinJoHoZhy.cuAlphfirstname))
-            this.cuAlphfirstnameWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cuAlphfirstname.length <= 40);
+            this.cuAlphfirstnameCheck();
         },
         'koJinJoHoZhy.cpCountry': function () {
-            this.cpCountryWarmingTextNotSelectedFlag = (this.koJinJoHoZhy.cpCountry == "")
+            this.cpCountryCheck();
         },
         'koJinJoHoZhy.cpBirthdate': function () {
-            this.cpBirthdateWarmingTextFormatFlag = (this.koJinJoHoZhy.cpBirthdate == "")
+            this.cpBirthdateCheck();
         },
         'koJinJoHoZhy.cpSex': function () {
-            this.cpSexWarmingTextNotSelectedFlag = (this.koJinJoHoZhy.cpSex == "")
+            this.cpSexCheck()
         },
         'koJinJoHoZhy.cpDenwa': function () {
-            this.cpDenwaWarmingTextFormatFlag = !(/^0[789]0-[0-9]{4}-[0-9]{4}$/.test(this.koJinJoHoZhy.cpDenwa));
+            this.cpDenwaCheck()
         },
         'koJinJoHoZhy.cpPhone': function () {
-            this.cpPhoneWarmingTextFormatFlag = !(/^0[789]0-[0-9]{4}-[0-9]{4}$/.test(this.koJinJoHoZhy.cpPhone));
+            this.cpPhoneCheck()
         },
         'koJinJoHoZhy.cpShokugyocode': function () {
-            this.cpShokugyocodeWarmingTextNotSelectedFLag = (this.koJinJoHoZhy.cpShokugyocode == "");
-            this.musyokuFlag = (this.koJinJoHoZhy.cpShokugyocode == "05");
+            this.cpShokugyocodeCheck()
         },
         'koJinJoHoZhy.cpKinmusakiname': function () {
-            this.cpKinmusakinameWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpKinmusakiname.length <= 40);
+            this.cpKinmusakinameCheck()
         }
     }
 }
