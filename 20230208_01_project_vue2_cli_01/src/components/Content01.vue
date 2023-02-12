@@ -67,7 +67,8 @@
         <div>
             <label>生年月日</label>
             <div>
-                <datepicker v-model="koJinJoHoZhy.cpBirthdate"></datepicker>
+                <!-- <datepicker v-model="koJinJoHoZhy.cpBirthdate"></datepicker> -->
+                <input type="date" v-model="koJinJoHoZhy.cpBirthdate" />
                 <span class="errorMessage" id="cpBirthdateWarmingTextFormat" v-if="cpBirthdateWarmingTextFormatFlag">
                     日付を入力してください。</span>
             </div>
@@ -123,7 +124,7 @@
     </div>
 </template>
 <script>
-import Datepicker from 'vuejs-datepicker';
+// import Datepicker from 'vuejs-datepicker';
 import axios from 'axios'
 export default {
     data() {
@@ -398,7 +399,7 @@ export default {
         }
     },
     components: {
-        datepicker: Datepicker
+        // datepicker: Datepicker
     },
     watch: {
         'koJinJoHoZhy.cpNamesei': function () {
