@@ -69,7 +69,7 @@
             <div>
                 <datepicker v-model="koJinJoHoZhy.cpBirthdate"></datepicker>
                 <span class="errorMessage" id="cpBirthdateWarmingTextFormat" v-if="cpBirthdateWarmingTextFormatFlag">
-                    フォーマットが間違っています。日付を入力してください。</span>
+                    日付を入力してください。</span>
             </div>
         </div>
         <div>
