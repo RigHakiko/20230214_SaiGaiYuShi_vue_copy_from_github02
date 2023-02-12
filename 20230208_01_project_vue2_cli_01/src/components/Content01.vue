@@ -43,11 +43,11 @@
         <div>
             <label>国籍</label>
             <select v-model="koJinJoHoZhy.cpCountry">
-                <option disabled value="">please select</option>
-                <option>china</option>
-                <option>japan</option>
-                <option>korean</option>
-                <option>spain</option>
+                <option disabled value="">選んでください</option>
+                <option>中国</option>
+                <option>日本</option>
+                <option>韓国</option>
+                <option>スペイン</option>
             </select>
             <span class="errorMessage" id="cpCountryWarmingTextNotSelected"
                 v-if="cpCountryWarmingTextNotSelectedFlag">国籍を選択してください。</span>
