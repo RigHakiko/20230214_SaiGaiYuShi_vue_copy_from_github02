@@ -6,8 +6,8 @@
             <div>姓（漢字）<input type="text" v-model="koJinJoHoZhy.cpNamesei" />
                 <span class="errorMessage" id="cpNameseiWarmingTextFormat"
                     v-if="cpNameseiWarmingTextFormatFlag">フォーマットが間違っています。漢字で入力してください。</span>
-                <span class="errorMessage" id="cpNameseiWarmingTextToLong"
-                    v-if="cpNameseiWarmingTextToLongFlag">入力した内容が長すぎます。再入力してください。</span>
+                <span class="errorMessage" id="cpNameseiWarmingTextTooLong"
+                    v-if="cpNameseiWarmingTextTooLongFlag">入力した内容が長すぎます。再入力してください。</span>
             </div>
             <div>名（漢字）<input type="text" v-model="koJinJoHoZhy.cpNameMei" />
                 <span class="errorMessage" id="cpNameMeiWarmingTextFormat"
@@ -18,14 +18,14 @@
             <div>セイ<input type="text" v-model="koJinJoHoZhy.cpNameseikana" />
                 <span class="errorMessage" id="cpNameseikanaWarmingTextFormat"
                     v-if="cpNameseikanaWarmingTextFormatFlag">フォーマットが間違っています。カタカナで入力してください。</span>
-                <span class="errorMessage" id="cpNameseikaneWarmingTextToLong"
-                    v-if="cpNameseikaneWarmingTextToLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
+                <span class="errorMessage" id="cpNameseikaneWarmingTextTooLong"
+                    v-if="cpNameseikaneWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
             </div>
             <div>メイ<input type="text" v-model="koJinJoHoZhy.cpNamemeikana" />
                 <span class="errorMessage" id="cpNamemeikanaWarmingTextFormat"
                     v-if="cpNamemeikanaWarmingTextFormatFlag">フォーマットが間違っています。カタカナで入力してください。</span>
-                <span class="errorMessage" id="cpNamemeikanaWarmingTextToLong"
-                    v-if="cpNamemeikanaWarmingTextToLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
+                <span class="errorMessage" id="cpNamemeikanaWarmingTextTooLong"
+                    v-if="cpNamemeikanaWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
             </div>
             <div>姓（ローマ字）<input type="text" v-model="koJinJoHoZhy.cuAlphlastname" />
                 <span class="errorMessage" id="cuAlphlastnameWarmingTextFormat"
@@ -156,13 +156,13 @@ export default {
 
             // 各个错误信息的flag, true为显示信息
             cpNameseiWarmingTextFormatFlag: false,
-            cpNameseiWarmingTextToLongFlag: false,
+            cpNameseiWarmingTextTooLongFlag: false,
             cpNameMeiWarmingTextFormatFlag: false,
             cpNameMeiWarmingTextTooLongFlag: false,
             cpNameseikanaWarmingTextFormatFlag: false,
-            cpNameseikaneWarmingTextToLongFlag: false,
+            cpNameseikaneWarmingTextTooLongFlag: false,
             cpNamemeikanaWarmingTextFormatFlag: false,
-            cpNamemeikanaWarmingTextToLongFlag: false,
+            cpNamemeikanaWarmingTextTooLongFlag: false,
             cuAlphlastnameWarmingTextFormatFlag: false,
             cuAlphlastnameWarmingTextTooLongFlag: false,
             cuAlphfirstnameWarmingTextFormatFlag: false,
@@ -227,11 +227,11 @@ export default {
             this.cpKinmusakinameCheck();
 
 
-            this.cpNameseiChecked = ((!(this.cpNameseiWarmingTextFormatFlag)) && (!(this.cpNameseiWarmingTextToLongFlag)));
+            this.cpNameseiChecked = ((!(this.cpNameseiWarmingTextFormatFlag)) && (!(this.cpNameseiWarmingTextTooLongFlag)));
             // this.cpNameMeiChecked = ((!())&&(!()));
             this.cpNameMeiChecked = ((!(this.cpNameMeiWarmingTextFormatFlag)) && (!(this.cpNameMeiWarmingTextTooLongFlag)));
-            this.cpNameseikanaChecked = ((!(this.cpNameseikanaWarmingTextFormatFlag)) && (!(this.cpNameseikaneWarmingTextToLongFlag)));
-            this.cpNamemeikanaChecked = ((!(this.cpNamemeikanaWarmingTextFormatFlag)) && (!(this.cpNamemeiWarmingTextToLongFlag)));
+            this.cpNameseikanaChecked = ((!(this.cpNameseikanaWarmingTextFormatFlag)) && (!(this.cpNameseikaneWarmingTextTooLongFlag)));
+            this.cpNamemeikanaChecked = ((!(this.cpNamemeikanaWarmingTextFormatFlag)) && (!(this.cpNamemeiWarmingTextTooLongFlag)));
             this.cuAlphlastnameChecked = ((!(this.cuAlphlastnameWarmingTextFormatFlag)) && (!(this.cuAlphlastnameWarmingTextTooLongFlag)));
             this.cuAlphfirstnameChecked = ((!(this.cuAlphfirstnameWarmingTextFormatFlag)) && (!(this.cuAlphfirstnameWarmingTextTooLongFlag)));
             this.cpCountryChecked = !(this.cpCountryWarmingTextNotSelectedFlag);
@@ -349,7 +349,7 @@ export default {
         cpNameseiCheck() {
 
             this.cpNameseiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNamesei));
-            this.cpNameseiWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNamesei.length <= 40);
+            this.cpNameseiWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNamesei.length <= 40);
         },
         cpNameMeiCheck() {
             this.cpNameMeiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNameMei));
@@ -359,12 +359,12 @@ export default {
         },
         cpNameseikanaCheck() {
             this.cpNameseikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNameseikana));
-            this.cpNameseikaneWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNameseikana.length <= 40);
+            this.cpNameseikaneWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNameseikana.length <= 40);
 
         },
         cpNamemeikanaCheck() {
             this.cpNamemeikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNamemeikana));
-            this.cpNamemeiWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNamemeikana.length <= 40);
+            this.cpNamemeiWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNamemeikana.length <= 40);
         },
         cuAlphlastnameCheck() {
             this.cuAlphlastnameWarmingTextFormatFlag = !(/^[a-zA-Z]+$/g.test(this.koJinJoHoZhy.cuAlphlastname))
