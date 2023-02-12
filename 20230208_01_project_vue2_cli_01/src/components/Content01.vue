@@ -222,20 +222,34 @@ export default {
                 .replace(/゛/g, 'ﾞ')
                 .replace(/゜/g, 'ﾟ');
         },
-        CtoH(obj) {
-            let str = obj.value;
-            let result = "";
-            result = this.zenkakuAlphNum2hankaku(str);
-            obj.value = result;
-            return result;
-        },
-        CHoH(sss) {
-            let str = sss.value;
-            let result = "";
-            result = this.zenkakuKana2Hankaku(str);
-            obj.value = result;
-            return result;
-        },
+        // CtoH(obj) {
+        //     let str = obj.value;
+        //     let result = "";
+        //     result = this.zenkakuAlphNum2hankaku(str);
+        //     obj.value = result;
+        //     return result;
+        // },
+        // CtoH(obj) {
+        //     let str = obj.value;
+        //     let result = "";
+        //     result = this.zenkakuAlphNum2hankaku(str);
+        //     obj.value = result;
+        //     return result;
+        // },
+        // CHoH(sss) {
+        //     let str = sss.value;
+        //     let result = "";
+        //     result = this.zenkakuKana2Hankaku(str);
+        //     obj.value = result;
+        //     return result;
+        // },
+        // CHoH(sss) {
+        //     let str = sss.value;
+        //     let result = "";
+        //     result = this.zenkakuKana2Hankaku(str);
+        //     obj.value = result;
+        //     return result;
+        // },
         judgKanji(str) {
             console.log(str.value)
             return this.regKanji.test(str);
@@ -253,6 +267,14 @@ export default {
             str = "" + str.value;
             // return str.value.length>num;
             return str.length <= num;
+        },
+        convertSeiKana() {
+            this.koJinJoHoZhy.cpNameseikana = this.zenkakuAlphNum2hankaku(this.koJinJoHoZhy.cpNameseikana);
+            this.koJinJoHoZhy.cpNameseikana = this.zenkakuKana2Hankaku(this.koJinJoHoZhy.cpNameseikana);
+        },
+        convertMeiKana() {
+            this.koJinJoHoZhy.cpNamemeikana = this.zenkakuAlphNum2hankaku(this.koJinJoHoZhy.cpNamemeikana);
+            this.koJinJoHoZhy.cpNamemeikana = this.zenkakuKana2Hankaku(this.koJinJoHoZhy.cpNamemeikana);
         }
 
     },
@@ -279,28 +301,31 @@ export default {
         },
 
         'koJinJoHoZhy.cpNameseikana': function () {
-            this.CtoH(this.koJinJoHoZhy.cpNameseikana);
-            this.CHoH(this.koJinJoHoZhy.cpNameseikana);
+            this.convertSeiKana();
             // this.cpNameseikanaWarmingTextFormatFlag = !(this.regKana.test(this.koJinJoHoZhy.Nameseikana));
             // this.cpNameseiWarmingTextToLongFlag = this.koJinJoHoZhy.Nameseikana.length > 40;
-            this.cpNameseikanaWarmingTextFormatFlag = !(/^[\u30A0-\u30FF]+$/g.test(this.koJinJoHoZhy.Nameseikana));
-            this.cpNameseiWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNameseikana.length <= 40);
+            // this.cpNameseikanaWarmingTextFormatFlag = !(/^[\u30A0-\u30FF]+$/g.test(this.koJinJoHoZhy.Nameseikana));
+            this.cpNameseikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNameseikana));
+            this.cpNameseikaneWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNameseikana.length <= 40);
         },
         'koJinJoHoZhy.cpNamemeikana': function () {
-            CtoH(this.koJinJoHoZhy.cpNamemeikana);
-            CHoH(this.koJinJoHoZhy.cpNamemeikana);
-            this.cpNamemeikanaWarmingTextFormatFlag = !(this.regKana.test(this.koJinJoHoZhy.cpNamemeikana));
+            this.convertMeiKana();
+            // CtoH(this.koJinJoHoZhy.cpNamemeikana);
+            // CHoH(this.koJinJoHoZhy.cpNamemeikana);
+
+            // this.cpNamemeikanaWarmingTextFormatFlag = !(this.regKana.test(this.koJinJoHoZhy.cpNamemeikana));
+            this.cpNamemeikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNamemeikana));
             this.cpNamemeiWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNamemeikana.length <= 40);
         },
         'koJinJoHoZhy.cuAlphlastname': function () {
             // this.cuAlphlastnameWarmingTextFormatFlag = !(this.regEnglish.test(this.koJinJoHoZhy.cuAlphlastname))
             // // this.cuAlphlastnameWarmingTextTooLongFlag = this.koJinJoHoZhy.cuAlphlastname.length > 40;
             this.cuAlphlastnameWarmingTextFormatFlag = !(/^[a-zA-Z]+$/g.test(this.koJinJoHoZhy.cuAlphlastname))
-            // this.cuAlphlastnameWarmingTextTooLongFlag = this.koJinJoHoZhy.cuAlphlastname.length > 40;
+            this.cuAlphlastnameWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cuAlphlastname.length <= 40);
         },
         'koJinJoHoZhy.cuAlphfirstname': function () {
             this.cuAlphfirstnameWarmingTextFormatFlag = !(/^[a-zA-Z]+$/g.test(this.koJinJoHoZhy.cuAlphfirstname))
-            // this.cuAlphlastnameWarmingTextTooLongFlag= this.koJinJoHoZhy.cuAlphfirstname.length>40;
+            this.cuAlphfirstnameWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cuAlphfirstname.length <= 40);
         },
         'koJinJoHoZhy.cpCountry': function () {
             this.cpCountryWarmingTextNotSelectedFlag = (this.koJinJoHoZhy.cpCountry == "")
@@ -311,7 +336,7 @@ export default {
         'koJinJoHoZhy.cpSex': function () {
             this.cpSexWarmingTextNotSelectedFlag = (this.koJinJoHoZhy.cpSex == "")
         },
-        'koJinJoHoZhy.': function () {
+        'koJinJoHoZhy.cpDenwa': function () {
             this.cpDenwaWarmingTextFormatFlag = !(this.regPhone.test(this.koJinJoHoZhy.cpDenwa));
         },
         'koJinJoHoZhy.cpPhone': function () {
@@ -338,7 +363,6 @@ export default {
 </script>
 <style>
 .errorMessage {
-    /* font: red; */
     color: red;
 }
 </style>
