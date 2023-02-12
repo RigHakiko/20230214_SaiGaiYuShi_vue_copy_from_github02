@@ -271,23 +271,6 @@ export default {
                 .replace(/゛/g, 'ﾞ')
                 .replace(/゜/g, 'ﾟ');
         },
-        // judgKanji(str) {
-        //     console.log(str.value)
-        //     return this.regKanji.test(str);
-        // },
-        // judgKana(str) {
-        //     return this.regKana.test(str);
-        // },
-        // judgEnglish(str) {
-        //     return this.regEnglish.test(str);
-        // },
-        // judgPhone(str) {
-        //     return this.regPhone.test(str);
-        // },
-        // judgLength(str, num) {
-        //     str = "" + str.value;
-        //     return str.length <= num;
-        // },
         convertSeiKana() {
             this.koJinJoHoZhy.cpNameSeikana = this.zenkakuAlphNum2hankaku(this.koJinJoHoZhy.cpNameSeikana);
             this.koJinJoHoZhy.cpNameSeikana = this.zenkakuKana2Hankaku(this.koJinJoHoZhy.cpNameSeikana);
