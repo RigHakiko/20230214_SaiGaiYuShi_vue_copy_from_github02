@@ -211,33 +211,33 @@ export default {
                 this.koJinJoHoZhy.cpKinmusakiname = "";
             }
             // 对所有信息check
-            cpNameseiCheck();
-            cpNameMeiCheck();
-            cpNameseikanaCheck();
-            cpNameseikanaCheck();
-            cuAlphlastnameCheck();
-            cuAlphfirstnameCheck();
-            cpCountryCheck();
-            cpBirthdateCheck();
-            cpSexCheck();
-            cpDenwaCheck();
-            cpPhoneCheck();
-            cpShokugyocodeCheck();
-            cpKinmusakinameCheck();
+            this.cpNameseiCheck();
+            this.cpNameMeiCheck();
+            this.cpNameseikanaCheck();
+            this.cpNameseikanaCheck();
+            this.cuAlphlastnameCheck();
+            this.cuAlphfirstnameCheck();
+            this.cpCountryCheck();
+            this.cpBirthdateCheck();
+            this.cpSexCheck();
+            this.cpDenwaCheck();
+            this.cpPhoneCheck();
+            this.cpShokugyocodeCheck();
+            this.cpKinmusakinameCheck();
 
             this.checkedAllFlag =
-                cpNameseiChecked &&
-                cpNameMeiChecked &&
-                cpNameseikanaChecked &&
-                cpNamemeikanaChecked &&
-                cuAlphlastnameChecked &&
-                cuAlphfirstnameChecked &&
-                cpCountryChecked &&
-                cpBirthdateChecked &&
-                cpSexChecked &&
-                cpDenwaChecked &&
-                cpPhoneChecked &&
-                cpKinmusakinameChecked;
+                this.cpNameseiChecked &&
+                this.cpNameMeiChecked &&
+                this.cpNameseikanaChecked &&
+                this.cpNamemeikanaChecked &&
+                this.cuAlphlastnameChecked &&
+                this.cuAlphfirstnameChecked &&
+                this.cpCountryChecked &&
+                this.cpBirthdateChecked &&
+                this.cpSexChecked &&
+                this.cpDenwaChecked &&
+                this.cpPhoneChecked &&
+                this.cpKinmusakinameChecked;
 
             if (this.checkedAllFlag) {
                 axios.post('http://localhost:8813/ko-jin-jo-ho-zhy/save', this.koJinJoHoZhy).then();
@@ -349,30 +349,30 @@ export default {
             this.cpNameMeiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNameMei));
             this.cpNameMeiWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNameMei.length <= 40);
             // this.cpNameMeiChecked = ((!())&&(!()));
-            this.cpNameMeiChecked = ((!(this.cpNameMeiWarmingTextFormatFlag))&&(!(this.cpNameMeiWarmingTextTooLongFlag)));
+            this.cpNameMeiChecked = ((!(this.cpNameMeiWarmingTextFormatFlag)) && (!(this.cpNameMeiWarmingTextTooLongFlag)));
 
         },
         cpNameseikanaCheck() {
             this.cpNameseikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNameseikana));
             this.cpNameseikaneWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNameseikana.length <= 40);
-            this.cpNameseikanaChecked =  ((!(this.cpNameseikanaWarmingTextFormatFlag))&&(!(this.cpNameseikaneWarmingTextToLongFlag)));
+            this.cpNameseikanaChecked = ((!(this.cpNameseikanaWarmingTextFormatFlag)) && (!(this.cpNameseikaneWarmingTextToLongFlag)));
 
         },
         cpNameseikanaCheck() {
             this.cpNamemeikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNamemeikana));
             this.cpNamemeiWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNamemeikana.length <= 40);
-            this.cpNameseikanaChecked =  ((!(this.cpNamemeikanaWarmingTextFormatFlag))&&(!(this.cpNamemeiWarmingTextToLongFlag )));
+            this.cpNameseikanaChecked = ((!(this.cpNamemeikanaWarmingTextFormatFlag)) && (!(this.cpNamemeiWarmingTextToLongFlag)));
         },
         cuAlphlastnameCheck() {
             this.cuAlphlastnameWarmingTextFormatFlag = !(/^[a-zA-Z]+$/g.test(this.koJinJoHoZhy.cuAlphlastname))
             this.cuAlphlastnameWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cuAlphlastname.length <= 40);
-            this.cuAlphlastnameChecked =((!(this.cuAlphlastnameWarmingTextFormatFlag))&&(!(this.cuAlphlastnameWarmingTextTooLongFlag))); 
+            this.cuAlphlastnameChecked = ((!(this.cuAlphlastnameWarmingTextFormatFlag)) && (!(this.cuAlphlastnameWarmingTextTooLongFlag)));
 
         },
         cuAlphfirstnameCheck() {
             this.cuAlphfirstnameWarmingTextFormatFlag = !(/^[a-zA-Z]+$/g.test(this.koJinJoHoZhy.cuAlphfirstname))
             this.cuAlphfirstnameWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cuAlphfirstname.length <= 40);
-            this.cuAlphfirstnameChecked = ((!(this.cuAlphfirstnameWarmingTextFormatFlag))&&(!(this.cuAlphfirstnameWarmingTextTooLongFlag)));
+            this.cuAlphfirstnameChecked = ((!(this.cuAlphfirstnameWarmingTextFormatFlag)) && (!(this.cuAlphfirstnameWarmingTextTooLongFlag)));
         },
         cpCountryCheck() {
             this.cpCountryWarmingTextNotSelectedFlag = (this.koJinJoHoZhy.cpCountry == "");
@@ -387,21 +387,21 @@ export default {
             this.cpSexChecked = !this.cpSexWarmingTextNotSelectedFlag;
         },
         cpDenwaCheck() {
-            this.cpDenwaWarmingTextFormatFlag = !(this.regPhone.test(this.koJinJoHoZhy.cpDenwa));
+            this.cpDenwaWarmingTextFormatFlag = !(/^0[789]0-[0-9]{4}-[0-9]{4}$/.test(this.koJinJoHoZhy.cpDenwa));
             this.cpDenwaChecked = !this.cpDenwaWarmingTextFormatFlag;
         },
         cpPhoneCheck() {
             this.cpPhoneWarmingTextFormatFlag = !(/^0[789]0-[0-9]{4}-[0-9]{4}$/.test(this.koJinJoHoZhy.cpPhone));
-            this.cpPhoneChecked =!(this.cpPhoneWarmingTextFormatFlag );
+            this.cpPhoneChecked = !(this.cpPhoneWarmingTextFormatFlag);
         },
         cpShokugyocodeCheck() {
             this.musyokuFlag = (this.koJinJoHoZhy.cpShokugyocode == "05");
-            this.cpShokugyocodeWarmingTextNotSelectedFLag = ((this.musyokuFlag != "05")(this.koJinJoHoZhy.cpShokugyocode == ""));
-            this.cpShokugyocodeChecked = ((!(this.musyokuFlag))&&(!(this.cpShokugyocodeWarmingTextNotSelectedFLag)));
+            this.cpShokugyocodeWarmingTextNotSelectedFLag = ((this.musyokuFlag != "05")&&(this.koJinJoHoZhy.cpShokugyocode == ""));
+            this.cpShokugyocodeChecked = ((!(this.musyokuFlag)) && (!(this.cpShokugyocodeWarmingTextNotSelectedFLag)));
         },
         cpKinmusakinameCheck() {
             this.cpKinmusakinameWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpKinmusakiname.length <= 40);
-            this.cpKinmusakinameChecked = !( this.cpKinmusakinameWarmingTextTooLongFlag);
+            this.cpKinmusakinameChecked = !(this.cpKinmusakinameWarmingTextTooLongFlag);
         }
     },
     components: {
@@ -463,7 +463,8 @@ export default {
             this.cpSexWarmingTextNotSelectedFlag = (this.koJinJoHoZhy.cpSex == "")
         },
         'koJinJoHoZhy.cpDenwa': function () {
-            this.cpDenwaWarmingTextFormatFlag = !(this.regPhone.test(this.koJinJoHoZhy.cpDenwa));
+            // this.cpDenwaWarmingTextFormatFlag = !(this.regPhone.test(this.koJinJoHoZhy.cpDenwa));
+            this.cpDenwaWarmingTextFormatFlag = !(/^0[789]0-[0-9]{4}-[0-9]{4}$/.test(this.koJinJoHoZhy.cpDenwa));
         },
         'koJinJoHoZhy.cpPhone': function () {
             // this.cpPhoneWarmingTextFormatFlag = !(this.regPhone.test(this.koJinJoHoZhy.cpPhone));
