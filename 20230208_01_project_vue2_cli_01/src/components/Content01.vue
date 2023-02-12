@@ -191,6 +191,7 @@ export default {
                 cpBirthdateChecked: false,
                 cpSexChecked: false,
                 cpDenwaChecked: false,
+                cpShokugyocodeChecked: false,
                 cpPhoneChecked: false,
                 cpKinmusakinameChecked: false
             },
@@ -342,55 +343,65 @@ export default {
 
             this.cpNameseiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNamesei));
             this.cpNameseiWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNamesei.length <= 40);
-            this.cpNameseiChecked = ((!(this.cpNameseiWarmingTextFormatFlag)) && (!(this.cpNameseiWarmingTextToLongFlag)))
+            this.cpNameseiChecked = ((!(this.cpNameseiWarmingTextFormatFlag)) && (!(this.cpNameseiWarmingTextToLongFlag)));
         },
         cpNameMeiCheck() {
             this.cpNameMeiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNameMei));
             this.cpNameMeiWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNameMei.length <= 40);
+            // this.cpNameMeiChecked = ((!())&&(!()));
+            this.cpNameMeiChecked = ((!(this.cpNameMeiWarmingTextFormatFlag))&&(!(this.cpNameMeiWarmingTextTooLongFlag)));
 
         },
         cpNameseikanaCheck() {
             this.cpNameseikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNameseikana));
             this.cpNameseikaneWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNameseikana.length <= 40);
+            this.cpNameseikanaChecked =  ((!(this.cpNameseikanaWarmingTextFormatFlag))&&(!(this.cpNameseikaneWarmingTextToLongFlag)));
 
         },
         cpNameseikanaCheck() {
             this.cpNamemeikanaWarmingTextFormatFlag = !(/^[ｦ-ﾝ]+$/g.test(this.koJinJoHoZhy.cpNamemeikana));
             this.cpNamemeiWarmingTextToLongFlag = !(this.koJinJoHoZhy.cpNamemeikana.length <= 40);
-
+            this.cpNameseikanaChecked =  ((!(this.cpNamemeikanaWarmingTextFormatFlag))&&(!(this.cpNamemeiWarmingTextToLongFlag )));
         },
         cuAlphlastnameCheck() {
             this.cuAlphlastnameWarmingTextFormatFlag = !(/^[a-zA-Z]+$/g.test(this.koJinJoHoZhy.cuAlphlastname))
             this.cuAlphlastnameWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cuAlphlastname.length <= 40);
+            this.cuAlphlastnameChecked =((!(this.cuAlphlastnameWarmingTextFormatFlag))&&(!(this.cuAlphlastnameWarmingTextTooLongFlag))); 
 
         },
         cuAlphfirstnameCheck() {
             this.cuAlphfirstnameWarmingTextFormatFlag = !(/^[a-zA-Z]+$/g.test(this.koJinJoHoZhy.cuAlphfirstname))
             this.cuAlphfirstnameWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cuAlphfirstname.length <= 40);
-
+            this.cuAlphfirstnameChecked = ((!(this.cuAlphfirstnameWarmingTextFormatFlag))&&(!(this.cuAlphfirstnameWarmingTextTooLongFlag)));
         },
         cpCountryCheck() {
-            this.cpCountryWarmingTextNotSelectedFlag = (this.koJinJoHoZhy.cpCountry == "")
+            this.cpCountryWarmingTextNotSelectedFlag = (this.koJinJoHoZhy.cpCountry == "");
+            this.cpCountryChecked = !(this.cpCountryWarmingTextNotSelectedFlag);
         },
         cpBirthdateCheck() {
             this.cpBirthdateWarmingTextFormatFlag = (this.koJinJoHoZhy.cpBirthdate == "")
-
+            this.cpBirthdateChecked = !(this.cpBirthdateWarmingTextFormatFlag);
         },
         cpSexCheck() {
             this.cpSexWarmingTextNotSelectedFlag = (this.koJinJoHoZhy.cpSex == "")
+            this.cpSexChecked = !this.cpSexWarmingTextNotSelectedFlag;
         },
         cpDenwaCheck() {
             this.cpDenwaWarmingTextFormatFlag = !(this.regPhone.test(this.koJinJoHoZhy.cpDenwa));
+            this.cpDenwaChecked = !this.cpDenwaWarmingTextFormatFlag;
         },
         cpPhoneCheck() {
             this.cpPhoneWarmingTextFormatFlag = !(/^0[789]0-[0-9]{4}-[0-9]{4}$/.test(this.koJinJoHoZhy.cpPhone));
+            this.cpPhoneChecked =!(this.cpPhoneWarmingTextFormatFlag );
         },
         cpShokugyocodeCheck() {
             this.musyokuFlag = (this.koJinJoHoZhy.cpShokugyocode == "05");
             this.cpShokugyocodeWarmingTextNotSelectedFLag = ((this.musyokuFlag != "05")(this.koJinJoHoZhy.cpShokugyocode == ""));
+            this.cpShokugyocodeChecked = ((!(this.musyokuFlag))&&(!(this.cpShokugyocodeWarmingTextNotSelectedFLag)));
         },
         cpKinmusakinameCheck() {
             this.cpKinmusakinameWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpKinmusakiname.length <= 40);
+            this.cpKinmusakinameChecked = !( this.cpKinmusakinameWarmingTextTooLongFlag);
         }
     },
     components: {
