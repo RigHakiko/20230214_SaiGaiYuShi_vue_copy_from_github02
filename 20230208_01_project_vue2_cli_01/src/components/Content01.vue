@@ -348,7 +348,7 @@ export default {
 
         cpNameSeiCheck() {
 
-            this.cpNameSeiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpName　ei));
+            this.cpNameSeiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNameMei));
             this.cpNameSeiWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNameSei.length <= 40);
         },
         cpNameMeiCheck() {
