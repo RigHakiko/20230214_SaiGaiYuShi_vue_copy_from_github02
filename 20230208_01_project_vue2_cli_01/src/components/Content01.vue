@@ -73,7 +73,7 @@
             </div>
         </div>
         <div>
-            <label>電話番号</label>
+            <label>電話番号（任意）</label>
             <div>
                 <input type="text" v-model="koJinJoHoZhy.cpDenwa" />
             </div>
@@ -109,9 +109,9 @@
 
         </div>
         <div>
-            <label>勤務先</label>
+            <label>勤務先（任意）</label>
             <div>
-                <input type="text" v-model="koJinJoHoZhy.cpKinmusakiname" />
+                <input type="text" v-model="koJinJoHoZhy.cpKinmusakiname" :disabled=musyokuFlag />
                 <span class="errorMessage" id="cpKinmusakinameWarmingTextTooLong"
                     v-if="cpKinmusakinameWarmingTextTooLongFlag">入力した勤務先が長すぎます。再入力してください。</span>
             </div>
@@ -144,14 +144,14 @@ export default {
                 cpShokugyocode: "",
                 cpKinmusakiname: ""
             },
-            // 電話番号の正規表現
-            regPhone: /^0[789]0-[0-9]{4}-[0-9]{4}$/,
-            // 漢字の正規表現
-            regKanji: /^[\u4E00-\u9FA5]+$/g,
-            // 英語の正規表現
-            regEnglish: /^[a-zA-Z]+$/g,
-            // カタカナの正規表現
-            regKana: /^[\u30A0-\u30FF]+$/g,
+            // // 電話番号の正規表現
+            // regPhone: /^0[789]0-[0-9]{4}-[0-9]{4}$/,
+            // // 漢字の正規表現
+            // regKanji: /^[\u4E00-\u9FA5]+$/g,
+            // // 英語の正規表現
+            // regEnglish: /^[a-zA-Z]+$/g,
+            // // カタカナの正規表現
+            // regKana: /^[\u30A0-\u30FF]+$/g,
 
             cpNameseiWarmingTextFormatFlag: false,
             cpNameseiWarmingTextToLongFlag: false,
@@ -173,7 +173,22 @@ export default {
             cpPhoneWarmingTextTooLongFlag: false,
             cpPhoneWarmingTextFormatFlag: false,
             cpShokugyocodeWarmingTextNotSelectedFLag: false,
-            cpKinmusakinameWarmingTextTooLongFlag: false
+            cpKinmusakinameWarmingTextTooLongFlag: false,
+
+            // 無職
+            musyokuFlag: false,
+
+            checkedFlags: {
+                cpNameseiChecked: false,
+                cpNameMeiChecked: false,
+                cpNameseikanaChecked: false,
+                cpNamemeikanaChecked: false,
+                cuAlphlastnameChecked: false,
+                cuAlphfirstnameChecked: false,
+                cpCountryChecked: false,
+                cpBirthdateChecked: false,
+                cpSexChecked: false,
+            }
         }
     },
     methods: {
@@ -183,6 +198,9 @@ export default {
         },
         // 尝试弄第2个
         add2() {
+            if(this.musyokuFlag){
+                this.koJinJoHoZhy.cpKinmusakiname="";
+            }
             axios.post('http://localhost:8813/ko-jin-jo-ho-zhy/save', this.koJinJoHoZhy).then();
         },
         // 英数字的全角转换为半角
@@ -345,6 +363,7 @@ export default {
         },
         'koJinJoHoZhy.cpShokugyocode': function () {
             this.cpShokugyocodeWarmingTextNotSelectedFLag = (this.koJinJoHoZhy.cpShokugyocode == "");
+            this.musyokuFlag = (this.koJinJoHoZhy.cpShokugyocode == "05");
         },
         'koJinJoHoZhy.cpKinmusakiname': function () {
             this.cpKinmusakinameWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpKinmusakiname.length <= 40);
