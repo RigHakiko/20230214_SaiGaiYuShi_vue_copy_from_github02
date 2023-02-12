@@ -188,6 +188,9 @@ export default {
                 cpCountryChecked: false,
                 cpBirthdateChecked: false,
                 cpSexChecked: false,
+                cpDenwaChecked: false,
+                cpPhoneChecked: false,
+                cpKinmusakinameChecked: false
             }
         }
     },
@@ -293,7 +296,8 @@ export default {
         convertMeiKana() {
             this.koJinJoHoZhy.cpNamemeikana = this.zenkakuAlphNum2hankaku(this.koJinJoHoZhy.cpNamemeikana);
             this.koJinJoHoZhy.cpNamemeikana = this.zenkakuKana2Hankaku(this.koJinJoHoZhy.cpNamemeikana);
-        }
+        },
+        
 
     },
     components: {
