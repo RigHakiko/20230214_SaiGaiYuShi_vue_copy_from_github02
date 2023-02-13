@@ -3,37 +3,49 @@
         <h1>基本情報</h1>
         <div>
             <label>名前</label>
-            <div>姓（漢字）<input type="text" v-model="koJinJoHoZhy.cpNamesei" />
+            <div>
+                <label class="name description" >姓（漢字）</label>
+                <input type="text" v-model="koJinJoHoZhy.cpNamesei" />
                 <span class="errorMessage" id="cpNameseiWarmingTextFormat"
                     v-if="cpNameseiWarmingTextFormatFlag">フォーマットが間違っています。漢字で入力してください。</span>
                 <span class="errorMessage" id="cpNameseiWarmingTextTooLong"
                     v-if="cpNameseiWarmingTextTooLongFlag">入力した内容が長すぎます。再入力してください。</span>
             </div>
-            <div>名（漢字）<input type="text" v-model="koJinJoHoZhy.cpNamemei" />
+            <div>
+                <label class="name description">名（漢字）</label>
+                <input type="text" v-model="koJinJoHoZhy.cpNamemei" />
                 <span class="errorMessage" id="cpNamemeiWarmingTextFormat"
                     v-if="cpNamemeiWarmingTextFormatFlag">フォーマットが間違っています。漢字で入力してください。</span>
                 <span class="errorMessage" id="cpNamemeiWarmingTextTooLong"
                     v-if="cpNamemeiWarmingTextTooLongFlag">入力した内容が長すぎます。再入力してください。</span>
             </div>
-            <div>セイ<input type="text" v-model="koJinJoHoZhy.cpNameseikana" />
+            <div>
+                <label class="name description">セイ</label>
+                <input type="text" v-model="koJinJoHoZhy.cpNameseikana" />
                 <span class="errorMessage" id="cpNameseikanaWarmingTextFormat"
                     v-if="cpNameseikanaWarmingTextFormatFlag">フォーマットが間違っています。カタカナで入力してください。</span>
                 <span class="errorMessage" id="cpNameseikaneWarmingTextTooLong"
                     v-if="cpNameseikaneWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
             </div>
-            <div>メイ<input type="text" v-model="koJinJoHoZhy.cpNamemeikana" />
+            <div>
+                <label class="name description">メイ</label>
+                <input type="text" v-model="koJinJoHoZhy.cpNamemeikana" />
                 <span class="errorMessage" id="cpNamemeikanaWarmingTextFormat"
                     v-if="cpNamemeikanaWarmingTextFormatFlag">フォーマットが間違っています。カタカナで入力してください。</span>
                 <span class="errorMessage" id="cpNamemeikanaWarmingTextTooLong"
                     v-if="cpNamemeikanaWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
             </div>
-            <div>姓（ローマ字）<input type="text" v-model="koJinJoHoZhy.cuAlphlastname" />
+            <div>
+                <label class="name description">姓（ローマ字）</label>
+                <input type="text" v-model="koJinJoHoZhy.cuAlphlastname" />
                 <span class="errorMessage" id="cuAlphlastnameWarmingTextFormat"
                     v-if="cuAlphlastnameWarmingTextFormatFlag">フォーマットが間違っています。ローマ字で入力してください。</span>
                 <span class="errorMessage" id="cuAlphlastnameWarmingTextTooLong"
                     v-if="cuAlphlastnameWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
             </div>
-            <div>名（ローマ字）<input type="text" v-model="koJinJoHoZhy.cuAlphfirstname" />
+            <div>
+                <label class="name description">名（ローマ字）</label>
+                <input type="text" v-model="koJinJoHoZhy.cuAlphfirstname" />
                 <span class="errorMessage" id="cuAlphfirstnameWarmingTextFormat"
                     v-if="cuAlphfirstnameWarmingTextFormatFlag">フォーマットが間違っています。ローマ字で入力してください。</span>
                 <span class="errorMessage" id="cuAlphfirstnameWarmingTextTooLong"
@@ -41,7 +53,7 @@
             </div>
         </div>
         <div>
-            <label>国籍</label>
+            <label class="description">国籍</label>
             <select v-model="koJinJoHoZhy.cpCountry">
                 <option disabled value="">選んでください</option>
                 <option>中国</option>
@@ -103,7 +115,7 @@
             </div>
         </div>
         <div>
-            <label>勤務先（任意）</label>
+            <label class="description">勤務先（任意）</label>
             <div>
                 <input type="text" v-model="koJinJoHoZhy.cpKinmusakiname" :disabled=musyokuFlag />
                 <span class="errorMessage" id="cpKinmusakinameWarmingTextTooLong"
@@ -376,11 +388,25 @@ export default {
 }
 </script>
 <style>
+body{
+    margin: 0px;
+    padding: 0px;
+}
 .errorMessage {
     color: red;
 }
 h1{
     text-align: center;
     color: gray;
+}
+.name{
+    display: inline-block;
+    width: 300px;
+    text-align: right;
+}
+.description{
+    display: inline-block;
+    width: 300px;
+    text-align: right;
 }
 </style>
