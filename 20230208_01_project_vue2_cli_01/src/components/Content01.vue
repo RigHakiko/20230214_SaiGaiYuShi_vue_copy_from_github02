@@ -134,23 +134,25 @@ export default {
     data() {
         return {
             // 数据作为json格式保存
+            // データはjson形式で保存
             koJinJoHoZhy: {
-                cpNamesei: "",
-                cpNamemei: "",
-                cpNameseikana: "",
-                cpNamemeikana: "",
-                cuAlphlastname: "",
-                cuAlphfirstname: "",
-                cpCountry: "",
-                cpBirthdate: "",
-                cpSex: "",
-                cpDenwa: "",
-                cpPhone: "",
-                cpShokugyocode: "",
-                cpKinmusakiname: ""
+                cpNamesei: "", //姓（漢字）
+                cpNamemei: "",　//名（漢字）
+                cpNameseikana: "",　//セイ
+                cpNamemeikana: "",　//メイ
+                cuAlphlastname: "", //姓（ローマ字）
+                cuAlphfirstname: "", //名（ローマ字）
+                cpCountry: "", //国籍
+                cpBirthdate: "", //生年月日
+                cpSex: "", //性別
+                cpDenwa: "", //電話番号
+                cpPhone: "", //携帯電話
+                cpShokugyocode: "", //職業
+                cpKinmusakiname: "" //勤務先
             },
 
             // 各个错误信息的flag, true为显示信息, false表示不显示
+            // 各エラーメッセージのフラグ，メッセージを表示する場合はtrue，表示しない場合はfalse
             cpNameseiWarmingTextFormatFlag: false,
             cpNameseiWarmingTextTooLongFlag: false,
             cpNamemeiWarmingTextFormatFlag: false,
@@ -171,26 +173,31 @@ export default {
             cpShokugyocodeWarmingTextNotSelectedFLag: false,
             cpKinmusakinameWarmingTextTooLongFlag: false,
 
-            // 無職flag, true为无职
+            // 無職flag, trueは無職
             musyokuFlag: false,
 
             // 所有信息通过的flag, true为所有信息都没有问题
+            // 全てのバリデーションフラグをパスする。
             checkedAllFlag: false
         }
     },
     methods: {
         // 通过网络保存到数据库
+        // Web経由でデータベースに保存
         add() {
             axios.post('http://localhost:8813/ko-jin-jo-ho-zhy/save', this.koJinJoHoZhy).then();
         },
         // 弄第2个add方法
+        // Web経由でデータベースに保存
         add2() {
             //在发布时, 去判断是否是无职, 无职的话清空工作地点信息
+            //ポスティングの際、無職かどうかを判断する、無職の場合は職場情報をクリアする
             if (this.musyokuFlag) {
                 this.koJinJoHoZhy.cpKinmusakiname = "";
             }
 
             // 对所有信息check
+            //すべての情報をチェック
             this.cpNameseiCheck();
             this.cpNamemeiCheck();
             this.cpNameseikanaCheck();
@@ -206,6 +213,7 @@ export default {
             this.cpKinmusakinameCheck();
 
             // 根据各个错误信息的显示与否去得到各个信息是否正确
+            // エラーメッセージの表示有無から各情報の正誤を判断する
             this.cpNameseiChecked = ((!(this.cpNameseiWarmingTextFormatFlag)) && (!(this.cpNameseiWarmingTextTooLongFlag)));
             this.cpNamemeiChecked = ((!(this.cpNamemeiWarmingTextFormatFlag)) && (!(this.cpNamemeiWarmingTextTooLongFlag)));
             this.cpNameseikanaChecked = ((!(this.cpNameseikanaWarmingTextFormatFlag)) && (!(this.cpNameseikaneWarmingTextTooLongFlag)));
@@ -221,6 +229,7 @@ export default {
             this.cpKinmusakinameChecked = !(this.cpKinmusakinameWarmingTextTooLongFlag);
 
             // 如果所有信息正确, 则checkedAllFlag为true
+            // すべての情報が正しい場合、checkedAllFlagはtrueになる。
             this.checkedAllFlag =
                 this.cpNameseiChecked &&
                 this.cpNamemeiChecked &&
@@ -235,21 +244,25 @@ export default {
                 this.cpPhoneChecked &&
                 this.cpKinmusakinameChecked;
             // 所有信息都正确的话就去发布
+            // すべての情報が正しい場合は、postする
             if (this.checkedAllFlag) {
                 axios.post('http://localhost:8813/ko-jin-jo-ho-zhy/save', this.koJinJoHoZhy).then();
             } else 
-            // 如果存在有问题的输入, 就alert提示错误 
+            // 如果存在有问题的输入, 就alert提示错误
+            // 入力に異常がある場合、エラーで警告する
             {
                 alert("输入有误")
             }
         },
         // 英数字的全角转换为半角
+        // 英数字の全角-半角変換
         zenkakuAlphNum2hankaku(str) {
             return str.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function (s) {
                 return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
             });
         },
         // カタカナ的全角转换为半角
+        // カタカナの全角から半角への変換
         zenkakuKana2Hankaku(str) {
             var kanaMap = {
                 "ガ": "ｶﾞ", "ギ": "ｷﾞ", "グ": "ｸﾞ", "ゲ": "ｹﾞ", "ゴ": "ｺﾞ",
@@ -281,16 +294,19 @@ export default {
                 .replace(/゜/g, 'ﾟ');
         },
         // 将姓的カナ全角转换为半角
+        // 姓のカナ全角を半角に変換する
         convertSeiKana() {
             this.koJinJoHoZhy.cpNameseikana = this.zenkakuAlphNum2hankaku(this.koJinJoHoZhy.cpNameseikana);
             this.koJinJoHoZhy.cpNameseikana = this.zenkakuKana2Hankaku(this.koJinJoHoZhy.cpNameseikana);
         },
         // 将名的カナ全角转换为半角
+        // 名のカナ全角を半角に変換する
         convertMeiKana() {
             this.koJinJoHoZhy.cpNamemeikana = this.zenkakuAlphNum2hankaku(this.koJinJoHoZhy.cpNamemeikana);
             this.koJinJoHoZhy.cpNamemeikana = this.zenkakuKana2Hankaku(this.koJinJoHoZhy.cpNamemeikana);
         },
         // 下面是各个信息的check函数
+        // 各情報のチェック
         cpNameseiCheck() {
             this.cpNameseiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNamesei));
             this.cpNameseiWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpNamesei.length <= 40);
@@ -342,7 +358,7 @@ export default {
     },
     watch: {
         // 监视各个信息的变化, 随之去展示或不展示错误提示信息
-
+        // 個々の情報の変化を監視し、それに応じてエラーメッセージの表示/非表示を切り替える
         'koJinJoHoZhy.cpNamesei': function () {
             this.cpNameseiCheck();
         } ,
