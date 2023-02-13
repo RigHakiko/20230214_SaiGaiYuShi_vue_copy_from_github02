@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div>基本情報</div>
+        <h1>基本情報</h1>
         <div>
             <label>名前</label>
             <div>姓（漢字）<input type="text" v-model="koJinJoHoZhy.cpNamesei" />
@@ -79,7 +79,6 @@
             </div>
             <span class="errorMessage" id="cpDenwaWarmingTextFormat"
                 v-if="cpDenwaWarmingTextFormatFlag">フォーマットが間違っています。電話番号を入力してください。</span>
-
         </div>
         <div>
             <label>携帯電話</label>
@@ -102,7 +101,6 @@
                 <span class="errorMessage" id="cpShokugyocodeWarmingTextNotSelected"
                     v-if="cpShokugyocodeWarmingTextNotSelectedFLag">職業を選んでください</span>
             </div>
-
         </div>
         <div>
             <label>勤務先（任意）</label>
@@ -224,15 +222,14 @@ export default {
                 this.cpDenwaChecked &&
                 this.cpPhoneChecked &&
                 this.cpKinmusakinameChecked;
-
             // 所有信息都正确的话就去发布
             if (this.checkedAllFlag) {
                 axios.post('http://localhost:8813/ko-jin-jo-ho-zhy/save', this.koJinJoHoZhy).then();
-            } else {
+            } else 
+            // 如果存在有问题的输入, 就alert提示错误 
+            {
                 alert("输入有误")
             }
-
-
         },
         // 英数字的全角转换为半角
         zenkakuAlphNum2hankaku(str) {
@@ -281,7 +278,6 @@ export default {
             this.koJinJoHoZhy.cpNamemeikana = this.zenkakuAlphNum2hankaku(this.koJinJoHoZhy.cpNamemeikana);
             this.koJinJoHoZhy.cpNamemeikana = this.zenkakuKana2Hankaku(this.koJinJoHoZhy.cpNamemeikana);
         },
-
         // 下面是各个信息的check函数
         cpNameseiCheck() {
             this.cpNameseiWarmingTextFormatFlag = !(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNamesei));
@@ -302,7 +298,6 @@ export default {
         cuAlphlastnameCheck() {
             this.cuAlphlastnameWarmingTextFormatFlag = !(/^[a-zA-Z]+$/g.test(this.koJinJoHoZhy.cuAlphlastname))
             this.cuAlphlastnameWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cuAlphlastname.length <= 40);
-
         },
         cuAlphfirstnameCheck() {
             this.cuAlphfirstnameWarmingTextFormatFlag = !(/^[a-zA-Z]+$/g.test(this.koJinJoHoZhy.cuAlphfirstname))
@@ -338,12 +333,10 @@ export default {
 
         'koJinJoHoZhy.cpNamesei': function () {
             this.cpNameseiCheck();
-        }
-        ,
+        } ,
         'koJinJoHoZhy.cpNamemei': function () {
             this.cpNamemeiCheck();
         },
-
         'koJinJoHoZhy.cpNameseikana': function () {
             this.convertSeiKana();
             this.cpNameseikanaCheck()
@@ -385,5 +378,9 @@ export default {
 <style>
 .errorMessage {
     color: red;
+}
+h1{
+    text-align: center;
+    color: gray;
 }
 </style>
