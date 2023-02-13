@@ -161,10 +161,10 @@ export default {
             cpShokugyocodeWarmingTextNotSelectedFLag: false,
             cpKinmusakinameWarmingTextTooLongFlag: false,
 
-            // 無職flag
+            // 無職flag, true为无职
             musyokuFlag: false,
 
-            // 所有信息通过的flag
+            // 所有信息通过的flag, true为所有信息都没有问题
             checkedAllFlag: false
         }
     },
@@ -271,10 +271,12 @@ export default {
                 .replace(/゛/g, 'ﾞ')
                 .replace(/゜/g, 'ﾟ');
         },
+        // 将姓的カナ全角转换为半角
         convertSeiKana() {
             this.koJinJoHoZhy.cpNameseikana = this.zenkakuAlphNum2hankaku(this.koJinJoHoZhy.cpNameseikana);
             this.koJinJoHoZhy.cpNameseikana = this.zenkakuKana2Hankaku(this.koJinJoHoZhy.cpNameseikana);
         },
+        // 将名的カナ全角转换为半角
         convertMeiKana() {
             this.koJinJoHoZhy.cpNamemeikana = this.zenkakuAlphNum2hankaku(this.koJinJoHoZhy.cpNamemeikana);
             this.koJinJoHoZhy.cpNamemeikana = this.zenkakuKana2Hankaku(this.koJinJoHoZhy.cpNamemeikana);
