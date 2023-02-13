@@ -3,8 +3,9 @@
         <h1>基本情報</h1>
         <div>
             <label>名前</label>
-            <div>
-                <label class="name description" >姓（漢字）</label>
+
+            <label class="name description">姓（漢字）</label>
+            <div class="kiho">
                 <input type="text" v-model="koJinJoHoZhy.cpNamesei" />
                 <span class="errorMessage" id="cpNameseiWarmingTextFormat"
                     v-if="cpNameseiWarmingTextFormatFlag">フォーマットが間違っています。漢字で入力してください。</span>
@@ -13,72 +14,93 @@
             </div>
             <div>
                 <label class="name description">名（漢字）</label>
-                <input type="text" v-model="koJinJoHoZhy.cpNamemei" />
-                <span class="errorMessage" id="cpNamemeiWarmingTextFormat"
-                    v-if="cpNamemeiWarmingTextFormatFlag">フォーマットが間違っています。漢字で入力してください。</span>
-                <span class="errorMessage" id="cpNamemeiWarmingTextTooLong"
-                    v-if="cpNamemeiWarmingTextTooLongFlag">入力した内容が長すぎます。再入力してください。</span>
+                <div class="kiho">
+                    <input type="text" v-model="koJinJoHoZhy.cpNamemei" />
+                    <span class="errorMessage" id="cpNamemeiWarmingTextFormat"
+                        v-if="cpNamemeiWarmingTextFormatFlag">フォーマットが間違っています。漢字で入力してください。</span>
+                    <span class="errorMessage" id="cpNamemeiWarmingTextTooLong"
+                        v-if="cpNamemeiWarmingTextTooLongFlag">入力した内容が長すぎます。再入力してください。</span>
+                </div>
+
             </div>
             <div>
                 <label class="name description">セイ</label>
-                <input type="text" v-model="koJinJoHoZhy.cpNameseikana" />
-                <span class="errorMessage" id="cpNameseikanaWarmingTextFormat"
-                    v-if="cpNameseikanaWarmingTextFormatFlag">フォーマットが間違っています。カタカナで入力してください。</span>
-                <span class="errorMessage" id="cpNameseikaneWarmingTextTooLong"
-                    v-if="cpNameseikaneWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
+                <div class="kiho">
+                    <input type="text" v-model="koJinJoHoZhy.cpNameseikana" />
+                    <span class="errorMessage" id="cpNameseikanaWarmingTextFormat"
+                        v-if="cpNameseikanaWarmingTextFormatFlag">フォーマットが間違っています。カタカナで入力してください。</span>
+                    <span class="errorMessage" id="cpNameseikaneWarmingTextTooLong"
+                        v-if="cpNameseikaneWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
+                </div>
+
             </div>
             <div>
                 <label class="name description">メイ</label>
-                <input type="text" v-model="koJinJoHoZhy.cpNamemeikana" />
-                <span class="errorMessage" id="cpNamemeikanaWarmingTextFormat"
-                    v-if="cpNamemeikanaWarmingTextFormatFlag">フォーマットが間違っています。カタカナで入力してください。</span>
-                <span class="errorMessage" id="cpNamemeikanaWarmingTextTooLong"
-                    v-if="cpNamemeikanaWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
+                <div class="kiho">
+                    <input type="text" v-model="koJinJoHoZhy.cpNamemeikana" />
+                    <span class="errorMessage" id="cpNamemeikanaWarmingTextFormat"
+                        v-if="cpNamemeikanaWarmingTextFormatFlag">フォーマットが間違っています。カタカナで入力してください。</span>
+                    <span class="errorMessage" id="cpNamemeikanaWarmingTextTooLong"
+                        v-if="cpNamemeikanaWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
+                </div>
+
             </div>
             <div>
                 <label class="name description">姓（ローマ字）</label>
-                <input type="text" v-model="koJinJoHoZhy.cuAlphlastname" />
-                <span class="errorMessage" id="cuAlphlastnameWarmingTextFormat"
-                    v-if="cuAlphlastnameWarmingTextFormatFlag">フォーマットが間違っています。ローマ字で入力してください。</span>
-                <span class="errorMessage" id="cuAlphlastnameWarmingTextTooLong"
-                    v-if="cuAlphlastnameWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
+                <div class="kiho">
+                    <input type="text" v-model="koJinJoHoZhy.cuAlphlastname" />
+                    <span class="errorMessage" id="cuAlphlastnameWarmingTextFormat"
+                        v-if="cuAlphlastnameWarmingTextFormatFlag">フォーマットが間違っています。ローマ字で入力してください。</span>
+                    <span class="errorMessage" id="cuAlphlastnameWarmingTextTooLong"
+                        v-if="cuAlphlastnameWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
+                </div>
+
             </div>
             <div>
                 <label class="name description">名（ローマ字）</label>
-                <input type="text" v-model="koJinJoHoZhy.cuAlphfirstname" />
-                <span class="errorMessage" id="cuAlphfirstnameWarmingTextFormat"
-                    v-if="cuAlphfirstnameWarmingTextFormatFlag">フォーマットが間違っています。ローマ字で入力してください。</span>
-                <span class="errorMessage" id="cuAlphfirstnameWarmingTextTooLong"
-                    v-if="cuAlphfirstnameWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
+                <div class="kiho">
+                    <input type="text" v-model="koJinJoHoZhy.cuAlphfirstname" />
+                    <span class="errorMessage" id="cuAlphfirstnameWarmingTextFormat"
+                        v-if="cuAlphfirstnameWarmingTextFormatFlag">フォーマットが間違っています。ローマ字で入力してください。</span>
+                    <span class="errorMessage" id="cuAlphfirstnameWarmingTextTooLong"
+                        v-if="cuAlphfirstnameWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
+                </div>
+
             </div>
         </div>
         <div>
             <label class="description">国籍</label>
-            <select v-model="koJinJoHoZhy.cpCountry">
-                <option disabled value="">選んでください</option>
-                <option>中国</option>
-                <option>日本</option>
-                <option>韓国</option>
-                <option>スペイン</option>
-            </select>
-            <span class="errorMessage" id="cpCountryWarmingTextNotSelected"
-                v-if="cpCountryWarmingTextNotSelectedFlag">国籍を選択してください。</span>
+            <div class="kiho">
+                <select v-model="koJinJoHoZhy.cpCountry">
+                    <option disabled value="">選んでください</option>
+                    <option>中国</option>
+                    <option>日本</option>
+                    <option>韓国</option>
+                    <option>スペイン</option>
+                </select>
+                <span class="errorMessage" id="cpCountryWarmingTextNotSelected"
+                    v-if="cpCountryWarmingTextNotSelectedFlag">国籍を選択してください。</span>
+            </div>
+
 
         </div>
         <div>
             <label>性別</label>
-            <input type="radio" name="sex" id="男" value="男" checked v-model="koJinJoHoZhy.cpSex"
-                :checked="koJinJoHoZhy.cpSex" />男
-            <input type="radio" name="sex" id="女" value="女" v-model="koJinJoHoZhy.cpSex"
-                :checked="koJinJoHoZhy.cpSex" />女
-            <input type="radio" name="sex" id="Decline to State" value="Decline to State" v-model="koJinJoHoZhy.cpSex"
-                :checked="koJinJoHoZhy.cpSex" />Decline to State（声明拒否）
-            <span class="errorMessage" id="cpSexWarmingTextNotSelected"
-                v-if="cpSexWarmingTextNotSelectedFlag">性別を選んでください。</span>
+            <div class="kiho">
+                <input type="radio" name="sex" id="男" value="男" checked v-model="koJinJoHoZhy.cpSex"
+                    :checked="koJinJoHoZhy.cpSex" />男
+                <input type="radio" name="sex" id="女" value="女" v-model="koJinJoHoZhy.cpSex"
+                    :checked="koJinJoHoZhy.cpSex" />女
+                <input type="radio" name="sex" id="Decline to State" value="Decline to State"
+                    v-model="koJinJoHoZhy.cpSex" :checked="koJinJoHoZhy.cpSex" />Decline to State（声明拒否）
+                <span class="errorMessage" id="cpSexWarmingTextNotSelected"
+                    v-if="cpSexWarmingTextNotSelectedFlag">性別を選んでください。</span>
+            </div>
+
         </div>
         <div>
             <label>生年月日</label>
-            <div>
+            <div class="kiho">
                 <input type="date" v-model="koJinJoHoZhy.cpBirthdate" />
                 <span class="errorMessage" id="cpBirthdateWarmingTextFormat" v-if="cpBirthdateWarmingTextFormatFlag">
                     日付を入力してください。</span>
@@ -86,23 +108,29 @@
         </div>
         <div>
             <label>電話番号（任意）</label>
-            <div>
-                <input type="text" v-model="koJinJoHoZhy.cpDenwa" />
+            <div class="kiho">
+                <div>
+                    <input type="text" v-model="koJinJoHoZhy.cpDenwa" />
+                </div>
+                <span class="errorMessage" id="cpDenwaWarmingTextFormat"
+                    v-if="cpDenwaWarmingTextFormatFlag">フォーマットが間違っています。電話番号を入力してください。</span>
             </div>
-            <span class="errorMessage" id="cpDenwaWarmingTextFormat"
-                v-if="cpDenwaWarmingTextFormatFlag">フォーマットが間違っています。電話番号を入力してください。</span>
+
         </div>
         <div>
             <label>携帯電話</label>
-            <div>
-                <input type="text" v-model="koJinJoHoZhy.cpPhone" />
+            <div class="kiho">
+                <div>
+                    <input type="text" v-model="koJinJoHoZhy.cpPhone" />
+                </div>
+                <span class="errorMessage" id="cpPhoneWarmingTextFormat"
+                    v-if="cpPhoneWarmingTextFormatFlag">フォーマットが間違っています。電話番号を入力してください。</span>
             </div>
-            <span class="errorMessage" id="cpPhoneWarmingTextFormat"
-                v-if="cpPhoneWarmingTextFormatFlag">フォーマットが間違っています。電話番号を入力してください。</span>
+
         </div>
         <div>
             <label>職業</label>
-            <div>
+            <div class="kiho">
                 <select v-model="koJinJoHoZhy.cpShokugyocode">
                     <option value="01">01 自営業</option>
                     <option value="02">02 公務員</option>
@@ -116,7 +144,7 @@
         </div>
         <div>
             <label class="description">勤務先（任意）</label>
-            <div>
+            <div class="kiho">
                 <input type="text" v-model="koJinJoHoZhy.cpKinmusakiname" :disabled=musyokuFlag />
                 <span class="errorMessage" id="cpKinmusakinameWarmingTextTooLong"
                     v-if="cpKinmusakinameWarmingTextTooLongFlag">入力した勤務先が長すぎます。再入力してください。</span>
@@ -247,7 +275,7 @@ export default {
             // すべての情報が正しい場合は、postする
             if (this.checkedAllFlag) {
                 axios.post('http://localhost:8813/ko-jin-jo-ho-zhy/save', this.koJinJoHoZhy).then();
-            } else 
+            } else
             // 如果存在有问题的输入, 就alert提示错误
             // 入力に異常がある場合、エラーで警告する
             {
@@ -341,7 +369,7 @@ export default {
             this.cpSexWarmingTextNotSelectedFlag = (this.koJinJoHoZhy.cpSex == "")
         },
         cpDenwaCheck() {
-            this.cpDenwaWarmingTextFormatFlag = (this.koJinJoHoZhy.cpDenwa != "")&&(!(/^0[789]0-[0-9]{4}-[0-9]{4}$/.test(this.koJinJoHoZhy.cpDenwa)));
+            this.cpDenwaWarmingTextFormatFlag = (this.koJinJoHoZhy.cpDenwa != "") && (!(/^0[789]0-[0-9]{4}-[0-9]{4}$/.test(this.koJinJoHoZhy.cpDenwa)));
         },
         cpPhoneCheck() {
             this.cpPhoneWarmingTextFormatFlag = !(/^0[789]0-[0-9]{4}-[0-9]{4}$/.test(this.koJinJoHoZhy.cpPhone));
@@ -361,7 +389,7 @@ export default {
         // 個々の情報の変化を監視し、それに応じてエラーメッセージの表示/非表示を切り替える
         'koJinJoHoZhy.cpNamesei': function () {
             this.cpNameseiCheck();
-        } ,
+        },
         'koJinJoHoZhy.cpNamemei': function () {
             this.cpNamemeiCheck();
         },
@@ -404,25 +432,35 @@ export default {
 }
 </script>
 <style>
-body{
+body {
     margin: 0px;
     padding: 0px;
 }
+
 .errorMessage {
     color: red;
 }
-h1{
+
+h1 {
     text-align: center;
     color: gray;
 }
-.name{
+
+.name {
     display: inline-block;
     width: 300px;
     text-align: right;
 }
-.description{
+
+.description {
     display: inline-block;
     width: 300px;
     text-align: right;
+}
+
+.kiho {
+    display: inline;
+    width: 300px;
+    position: relative;
 }
 </style>
