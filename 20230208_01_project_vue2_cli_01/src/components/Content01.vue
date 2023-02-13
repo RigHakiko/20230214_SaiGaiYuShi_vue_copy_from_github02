@@ -432,6 +432,7 @@ export default {
 body {
     margin: 0px;
     padding: 0px;
+    background-image: url('../assets/f9813a4be9400206337f412e09adeb78.jpg');
 }
 
 .errorMessage {
