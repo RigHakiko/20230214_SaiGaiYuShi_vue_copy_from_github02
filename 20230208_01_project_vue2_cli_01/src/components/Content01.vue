@@ -139,7 +139,7 @@
                     <option value="05">05 無職</option>
                 </select>
                 <span class="errorMessage" id="cpShokugyocodeWarmingTextNotSelected"
-                    v-if="cpShokugyocodeWarmingTextNotSelectedFLag">職業を選んでください</span>
+                    v-if="cpShokugyocodeWarmingTextNotSelectedFlag">職業を選んでください</span>
             </div>
         </div>
         <div>
@@ -198,7 +198,7 @@ export default {
             cpBirthdateWarmingTextFormatFlag: false,
             cpDenwaWarmingTextFormatFlag: false,
             cpPhoneWarmingTextFormatFlag: false,
-            cpShokugyocodeWarmingTextNotSelectedFLag: false,
+            cpShokugyocodeWarmingTextNotSelectedFlag: false,
             cpKinmusakinameWarmingTextTooLongFlag: false,
 
             // 無職flag, trueは無職
@@ -253,7 +253,7 @@ export default {
             this.cpSexChecked = !this.cpSexWarmingTextNotSelectedFlag;
             this.cpDenwaChecked = !this.cpDenwaWarmingTextFormatFlag;
             this.cpPhoneChecked = !(this.cpPhoneWarmingTextFormatFlag);
-            this.cpShokugyocodeChecked = ((!(this.musyokuFlag)) && (!(this.cpShokugyocodeWarmingTextNotSelectedFLag)));
+            this.cpShokugyocodeChecked = ((!(this.musyokuFlag)) && (!(this.cpShokugyocodeWarmingTextNotSelectedFlag)));
             this.cpKinmusakinameChecked = !(this.cpKinmusakinameWarmingTextTooLongFlag);
 
             // 如果所有信息正确, 则checkedAllFlag为true
@@ -376,7 +376,7 @@ export default {
         },
         cpShokugyocodeCheck() {
             this.musyokuFlag = (this.koJinJoHoZhy.cpShokugyocode == "05");
-            this.cpShokugyocodeWarmingTextNotSelectedFLag = ((this.musyokuFlag != "05") && (this.koJinJoHoZhy.cpShokugyocode == ""));
+            this.cpShokugyocodeWarmingTextNotSelectedFlag = ((this.musyokuFlag != "05") && (this.koJinJoHoZhy.cpShokugyocode == ""));
         },
         cpKinmusakinameCheck() {
             this.cpKinmusakinameWarmingTextTooLongFlag = !(this.koJinJoHoZhy.cpKinmusakiname.length <= 40);
