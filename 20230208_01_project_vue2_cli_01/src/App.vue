@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Content01></Content01>
-    <!-- <Content01CopyTmp></Content01CopyTmp> -->
+    <Content01CopyTmp></Content01CopyTmp>
   </div>
 </template>
 

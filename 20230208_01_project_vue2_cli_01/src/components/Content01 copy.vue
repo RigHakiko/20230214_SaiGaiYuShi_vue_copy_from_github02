@@ -22,12 +22,14 @@ export default {
                 cpNamesei: "",
                 cuAlphlastname: ""
             },
-            regKanji: /^[\u4E00-\u9FA5]/g,
+            // regKanji: /^[\u4E00-\u9FA5]+$/g,
+            regKanji: new RegExp('^[\\u4E00-\\u9FA5]+$'),
             cpNameseiWarmingTextFormatFlag: false,
             cpNameseiWarmingTextToLongFlag: false,
             cuAlphlastnameWarmingTextFormatFlag: false,
             cuAlphlastnameWarmingTextTooLongFlag: false,
-            regEnglish: /^[a-zA-Z]*$/g,
+            // regEnglish: /^[a-zA-Z]+$/g,
+            regEnglish: /^[a-zA-Z]+$/g,
             
         }
     },
@@ -44,7 +46,7 @@ export default {
             // console.log(this.regKanji);
             // console.log(this.koJinJoHoZhy.cpNamesei);
             console.log(this.regKanji.test(this.koJinJoHoZhy.cpNamesei));
-            console.log(/^[\u4E00-\u9FA5]/g.test(this.koJinJoHoZhy.cpNamesei));
+            console.log(/^[\u4E00-\u9FA5]+$/g.test(this.koJinJoHoZhy.cpNamesei));
             console.log("------------")
         },
         'koJinJoHoZhy.cuAlphlastname': function(){
@@ -54,6 +56,8 @@ export default {
     }
     ,
     created() {
+        // this.regEnglish = new RegExp( '^[a-zA-Z]+$');
+        // this.regKanji = new RegExp('^[\\u4E00-\\u9FA5]+$');
     }
 
 }
