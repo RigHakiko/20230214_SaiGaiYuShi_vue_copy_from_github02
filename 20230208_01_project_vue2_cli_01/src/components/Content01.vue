@@ -2,11 +2,6 @@
     <div>
         <h1>基本情報</h1>
         <div>
-            <!-- <div>
-
-            <label>名前</label>
-            </div> -->
-
             <label class="name description">姓（漢字）</label>
             <div class="kiho">
                 <input type="text" v-model="koJinJoHoZhy.cpNamesei" />
