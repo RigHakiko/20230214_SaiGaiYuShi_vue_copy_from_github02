@@ -148,8 +148,8 @@
             </div>
         </div>
         <div class="buttons">
-            <input type="button" value="push" @click="add" />
-            <input type="button" value="push" @click="add2" />
+            <input type="button" value="基本情報保存" @click="add" />
+            <input type="button" value="次へ" @click="add2" />
         </div>
     </div>
 </template>
