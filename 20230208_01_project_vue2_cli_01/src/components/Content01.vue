@@ -2,7 +2,10 @@
     <div>
         <h1>基本情報</h1>
         <div>
+            <!-- <div>
+
             <label>名前</label>
+            </div> -->
 
             <label class="name description">姓（漢字）</label>
             <div class="kiho">
@@ -81,11 +84,9 @@
                 <span class="errorMessage" id="cpCountryWarmingTextNotSelected"
                     v-if="cpCountryWarmingTextNotSelectedFlag">国籍を選択してください。</span>
             </div>
-
-
         </div>
         <div>
-            <label>性別</label>
+            <label class="description">性別</label>
             <div class="kiho">
                 <input type="radio" name="sex" id="男" value="男" checked v-model="koJinJoHoZhy.cpSex"
                     :checked="koJinJoHoZhy.cpSex" />男
@@ -99,7 +100,7 @@
 
         </div>
         <div>
-            <label>生年月日</label>
+            <label class="description">生年月日</label>
             <div class="kiho">
                 <input type="date" v-model="koJinJoHoZhy.cpBirthdate" />
                 <span class="errorMessage" id="cpBirthdateWarmingTextFormat" v-if="cpBirthdateWarmingTextFormatFlag">
@@ -107,29 +108,25 @@
             </div>
         </div>
         <div>
-            <label>電話番号（任意）</label>
+            <label class="description">電話番号（任意）</label>
             <div class="kiho">
-                <div>
                     <input type="text" v-model="koJinJoHoZhy.cpDenwa" />
-                </div>
                 <span class="errorMessage" id="cpDenwaWarmingTextFormat"
                     v-if="cpDenwaWarmingTextFormatFlag">フォーマットが間違っています。電話番号を入力してください。</span>
             </div>
 
         </div>
         <div>
-            <label>携帯電話</label>
+            <label class="description">携帯電話</label>
             <div class="kiho">
-                <div>
                     <input type="text" v-model="koJinJoHoZhy.cpPhone" />
-                </div>
                 <span class="errorMessage" id="cpPhoneWarmingTextFormat"
                     v-if="cpPhoneWarmingTextFormatFlag">フォーマットが間違っています。電話番号を入力してください。</span>
             </div>
 
         </div>
         <div>
-            <label>職業</label>
+            <label class="description">職業</label>
             <div class="kiho">
                 <select v-model="koJinJoHoZhy.cpShokugyocode">
                     <option value="01">01 自営業</option>
@@ -150,7 +147,7 @@
                     v-if="cpKinmusakinameWarmingTextTooLongFlag">入力した勤務先が長すぎます。再入力してください。</span>
             </div>
         </div>
-        <div>
+        <div class="buttons">
             <input type="button" value="push" @click="add" />
             <input type="button" value="push" @click="add2" />
         </div>
@@ -462,5 +459,8 @@ h1 {
     display: inline;
     width: 300px;
     position: relative;
+}
+.buttons{
+    text-align: center;
 }
 </style>
