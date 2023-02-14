@@ -22,7 +22,6 @@
                     <span class="errorMessage" id="cpNamemeiWarmingTextTooLong"
                         v-if="cpNamemeiWarmingTextTooLongFlag">入力した内容が長すぎます。再入力してください。</span>
                 </div>
-
             </div>
             <div>
                 <label class="name description">セイ *</label>
@@ -33,7 +32,6 @@
                     <span class="errorMessage" id="cpNameseikaneWarmingTextTooLong"
                         v-if="cpNameseikaneWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
                 </div>
-
             </div>
             <div>
                 <label class="name description">メイ *</label>
@@ -44,7 +42,6 @@
                     <span class="errorMessage" id="cpNamemeikanaWarmingTextTooLong"
                         v-if="cpNamemeikanaWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
                 </div>
-
             </div>
             <div>
                 <label class="name description">姓（ローマ字） *</label>
@@ -55,7 +52,6 @@
                     <span class="errorMessage" id="cuAlphlastnameWarmingTextTooLong"
                         v-if="cuAlphlastnameWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
                 </div>
-
             </div>
             <div>
                 <label class="name description">名（ローマ字） *</label>
@@ -66,7 +62,6 @@
                     <span class="errorMessage" id="cuAlphfirstnameWarmingTextTooLong"
                         v-if="cuAlphfirstnameWarmingTextTooLongFlag">入力したカタカナが長すぎます。再入力してください。</span>
                 </div>
-
             </div>
         </div>
         <div>
@@ -95,7 +90,6 @@
                 <span class="errorMessage" id="cpSexWarmingTextNotSelected"
                     v-if="cpSexWarmingTextNotSelectedFlag">性別を選んでください。</span>
             </div>
-
         </div>
         <div>
             <label class="description">生年月日 *</label>
@@ -112,7 +106,6 @@
                 <span class="errorMessage" id="cpDenwaWarmingTextFormat"
                     v-if="cpDenwaWarmingTextFormatFlag">フォーマットが間違っています。電話番号を入力してください。</span>
             </div>
-
         </div>
         <div>
             <label class="description">携帯電話 *</label>
@@ -121,7 +114,6 @@
                 <span class="errorMessage" id="cpPhoneWarmingTextFormat"
                     v-if="cpPhoneWarmingTextFormatFlag">フォーマットが間違っています。電話番号を入力してください。</span>
             </div>
-
         </div>
         <div>
             <label class="description">職業 *</label>
