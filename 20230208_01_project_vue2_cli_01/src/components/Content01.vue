@@ -1,8 +1,11 @@
 <template>
     <div>
         <h1>基本情報</h1>
+        <div class="representDiv">
+            <span class="represent">*は必須項目です。</span>
+        </div>
         <div>
-            <label class="name description">姓（漢字）</label>
+            <label class="name description">姓（漢字） *</label>
             <div class="kiho">
                 <input type="text" v-model="koJinJoHoZhy.cpNamesei" />
                 <span class="errorMessage" id="cpNameseiWarmingTextFormat"
@@ -11,7 +14,7 @@
                     v-if="cpNameseiWarmingTextTooLongFlag">入力した内容が長すぎます。再入力してください。</span>
             </div>
             <div>
-                <label class="name description">名（漢字）</label>
+                <label class="name description">名（漢字） *</label>
                 <div class="kiho">
                     <input type="text" v-model="koJinJoHoZhy.cpNamemei" />
                     <span class="errorMessage" id="cpNamemeiWarmingTextFormat"
@@ -22,7 +25,7 @@
 
             </div>
             <div>
-                <label class="name description">セイ</label>
+                <label class="name description">セイ *</label>
                 <div class="kiho">
                     <input type="text" v-model="koJinJoHoZhy.cpNameseikana" />
                     <span class="errorMessage" id="cpNameseikanaWarmingTextFormat"
@@ -33,7 +36,7 @@
 
             </div>
             <div>
-                <label class="name description">メイ</label>
+                <label class="name description">メイ *</label>
                 <div class="kiho">
                     <input type="text" v-model="koJinJoHoZhy.cpNamemeikana" />
                     <span class="errorMessage" id="cpNamemeikanaWarmingTextFormat"
@@ -44,7 +47,7 @@
 
             </div>
             <div>
-                <label class="name description">姓（ローマ字）</label>
+                <label class="name description">姓（ローマ字） *</label>
                 <div class="kiho">
                     <input type="text" v-model="koJinJoHoZhy.cuAlphlastname" />
                     <span class="errorMessage" id="cuAlphlastnameWarmingTextFormat"
@@ -55,7 +58,7 @@
 
             </div>
             <div>
-                <label class="name description">名（ローマ字）</label>
+                <label class="name description">名（ローマ字） *</label>
                 <div class="kiho">
                     <input type="text" v-model="koJinJoHoZhy.cuAlphfirstname" />
                     <span class="errorMessage" id="cuAlphfirstnameWarmingTextFormat"
@@ -67,7 +70,7 @@
             </div>
         </div>
         <div>
-            <label class="description">国籍</label>
+            <label class="description">国籍 *</label>
             <div class="kiho">
                 <select v-model="koJinJoHoZhy.cpCountry">
                     <option disabled value="">選んでください</option>
@@ -81,7 +84,7 @@
             </div>
         </div>
         <div>
-            <label class="description">性別</label>
+            <label class="description">性別 *</label>
             <div class="kiho">
                 <input type="radio" name="sex" id="男" value="男" checked v-model="koJinJoHoZhy.cpSex"
                     :checked="koJinJoHoZhy.cpSex" />男
@@ -95,7 +98,7 @@
 
         </div>
         <div>
-            <label class="description">生年月日</label>
+            <label class="description">生年月日 *</label>
             <div class="kiho">
                 <input type="date" v-model="koJinJoHoZhy.cpBirthdate" />
                 <span class="errorMessage" id="cpBirthdateWarmingTextFormat" v-if="cpBirthdateWarmingTextFormatFlag">
@@ -112,7 +115,7 @@
 
         </div>
         <div>
-            <label class="description">携帯電話</label>
+            <label class="description">携帯電話 *</label>
             <div class="kiho">
                     <input type="text" v-model="koJinJoHoZhy.cpPhone" />
                 <span class="errorMessage" id="cpPhoneWarmingTextFormat"
@@ -121,7 +124,7 @@
 
         </div>
         <div>
-            <label class="description">職業</label>
+            <label class="description">職業 *</label>
             <div class="kiho">
                 <select v-model="koJinJoHoZhy.cpShokugyocode">
                     <option value="01">01 自営業</option>
@@ -457,6 +460,12 @@ h1 {
     position: relative;
 }
 .buttons{
+    text-align: center;
+}
+.represent{
+    color: red;
+}
+.representDiv{
     text-align: center;
 }
 </style>
