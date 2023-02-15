@@ -5,6 +5,9 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
 
     state: {
+        KoJinJoHoZhyInContent01: {
+            
+        },
         CollateralProviderZhyInContent02: {
             CpTanpoMono: "",
             CpNameMei: "",

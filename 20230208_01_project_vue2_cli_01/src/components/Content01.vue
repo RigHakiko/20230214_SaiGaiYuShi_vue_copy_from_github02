@@ -193,7 +193,9 @@ export default {
 
             // 所有信息通过的flag, true为所有信息都没有问题
             // 全てのバリデーションフラグをパスする。
-            checkedAllFlag: false
+            checkedAllFlag: false,
+
+            KoJinJoHoZhyInContent01: this.$store.state.KoJinJoHoZhyInContent01
         }
     },
     methods: {
@@ -261,6 +263,7 @@ export default {
             // 所有信息都正确的话就去发布
             // すべての情報が正しい場合は、postする
             if (this.checkedAllFlag) {
+                KoJinJoHoZhyInContent01 = this.koJinJoHoZhy
                 axios.post('http://localhost:8813/ko-jin-jo-ho-zhy/save', this.koJinJoHoZhy).then();
             } else
             // 如果存在有问题的输入, 就alert提示错误
