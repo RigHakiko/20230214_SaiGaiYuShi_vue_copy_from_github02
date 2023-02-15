@@ -7,7 +7,30 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
 
+export default {
+    data() {
+        return {
+            collateralProviderZhy: {
+                CpTanpoMono: "",
+                CpNameMei: "",
+                CpNameMeiKana: "",
+                CpNameSei: "",
+                CpNameSeiKana: "",
+                CpBirthDateYear: null,
+                CpBirthDate: "",
+                CpMoushikomi: "",
+                CpRentaiSaimushaToOnaji: "",
+                CpPhone: "",
+                CpHonninShokugyoCode: "",
+                CpHonninKinmusakiName: "",
+                CpReason: "",
+                CpSame: ""
+            }
+        }
+    }
+}
 </script>
 <style>
 /* *{
