@@ -1,6 +1,7 @@
 <template>
     <div>
         test
+        <span>fjweofjwei</span>
         <!-- <table></table> -->
         <input type="button" value="tmp" />
     </div>
@@ -9,7 +10,7 @@
 
 </script>
 <style>
-*{
+/* *{
     background-color: red;
-}
+} */
 </style>
