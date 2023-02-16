@@ -10,6 +10,11 @@ const routes = [
         path: '/Content02',
         name: 'Content02',
         component: Content02
+    },
+    {
+        path: '/',
+        name: 'Content01',
+        component: Content01
     }
 ]
 
