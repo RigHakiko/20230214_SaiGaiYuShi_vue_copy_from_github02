@@ -3,7 +3,7 @@
         test
         <span>fjweofjwei</span>
         <!-- <table></table> -->
-        <input type="button" value="tmp" />
+        <input type="button" value="tmp" @click="" />
     </div>
 </template>
 <script>
@@ -28,6 +28,11 @@ export default {
                 CpReason: "",
                 CpSame: ""
             }
+        }
+    },
+    methods: {
+        next(){
+            axios.post("http://localhost:8813/CollateralProviderZhy/save", this.collateralProviderZhy)
         }
     }
 }
