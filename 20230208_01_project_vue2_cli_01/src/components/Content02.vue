@@ -288,7 +288,7 @@ export default {
             this.cpNameSeiKanaWarmingTextTooLongFlag = (this.collateralProviderZhy.cpNameSei.length > 40);
         },
         cpBirthDateYearCheck() {
-            this.cpBirthDateYearCheck = (this.cpBirthDate == "");
+            this.cpBirthDateYearWarmingTextNotSelectedFlag = (this.cpBirthDate == "");
         },
         cpBirthDateCheck() {
             this.cpBirthDateWarmingTextMinusFlag = (this.cpBirthDate < 0);
@@ -326,7 +326,7 @@ export default {
                 this.collateralProviderZhy.cpMoushikomi = this.reasons.join(",")
             },
             'collateralProviderZhy.cpTanpoMono': function () {
-                this.collateralProviderZhy.heck();
+                this.cpTanpoMonoCheck();
             },
             'collateralProviderZhy.cpNameMei': function () {
                 this.cpNameMeiCheck();
