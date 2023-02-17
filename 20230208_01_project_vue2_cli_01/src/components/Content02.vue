@@ -227,20 +227,20 @@ export default {
             this.cpReasonCheck();
             this.cpSameCheck();
 
-            this.cpTanpoMonoChecked = ((!cpTanpoMonoWarmingTextNotSelectedFlag));
-            this.cpNameMeiChecked = ((!cpNameMeiWarmingTextFormatFlag) || (!cpNameMeiWarmingTextTooLongFlag));
-            this.cpNameMeiKanaChecked = ((!cpNameMeiKanaWarmingTextFormatFlag) || (!cpNameMeiKanaWarmingTextTooLongFlag));
-            this.cpNameSeiChecked = ((!cpNameSeiWarmingTextFormatFlag) || (!cpNameSeiWarmingTextTooLongFlag));
-            this.cpNameSeiKanaChecked = ((!cpNameSeiKanaWarmingTextFormatFlag) || (!cpNameSeiKanaWarmingTextTooLongFlag));
-            this.cpBirthDateYearChecked = ((!cpBirthDateYearWarmingTextNotSelectedFlag));
-            this.cpBirthDateChecked = ((!cpBirthDateWarmingTextMinusFlag));
-            this.cpMoushikomiChecked = ((!cpMoushikomiWarmingTextNotSelectedFlag));
-            this.cpRentaiSaimushaToOnajiChecked = ((!cpRentaiSaimushaToOnajiWarmingTextNotSelectedFlag));
-            this.cpPhoneChecked = ((!cpPhoneWarmingTextFormatFlag));
-            this.cpHonninShokugyoCodeChecked = ((!cpPhoneWarmingTextFormatFlag));
-            this.cpHonninKinmusakiNameChecked = ((!cpHonninKinmusakiNameWarmingTextFormatFlag));
-            this.cpReasonChecked = ((!cpReasonWarmingTextTooShortFlag) || (!cpReasonWarmingTextTooLongFlag));
-            this.cpSameChecked = ((!cpSameWarmingTextNotSelectedFlag));
+            this.cpTanpoMonoChecked = ((!this.cpTanpoMonoWarmingTextNotSelectedFlag));
+            this.cpNameMeiChecked = ((!this.cpNameMeiWarmingTextFormatFlag) || (!this.cpNameMeiWarmingTextTooLongFlag));
+            this.cpNameMeiKanaChecked = ((!this.cpNameMeiKanaWarmingTextFormatFlag) || (!this.cpNameMeiKanaWarmingTextTooLongFlag));
+            this.cpNameSeiChecked = ((!this.cpNameSeiWarmingTextFormatFlag) || (!this.cpNameSeiWarmingTextTooLongFlag));
+            this.cpNameSeiKanaChecked = ((!this.cpNameSeiKanaWarmingTextFormatFlag) || (!this.cpNameSeiKanaWarmingTextTooLongFlag));
+            this.cpBirthDateYearChecked = ((!this.cpBirthDateYearWarmingTextNotSelectedFlag));
+            this.cpBirthDateChecked = ((!this.cpBirthDateWarmingTextMinusFlag));
+            this.cpMoushikomiChecked = ((!this.cpMoushikomiWarmingTextNotSelectedFlag));
+            this.cpRentaiSaimushaToOnajiChecked = ((!this.cpRentaiSaimushaToOnajiWarmingTextNotSelectedFlag));
+            this.cpPhoneChecked = ((!this.cpPhoneWarmingTextFormatFlag));
+            this.cpHonninShokugyoCodeChecked = ((!this.cpPhoneWarmingTextFormatFlag));
+            this.cpHonninKinmusakiNameChecked = ((!this.cpHonninKinmusakiNameWarmingTextFormatFlag));
+            this.cpReasonChecked = ((!this.cpReasonWarmingTextTooShortFlag) || (!this.cpReasonWarmingTextTooLongFlag));
+            this.cpSameChecked = ((!this.cpSameWarmingTextNotSelectedFlag));
 
             this.checkedAllFlag =
                 this.cpTanpoMonoChecked &&
@@ -280,11 +280,11 @@ export default {
             this.cpNameMeiKanaWarmingTextTooLongFlag = (this.collateralProviderZhy.cpNameMeiKana.length);
         },
         cpNameSeiCheck() {
-            this.cpNameSeiWarmingTextFormatFlag = this.regKanji(this.collateralProviderZhy.cpNameSei);
+            this.cpNameSeiWarmingTextFormatFlag = this.regKanji.test(this.collateralProviderZhy.cpNameSei);
             this.cpNameSeiWarmingTextTooLongFlag = (this.collateralProviderZhy.cpNameSei.length > 40);
         },
         cpNameSeiKanaCheck() {
-            this.cpNameSeiKanaWarmingTextFormatFlag = this.regKana(this.collateralProviderZhy.cpNameSei);
+            this.cpNameSeiKanaWarmingTextFormatFlag = this.regKana.test(this.collateralProviderZhy.cpNameSei);
             this.cpNameSeiKanaWarmingTextTooLongFlag = (this.collateralProviderZhy.cpNameSei.length > 40);
         },
         cpBirthDateYearCheck() {
@@ -314,8 +314,10 @@ export default {
         },
         cpSameCheck() {
             this.cpSameWarmingTextNotSelectedFlag = (this.cpSame == "");
-        },
-        watch: {
+        }
+       
+    },
+    watch: {
             // 'collateralProviderZhy.cpMoushikomi': function () {
 
             // },
@@ -368,9 +370,9 @@ export default {
         },
         created() {
             // 把字符串转化为数组, 传给数组 这个功能先不去写之
-            trans
+            // trans
+
         }
-    }
 }
 </script>
 <style>
