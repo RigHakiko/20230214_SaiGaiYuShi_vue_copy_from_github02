@@ -7,100 +7,146 @@
         <div>
 
             <label>担保提供物</label>
-            <select v-model="collateralProviderZhy.cpTanpoMono">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-            </select>
+            <div class="kiho">
+
+                <select v-model="collateralProviderZhy.cpTanpoMono">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+            </div>
         </div>
 
         <div>
 
             <label>姓</label>
-            <input type="text" v-model="collateralProviderZhy.cpNameSei" />
+            <div class="kiho">
+
+                <input type="text" v-model="collateralProviderZhy.cpNameSei" />
+            </div>
         </div>
         <div>
 
+
             <label>名</label>
-            <input type="text" v-model="collateralProviderZhy.cpNameMei" />
+            <div class="kiho">
+
+                <input type="text" v-model="collateralProviderZhy.cpNameMei" />
+            </div>
         </div>
 
         <div>
 
             <label>セイ</label>
-            <input type="text" v-model="collateralProviderZhy.cpNameSeiKana" />
+            <div class="kiho">
+
+                <input type="text" v-model="collateralProviderZhy.cpNameSeiKana" />
+            </div>
         </div>
         <div>
 
             <label>メイ</label>
-            <input type="text" v-model="collateralProviderZhy.cpNameMeiKana" />
+            <div class="kiho">
+
+                <input type="text" v-model="collateralProviderZhy.cpNameMeiKana" />
+            </div>
         </div>
         <div>
 
             <label>生年月日</label>
-            <input type="date" v-model="collateralProviderZhy.cpBirthDateYear" />
+            <div class="kiho">
+
+                <input type="date" v-model="collateralProviderZhy.cpBirthDateYear" />
+            </div>
         </div>
         <div>
 
             <label>年齢</label>
-            <input type="text" v-model="collateralProviderZhy.cpBirthDate" />
+            <div class="kiho">
+
+                <input type="text" v-model="collateralProviderZhy.cpBirthDate" />
+            </div>
         </div>
 
         <div>
 
             <label>担保者となる理由</label>
-            <!-- 应该是多选, 先用text -->
-            <input type="text" v-model="collateralProviderZhy.cpMoushikomi" />
-            <div>
-                <input type="checkbox" value="01" v-model="reasons" />
-                <input type="checkbox" value="02" v-model="reasons" />
-                <input type="checkbox" value="03" v-model="reasons" />
-                <input type="checkbox" value="04" v-model="reasons" />
+            <div class="kiho">
+
+
+                <!-- 应该是多选, 先用text -->
+                <input type="text" v-model="collateralProviderZhy.cpMoushikomi" />
+                <div>
+                    <input type="checkbox" value="01" v-model="reasons" />
+                    <input type="checkbox" value="02" v-model="reasons" />
+                    <input type="checkbox" value="03" v-model="reasons" />
+                    <input type="checkbox" value="04" v-model="reasons" />
+                </div>
             </div>
         </div>
         <div>
 
             <label>申請者との関係</label>
 
-            <select v-model="collateralProviderZhy.cpRentaiSaimushaToOnaji">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>3</option>
-            </select>
+            <div class="kiho">
+
+
+                <select v-model="collateralProviderZhy.cpRentaiSaimushaToOnaji">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>3</option>
+                </select>
+            </div>
         </div>
         <div>
 
             <label>携帯電話</label>
-            <input type="text" v-model="collateralProviderZhy.cpPhone" />
+            <div class="kiho">
+
+
+                <input type="text" v-model="collateralProviderZhy.cpPhone" />
+            </div>
         </div>
         <div>
 
             <label>職業</label>
-            <select v-model="collateralProviderZhy.cpHonninShokugyoCode">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
+            <div class="kiho">
+
+                <select v-model="collateralProviderZhy.cpHonninShokugyoCode">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
         </div>
         <div>
 
             <label>勤務先の名称</label>
-            <input type="text" v-model="collateralProviderZhy.cpHonninKinmusakiName" />
+            <div class="kiho">
+
+                <input type="text" v-model="collateralProviderZhy.cpHonninKinmusakiName" />
+            </div>
         </div>
         <div>
 
             <label>担保理由</label>
-            <input type="textarea" v-model="collateralProviderZhy.cpReason" />
+            <div class="kiho">
+
+                <input type="textarea" v-model="collateralProviderZhy.cpReason" />
+            </div>
         </div>
 
         <div>
 
             <label>個人申請者と同じ</label>
-            <input type="radio" name="onaji" id="01" value="01" v-model="collateralProviderZhy.cpSame" />
-            <input type="radio" name="onaji" id="02" value="01" v-model="collateralProviderZhy.cpSame" />
+            <div class="kiho">
+
+                <input type="radio" name="onaji" id="01" value="01" v-model="collateralProviderZhy.cpSame" />
+                <input type="radio" name="onaji" id="02" value="01" v-model="collateralProviderZhy.cpSame" />
+            </div>
 
         </div>
 
@@ -182,10 +228,10 @@ export default {
             this.cpSameCheck();
 
             this.cpTanpoMonoChecked = ((!cpTanpoMonoWarmingTextNotSelectedFlag));
-            this.cpNameMeiChecked = ((!cpNameMeiWarmingTextFormatFlag)||(!cpNameMeiWarmingTextTooLongFlag));
-            this.cpNameMeiKanaChecked = ((!cpNameMeiKanaWarmingTextFormatFlag)||(!cpNameMeiKanaWarmingTextTooLongFlag));
-            this.cpNameSeiChecked = ((!cpNameSeiWarmingTextFormatFlag)||(!cpNameSeiWarmingTextTooLongFlag));
-            this.cpNameSeiKanaChecked = ((!cpNameSeiKanaWarmingTextFormatFlag)||(!cpNameSeiKanaWarmingTextTooLongFlag));
+            this.cpNameMeiChecked = ((!cpNameMeiWarmingTextFormatFlag) || (!cpNameMeiWarmingTextTooLongFlag));
+            this.cpNameMeiKanaChecked = ((!cpNameMeiKanaWarmingTextFormatFlag) || (!cpNameMeiKanaWarmingTextTooLongFlag));
+            this.cpNameSeiChecked = ((!cpNameSeiWarmingTextFormatFlag) || (!cpNameSeiWarmingTextTooLongFlag));
+            this.cpNameSeiKanaChecked = ((!cpNameSeiKanaWarmingTextFormatFlag) || (!cpNameSeiKanaWarmingTextTooLongFlag));
             this.cpBirthDateYearChecked = ((!cpBirthDateYearWarmingTextNotSelectedFlag));
             this.cpBirthDateChecked = ((!cpBirthDateWarmingTextMinusFlag));
             this.cpMoushikomiChecked = ((!cpMoushikomiWarmingTextNotSelectedFlag));
@@ -193,29 +239,29 @@ export default {
             this.cpPhoneChecked = ((!cpPhoneWarmingTextFormatFlag));
             this.cpHonninShokugyoCodeChecked = ((!cpPhoneWarmingTextFormatFlag));
             this.cpHonninKinmusakiNameChecked = ((!cpHonninKinmusakiNameWarmingTextFormatFlag));
-            this.cpReasonChecked = ((!cpReasonWarmingTextTooShortFlag)||(!cpReasonWarmingTextTooLongFlag));
+            this.cpReasonChecked = ((!cpReasonWarmingTextTooShortFlag) || (!cpReasonWarmingTextTooLongFlag));
             this.cpSameChecked = ((!cpSameWarmingTextNotSelectedFlag));
 
             this.checkedAllFlag =
-            this.cpTanpoMonoChecked &&
-            this.cpNameMeiChecked &&
-            this.cpNameMeiKanaChecked &&
-            this.cpNameSeiChecked &&
-            this.cpNameSeiKanaChecked &&
-            this.cpBirthDateYearChecked &&
-            this.cpBirthDateChecked &&
-            this.cpMoushikomiChecked &&
-            this.cpRentaiSaimushaToOnajiChecked &&
-            this.cpPhoneChecked &&
-            this.cpHonninShokugyoCodeChecked &&
-            this.cpHonninKinmusakiNameChecked &&
-            this.cpReasonChecked &&
-            this.cpSameChecked; 
-            
-            if(this.checkedAllFlag){
+                this.cpTanpoMonoChecked &&
+                this.cpNameMeiChecked &&
+                this.cpNameMeiKanaChecked &&
+                this.cpNameSeiChecked &&
+                this.cpNameSeiKanaChecked &&
+                this.cpBirthDateYearChecked &&
+                this.cpBirthDateChecked &&
+                this.cpMoushikomiChecked &&
+                this.cpRentaiSaimushaToOnajiChecked &&
+                this.cpPhoneChecked &&
+                this.cpHonninShokugyoCodeChecked &&
+                this.cpHonninKinmusakiNameChecked &&
+                this.cpReasonChecked &&
+                this.cpSameChecked;
 
-            axios.post("http://localhost:8813/CollateralProviderZhy/save", this.collateralProviderZhy).then();
-            console.log(this.collateralProviderZhy);
+            if (this.checkedAllFlag) {
+
+                axios.post("http://localhost:8813/CollateralProviderZhy/save", this.collateralProviderZhy).then();
+                console.log(this.collateralProviderZhy);
             } else {
                 alert("输入有误");
             }
