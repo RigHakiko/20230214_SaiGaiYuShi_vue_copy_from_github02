@@ -155,17 +155,71 @@ export default {
             cpHonninKinmusakiNameWarmingTextFormatFlag: false,
             cpReasonWarmingTextTooShortFlag: false,
             cpReasonWarmingTextTooLongFlag: false,
-            cpSameWarmingTextNotSelectedFlag: false
+            cpSameWarmingTextNotSelectedFlag: false,
 
-        },
-            regKanji = new RegExp('^[\\u4E00-\\u9FA5]+$'),
-            regKana = new RegExp('^[ｦ-ﾝ]+$'),
-            regDenwa = new RegExp('^0[789]0-[0-9]{4}-[0-9]{4}$')
+            regKanji: new RegExp('^[\\u4E00-\\u9FA5]+$'),
+            regKana: new RegExp('^[ｦ-ﾝ]+$'),
+            regDenwa: new RegExp('^0[789]0-[0-9]{4}-[0-9]{4}$')
+        }
+
     },
     methods: {
         next() {
+
+            this.cpTanpoMonoCheck();
+            this.cpNameMeiCheck();
+            this.cpNameMeiKanaCheck();
+            this.cpNameSeiCheck();
+            this.cpNameSeiKanaCheck();
+            this.cpBirthDateYearCheck();
+            this.cpBirthDateCheck();
+            this.cpMoushikomiCheck();
+            this.cpRentaiSaimushaToOnajiCheck();
+            this.cpPhoneCheck();
+            this.cpHonninShokugyoCodeCheck();
+            this.cpHonninKinmusakiNameCheck();
+            this.cpReasonCheck();
+            this.cpSameCheck();
+
+            this.cpTanpoMonoChecked = ((!cpTanpoMonoWarmingTextNotSelectedFlag));
+            this.cpNameMeiChecked = ((!cpNameMeiWarmingTextFormatFlag)||(!cpNameMeiWarmingTextTooLongFlag));
+            this.cpNameMeiKanaChecked = ((!cpNameMeiKanaWarmingTextFormatFlag)||(!cpNameMeiKanaWarmingTextTooLongFlag));
+            this.cpNameSeiChecked = ((!cpNameSeiWarmingTextFormatFlag)||(!cpNameSeiWarmingTextTooLongFlag));
+            this.cpNameSeiKanaChecked = ((!cpNameSeiKanaWarmingTextFormatFlag)||(!cpNameSeiKanaWarmingTextTooLongFlag));
+            this.cpBirthDateYearChecked = ((!cpBirthDateYearWarmingTextNotSelectedFlag));
+            this.cpBirthDateChecked = ((!cpBirthDateWarmingTextMinusFlag));
+            this.cpMoushikomiChecked = ((!cpMoushikomiWarmingTextNotSelectedFlag));
+            this.cpRentaiSaimushaToOnajiChecked = ((!cpRentaiSaimushaToOnajiWarmingTextNotSelectedFlag));
+            this.cpPhoneChecked = ((!cpPhoneWarmingTextFormatFlag));
+            this.cpHonninShokugyoCodeChecked = ((!cpPhoneWarmingTextFormatFlag));
+            this.cpHonninKinmusakiNameChecked = ((!cpHonninKinmusakiNameWarmingTextFormatFlag));
+            this.cpReasonChecked = ((!cpReasonWarmingTextTooShortFlag)||(!cpReasonWarmingTextTooLongFlag));
+            this.cpSameChecked = ((!cpSameWarmingTextNotSelectedFlag));
+
+            this.checkedAllFlag =
+            this.cpTanpoMonoChecked &&
+            this.cpNameMeiChecked &&
+            this.cpNameMeiKanaChecked &&
+            this.cpNameSeiChecked &&
+            this.cpNameSeiKanaChecked &&
+            this.cpBirthDateYearChecked &&
+            this.cpBirthDateChecked &&
+            this.cpMoushikomiChecked &&
+            this.cpRentaiSaimushaToOnajiChecked &&
+            this.cpPhoneChecked &&
+            this.cpHonninShokugyoCodeChecked &&
+            this.cpHonninKinmusakiNameChecked &&
+            this.cpReasonChecked &&
+            this.cpSameChecked; 
+            
+            if(this.checkedAllFlag){
+
             axios.post("http://localhost:8813/CollateralProviderZhy/save", this.collateralProviderZhy).then();
             console.log(this.collateralProviderZhy);
+            } else {
+                alert("输入有误");
+            }
+
         },
         // 各个数据的验证方法
         cpTanpoMonoCheck() {
@@ -236,6 +290,7 @@ export default {
                 this.cpNameSeiCheck();
             },
             'collateralProviderZhy.cpNameSeiKana': function () {
+
             },
             'collateralProviderZhy.cpBirthDateYear': function () {
                 this.cpBirthDateYearCheck();
