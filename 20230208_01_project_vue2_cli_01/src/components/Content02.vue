@@ -135,7 +135,28 @@ export default {
                 cpSame: ""
             },
             // 担保原因多选项保存为的数组
-            reasons: []
+            reasons: [],
+
+            cpTanpoMonoWarmingTextNotSelectedFlag: false,
+            cpNameMeiWarmingTextFormatFlag: false,
+            cpNameMeiWarmingTextTooLongFlag: false,
+            cpNameMeiKanaWarmingTextFormatFlag: false,
+            cpNameMeiKanaWarmingTextTooLongFlag: false,
+            cpNameSeiWarmingTextFormatFlag: false,
+            cpNameSeiWarmingTextTooLongFlag: false,
+            cpNameSeiKanaWarmingTextFormatFlag: false,
+            cpNameSeiKanaWarmingTextTooLongFlag: false,
+            cpBirthDateYearWarmingTextNotSelectedFlag: false,
+            cpBirthDateWarmingTextMinusFlag: false,
+            cpMoushikomiWarmingTextNotSelectedFlag: false,
+            cpRentaiSaimushaToOnajiWarmingTextNotSelectedFlag: false,
+            cpPhoneWarmingTextFormatFlag: false,
+            cpHonninShokugyoCodeWarmingTextFlag: false,
+            cpHonninKinmusakiNameWarmingTextFormatFlag: false,
+            cpReasonWarmingTextTooShortFlag: false,
+            cpReasonWarmingTextTooLongFlag: false,
+            cpSameWarmingTextNotSelectedFlag: false
+
         }
     },
     methods: {
@@ -149,9 +170,39 @@ export default {
 
         // },
         // 监视数组, 在数据变化时将数组转化为字符串
-        'reasons': function(){
+        'reasons': function () {
             this.collateralProviderZhy.cpMoushikomi = this.reasons.join(",")
+        },
+        'cpTanpoMono.cpTanpoMono': function () {
+        },
+        'cpTanpoMono.cpNameMei': function () {
+        },
+        'cpTanpoMono.cpNameMeiKana': function () {
+        },
+        'cpTanpoMono.cpNameSei': function () {
+        },
+        'cpTanpoMono.cpNameSeiKana': function () {
+        },
+        'cpTanpoMono.cpBirthDateYear': function () {
+        },
+        //         'cpTanpoMono.cpBirthDate': function () {
+        // },
+        //         'cpTanpoMono.cpMoushikomi': function () {
+        // },
+        'cpTanpoMono.cpRentaiSaimushaToOnaji': function () {
+        },
+        'cpTanpoMono.cpPhone': function () {
+        },
+        'cpTanpoMono.cpHonninShokugyoCode': function () {
+        },
+        'cpTanpoMono.cpHonninKinmusakiName': function () {
+        },
+        'cpTanpoMono.cpReason': function () {
+        },
+        'cpTanpoMono.cpSame': function () {
         }
+
+
     },
     created() {
         // 把字符串转化为数组, 传给数组 这个功能先不去写之
