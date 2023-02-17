@@ -157,56 +157,118 @@ export default {
             cpReasonWarmingTextTooLongFlag: false,
             cpSameWarmingTextNotSelectedFlag: false
 
-        }
+        },
+            regKanji = new RegExp('^[\\u4E00-\\u9FA5]+$'),
+            regKana = new RegExp('^[ｦ-ﾝ]+$'),
+            regDenwa = new RegExp('^0[789]0-[0-9]{4}-[0-9]{4}$')
     },
     methods: {
         next() {
             axios.post("http://localhost:8813/CollateralProviderZhy/save", this.collateralProviderZhy).then();
             console.log(this.collateralProviderZhy);
+        },
+        // 各个数据的验证方法
+        cpTanpoMonoCheck() {
+            this.cpTanpoMonoWarmingTextNotSelectedFlag = this.collateralProviderZhy.cpTanpoMono == "";
+        },
+        cpNameMeiCheck() {
+            this.cpNameMeiWarmingTextFormatFlag = this.regKanji.test(this.collateralProviderZhy.cpNameMei);
+            this.cpNameMeiWarmingTextTooLongFlag = (this.collateralProviderZhy.cpNameMei.length > 40);
+        },
+        cpNameMeiKanaCheck() {
+            this.cpNameMeiKanaWarmingTextFormatFlag = this.regKana.test(this.collateralProviderZhy.cpNameMeiKana);
+            this.cpNameMeiKanaWarmingTextTooLongFlag = (this.collateralProviderZhy.cpNameMeiKana.length);
+        },
+        cpNameSeiCheck() {
+            this.cpNameSeiWarmingTextFormatFlag = this.regKanji(this.collateralProviderZhy.cpNameSei);
+            this.cpNameSeiWarmingTextTooLongFlag = (this.collateralProviderZhy.cpNameSei.length > 40);
+        },
+        cpNameSeiKanaCheck() {
+            this.cpNameSeiKanaWarmingTextFormatFlag = this.regKana(this.collateralProviderZhy.cpNameSei);
+            this.cpNameSeiKanaWarmingTextTooLongFlag = (this.collateralProviderZhy.cpNameSei.length > 40);
+        },
+        cpBirthDateYearCheck() {
+            this.cpBirthDateYearCheck = (this.cpBirthDate == "");
+        },
+        cpBirthDateCheck() {
+            this.cpBirthDateWarmingTextMinusFlag = (this.cpBirthDate < 0);
+        },
+        cpMoushikomiCheck() {
+            this.cpMoushikomiWarmingTextNotSelectedFlag = (this.collateralProviderZhy.cpMoushikomi == "");
+        },
+        cpRentaiSaimushaToOnajiCheck() {
+            this.cpRentaiSaimushaToOnajiWarmingTextNotSelectedFlag = (this.collateralProviderZhy.cpRentaiSaimushaToOnaji == "");
+        },
+        cpPhoneCheck() {
+            this.cpPhoneWarmingTextFormatFlag = (this.regDenwa.test(this.collateralProviderZhy.cpPhone));
+        },
+        cpHonninShokugyoCodeCheck() {
+            this.cpHonninShokugyoCodeWarmingTextFlag = (this.collateralProviderZhy.cpHonninShokugyoCode == "");
+        },
+        cpHonninKinmusakiNameCheck() {
+            this.cpHonninKinmusakiNameWarmingTextFormatFlag = (this.collateralProviderZhy.cpHonninKinmusakiName.length > 40);
+        },
+        cpReasonCheck() {
+            this.cpReasonWarmingTextTooShortFlag = (this.collateralProviderZhy.cpReason.length < 50);
+            this.cpReasonWarmingTextTooLongFlag = (this.collateralProviderZhy.cpReason.length >= 200);
+        },
+        cpSameCheck() {
+            this.cpSameWarmingTextNotSelectedFlag = (this.cpSame == "");
+        },
+        watch: {
+            // 'collateralProviderZhy.cpMoushikomi': function () {
+
+            // },
+            // 监视数组, 在数据变化时将数组转化为字符串
+            'reasons': function () {
+                this.collateralProviderZhy.cpMoushikomi = this.reasons.join(",")
+            },
+            'collateralProviderZhy.cpTanpoMono': function () {
+                this.collateralProviderZhy.heck();
+            },
+            'collateralProviderZhy.cpNameMei': function () {
+                this.cpNameMeiCheck();
+            },
+            'collateralProviderZhy.cpNameMeiKana': function () {
+
+            },
+            'collateralProviderZhy.cpNameSei': function () {
+                this.cpNameSeiCheck();
+            },
+            'collateralProviderZhy.cpNameSeiKana': function () {
+            },
+            'collateralProviderZhy.cpBirthDateYear': function () {
+                this.cpBirthDateYearCheck();
+            },
+            //         'collateralProviderZhy.cpBirthDate': function () {
+            // },
+            //         'collateralProviderZhy.cpMoushikomi': function () {
+            // },
+            'collateralProviderZhy.cpRentaiSaimushaToOnaji': function () {
+                this.cpRentaiSaimushaToOnajiCheck();
+            },
+            'collateralProviderZhy.cpPhone': function () {
+                this.cpPhoneCheck();
+            },
+            'collateralProviderZhy.cpHonninShokugyoCode': function () {
+                this.cpHonninShokugyoCodeCheck();
+            },
+            'collateralProviderZhy.cpHonninKinmusakiName': function () {
+                this.cpHonninKinmusakiNameCheck();
+            },
+            'collateralProviderZhy.cpReason': function () {
+                this.cpReasonCheck();
+            },
+            'collateralProviderZhy.cpSame': function () {
+                this.cpSameCheck();
+            }
+
+
+        },
+        created() {
+            // 把字符串转化为数组, 传给数组 这个功能先不去写之
+            trans
         }
-    },
-    watch: {
-        // 'collateralProviderZhy.cpMoushikomi': function () {
-
-        // },
-        // 监视数组, 在数据变化时将数组转化为字符串
-        'reasons': function () {
-            this.collateralProviderZhy.cpMoushikomi = this.reasons.join(",")
-        },
-        'cpTanpoMono.cpTanpoMono': function () {
-        },
-        'cpTanpoMono.cpNameMei': function () {
-        },
-        'cpTanpoMono.cpNameMeiKana': function () {
-        },
-        'cpTanpoMono.cpNameSei': function () {
-        },
-        'cpTanpoMono.cpNameSeiKana': function () {
-        },
-        'cpTanpoMono.cpBirthDateYear': function () {
-        },
-        //         'cpTanpoMono.cpBirthDate': function () {
-        // },
-        //         'cpTanpoMono.cpMoushikomi': function () {
-        // },
-        'cpTanpoMono.cpRentaiSaimushaToOnaji': function () {
-        },
-        'cpTanpoMono.cpPhone': function () {
-        },
-        'cpTanpoMono.cpHonninShokugyoCode': function () {
-        },
-        'cpTanpoMono.cpHonninKinmusakiName': function () {
-        },
-        'cpTanpoMono.cpReason': function () {
-        },
-        'cpTanpoMono.cpSame': function () {
-        }
-
-
-    },
-    created() {
-        // 把字符串转化为数组, 传给数组 这个功能先不去写之
-        trans
     }
 }
 </script>
