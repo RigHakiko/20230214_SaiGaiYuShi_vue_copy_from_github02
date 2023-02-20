@@ -19,7 +19,7 @@
                     <option>03 建物・土地</option>
                 </select>
                 <span class="errorMessage" id="" v-if="cpTanpoMonoWarmingTextNotSelectedFlag">
-                    cpTanpoMonoWarmingTextNotSelectedFlag
+                    フォーマットが間違っています。担保提供物を選択してください
                 </span>
             </div>
         </div>
@@ -32,12 +32,12 @@
                 <input type="text" v-model="collateralProviderZhy.cpNameSei" />
 
                 <span class="errorMessage" id="" v-if="cpNameSeiWarmingTextFormatFlag">
-                    cpNameSeiWarmingTextFormatFlag
+                    フォーマットが間違っています。漢字で入力してください。
                 </span>
 
 
                 <span class="errorMessage" id="" v-if="cpNameSeiWarmingTextTooLongFlag">
-                    cpNameSeiWarmingTextTooLongFlag
+                    入力した漢字が長すぎます。再入力してください。
                 </span>
             </div>
         </div>
@@ -50,12 +50,12 @@
                 <input type="text" v-model="collateralProviderZhy.cpNameMei" />
 
                 <span class="errorMessage" id="" v-if="cpNameMeiWarmingTextFormatFlag">
-                    cpNameMeiWarmingTextFormatFlag
+                    フォーマットが間違っています。漢字で入力してください。
                 </span>
 
 
                 <span class="errorMessage" id="" v-if="cpNameMeiWarmingTextTooLongFlag">
-                    cpNameMeiWarmingTextTooLongFlag
+                    入力した漢字が長すぎます。再入力してください。
                 </span>
             </div>
         </div>
@@ -68,11 +68,11 @@
                 <input type="text" v-model="collateralProviderZhy.cpNameSeiKana" />
 
                 <span class="errorMessage" id="" v-if="cpNameSeiKanaWarmingTextFormatFlag">
-                    cpNameSeiKanaWarmingTextFormatFlag
+                    フォーマットが間違っています。カタカナで入力してください。
                 </span>
 
                 <span class="errorMessage" id="" v-if="cpNameSeiKanaWarmingTextTooLongFlag">
-                    cpNameSeiKanaWarmingTextTooLongFlag
+                    入力したカタカナが長すぎます。再入力してください。
                 </span>
             </div>
         </div>
@@ -84,11 +84,11 @@
                 <input type="text" v-model="collateralProviderZhy.cpNameMeiKana" />
 
                 <span class="errorMessage" id="" v-if="cpNameMeiKanaWarmingTextFormatFlag">
-                    cpNameMeiKanaWarmingTextFormatFlag
+                    フォーマットが間違っています。カタカナで入力してください。
                 </span>
 
                 <span class="errorMessage" id="" v-if="cpNameMeiKanaWarmingTextTooLongFlag">
-                    cpNameMeiKanaWarmingTextTooLongFlag
+                    入力したカタカナが長すぎます。再入力してください。
                 </span>
             </div>
         </div>
@@ -100,7 +100,7 @@
                 <input type="date" v-model="collateralProviderZhy.cpBirthDateYear" />
 
                 <span class="errorMessage" id="" v-if="cpBirthDateYearWarmingTextNotSelectedFlag">
-                    cpBirthDateYearWarmingTextNotSelectedFlag
+                    生年月日を選択してください
                 </span>
             </div>
         </div>
@@ -114,7 +114,7 @@
             </div>
 
             <span class="errorMessage" id="" v-if="cpBirthDateWarmingTextMinusFlag">
-                cpBirthDateWarmingTextMinusFlag
+                正しい生年月日を選択してください
             </span>
         </div>
 
@@ -134,7 +134,7 @@
                 </div>
 
                 <span class="errorMessage" id="" v-if="cpMoushikomiWarmingTextNotSelectedFlag">
-                    cpMoushikomiWarmingTextNotSelectedFlag
+                    担保者となる理由を選択してください
                 </span>
             </div>
         </div>
@@ -154,7 +154,7 @@
                 </select>
 
                 <span class="errorMessage" id="" v-if="cpRentaiSaimushaToOnajiWarmingTextNotSelectedFlag">
-                    cpRentaiSaimushaToOnajiWarmingTextNotSelectedFlag
+                    申請者と関係となる理由を選択してください
                 </span>
             </div>
         </div>
@@ -167,7 +167,7 @@
                 <input type="text" v-model="collateralProviderZhy.cpPhone" :disabled="!phoneCanEditFlag" />
 
                 <span class="errorMessage" id="" v-if="cpPhoneWarmingTextFormatFlag">
-                    cpPhoneWarmingTextFormatFlag
+                    フォーマットが間違っています。数字で入力してください。
                 </span>
             </div>
         </div>
@@ -186,7 +186,7 @@
                 </select>
 
                 <span class="errorMessage" id="" v-if="cpHonninShokugyoCodeWarmingTextNotSelectedFlag">
-                    cpHonninShokugyoCodeWarmingTextNotSelectedFlag
+                    職業を選択してください
                 </span>
             </div>
         </div>
@@ -199,7 +199,7 @@
                     :disabled="!kinmusakiCanEditFlag" />
 
                 <span class="errorMessage" id="" v-if="cpHonninKinmusakiNameWarmingTooLongFormatFlag">
-                    cpHonninKinmusakiNameWarmingTooLongFormatFlag
+                    入力した文字数が長すぎます。再入力してください。
                 </span>
             </div>
         </div>
@@ -214,10 +214,10 @@
                 <!-- </div> -->
 
                 <span class="errorMessage" id="" v-if="cpReasonWarmingTextTooShortFlag">
-                    cpReasonWarmingTextTooShortFlag
+                    入力した文字数が短すぎるます。再入力してください。
                 </span>
                 <span class="errorMessage" id="" v-if="cpReasonWarmingTextTooLongFlag">
-                cpReasonWarmingTextTooLongFlag
+                    入力した文字数が長すぎます。再入力してください。
             </span>
             <span>当前已经输入{{ collateralProviderZhy.cpReason.length }}个字</span>
             <input type="button" value="保存" @click="saveReason()" />
