@@ -193,9 +193,10 @@ export default {
 
             // 所有信息通过的flag, true为所有信息都没有问题
             // 全てのバリデーションフラグをパスする。
-            checkedAllFlag: false,
+            checkedAllFlag: false
+            // ,
 
-            KoJinJoHoZhyInContent01: null
+            // KoJinJoHoZhyInContent01: null
         }
     },
     methods: {
@@ -263,13 +264,14 @@ export default {
             // 所有信息都正确的话就去发布
             // すべての情報が正しい場合は、postする
             if (this.checkedAllFlag) {
-                this.KoJinJoHoZhyInContent01 = this.koJinJoHoZhy
+                // this.KoJinJoHoZhyInContent01 = this.koJinJoHoZhy
+                this.$store.state.KoJinJoHoZhyInContent01=this.koJinJoHoZhy; 
                 axios.post('http://localhost:8813/ko-jin-jo-ho-zhy/save', this.koJinJoHoZhy).then();
                 this.$router.push('Content02');
 
                 { // 测试代码
                     console.log(this.$store.state.KoJinJoHoZhyInContent01);
-                    console.log(this.KoJinJoHoZhyInContent01);
+                    // console.log(this.KoJinJoHoZhyInContent01);
                 }
             } else
             // 如果存在有问题的输入, 就alert提示错误
@@ -427,7 +429,7 @@ export default {
     }, 
     created : function(){
         {
-        this.KoJinJoHoZhyInContent01 = this.$store.state.KoJinJoHoZhyInContent01;
+        // this.KoJinJoHoZhyInContent01 = this.$store.state.KoJinJoHoZhyInContent01;
     }
     }
 }
