@@ -287,7 +287,7 @@ export default {
             cpSameWarmingTextNotSelectedFlag: false,
 
             regKanji: new RegExp('^[\\u4E00-\\u9FA5]+$'),
-            regKana: new RegExp('^[ｦ-ﾝ]+$'),
+            regKana: new RegExp('^[ｦ-ﾝ]*$'),
             regDenwa: new RegExp('^0[789]0-[0-9]{4}-[0-9]{4}$'),
 
             kinmusakiCanEditFlag: true,
