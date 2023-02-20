@@ -195,7 +195,7 @@ export default {
             // 全てのバリデーションフラグをパスする。
             checkedAllFlag: false,
 
-            KoJinJoHoZhyInContent01: this.$store.state.KoJinJoHoZhyInContent01
+            KoJinJoHoZhyInContent01: null
         }
     },
     methods: {
@@ -263,9 +263,9 @@ export default {
             // 所有信息都正确的话就去发布
             // すべての情報が正しい場合は、postする
             if (this.checkedAllFlag) {
-                KoJinJoHoZhyInContent01 = this.koJinJoHoZhy
+                this.KoJinJoHoZhyInContent01 = this.koJinJoHoZhy
                 axios.post('http://localhost:8813/ko-jin-jo-ho-zhy/save', this.koJinJoHoZhy).then();
-                
+                this.$router.push('Content02');
             } else
             // 如果存在有问题的输入, 就alert提示错误
             // 入力に異常がある場合、エラーで警告する
@@ -419,6 +419,11 @@ export default {
         'koJinJoHoZhy.cpKinmusakiname': function () {
             this.cpKinmusakinameCheck()
         }
+    }, 
+    created : function(){
+        {
+        this.KoJinJoHoZhyInContent01 = this.$store.state.KoJinJoHoZhyInContent01;
+    }
     }
 }
 </script>
