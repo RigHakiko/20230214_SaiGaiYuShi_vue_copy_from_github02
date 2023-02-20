@@ -158,7 +158,7 @@
             <div class="kiho">
 
 
-                <input type="text" v-model="collateralProviderZhy.cpPhone" />
+                <input type="text" v-model="collateralProviderZhy.cpPhone" :disabled="!phoneCanEditFlag"/>
 
                 <span class="errorMessage" id="" v-if="cpPhoneWarmingTextFormatFlag">
                     cpPhoneWarmingTextFormatFlag
@@ -188,7 +188,7 @@
             <label>勤務先の名称</label>
             <div class="kiho">
 
-                <input type="text" v-model="collateralProviderZhy.cpHonninKinmusakiName" />
+                <input type="text" v-model="collateralProviderZhy.cpHonninKinmusakiName" :disabled="!kinmusakiCanEditFlag" />
 
                 <span class="errorMessage" id="" v-if="cpHonninKinmusakiNameWarmingTextFormatFlag">
                     cpHonninKinmusakiNameWarmingTextFormatFlag
@@ -218,7 +218,7 @@
             <div class="kiho">
 
                 <input type="radio" name="onaji" id="01" value="01" v-model="collateralProviderZhy.cpSame" />
-                <input type="radio" name="onaji" id="02" value="01" v-model="collateralProviderZhy.cpSame" />
+                <input type="radio" name="onaji" id="02" value="02" v-model="collateralProviderZhy.cpSame" />
 
                 <span class="errorMessage" id="" v-if="cpSameWarmingTextNotSelectedFlag">
                     cpSameWarmingTextNotSelectedFlag
@@ -283,8 +283,12 @@ export default {
 
             regKanji: new RegExp('^[\\u4E00-\\u9FA5]+$'),
             regKana: new RegExp('^[ｦ-ﾝ]+$'),
-            regDenwa: new RegExp('^0[789]0-[0-9]{4}-[0-9]{4}$')
-        }
+            regDenwa: new RegExp('^0[789]0-[0-9]{4}-[0-9]{4}$'),
+
+            kinmusakiCanEditFlag: true,
+            phoneCanEditFlag: true
+        } 
+ 
 
     },
     methods: {
@@ -469,6 +473,7 @@ export default {
         },
         cpSameCheck() {
             this.cpSameWarmingTextNotSelectedFlag = (this.cpSame == "");
+ 
         },
 
         // 英数字的全角转换为半角
@@ -574,6 +579,15 @@ export default {
         },
         'collateralProviderZhy.cpSame': function () {
             this.cpSameCheck();
+            if(this.collateralProviderZhy.cpSame == "01"){
+                this.phoneCanEditFlag = false;
+                this.kinmusakiCanEditFlag = false;
+                this.cpHonninKinmusakiName == this.$store.state.KoJinJoHoZhyInContent01.cpKinmusakiname;
+                this.cpPhone == this.$store.state.KoJinJoHoZhyInContent01.cpPhone;
+            } else {
+                this.phoneCanEditFlag = true;
+                this.kinmusakiCanEditFlag = true;
+            }
         }
 
 
