@@ -105,7 +105,8 @@
             <label>年齢</label>
             <div class="kiho">
 
-                <input type="text" v-model="collateralProviderZhy.cpBirthDate" disabled/>
+                <!-- <input type="text" v-model="collateralProviderZhy.cpBirthDate" disabled/> -->
+                <input type="text" v-model="collateralProviderZhy.cpBirthDate" />
             </div>
 
             <span class="errorMessage" id="" v-if="cpBirthDateWarmingTextMinusFlag">
@@ -457,10 +458,10 @@ export default {
             this.cpBirthDateYearWarmingTextNotSelectedFlag = (this.cpBirthDate == "");
         },
         cpBirthDateCheck() {
-            this.cpBirthDateWarmingTextMinusFlag = (this.cpBirthDate < 0);
+            this.cpBirthDateWarmingTextMinusFlag = (this.collateralProviderZhy.cpBirthDate < 0);
         {
             // 测试用
-            this.cpBirthDateWarmingTextMinusFlag;
+            console.log(this.cpBirthDateWarmingTextMinusFlag)
         }
         },
 
@@ -606,6 +607,9 @@ export default {
             this.collateralProviderZhy.cpBirthDate = this.calculateAge();
         },
                 'collateralProviderZhy.cpBirthDate': function () {
+                    { //
+                        console.log("--")
+                    }
                     this.cpBirthDateCheck();
         },
         //         'collateralProviderZhy.cpMoushikomi': function () {
