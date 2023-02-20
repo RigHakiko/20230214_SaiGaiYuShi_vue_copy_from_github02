@@ -613,8 +613,9 @@ export default {
             }
             this.cpBirthDateCheck();
         },
-        //         'collateralProviderZhy.cpMoushikomi': function () {
-        // },
+                'collateralProviderZhy.cpMoushikomi': function () {
+                    this.cpMoushikomiCheck();
+        },
         'collateralProviderZhy.cpRentaiSaimushaToOnaji': function () {
             this.cpRentaiSaimushaToOnajiCheck();
         },
