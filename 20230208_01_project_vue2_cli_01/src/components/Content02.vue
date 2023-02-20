@@ -387,10 +387,11 @@ export default {
                 console.log("cpNameSeiKanaWarmingTextTooLongFlag");
                 console.log(this.cpNameSeiKanaWarmingTextTooLongFlag);
 
-
+                // 有效
                 console.log("cpBirthDateYearWarmingTextNotSelectedFlag");
                 console.log(this.cpBirthDateYearWarmingTextNotSelectedFlag);
 
+                // 有效
                 console.log("cpBirthDateWarmingTextMinusFlag");
                 console.log(this.cpBirthDateWarmingTextMinusFlag);
 
@@ -455,7 +456,7 @@ export default {
             this.cpNameSeiKanaWarmingTextTooLongFlag = (this.collateralProviderZhy.cpNameSeiKana.length > 40);
         },
         cpBirthDateYearCheck() {
-            this.cpBirthDateYearWarmingTextNotSelectedFlag = (this.cpBirthDate == "");
+            this.cpBirthDateYearWarmingTextNotSelectedFlag = (this.collateralProviderZhy.cpBirthDateYear == "");
         },
         cpBirthDateCheck() {
             this.cpBirthDateWarmingTextMinusFlag = (this.collateralProviderZhy.cpBirthDate < 0);
