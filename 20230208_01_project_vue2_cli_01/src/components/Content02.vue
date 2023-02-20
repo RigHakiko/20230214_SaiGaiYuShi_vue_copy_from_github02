@@ -62,7 +62,7 @@
 
         <div>
 
-            <label class="name description">セイ</label>
+            <label class="name description">セイ（任意）</label>
             <div class="kiho">
 
                 <input type="text" v-model="collateralProviderZhy.cpNameSeiKana" />
@@ -78,7 +78,7 @@
         </div>
         <div>
 
-            <label class="name description">メイ</label>
+            <label class="name description">メイ（任意）</label>
             <div class="kiho">
 
                 <input type="text" v-model="collateralProviderZhy.cpNameMeiKana" />
@@ -204,7 +204,7 @@
         </div>
         <div>
 
-            <label class="name description">勤務先の名称</label>
+            <label class="name description">勤務先の名称（任意）</label>
             <div class="kiho">
 
                 <input type="text" v-model="collateralProviderZhy.cpHonninKinmusakiName"
