@@ -527,6 +527,27 @@ export default {
             this.collateralProviderZhy.cpNameMeiKana = this.zenkakuAlphNum2hankaku(this.collateralProviderZhy.cpNameMeiKana);
             this.collateralProviderZhy.cpNameMeiKana = this.zenkakuKana2Hankaku(this.collateralProviderZhy.cpNameMeiKana);
         },
+        calculateAge(){
+            let today = new Date();
+            let todayFullYear = today.getFullYear();
+            let todayMonth = today.getMonth();
+           let todayDate = today.getDate();
+            let birthday = this.collateralProviderZhy.cpBirthDateYear;
+            { // 测试用
+                console.log(this.collateralProviderZhy.cpBirthDateYear.getFullYear);
+            }
+            let birthdayFullYear = birthday.getFullYear();
+            let birthdayMonth = birthday.getMonth();
+            let birthdayDate = birthday.getDate();
+
+            let age = todayFullYear - birthdayFullYear;
+            let monthDifference = todayMonth - birthdayMonth;
+
+            if(monthDifference < 0 || (monthDifference === 0 && todayDate<birthdayDate)){
+                age --;
+            }
+            return age;
+        }
 
     },
     watch: {
@@ -557,6 +578,7 @@ export default {
         },
         'collateralProviderZhy.cpBirthDateYear': function () {
             this.cpBirthDateYearCheck();
+            this.collateralProviderZhy.cpBirthDate = this.calculateAge();
         },
         //         'collateralProviderZhy.cpBirthDate': function () {
         // },
