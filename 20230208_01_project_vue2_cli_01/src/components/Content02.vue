@@ -105,7 +105,7 @@
             <label>年齢</label>
             <div class="kiho">
 
-                <input type="text" v-model="collateralProviderZhy.cpBirthDate" />
+                <input type="text" v-model="collateralProviderZhy.cpBirthDate" disabled/>
             </div>
 
             <span class="errorMessage" id="" v-if="cpBirthDateWarmingTextMinusFlag">
@@ -158,7 +158,7 @@
             <div class="kiho">
 
 
-                <input type="text" v-model="collateralProviderZhy.cpPhone" :disabled="!phoneCanEditFlag"/>
+                <input type="text" v-model="collateralProviderZhy.cpPhone" :disabled="!phoneCanEditFlag" />
 
                 <span class="errorMessage" id="" v-if="cpPhoneWarmingTextFormatFlag">
                     cpPhoneWarmingTextFormatFlag
@@ -188,7 +188,8 @@
             <label>勤務先の名称</label>
             <div class="kiho">
 
-                <input type="text" v-model="collateralProviderZhy.cpHonninKinmusakiName" :disabled="!kinmusakiCanEditFlag" />
+                <input type="text" v-model="collateralProviderZhy.cpHonninKinmusakiName"
+                    :disabled="!kinmusakiCanEditFlag" />
 
                 <span class="errorMessage" id="" v-if="cpHonninKinmusakiNameWarmingTextFormatFlag">
                     cpHonninKinmusakiNameWarmingTextFormatFlag
@@ -287,12 +288,16 @@ export default {
 
             kinmusakiCanEditFlag: true,
             phoneCanEditFlag: true
-        } 
- 
+        }
+
 
     },
     methods: {
         next() {
+
+            { //测试用代码
+                console.log(this.collateralProviderZhy.cpBirthDateYear)
+            }
 
             this.cpTanpoMonoCheck();
             this.cpNameMeiCheck();
@@ -473,7 +478,7 @@ export default {
         },
         cpSameCheck() {
             this.cpSameWarmingTextNotSelectedFlag = (this.cpSame == "");
- 
+
         },
 
         // 英数字的全角转换为半角
@@ -527,24 +532,37 @@ export default {
             this.collateralProviderZhy.cpNameMeiKana = this.zenkakuAlphNum2hankaku(this.collateralProviderZhy.cpNameMeiKana);
             this.collateralProviderZhy.cpNameMeiKana = this.zenkakuKana2Hankaku(this.collateralProviderZhy.cpNameMeiKana);
         },
-        calculateAge(){
+        calculateAge() {
             let today = new Date();
-            let todayFullYear = today.getFullYear();
-            let todayMonth = today.getMonth();
-           let todayDate = today.getDate();
-            let birthday = this.collateralProviderZhy.cpBirthDateYear;
+            let todayYear = today.getFullYear();
+            let todayMonth = today.getMonth() + 1;
+            let todayDate = today.getDate();
+            // let birthday = this.collateralProviderZhy.cpBirthDateYear;
             { // 测试用
                 console.log(this.collateralProviderZhy.cpBirthDateYear.getFullYear);
             }
-            let birthdayFullYear = birthday.getFullYear();
-            let birthdayMonth = birthday.getMonth();
-            let birthdayDate = birthday.getDate();
+            // let birthdayFullYear = birthday.getFullYear();
+            // let birthdayMonth = birthday.getMonth();
+            // let birthdayDate = birthday.getDate();
 
-            let age = todayFullYear - birthdayFullYear;
+            let birthdayString = this.collateralProviderZhy.cpBirthDateYear;
+            let birthdayYear = Number(birthdayString.substring(0,4));
+            let birthdayMonth =Number(birthdayString.substring(5,7));
+            let birthdayDate = Number(birthdayString.substring(8));
+            { //测试用
+                console.log(todayYear);
+                console.log(todayMonth);
+                console.log(todayDate);
+                console.log(birthdayYear);
+                console.log(birthdayMonth);
+                console.log(birthdayDate);
+            }
+
+            let age = todayYear - birthdayYear;
             let monthDifference = todayMonth - birthdayMonth;
 
-            if(monthDifference < 0 || (monthDifference === 0 && todayDate<birthdayDate)){
-                age --;
+            if (monthDifference < 0 || (monthDifference === 0 && todayDate < birthdayDate)) {
+                age--;
             }
             return age;
         }
@@ -601,11 +619,11 @@ export default {
         },
         'collateralProviderZhy.cpSame': function () {
             this.cpSameCheck();
-            if(this.collateralProviderZhy.cpSame == "01"){
+            if (this.collateralProviderZhy.cpSame == "01") {
                 this.phoneCanEditFlag = false;
                 this.kinmusakiCanEditFlag = false;
                 this.collateralProviderZhy.cpHonninKinmusakiName = this.$store.state.KoJinJoHoZhyInContent01.cpKinmusakiname;
-                this.collateralProviderZhy.cpPhone =this.$store.state.KoJinJoHoZhyInContent01.cpPhone;
+                this.collateralProviderZhy.cpPhone = this.$store.state.KoJinJoHoZhyInContent01.cpPhone;
             } else {
                 this.phoneCanEditFlag = true;
                 this.kinmusakiCanEditFlag = true;
