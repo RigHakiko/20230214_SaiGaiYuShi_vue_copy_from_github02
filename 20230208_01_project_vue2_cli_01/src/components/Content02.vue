@@ -125,7 +125,7 @@
 
 
                 <!-- 应该是多选, 先用text -->
-                <input type="text" v-model="collateralProviderZhy.cpMoushikomi" />
+                <!-- <input type="text" v-model="collateralProviderZhy.cpMoushikomi" /> -->
                 <div>
                     <input type="checkbox" value="01" v-model="reasons" />01 親子リレー返済
                     <input type="checkbox" value="02" v-model="reasons" />02 収入合算（同居親族）
@@ -456,7 +456,7 @@ export default {
                 axios.post("http://localhost:8813/CollateralProviderZhy/save", this.collateralProviderZhy).then();
                 console.log(this.collateralProviderZhy);
             } else {
-                alert("输入有误");
+                alert("入力が間違っています");
             }
 
         },
