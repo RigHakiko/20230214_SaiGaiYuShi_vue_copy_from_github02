@@ -14,6 +14,9 @@
                     <option>2</option>
                     <option>3</option>
                 </select>
+                <span class="errorMessage" id="" v-if="cpTanpoMonoWarmingTextNotSelectedFlag">
+                    cpTanpoMonoWarmingTextNotSelectedFlag
+                </span>
             </div>
         </div>
 
@@ -23,6 +26,15 @@
             <div class="kiho">
 
                 <input type="text" v-model="collateralProviderZhy.cpNameSei" />
+
+                <span class="errorMessage" id="" v-if="cpNameSeiWarmingTextFormatFlag">
+                    cpNameSeiWarmingTextFormatFlag
+                </span>
+
+
+                <span class="errorMessage" id="" v-if="cpNameSeiWarmingTextTooLongFlag">
+                    cpNameSeiWarmingTextTooLongFlag
+                </span>
             </div>
         </div>
         <div>
@@ -32,6 +44,15 @@
             <div class="kiho">
 
                 <input type="text" v-model="collateralProviderZhy.cpNameMei" />
+
+                <span class="errorMessage" id="" v-if="cpNameMeiWarmingTextFormatFlag">
+                    cpNameMeiWarmingTextFormatFlag
+                </span>
+
+
+                <span class="errorMessage" id="" v-if="cpNameMeiWarmingTextTooLongFlag">
+                    cpNameMeiWarmingTextTooLongFlag
+                </span>
             </div>
         </div>
 
@@ -41,6 +62,14 @@
             <div class="kiho">
 
                 <input type="text" v-model="collateralProviderZhy.cpNameSeiKana" />
+
+                <span class="errorMessage" id="" v-if="cpNameSeiKanaWarmingTextFormatFlag">
+                    cpNameSeiKanaWarmingTextFormatFlag
+                </span>
+
+                <span class="errorMessage" id="" v-if="cpNameSeiKanaWarmingTextTooLongFlag">
+                    cpNameSeiKanaWarmingTextTooLongFlag
+                </span>
             </div>
         </div>
         <div>
@@ -49,6 +78,14 @@
             <div class="kiho">
 
                 <input type="text" v-model="collateralProviderZhy.cpNameMeiKana" />
+
+                <span class="errorMessage" id="" v-if="cpNameMeiKanaWarmingTextFormatFlag">
+                    cpNameMeiKanaWarmingTextFormatFlag
+                </span>
+
+                <span class="errorMessage" id="" v-if="cpNameMeiKanaWarmingTextTooLongFlag">
+                    cpNameMeiKanaWarmingTextTooLongFlag
+                </span>
             </div>
         </div>
         <div>
@@ -57,6 +94,10 @@
             <div class="kiho">
 
                 <input type="date" v-model="collateralProviderZhy.cpBirthDateYear" />
+
+                <span class="errorMessage" id="" v-if="cpBirthDateYearWarmingTextNotSelectedFlag">
+                    cpBirthDateYearWarmingTextNotSelectedFlag
+                </span>
             </div>
         </div>
         <div>
@@ -66,6 +107,10 @@
 
                 <input type="text" v-model="collateralProviderZhy.cpBirthDate" />
             </div>
+
+            <span class="errorMessage" id="" v-if="cpBirthDateWarmingTextMinusFlag">
+                cpBirthDateWarmingTextMinusFlag
+            </span>
         </div>
 
         <div>
@@ -82,6 +127,10 @@
                     <input type="checkbox" value="03" v-model="reasons" />
                     <input type="checkbox" value="04" v-model="reasons" />
                 </div>
+
+                <span class="errorMessage" id="" v-if="cpMoushikomiWarmingTextNotSelectedFlag">
+                    cpMoushikomiWarmingTextNotSelectedFlag
+                </span>
             </div>
         </div>
         <div>
@@ -97,6 +146,10 @@
                     <option>3</option>
                     <option>3</option>
                 </select>
+
+                <span class="errorMessage" id="" v-if="cpRentaiSaimushaToOnajiWarmingTextNotSelectedFlag">
+                    cpRentaiSaimushaToOnajiWarmingTextNotSelectedFlag
+                </span>
             </div>
         </div>
         <div>
@@ -106,6 +159,10 @@
 
 
                 <input type="text" v-model="collateralProviderZhy.cpPhone" />
+
+                <span class="errorMessage" id="" v-if="cpPhoneWarmingTextFormatFlag">
+                    cpPhoneWarmingTextFormatFlag
+                </span>
             </div>
         </div>
         <div>
@@ -120,6 +177,10 @@
                     <option>4</option>
                     <option>5</option>
                 </select>
+
+                <span class="errorMessage" id="" v-if="cpHonninShokugyoCodeWarmingTextFlag">
+                    cpHonninShokugyoCodeWarmingTextFlag
+                </span>
             </div>
         </div>
         <div>
@@ -128,6 +189,10 @@
             <div class="kiho">
 
                 <input type="text" v-model="collateralProviderZhy.cpHonninKinmusakiName" />
+
+                <span class="errorMessage" id="" v-if="cpHonninKinmusakiNameWarmingTextFormatFlag">
+                    cpHonninKinmusakiNameWarmingTextFormatFlag
+                </span>
             </div>
         </div>
         <div>
@@ -136,7 +201,15 @@
             <div class="kiho">
 
                 <input type="textarea" v-model="collateralProviderZhy.cpReason" />
+
+                <span class="errorMessage" id="" v-if="cpReasonWarmingTextTooShortFlag">
+                    cpReasonWarmingTextTooShortFlag
+                </span>
             </div>
+
+            <span class="errorMessage" id="" v-if="cpReasonWarmingTextTooLongFlag">
+                cpReasonWarmingTextTooLongFlag
+            </span>
         </div>
 
         <div>
@@ -146,7 +219,12 @@
 
                 <input type="radio" name="onaji" id="01" value="01" v-model="collateralProviderZhy.cpSame" />
                 <input type="radio" name="onaji" id="02" value="01" v-model="collateralProviderZhy.cpSame" />
+
+                <span class="errorMessage" id="" v-if="cpSameWarmingTextNotSelectedFlag">
+                    cpSameWarmingTextNotSelectedFlag
+                </span>
             </div>
+
 
         </div>
 
@@ -258,44 +336,77 @@ export default {
                 this.cpReasonChecked &&
                 this.cpSameChecked;
 
-            {
+            { // 测试用代码
                 // 有效
+                console.log("cpTanpoMonoWarmingTextNotSelectedFlag");
                 console.log(this.cpTanpoMonoWarmingTextNotSelectedFlag);
 
+                // 有效
+                console.log("cpNameMeiWarmingTextFormatFlag");
                 console.log(this.cpNameMeiWarmingTextFormatFlag);
 
+
+                // 有效
+                console.log("cpNameMeiWarmingTextTooLongFlag");
                 console.log(this.cpNameMeiWarmingTextTooLongFlag);
 
+
+
+                console.log("cpNameMeiKanaWarmingTextFormatFlag");
                 console.log(this.cpNameMeiKanaWarmingTextFormatFlag);
 
+
+                console.log("cpNameMeiKanaWarmingTextTooLongFlag");
                 console.log(this.cpNameMeiKanaWarmingTextTooLongFlag);
 
+
+                // 有效
+                console.log("cpNameSeiWarmingTextFormatFlag");
                 console.log(this.cpNameSeiWarmingTextFormatFlag);
 
+
+                // 有效
+                console.log("cpNameSeiWarmingTextTooLongFlag");
                 console.log(this.cpNameSeiWarmingTextTooLongFlag);
 
+
+                console.log("cpNameSeiKanaWarmingTextFormatFlag");
                 console.log(this.cpNameSeiKanaWarmingTextFormatFlag);
 
+                console.log("cpNameSeiKanaWarmingTextTooLongFlag");
                 console.log(this.cpNameSeiKanaWarmingTextTooLongFlag);
 
+                console.log("cpBirthDateYearWarmingTextNotSelectedFlag");
                 console.log(this.cpBirthDateYearWarmingTextNotSelectedFlag);
 
+                console.log("cpBirthDateWarmingTextMinusFlag");
                 console.log(this.cpBirthDateWarmingTextMinusFlag);
 
+                console.log("cpMoushikomiWarmingTextNotSelectedFlag");
                 console.log(this.cpMoushikomiWarmingTextNotSelectedFlag);
 
+                // 有效
+                console.log("cpRentaiSaimushaToOnajiWarmingTextNotSelectedFlag");
                 console.log(this.cpRentaiSaimushaToOnajiWarmingTextNotSelectedFlag);
 
+                console.log("cpPhoneWarmingTextFormatFlag");
                 console.log(this.cpPhoneWarmingTextFormatFlag);
 
+                console.log("cpHonninShokugyoCodeWarmingTextFlag");
                 console.log(this.cpHonninShokugyoCodeWarmingTextFlag);
 
+                console.log("cpHonninKinmusakiNameWarmingTextFormatFlag");
                 console.log(this.cpHonninKinmusakiNameWarmingTextFormatFlag);
 
+                // 有效
+                console.log("cpReasonWarmingTextTooShortFlag");
                 console.log(this.cpReasonWarmingTextTooShortFlag);
 
+                // 有效
+                console.log("cpReasonWarmingTextTooLongFlag");
                 console.log(this.cpReasonWarmingTextTooLongFlag);
 
+                console.log("cpSameWarmingTextNotSelectedFlag");
                 console.log(this.cpSameWarmingTextNotSelectedFlag);
 
                 console.log("------------");
@@ -316,19 +427,19 @@ export default {
             this.cpTanpoMonoWarmingTextNotSelectedFlag = this.collateralProviderZhy.cpTanpoMono == "";
         },
         cpNameMeiCheck() {
-            this.cpNameMeiWarmingTextFormatFlag = this.regKanji.test(this.collateralProviderZhy.cpNameMei);
+            this.cpNameMeiWarmingTextFormatFlag = !this.regKanji.test(this.collateralProviderZhy.cpNameMei);
             this.cpNameMeiWarmingTextTooLongFlag = (this.collateralProviderZhy.cpNameMei.length > 40);
         },
         cpNameMeiKanaCheck() {
-            this.cpNameMeiKanaWarmingTextFormatFlag = this.regKana.test(this.collateralProviderZhy.cpNameMeiKana);
+            this.cpNameMeiKanaWarmingTextFormatFlag = !this.regKana.test(this.collateralProviderZhy.cpNameMeiKana);
             this.cpNameMeiKanaWarmingTextTooLongFlag = (this.collateralProviderZhy.cpNameMeiKana.length);
         },
         cpNameSeiCheck() {
-            this.cpNameSeiWarmingTextFormatFlag = this.regKanji.test(this.collateralProviderZhy.cpNameSei);
+            this.cpNameSeiWarmingTextFormatFlag = !this.regKanji.test(this.collateralProviderZhy.cpNameSei);
             this.cpNameSeiWarmingTextTooLongFlag = (this.collateralProviderZhy.cpNameSei.length > 40);
         },
         cpNameSeiKanaCheck() {
-            this.cpNameSeiKanaWarmingTextFormatFlag = this.regKana.test(this.collateralProviderZhy.cpNameSei);
+            this.cpNameSeiKanaWarmingTextFormatFlag = !this.regKana.test(this.collateralProviderZhy.cpNameSei);
             this.cpNameSeiKanaWarmingTextTooLongFlag = (this.collateralProviderZhy.cpNameSei.length > 40);
         },
         cpBirthDateYearCheck() {
@@ -358,7 +469,59 @@ export default {
         },
         cpSameCheck() {
             this.cpSameWarmingTextNotSelectedFlag = (this.cpSame == "");
-        }
+        },
+
+        // 英数字的全角转换为半角
+        // 英数字の全角-半角変換
+        zenkakuAlphNum2hankaku(str) {
+            return str.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function (s) {
+                return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+            });
+        },
+        // カタカナ的全角转换为半角
+        // カタカナの全角から半角への変換
+        zenkakuKana2Hankaku(str) {
+            var kanaMap = {
+                "ガ": "ｶﾞ", "ギ": "ｷﾞ", "グ": "ｸﾞ", "ゲ": "ｹﾞ", "ゴ": "ｺﾞ",
+                "ザ": "ｻﾞ", "ジ": "ｼﾞ", "ズ": "ｽﾞ", "ゼ": "ｾﾞ", "ゾ": "ｿﾞ",
+                "ダ": "ﾀﾞ", "ヂ": "ﾁﾞ", "ヅ": "ﾂﾞ", "デ": "ﾃﾞ", "ド": "ﾄﾞ",
+                "バ": "ﾊﾞ", "ビ": "ﾋﾞ", "ブ": "ﾌﾞ", "ベ": "ﾍﾞ", "ボ": "ﾎﾞ",
+                "パ": "ﾊﾟ", "ピ": "ﾋﾟ", "プ": "ﾌﾟ", "ペ": "ﾍﾟ", "ポ": "ﾎﾟ",
+                "ヴ": "ｳﾞ", "ヷ": "ﾜﾞ", "ヺ": "ｦﾞ",
+                "ア": "ｱ", "イ": "ｲ", "ウ": "ｳ", "エ": "ｴ", "オ": "ｵ",
+                "カ": "ｶ", "キ": "ｷ", "ク": "ｸ", "ケ": "ｹ", "コ": "ｺ",
+                "サ": "ｻ", "シ": "ｼ", "ス": "ｽ", "セ": "ｾ", "ソ": "ｿ",
+                "タ": "ﾀ", "チ": "ﾁ", "ツ": "ﾂ", "テ": "ﾃ", "ト": "ﾄ",
+                "ナ": "ﾅ", "ニ": "ﾆ", "ヌ": "ﾇ", "ネ": "ﾈ", "ノ": "ﾉ",
+                "ハ": "ﾊ", "ヒ": "ﾋ", "フ": "ﾌ", "ヘ": "ﾍ", "ホ": "ﾎ",
+                "マ": "ﾏ", "ミ": "ﾐ", "ム": "ﾑ", "メ": "ﾒ", "モ": "ﾓ",
+                "ヤ": "ﾔ", "ユ": "ﾕ", "ヨ": "ﾖ",
+                "ラ": "ﾗ", "リ": "ﾘ", "ル": "ﾙ", "レ": "ﾚ", "ロ": "ﾛ",
+                "ワ": "ﾜ", "ヲ": "ｦ", "ン": "ﾝ",
+                "ァ": "ｧ", "ィ": "ｨ", "ゥ": "ｩ", "ェ": "ｪ", "ォ": "ｫ",
+                "ッ": "ｯ", "ャ": "ｬ", "ュ": "ｭ", "ョ": "ｮ",
+                "。": "｡", "、": "､", "ー": "ｰ", "「": "｢", "」": "｣", "・": "･"
+            }
+            let reg = new RegExp('(' + Object.keys(kanaMap).join('|') + ')', 'g');
+            return str
+                .replace(reg, function (match) {
+                    return kanaMap[match];
+                })
+                .replace(/゛/g, 'ﾞ')
+                .replace(/゜/g, 'ﾟ');
+        },
+        // 将姓的カナ全角转换为半角
+        // 姓のカナ全角を半角に変換する
+        convertSeiKana() {
+            this.collateralProviderZhy.cpNameSeiKana = this.zenkakuAlphNum2hankaku(this.collateralProviderZhy.cpNameSeiKana);
+            this.collateralProviderZhy.cpNameSeiKana = this.zenkakuKana2Hankaku(this.collateralProviderZhy.cpNameSeiKana);
+        },
+        // 将名的カナ全角转换为半角
+        // 名のカナ全角を半角に変換する
+        convertMeiKana() {
+            this.collateralProviderZhy.cpNameMeiKana = this.zenkakuAlphNum2hankaku(this.collateralProviderZhy.cpNameMeiKana);
+            this.collateralProviderZhy.cpNameMeiKana = this.zenkakuKana2Hankaku(this.collateralProviderZhy.cpNameMeiKana);
+        },
 
     },
     watch: {
@@ -376,12 +539,15 @@ export default {
             this.cpNameMeiCheck();
         },
         'collateralProviderZhy.cpNameMeiKana': function () {
-
+            this.convertMeiKana();
+            this.cpNameMeiKanaCheck();
         },
         'collateralProviderZhy.cpNameSei': function () {
             this.cpNameSeiCheck();
         },
         'collateralProviderZhy.cpNameSeiKana': function () {
+            this.convertSeiKana();
+            this.cpNameSeiKanaCheck();
 
         },
         'collateralProviderZhy.cpBirthDateYear': function () {

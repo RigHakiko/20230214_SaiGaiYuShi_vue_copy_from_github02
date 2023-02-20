@@ -265,6 +265,7 @@ export default {
             if (this.checkedAllFlag) {
                 KoJinJoHoZhyInContent01 = this.koJinJoHoZhy
                 axios.post('http://localhost:8813/ko-jin-jo-ho-zhy/save', this.koJinJoHoZhy).then();
+                
             } else
             // 如果存在有问题的输入, 就alert提示错误
             // 入力に異常がある場合、エラーで警告する
