@@ -458,7 +458,12 @@ export default {
         },
         cpBirthDateCheck() {
             this.cpBirthDateWarmingTextMinusFlag = (this.cpBirthDate < 0);
+        {
+            // 测试用
+            this.cpBirthDateWarmingTextMinusFlag;
+        }
         },
+
         cpMoushikomiCheck() {
             this.cpMoushikomiWarmingTextNotSelectedFlag = (this.collateralProviderZhy.cpMoushikomi == "");
         },
@@ -541,7 +546,7 @@ export default {
             let todayDate = today.getDate();
             // let birthday = this.collateralProviderZhy.cpBirthDateYear;
             { // 测试用
-                console.log(this.collateralProviderZhy.cpBirthDateYear.getFullYear);
+                // console.log(this.collateralProviderZhy.cpBirthDateYear.getFullYear);
             }
             // let birthdayFullYear = birthday.getFullYear();
             // let birthdayMonth = birthday.getMonth();
@@ -600,8 +605,9 @@ export default {
             this.cpBirthDateYearCheck();
             this.collateralProviderZhy.cpBirthDate = this.calculateAge();
         },
-        //         'collateralProviderZhy.cpBirthDate': function () {
-        // },
+                'collateralProviderZhy.cpBirthDate': function () {
+                    this.cpBirthDateCheck();
+        },
         //         'collateralProviderZhy.cpMoushikomi': function () {
         // },
         'collateralProviderZhy.cpRentaiSaimushaToOnaji': function () {
