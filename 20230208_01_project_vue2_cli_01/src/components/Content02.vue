@@ -360,11 +360,11 @@ export default {
                 console.log(this.cpNameMeiWarmingTextTooLongFlag);
 
 
-
+                // 有效
                 console.log("cpNameMeiKanaWarmingTextFormatFlag");
                 console.log(this.cpNameMeiKanaWarmingTextFormatFlag);
 
-
+                // 有效
                 console.log("cpNameMeiKanaWarmingTextTooLongFlag");
                 console.log(this.cpNameMeiKanaWarmingTextTooLongFlag);
 
@@ -378,12 +378,14 @@ export default {
                 console.log("cpNameSeiWarmingTextTooLongFlag");
                 console.log(this.cpNameSeiWarmingTextTooLongFlag);
 
-
+                // 有效
                 console.log("cpNameSeiKanaWarmingTextFormatFlag");
                 console.log(this.cpNameSeiKanaWarmingTextFormatFlag);
 
+                // 有效
                 console.log("cpNameSeiKanaWarmingTextTooLongFlag");
                 console.log(this.cpNameSeiKanaWarmingTextTooLongFlag);
+
 
                 console.log("cpBirthDateYearWarmingTextNotSelectedFlag");
                 console.log(this.cpBirthDateYearWarmingTextNotSelectedFlag);
@@ -441,15 +443,15 @@ export default {
         },
         cpNameMeiKanaCheck() {
             this.cpNameMeiKanaWarmingTextFormatFlag = !this.regKana.test(this.collateralProviderZhy.cpNameMeiKana);
-            this.cpNameMeiKanaWarmingTextTooLongFlag = (this.collateralProviderZhy.cpNameMeiKana.length);
+            this.cpNameMeiKanaWarmingTextTooLongFlag = (this.collateralProviderZhy.cpNameMeiKana.length > 40);
         },
         cpNameSeiCheck() {
             this.cpNameSeiWarmingTextFormatFlag = !this.regKanji.test(this.collateralProviderZhy.cpNameSei);
             this.cpNameSeiWarmingTextTooLongFlag = (this.collateralProviderZhy.cpNameSei.length > 40);
         },
         cpNameSeiKanaCheck() {
-            this.cpNameSeiKanaWarmingTextFormatFlag = !this.regKana.test(this.collateralProviderZhy.cpNameSei);
-            this.cpNameSeiKanaWarmingTextTooLongFlag = (this.collateralProviderZhy.cpNameSei.length > 40);
+            this.cpNameSeiKanaWarmingTextFormatFlag = !this.regKana.test(this.collateralProviderZhy.cpNameSeiKana);
+            this.cpNameSeiKanaWarmingTextTooLongFlag = (this.collateralProviderZhy.cpNameSeiKana.length > 40);
         },
         cpBirthDateYearCheck() {
             this.cpBirthDateYearWarmingTextNotSelectedFlag = (this.cpBirthDate == "");
