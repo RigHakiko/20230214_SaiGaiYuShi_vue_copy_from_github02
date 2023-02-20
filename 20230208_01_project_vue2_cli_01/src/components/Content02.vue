@@ -595,6 +595,8 @@ export default {
     created() {
         // 把字符串转化为数组, 传给数组 这个功能先不去写之
         // trans
+        console.log("----------");
+        console.log(this.$store.state.KoJinJoHoZhyInContent01);
 
     }
 }
