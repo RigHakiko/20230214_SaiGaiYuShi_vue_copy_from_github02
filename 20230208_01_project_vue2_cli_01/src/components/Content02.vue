@@ -258,6 +258,50 @@ export default {
                 this.cpReasonChecked &&
                 this.cpSameChecked;
 
+            {
+                // 有效
+                console.log(this.cpTanpoMonoWarmingTextNotSelectedFlag);
+
+                console.log(this.cpNameMeiWarmingTextFormatFlag);
+
+                console.log(this.cpNameMeiWarmingTextTooLongFlag);
+
+                console.log(this.cpNameMeiKanaWarmingTextFormatFlag);
+
+                console.log(this.cpNameMeiKanaWarmingTextTooLongFlag);
+
+                console.log(this.cpNameSeiWarmingTextFormatFlag);
+
+                console.log(this.cpNameSeiWarmingTextTooLongFlag);
+
+                console.log(this.cpNameSeiKanaWarmingTextFormatFlag);
+
+                console.log(this.cpNameSeiKanaWarmingTextTooLongFlag);
+
+                console.log(this.cpBirthDateYearWarmingTextNotSelectedFlag);
+
+                console.log(this.cpBirthDateWarmingTextMinusFlag);
+
+                console.log(this.cpMoushikomiWarmingTextNotSelectedFlag);
+
+                console.log(this.cpRentaiSaimushaToOnajiWarmingTextNotSelectedFlag);
+
+                console.log(this.cpPhoneWarmingTextFormatFlag);
+
+                console.log(this.cpHonninShokugyoCodeWarmingTextFlag);
+
+                console.log(this.cpHonninKinmusakiNameWarmingTextFormatFlag);
+
+                console.log(this.cpReasonWarmingTextTooShortFlag);
+
+                console.log(this.cpReasonWarmingTextTooLongFlag);
+
+                console.log(this.cpSameWarmingTextNotSelectedFlag);
+
+                console.log("------------");
+
+            }
+
             if (this.checkedAllFlag) {
 
                 axios.post("http://localhost:8813/CollateralProviderZhy/save", this.collateralProviderZhy).then();
@@ -315,64 +359,64 @@ export default {
         cpSameCheck() {
             this.cpSameWarmingTextNotSelectedFlag = (this.cpSame == "");
         }
-       
+
     },
     watch: {
-            // 'collateralProviderZhy.cpMoushikomi': function () {
+        // 'collateralProviderZhy.cpMoushikomi': function () {
 
-            // },
-            // 监视数组, 在数据变化时将数组转化为字符串
-            'reasons': function () {
-                this.collateralProviderZhy.cpMoushikomi = this.reasons.join(",")
-            },
-            'collateralProviderZhy.cpTanpoMono': function () {
-                this.cpTanpoMonoCheck();
-            },
-            'collateralProviderZhy.cpNameMei': function () {
-                this.cpNameMeiCheck();
-            },
-            'collateralProviderZhy.cpNameMeiKana': function () {
-
-            },
-            'collateralProviderZhy.cpNameSei': function () {
-                this.cpNameSeiCheck();
-            },
-            'collateralProviderZhy.cpNameSeiKana': function () {
-
-            },
-            'collateralProviderZhy.cpBirthDateYear': function () {
-                this.cpBirthDateYearCheck();
-            },
-            //         'collateralProviderZhy.cpBirthDate': function () {
-            // },
-            //         'collateralProviderZhy.cpMoushikomi': function () {
-            // },
-            'collateralProviderZhy.cpRentaiSaimushaToOnaji': function () {
-                this.cpRentaiSaimushaToOnajiCheck();
-            },
-            'collateralProviderZhy.cpPhone': function () {
-                this.cpPhoneCheck();
-            },
-            'collateralProviderZhy.cpHonninShokugyoCode': function () {
-                this.cpHonninShokugyoCodeCheck();
-            },
-            'collateralProviderZhy.cpHonninKinmusakiName': function () {
-                this.cpHonninKinmusakiNameCheck();
-            },
-            'collateralProviderZhy.cpReason': function () {
-                this.cpReasonCheck();
-            },
-            'collateralProviderZhy.cpSame': function () {
-                this.cpSameCheck();
-            }
-
+        // },
+        // 监视数组, 在数据变化时将数组转化为字符串
+        'reasons': function () {
+            this.collateralProviderZhy.cpMoushikomi = this.reasons.join(",")
+        },
+        'collateralProviderZhy.cpTanpoMono': function () {
+            this.cpTanpoMonoCheck();
+        },
+        'collateralProviderZhy.cpNameMei': function () {
+            this.cpNameMeiCheck();
+        },
+        'collateralProviderZhy.cpNameMeiKana': function () {
 
         },
-        created() {
-            // 把字符串转化为数组, 传给数组 这个功能先不去写之
-            // trans
+        'collateralProviderZhy.cpNameSei': function () {
+            this.cpNameSeiCheck();
+        },
+        'collateralProviderZhy.cpNameSeiKana': function () {
 
+        },
+        'collateralProviderZhy.cpBirthDateYear': function () {
+            this.cpBirthDateYearCheck();
+        },
+        //         'collateralProviderZhy.cpBirthDate': function () {
+        // },
+        //         'collateralProviderZhy.cpMoushikomi': function () {
+        // },
+        'collateralProviderZhy.cpRentaiSaimushaToOnaji': function () {
+            this.cpRentaiSaimushaToOnajiCheck();
+        },
+        'collateralProviderZhy.cpPhone': function () {
+            this.cpPhoneCheck();
+        },
+        'collateralProviderZhy.cpHonninShokugyoCode': function () {
+            this.cpHonninShokugyoCodeCheck();
+        },
+        'collateralProviderZhy.cpHonninKinmusakiName': function () {
+            this.cpHonninKinmusakiNameCheck();
+        },
+        'collateralProviderZhy.cpReason': function () {
+            this.cpReasonCheck();
+        },
+        'collateralProviderZhy.cpSame': function () {
+            this.cpSameCheck();
         }
+
+
+    },
+    created() {
+        // 把字符串转化为数组, 传给数组 这个功能先不去写之
+        // trans
+
+    }
 }
 </script>
 <style>
