@@ -211,6 +211,7 @@
                 cpReasonWarmingTextTooLongFlag
             </span>
             <span>当前已经输入{{ collateralProviderZhy.cpReason.length }}个字</span>
+            <input type="button" value="save" @click="saveReason()" />
             </div>
 
 
@@ -579,6 +580,9 @@ export default {
                 age--;
             }
             return age;
+        },
+        saveReason(){
+            this.$store.collateralProviderZhy.reasons = this.collateralProviderZhy.reasons;
         }
 
     },
@@ -656,6 +660,8 @@ export default {
         // trans
         console.log("----------");
         console.log(this.$store.state.KoJinJoHoZhyInContent01);
+
+        this.collateralProviderZhy.reasons = this.$store.collateralProviderZhy.reasons;
 
     }
 }
