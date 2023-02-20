@@ -208,6 +208,9 @@ export default {
         // 弄第2个add方法
         // Web経由でデータベースに保存
         add2() {
+
+            this.$store.state.KoJinJoHoZhyInContent01 = this.koJinJoHoZhy;
+
             //在发布时, 去判断是否是无职, 无职的话清空工作地点信息
             //ポスティングの際、無職かどうかを判断する、無職の場合は職場情報をクリアする
             if (this.musyokuFlag) {
@@ -431,6 +434,8 @@ export default {
         {
         // this.KoJinJoHoZhyInContent01 = this.$store.state.KoJinJoHoZhyInContent01;
     }
+        // Vuexからデータを取得
+        this.koJinJoHoZhy = this.$store.state.KoJinJoHoZhyInContent01;
     }
 }
 </script>
