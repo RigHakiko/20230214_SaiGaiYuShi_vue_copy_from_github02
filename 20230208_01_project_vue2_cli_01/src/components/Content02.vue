@@ -4,7 +4,7 @@
         <div class="representDiv">
             <span class="represent">*は必須項目です。</span>
         </div>
-        test
+        <!-- test -->
         <!-- <span>fjweofjwei</span> -->
         <!-- <table></table> -->
         <!-- <input type="button" value="tmp" @click="next()" /> -->
@@ -218,7 +218,7 @@
                 cpReasonWarmingTextTooLongFlag
             </span>
             <span>当前已经输入{{ collateralProviderZhy.cpReason.length }}个字</span>
-            <input type="button" value="save" @click="saveReason()" />
+            <input type="button" value="保存" @click="saveReason()" />
             </div>
 
 
@@ -241,8 +241,8 @@
         </div>
 
         <div>
-            <input type="button" value="previous" @click="previous"/>
-            <input type="button" value="next" @click="next" />
+            <input type="button" value="戻る" @click="previous"/>
+            <input type="button" value="次へ" @click="next" />
         </div>
 
 
