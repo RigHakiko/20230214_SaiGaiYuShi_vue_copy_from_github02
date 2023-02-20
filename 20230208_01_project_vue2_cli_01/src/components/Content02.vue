@@ -395,6 +395,7 @@ export default {
                 console.log("cpBirthDateWarmingTextMinusFlag");
                 console.log(this.cpBirthDateWarmingTextMinusFlag);
 
+                // 有效
                 console.log("cpMoushikomiWarmingTextNotSelectedFlag");
                 console.log(this.cpMoushikomiWarmingTextNotSelectedFlag);
 
@@ -402,12 +403,13 @@ export default {
                 console.log("cpRentaiSaimushaToOnajiWarmingTextNotSelectedFlag");
                 console.log(this.cpRentaiSaimushaToOnajiWarmingTextNotSelectedFlag);
 
+                               // 有效
                 console.log("cpPhoneWarmingTextFormatFlag");
                 console.log(this.cpPhoneWarmingTextFormatFlag);
-
+                // 有效
                 console.log("cpHonninShokugyoCodeWarmingTextFlag");
                 console.log(this.cpHonninShokugyoCodeWarmingTextFlag);
-
+                // 有效
                 console.log("cpHonninKinmusakiNameWarmingTextFormatFlag");
                 console.log(this.cpHonninKinmusakiNameWarmingTextFormatFlag);
 
@@ -419,6 +421,7 @@ export default {
                 console.log("cpReasonWarmingTextTooLongFlag");
                 console.log(this.cpReasonWarmingTextTooLongFlag);
 
+                // 有效
                 console.log("cpSameWarmingTextNotSelectedFlag");
                 console.log(this.cpSameWarmingTextNotSelectedFlag);
 
@@ -486,7 +489,7 @@ export default {
             this.cpReasonWarmingTextTooLongFlag = (this.collateralProviderZhy.cpReason.length >= 200);
         },
         cpSameCheck() {
-            this.cpSameWarmingTextNotSelectedFlag = (this.cpSame == "");
+            this.cpSameWarmingTextNotSelectedFlag = (this.collateralProviderZhy.cpSame == "");
 
         },
 
