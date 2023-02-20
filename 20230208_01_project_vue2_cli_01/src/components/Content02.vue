@@ -126,11 +126,23 @@
 
                 <!-- 应该是多选, 先用text -->
                 <!-- <input type="text" v-model="collateralProviderZhy.cpMoushikomi" /> -->
-                <div>
+                <div class="kiho">
+                    <div  class="kiho">
+
                     <input type="checkbox" value="01" v-model="reasons" />01 親子リレー返済
+                    </div>
+                    <div  class="kiho">
+
                     <input type="checkbox" value="02" v-model="reasons" />02 収入合算（同居親族）
+                    </div>
+                    <div  class="kiho">
+
                     <input type="checkbox" value="03" v-model="reasons" />03 収入合算（非同居直系親族）
+                    </div>
+                    <div  class="kiho">
+
                     <input type="checkbox" value="04" v-model="reasons" />04 その他
+                    </div>
                 </div>
 
                 <span class="errorMessage" id="" v-if="cpMoushikomiWarmingTextNotSelectedFlag">
@@ -219,8 +231,10 @@
                 <span class="errorMessage" id="" v-if="cpReasonWarmingTextTooLongFlag">
                     入力した文字数が長すぎます。再入力してください。
             </span>
-            <span>当前已经输入{{ collateralProviderZhy.cpReason.length }}个字</span>
+            <div class="kiho">
+                <span>当前已经输入{{ collateralProviderZhy.cpReason.length }}个字</span>
             <input type="button" value="一時保存" @click="saveReason()" />
+            </div>
             </div>
 
 
