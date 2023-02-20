@@ -207,11 +207,13 @@
                 <span class="errorMessage" id="" v-if="cpReasonWarmingTextTooShortFlag">
                     cpReasonWarmingTextTooShortFlag
                 </span>
-            </div>
-
-            <span class="errorMessage" id="" v-if="cpReasonWarmingTextTooLongFlag">
+                <span class="errorMessage" id="" v-if="cpReasonWarmingTextTooLongFlag">
                 cpReasonWarmingTextTooLongFlag
             </span>
+            <span>当前已经输入{{ collateralProviderZhy.cpReason.length }}个字</span>
+            </div>
+
+
         </div>
 
         <div>
