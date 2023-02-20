@@ -21,20 +21,20 @@ const store = new Vuex.Store({
             cpKinmusakiname: "" //勤務先 
         },
         CollateralProviderZhyInContent02: {
-            CpTanpoMono: "",
-            CpNameMei: "",
-            CpNameMeiKana: "",
-            CpNameSei: "",
-            CpNameSeiKana: "",
-            CpBirthDateYear: "",
-            CpBirthDate: null,
-            CpMoushikomi: "",
-            CpRentaiSaimushaToOnaji: "",
-            CpPhone: "",
-            CpHonninShokugyoCode: "",
-            CpHonninKinmusakiName: "",
-            CpReason: "",
-            CpSame: ""
+            cpTanpoMono: "",
+            cpNameMei: "",
+            cpNameMeiKana: "",
+            cpNameSei: "",
+            cpNameSeiKana: "",
+            cpBirthDateYear: "",
+            cpBirthDate: null,
+            cpMoushikomi: "",
+            cpRentaiSaimushaToOnaji: "",
+            cpPhone: "",
+            cpHonninShokugyoCode: "",
+            cpHonninKinmusakiName: "",
+            cpReason: "",
+            cpSame: ""
         }
     }
 });
