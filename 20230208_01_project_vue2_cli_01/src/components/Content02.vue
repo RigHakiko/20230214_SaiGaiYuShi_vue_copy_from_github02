@@ -1,12 +1,16 @@
 <template>
     <div>
+        <h1>担保者情報</h1>
+        <div class="representDiv">
+            <span class="represent">*は必須項目です。</span>
+        </div>
         test
         <!-- <span>fjweofjwei</span> -->
         <!-- <table></table> -->
         <!-- <input type="button" value="tmp" @click="next()" /> -->
         <div>
 
-            <label>担保提供物</label>
+            <label>担保提供物 *</label>
             <div class="kiho">
 
                 <select v-model="collateralProviderZhy.cpTanpoMono">
@@ -22,7 +26,7 @@
 
         <div>
 
-            <label>姓</label>
+            <label>姓 *</label>
             <div class="kiho">
 
                 <input type="text" v-model="collateralProviderZhy.cpNameSei" />
@@ -40,7 +44,7 @@
         <div>
 
 
-            <label>名</label>
+            <label>名 *</label>
             <div class="kiho">
 
                 <input type="text" v-model="collateralProviderZhy.cpNameMei" />
@@ -90,7 +94,7 @@
         </div>
         <div>
 
-            <label>生年月日</label>
+            <label>生年月日 *</label>
             <div class="kiho">
 
                 <input type="date" v-model="collateralProviderZhy.cpBirthDateYear" />
@@ -116,7 +120,7 @@
 
         <div>
 
-            <label>担保者となる理由</label>
+            <label>担保者となる理由 *</label>
             <div class="kiho">
 
 
@@ -136,7 +140,7 @@
         </div>
         <div>
 
-            <label>申請者との関係</label>
+            <label>申請者との関係 *</label>
 
             <div class="kiho">
 
@@ -155,7 +159,7 @@
         </div>
         <div>
 
-            <label>携帯電話</label>
+            <label>携帯電話 *</label>
             <div class="kiho">
 
 
@@ -168,7 +172,7 @@
         </div>
         <div>
 
-            <label>職業</label>
+            <label>職業 *</label>
             <div class="kiho">
 
                 <select v-model="collateralProviderZhy.cpHonninShokugyoCode">
@@ -199,10 +203,13 @@
         </div>
         <div>
 
-            <label>担保理由</label>
+            <label>担保理由 *</label>
             <div class="kiho">
+                <div>
 
-                <input type="textarea" v-model="collateralProviderZhy.cpReason" />
+                <textarea type="textarea" id="cpReasonTextArea" v-model="collateralProviderZhy.cpReason" >
+                </textarea>
+                </div>
 
                 <span class="errorMessage" id="" v-if="cpReasonWarmingTextTooShortFlag">
                     cpReasonWarmingTextTooShortFlag
@@ -219,7 +226,7 @@
 
         <div>
 
-            <label>個人申請者と同じ</label>
+            <label>個人申請者と同じ *</label>
             <div class="kiho">
 
                 <input type="radio" name="onaji" id="01" value="01" v-model="collateralProviderZhy.cpSame" />
@@ -673,4 +680,21 @@ export default {
 /* *{
     background-color: red;
 } */
+
+h1 {
+    text-align: center;
+    color: gray;
+}
+.representDiv{
+    text-align: center;
+}
+#cpReasonTextArea{
+    height: 200px;
+    width: 400px;
+}
+textarea{
+
+    height: 200px;
+    width: 400px;
+}
 </style>
