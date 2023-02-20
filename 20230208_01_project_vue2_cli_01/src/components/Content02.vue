@@ -10,7 +10,7 @@
         <!-- <input type="button" value="tmp" @click="next()" /> -->
         <div>
 
-            <label>担保提供物 *</label>
+            <label class="name description">担保提供物 *</label>
             <div class="kiho">
 
                 <select v-model="collateralProviderZhy.cpTanpoMono">
@@ -26,7 +26,7 @@
 
         <div>
 
-            <label>姓 *</label>
+            <label class="name description">姓 *</label>
             <div class="kiho">
 
                 <input type="text" v-model="collateralProviderZhy.cpNameSei" />
@@ -44,7 +44,7 @@
         <div>
 
 
-            <label>名 *</label>
+            <label class="name description">名 *</label>
             <div class="kiho">
 
                 <input type="text" v-model="collateralProviderZhy.cpNameMei" />
@@ -62,7 +62,7 @@
 
         <div>
 
-            <label>セイ</label>
+            <label class="name description">セイ</label>
             <div class="kiho">
 
                 <input type="text" v-model="collateralProviderZhy.cpNameSeiKana" />
@@ -78,7 +78,7 @@
         </div>
         <div>
 
-            <label>メイ</label>
+            <label class="name description">メイ</label>
             <div class="kiho">
 
                 <input type="text" v-model="collateralProviderZhy.cpNameMeiKana" />
@@ -94,7 +94,7 @@
         </div>
         <div>
 
-            <label>生年月日 *</label>
+            <label class="name description">生年月日 *</label>
             <div class="kiho">
 
                 <input type="date" v-model="collateralProviderZhy.cpBirthDateYear" />
@@ -106,7 +106,7 @@
         </div>
         <div>
 
-            <label>年齢</label>
+            <label class="name description">年齢</label>
             <div class="kiho">
 
                 <input type="text" v-model="collateralProviderZhy.cpBirthDate" disabled/>
@@ -120,7 +120,7 @@
 
         <div>
 
-            <label>担保者となる理由 *</label>
+            <label class="name description">担保者となる理由 *</label>
             <div class="kiho">
 
 
@@ -140,7 +140,7 @@
         </div>
         <div>
 
-            <label>申請者との関係 *</label>
+            <label class="name description">申請者との関係 *</label>
 
             <div class="kiho">
 
@@ -160,7 +160,7 @@
         </div>
         <div>
 
-            <label>携帯電話 *</label>
+            <label class="name description">携帯電話 *</label>
             <div class="kiho">
 
 
@@ -173,7 +173,7 @@
         </div>
         <div>
 
-            <label>職業 *</label>
+            <label class="name description">職業 *</label>
             <div class="kiho">
 
                 <select v-model="collateralProviderZhy.cpHonninShokugyoCode">
@@ -192,7 +192,7 @@
         </div>
         <div>
 
-            <label>勤務先の名称</label>
+            <label class="name description">勤務先の名称</label>
             <div class="kiho">
 
                 <input type="text" v-model="collateralProviderZhy.cpHonninKinmusakiName"
@@ -205,13 +205,13 @@
         </div>
         <div>
 
-            <label>担保理由 *</label>
+            <label class="name description">担保理由 *</label>
             <div class="kiho">
-                <div>
+                <!-- <div> -->
 
                 <textarea type="textarea" id="cpReasonTextArea" v-model="collateralProviderZhy.cpReason" >
                 </textarea>
-                </div>
+                <!-- </div> -->
 
                 <span class="errorMessage" id="" v-if="cpReasonWarmingTextTooShortFlag">
                     cpReasonWarmingTextTooShortFlag
@@ -228,7 +228,7 @@
 
         <div>
 
-            <label>個人申請者と同じ *</label>
+            <label class="name description">個人申請者と同じ *</label>
             <div class="kiho">
 
                 <input type="radio" name="onaji" id="01" value="01" v-model="collateralProviderZhy.cpSame" />
@@ -243,7 +243,7 @@
 
         </div>
 
-        <div>
+        <div class="buttons">
             <input type="button" value="戻る" @click="previous"/>
             <input type="button" value="次へ" @click="next" />
         </div>
@@ -715,5 +715,21 @@ textarea{
 
     height: 200px;
     width: 400px;
+}
+.kiho {
+    display: inline;
+    width: 300px;
+    position: relative;
+}
+.buttons{
+    text-align: center;
+}
+.description {
+    display: inline-block;
+    width: 300px;
+    text-align: right;
+}
+.buttons{
+    text-align: center;
 }
 </style>
