@@ -14,9 +14,9 @@
             <div class="kiho">
 
                 <select v-model="collateralProviderZhy.cpTanpoMono">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
+                    <option>01 建物のみ</option>
+                    <option>02 土地のみ</option>
+                    <option>03 建物・土地</option>
                 </select>
                 <span class="errorMessage" id="" v-if="cpTanpoMonoWarmingTextNotSelectedFlag">
                     cpTanpoMonoWarmingTextNotSelectedFlag
@@ -127,10 +127,10 @@
                 <!-- 应该是多选, 先用text -->
                 <input type="text" v-model="collateralProviderZhy.cpMoushikomi" />
                 <div>
-                    <input type="checkbox" value="01" v-model="reasons" />
-                    <input type="checkbox" value="02" v-model="reasons" />
-                    <input type="checkbox" value="03" v-model="reasons" />
-                    <input type="checkbox" value="04" v-model="reasons" />
+                    <input type="checkbox" value="01" v-model="reasons" />01 親子リレー返済
+                    <input type="checkbox" value="02" v-model="reasons" />02 収入合算（同居親族）
+                    <input type="checkbox" value="03" v-model="reasons" />03 収入合算（非同居直系親族）
+                    <input type="checkbox" value="04" v-model="reasons" />04 その他
                 </div>
 
                 <span class="errorMessage" id="" v-if="cpMoushikomiWarmingTextNotSelectedFlag">
@@ -146,10 +146,11 @@
 
 
                 <select v-model="collateralProviderZhy.cpRentaiSaimushaToOnaji">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>3</option>
+                    <option>配偶者</option>
+                    <option>婚約者</option>
+                    <option>親</option>
+                    <option>子</option>
+                    <option>その他</option>
                 </select>
 
                 <span class="errorMessage" id="" v-if="cpRentaiSaimushaToOnajiWarmingTextNotSelectedFlag">
@@ -176,15 +177,16 @@
             <div class="kiho">
 
                 <select v-model="collateralProviderZhy.cpHonninShokugyoCode">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                    <option>01 自営業</option>
+                    <option>02 パート、アルバイト</option>
+                    <option>03 公務員</option>
+                    <option>04 会社員</option>
+                    <option>05 その他</option>
+                    <option>06 無職</option>
                 </select>
 
-                <span class="errorMessage" id="" v-if="cpHonninShokugyoCodeWarmingTextFlag">
-                    cpHonninShokugyoCodeWarmingTextFlag
+                <span class="errorMessage" id="" v-if="cpHonninShokugyoCodeWarmingTextNotSelectedFlag">
+                    cpHonninShokugyoCodeWarmingTextNotSelectedFlag
                 </span>
             </div>
         </div>
@@ -196,8 +198,8 @@
                 <input type="text" v-model="collateralProviderZhy.cpHonninKinmusakiName"
                     :disabled="!kinmusakiCanEditFlag" />
 
-                <span class="errorMessage" id="" v-if="cpHonninKinmusakiNameWarmingTextFormatFlag">
-                    cpHonninKinmusakiNameWarmingTextFormatFlag
+                <span class="errorMessage" id="" v-if="cpHonninKinmusakiNameWarmingTooLongFormatFlag">
+                    cpHonninKinmusakiNameWarmingTooLongFormatFlag
                 </span>
             </div>
         </div>
@@ -230,8 +232,9 @@
             <div class="kiho">
 
                 <input type="radio" name="onaji" id="01" value="01" v-model="collateralProviderZhy.cpSame" />
+                同じ
                 <input type="radio" name="onaji" id="02" value="02" v-model="collateralProviderZhy.cpSame" />
-
+                違う
                 <span class="errorMessage" id="" v-if="cpSameWarmingTextNotSelectedFlag">
                     cpSameWarmingTextNotSelectedFlag
                 </span>
@@ -254,6 +257,7 @@ import axios from 'axios'
 export default {
     data() {
         return {
+             // データはjson形式で保存
             collateralProviderZhy: {
                 cpTanpoMono: "",
                 cpNameMei: "",
@@ -271,8 +275,10 @@ export default {
                 cpSame: ""
             },
             // 担保原因多选项保存为的数组
+            // 担保者となる理由多オプション配列
             reasons: [],
 
+            // 各エラーメッセージのフラグ，メッセージを表示する場合はtrue，表示しない場合はfalse
             cpTanpoMonoWarmingTextNotSelectedFlag: false,
             cpNameMeiWarmingTextFormatFlag: false,
             cpNameMeiWarmingTextTooLongFlag: false,
@@ -287,16 +293,18 @@ export default {
             cpMoushikomiWarmingTextNotSelectedFlag: false,
             cpRentaiSaimushaToOnajiWarmingTextNotSelectedFlag: false,
             cpPhoneWarmingTextFormatFlag: false,
-            cpHonninShokugyoCodeWarmingTextFlag: false,
-            cpHonninKinmusakiNameWarmingTextFormatFlag: false,
+            cpHonninShokugyoCodeWarmingTextNotSelectedFlag: false,
+            cpHonninKinmusakiNameWarmingTooLongFormatFlag: false,
             cpReasonWarmingTextTooShortFlag: false,
             cpReasonWarmingTextTooLongFlag: false,
             cpSameWarmingTextNotSelectedFlag: false,
 
+            // それぞれの正規表現
             regKanji: new RegExp('^[\\u4E00-\\u9FA5]+$'),
             regKana: new RegExp('^[ｦ-ﾝ]*$'),
             regDenwa: new RegExp('^0[789]0-[0-9]{4}-[0-9]{4}$'),
 
+            // 勤務先と電話番号はが編集できるかどうか
             kinmusakiCanEditFlag: true,
             phoneCanEditFlag: true
         }
@@ -310,6 +318,7 @@ export default {
                 console.log(this.collateralProviderZhy.cpBirthDateYear)
             }
 
+            //すべての情報をチェック
             this.cpTanpoMonoCheck();
             this.cpNameMeiCheck();
             this.cpNameMeiKanaCheck();
@@ -325,6 +334,7 @@ export default {
             this.cpReasonCheck();
             this.cpSameCheck();
 
+            // エラーメッセージの表示有無から各情報の正誤を判断する
             this.cpTanpoMonoChecked = ((!this.cpTanpoMonoWarmingTextNotSelectedFlag));
             this.cpNameMeiChecked = ((!this.cpNameMeiWarmingTextFormatFlag) || (!this.cpNameMeiWarmingTextTooLongFlag));
             this.cpNameMeiKanaChecked = ((!this.cpNameMeiKanaWarmingTextFormatFlag) || (!this.cpNameMeiKanaWarmingTextTooLongFlag));
@@ -336,10 +346,11 @@ export default {
             this.cpRentaiSaimushaToOnajiChecked = ((!this.cpRentaiSaimushaToOnajiWarmingTextNotSelectedFlag));
             this.cpPhoneChecked = ((!this.cpPhoneWarmingTextFormatFlag));
             this.cpHonninShokugyoCodeChecked = ((!this.cpPhoneWarmingTextFormatFlag));
-            this.cpHonninKinmusakiNameChecked = ((!this.cpHonninKinmusakiNameWarmingTextFormatFlag));
+            this.cpHonninKinmusakiNameChecked = ((!this.cpHonninKinmusakiNameWarmingTooLongFormatFlag));
             this.cpReasonChecked = ((!this.cpReasonWarmingTextTooShortFlag) || (!this.cpReasonWarmingTextTooLongFlag));
             this.cpSameChecked = ((!this.cpSameWarmingTextNotSelectedFlag));
 
+            // すべての情報が正しい場合、checkedAllFlagはtrueになる。
             this.checkedAllFlag =
                 this.cpTanpoMonoChecked &&
                 this.cpNameMeiChecked &&
@@ -417,11 +428,11 @@ export default {
                 console.log("cpPhoneWarmingTextFormatFlag");
                 console.log(this.cpPhoneWarmingTextFormatFlag);
                 // 有效
-                console.log("cpHonninShokugyoCodeWarmingTextFlag");
-                console.log(this.cpHonninShokugyoCodeWarmingTextFlag);
+                console.log("cpHonninShokugyoCodeWarmingTextNotSelectedFlag");
+                console.log(this.cpHonninShokugyoCodeWarmingTextNotSelectedFlag);
                 // 有效
-                console.log("cpHonninKinmusakiNameWarmingTextFormatFlag");
-                console.log(this.cpHonninKinmusakiNameWarmingTextFormatFlag);
+                console.log("cpHonninKinmusakiNameWarmingTooLongFormatFlag");
+                console.log(this.cpHonninKinmusakiNameWarmingTooLongFormatFlag);
 
                 // 有效
                 console.log("cpReasonWarmingTextTooShortFlag");
@@ -439,6 +450,7 @@ export default {
 
             }
 
+            // すべての情報が正しい場合は、postする
             if (this.checkedAllFlag) {
 
                 axios.post("http://localhost:8813/CollateralProviderZhy/save", this.collateralProviderZhy).then();
@@ -449,6 +461,7 @@ export default {
 
         },
         // 各个数据的验证方法
+        // 各情報のチェック
         cpTanpoMonoCheck() {
             this.cpTanpoMonoWarmingTextNotSelectedFlag = this.collateralProviderZhy.cpTanpoMono == "";
         },
@@ -489,10 +502,10 @@ export default {
             this.cpPhoneWarmingTextFormatFlag = (!this.regDenwa.test(this.collateralProviderZhy.cpPhone));
         },
         cpHonninShokugyoCodeCheck() {
-            this.cpHonninShokugyoCodeWarmingTextFlag = (this.collateralProviderZhy.cpHonninShokugyoCode == "");
+            this.cpHonninShokugyoCodeWarmingTextNotSelectedFlag = (this.collateralProviderZhy.cpHonninShokugyoCode == "");
         },
         cpHonninKinmusakiNameCheck() {
-            this.cpHonninKinmusakiNameWarmingTextFormatFlag = (this.collateralProviderZhy.cpHonninKinmusakiName.length > 40);
+            this.cpHonninKinmusakiNameWarmingTooLongFormatFlag = (this.collateralProviderZhy.cpHonninKinmusakiName.length > 40);
         },
         cpReasonCheck() {
             this.cpReasonWarmingTextTooShortFlag = (this.collateralProviderZhy.cpReason.length < 50);
@@ -554,6 +567,7 @@ export default {
             this.collateralProviderZhy.cpNameMeiKana = this.zenkakuAlphNum2hankaku(this.collateralProviderZhy.cpNameMeiKana);
             this.collateralProviderZhy.cpNameMeiKana = this.zenkakuKana2Hankaku(this.collateralProviderZhy.cpNameMeiKana);
         },
+        // 選択した生年月日に基づいて年齢を計算
         calculateAge() {
             let today = new Date();
             let todayYear = today.getFullYear();
@@ -588,9 +602,11 @@ export default {
             }
             return age;
         },
+        // 担保理由は一時保存機能
         saveReason(){
             this.$store.state.CollateralProviderZhyInContent02.cpReason = this.collateralProviderZhy.cpReason;
         },
+        // 「戻る」機能
         previous(){
             this.$router.go(-1);
         }
@@ -601,9 +617,11 @@ export default {
 
         // },
         // 监视数组, 在数据变化时将数组转化为字符串
+        // 配列を監視し、データが変わる時に配列を文字列に変換する
         'reasons': function () {
             this.collateralProviderZhy.cpMoushikomi = this.reasons.join(",")
         },
+        // 個々の情報の変化を監視し、それに応じてエラーメッセージの表示/非表示を切り替える
         'collateralProviderZhy.cpTanpoMono': function () {
             this.cpTanpoMonoCheck();
         },
@@ -671,6 +689,7 @@ export default {
         console.log("----------");
         console.log(this.$store.state.KoJinJoHoZhyInContent01);
 
+        // vuexから一時保存された担保理由を読み取る
         this.collateralProviderZhy.cpReason = this.$store.state.CollateralProviderZhyInContent02.cpReason;
 
     }
