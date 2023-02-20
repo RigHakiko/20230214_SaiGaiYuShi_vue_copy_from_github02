@@ -220,7 +220,7 @@
                     入力した文字数が長すぎます。再入力してください。
             </span>
             <span>当前已经输入{{ collateralProviderZhy.cpReason.length }}个字</span>
-            <input type="button" value="保存" @click="saveReason()" />
+            <input type="button" value="一時保存" @click="saveReason()" />
             </div>
 
 
