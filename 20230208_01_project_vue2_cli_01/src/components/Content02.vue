@@ -459,7 +459,7 @@ export default {
             this.cpRentaiSaimushaToOnajiWarmingTextNotSelectedFlag = (this.collateralProviderZhy.cpRentaiSaimushaToOnaji == "");
         },
         cpPhoneCheck() {
-            this.cpPhoneWarmingTextFormatFlag = (this.regDenwa.test(this.collateralProviderZhy.cpPhone));
+            this.cpPhoneWarmingTextFormatFlag = (!this.regDenwa.test(this.collateralProviderZhy.cpPhone));
         },
         cpHonninShokugyoCodeCheck() {
             this.cpHonninShokugyoCodeWarmingTextFlag = (this.collateralProviderZhy.cpHonninShokugyoCode == "");
@@ -582,8 +582,8 @@ export default {
             if(this.collateralProviderZhy.cpSame == "01"){
                 this.phoneCanEditFlag = false;
                 this.kinmusakiCanEditFlag = false;
-                this.cpHonninKinmusakiName == this.$store.state.KoJinJoHoZhyInContent01.cpKinmusakiname;
-                this.cpPhone == this.$store.state.KoJinJoHoZhyInContent01.cpPhone;
+                this.collateralProviderZhy.cpHonninKinmusakiName = this.$store.state.KoJinJoHoZhyInContent01.cpKinmusakiname;
+                this.collateralProviderZhy.cpPhone =this.$store.state.KoJinJoHoZhyInContent01.cpPhone;
             } else {
                 this.phoneCanEditFlag = true;
                 this.kinmusakiCanEditFlag = true;
