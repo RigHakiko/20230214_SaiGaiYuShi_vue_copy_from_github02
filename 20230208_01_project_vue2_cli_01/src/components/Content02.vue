@@ -105,8 +105,8 @@
             <label>年齢</label>
             <div class="kiho">
 
-                <!-- <input type="text" v-model="collateralProviderZhy.cpBirthDate" disabled/> -->
-                <input type="text" v-model="collateralProviderZhy.cpBirthDate" />
+                <input type="text" v-model="collateralProviderZhy.cpBirthDate" disabled/>
+                <!-- <input type="text" v-model="collateralProviderZhy.cpBirthDate" /> -->
             </div>
 
             <span class="errorMessage" id="" v-if="cpBirthDateWarmingTextMinusFlag">
@@ -236,7 +236,7 @@
         </div>
 
 
-</div>
+    </div>
 </template>
 <script>
 import axios from 'axios'
@@ -459,10 +459,10 @@ export default {
         },
         cpBirthDateCheck() {
             this.cpBirthDateWarmingTextMinusFlag = (this.collateralProviderZhy.cpBirthDate < 0);
-        {
-            // 测试用
-            console.log(this.cpBirthDateWarmingTextMinusFlag)
-        }
+            {
+                // 测试用
+                console.log(this.cpBirthDateWarmingTextMinusFlag)
+            }
         },
 
         cpMoushikomiCheck() {
@@ -554,8 +554,8 @@ export default {
             // let birthdayDate = birthday.getDate();
 
             let birthdayString = this.collateralProviderZhy.cpBirthDateYear;
-            let birthdayYear = Number(birthdayString.substring(0,4));
-            let birthdayMonth =Number(birthdayString.substring(5,7));
+            let birthdayYear = Number(birthdayString.substring(0, 4));
+            let birthdayMonth = Number(birthdayString.substring(5, 7));
             let birthdayDate = Number(birthdayString.substring(8));
             { //测试用
                 console.log(todayYear);
@@ -606,11 +606,11 @@ export default {
             this.cpBirthDateYearCheck();
             this.collateralProviderZhy.cpBirthDate = this.calculateAge();
         },
-                'collateralProviderZhy.cpBirthDate': function () {
-                    { //
-                        console.log("--")
-                    }
-                    this.cpBirthDateCheck();
+        'collateralProviderZhy.cpBirthDate': function () {
+            { //
+                console.log("--")
+            }
+            this.cpBirthDateCheck();
         },
         //         'collateralProviderZhy.cpMoushikomi': function () {
         // },
