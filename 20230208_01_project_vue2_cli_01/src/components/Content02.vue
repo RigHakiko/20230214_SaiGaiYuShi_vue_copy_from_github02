@@ -234,8 +234,8 @@
         </div>
 
         <div>
-            <input type="button" value="1" />
-            <input type="button" value="2" @click="next" />
+            <input type="button" value="previous" @click="previous"/>
+            <input type="button" value="next" @click="next" />
         </div>
 
 
@@ -582,7 +582,10 @@ export default {
             return age;
         },
         saveReason(){
-            this.$store.collateralProviderZhy.reasons = this.collateralProviderZhy.reasons;
+            this.$store.state.CollateralProviderZhyInContent02.cpReason = this.collateralProviderZhy.cpReason;
+        },
+        previous(){
+            this.$router.go(-1);
         }
 
     },
@@ -661,7 +664,7 @@ export default {
         console.log("----------");
         console.log(this.$store.state.KoJinJoHoZhyInContent01);
 
-        this.collateralProviderZhy.reasons = this.$store.collateralProviderZhy.reasons;
+        this.collateralProviderZhy.cpReason = this.$store.state.CollateralProviderZhyInContent02.cpReason;
 
     }
 }
