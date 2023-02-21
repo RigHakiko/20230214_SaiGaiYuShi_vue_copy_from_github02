@@ -246,7 +246,8 @@
                     入力した文字数が長すぎます。再入力してください。
             </span>
             <div class="kiho">
-                <span>現在{{ collateralProviderZhy.cpReason.length }}文字を入力しました</span>
+                <br>
+                <span >現在{{ collateralProviderZhy.cpReason.length }}文字を入力しました</span>
             <input type="button" value="一時保存" @click="saveReason()" />
             </div>
             </div>
