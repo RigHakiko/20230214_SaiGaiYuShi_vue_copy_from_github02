@@ -131,14 +131,17 @@
 
                     <input type="checkbox" value="01" v-model="reasons" />01 親子リレー返済
                     </div>
+                    <br>
                     <div  class="kiho">
 
                     <input type="checkbox" value="02" v-model="reasons" />02 収入合算（同居親族）
                     </div>
+                    <br>
                     <div  class="kiho">
 
                     <input type="checkbox" value="03" v-model="reasons" />03 収入合算（非同居直系親族）
                     </div>
+                    <br>
                     <div  class="kiho">
 
                     <input type="checkbox" value="04" v-model="reasons" />04 その他
