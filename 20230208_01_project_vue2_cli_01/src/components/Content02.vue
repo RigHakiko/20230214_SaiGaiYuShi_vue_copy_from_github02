@@ -127,6 +127,11 @@
                 <!-- 应该是多选, 先用text -->
                 <!-- <input type="text" v-model="collateralProviderZhy.cpMoushikomi" /> -->
                 <div class="kiho">
+                    <ul>
+                    <li>
+                        fwe
+                    </li>
+                </ul>
                     <div  class="kiho">
 
                     <input type="checkbox" value="01" v-model="reasons" />01 親子リレー返済
@@ -147,6 +152,8 @@
                     <input type="checkbox" value="04" v-model="reasons" />04 その他
                     </div>
                 </div>
+
+
 
                 <span class="errorMessage" id="" v-if="cpMoushikomiWarmingTextNotSelectedFlag">
                     担保者となる理由を選択してください
@@ -220,7 +227,11 @@
         </div>
         <div>
 
-            <label class="name description">担保理由 *</label>
+            <label class="name description, pr" >
+                <!-- <p class="pa"> -->
+                    担保理由 *
+                <!-- </p> -->
+            </label>
             <div class="kiho">
                 <!-- <div> -->
 
@@ -748,5 +759,11 @@ textarea{
 }
 .buttons{
     text-align: center;
+}
+.pr{
+    /* position: relative; */
+}
+.pa{
+    /* position: absolute; */
 }
 </style>
