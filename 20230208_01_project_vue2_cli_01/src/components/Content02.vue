@@ -199,8 +199,8 @@
             <div class="kiho">
 
                 <select v-model="collateralProviderZhy.cpHonninShokugyoCode">
-                    <option>01 自営業</option>
-                    <option>02 パート、アルバイト</option>
+                    <option value="01">01 自営業</option>
+                    <option value="02">02 パート、アルバイト</option>
                     <option>03 公務員</option>
                     <option>04 会社員</option>
                     <option>05 その他</option>
