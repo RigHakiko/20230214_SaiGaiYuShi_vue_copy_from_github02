@@ -484,6 +484,7 @@ export default {
 
                 axios.post("http://localhost:8813/CollateralProviderZhy/save", this.collateralProviderZhy).then();
                 console.log(this.collateralProviderZhy);
+                this.$router.push('Content03')
             } else {
                 alert("入力が間違っています");
             }
