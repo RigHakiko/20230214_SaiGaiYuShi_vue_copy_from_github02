@@ -14,6 +14,9 @@
                         <option value="賃貸住宅">賃貸住宅</option>
                     </select>
                     <!-- 下面是测试用代码 -->
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                     <!-- 上面是测试用代码 -->
                 </div>
             </div>
@@ -25,6 +28,10 @@
                         <option value="申込本人が借りている">申込本人が借りている</option>
                         <option value="上記以外">上記以外</option>
                     </select>
+                    
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
@@ -36,6 +43,9 @@
                         <option value="03半壊">03半壊</option>
                         <option value="04避難指示あり">04避難指示あり</option>
                     </select>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <!-- 用于拷贝用
@@ -71,6 +81,12 @@
                 <label class="description">敷地の面積（㎡）</label>
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbBukken_Menseki" />
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
@@ -82,6 +98,9 @@
                         <option></option>
                         <option></option> -->
                     </select>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <!-- 拷贝用的代码
@@ -98,6 +117,9 @@
                 <label class="description">物件_敷地（所在地）_市郡</label>
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.dbBukkenAddressShigun">
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
 
@@ -106,6 +128,9 @@
                 <div class="kiho">
 
                     <input type="text" v-model="buildingZhy.dbBukkenAddressChoson" />
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
         </div>
@@ -115,12 +140,21 @@
             <div class="kiho">
 
                 <input type="text" v-model="buildingZhy.aplBukkenAddressBanchi" />
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
             </div>
 
             <div>
                 <label class="description">物件_敷地（所在地）_郵便番号</label>
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.aplBukkenAddressPostCode3" />
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
 
@@ -137,7 +171,6 @@
                 <label class="description">防災集団移転事業に係る住宅再建を行う</label>
                 <div class="kiho">
                     <input type="checkbox" true-value="該当" false-value="" v-model="buildingZhy.dbBousaiSyudanItenJigyo" />該当
-
                 </div>
             </div>
 
@@ -150,6 +183,9 @@
                         <option value="03 賃貸借">03 賃貸借</option>
                         <option value="04 使用貸借">04 使用貸借</option>
                     </select>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
@@ -157,12 +193,24 @@
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbBukken_Tatemono_Jutaku" />
                 </div>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
             </div>
             <div>
                 <label class="description">建物の床面積_非住宅部分</label>
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbBukken_Tatemono_HiJutaku" />
 
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
@@ -173,6 +221,9 @@
                         <option value="02耐火">02耐火</option>
                         <option value="03準耐火">03準耐火</option>
                     </select>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
@@ -184,6 +235,9 @@
                         <option value="03重ね建て">03重ね建て</option>
                         <option value="04共同建て">04共同建て</option>
                     </select>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
@@ -196,6 +250,9 @@
                         <option></option>
                         <option></option>
                     </select>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
@@ -215,6 +272,9 @@
                         <option></option>
                         <option></option>
                     </select>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
@@ -226,6 +286,9 @@
                         <option value="03賃貸住宅">03賃貸住宅</option>
                         <option value="04その他">04その他</option>
                     </select>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
@@ -238,6 +301,9 @@
                         <option></option>
                         <option></option>
                     </select>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
@@ -257,6 +323,9 @@
                         <option></option>
                         <option></option>
                     </select>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
         </div>
@@ -272,6 +341,9 @@
                         <option></option>
                         <option></option>
                     </select>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
@@ -291,6 +363,9 @@
                         <option></option>
                         <option></option>
                     </select>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
 
@@ -303,6 +378,9 @@
                         <option></option>
                         <option></option>
                     </select>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
@@ -322,6 +400,9 @@
                         <option></option>
                         <option></option>
                     </select>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
@@ -334,6 +415,9 @@
                         <option></option>
                         <option></option>
                     </select>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
@@ -353,6 +437,9 @@
                         <option></option>
                         <option></option>
                     </select>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
         </div>
@@ -362,12 +449,24 @@
                 <label class="description">会社名称</label>
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.dbKariireIninKaishaName" />
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
                 <label class="description">仲介業者又は販売代理_名称（カナ）</label>
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.dbChukaiHanbaiNameKana" />
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
         </div>
@@ -377,12 +476,24 @@
                 <label class="description">仲介業者又は販売代理_担当者名_名</label>
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.dbChukaiHanbaiTantoshaNameMei" />
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
                 <label class="description">仲介業者又は販売代理_担当者名_姓</label>
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.dbChukaiHanbaiTantoshaNameSei" />
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
         </div>
@@ -392,12 +503,24 @@
                 <label class="description">建設費</label>
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbHiyouKensetsuHi" />
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
                 <label class="description">土地取得費</label>
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbHiyouTochiSyotokuHi" />
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
@@ -413,18 +536,36 @@
                 <label class="description">借入希望額_借入金額</label>
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbKariireGakuKingaku" />
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
                 <label class="description">借入希望額_金利(不能超过10.00)</label>
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbKariireGakuKinri" />
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
                 <label class="description">借入希望額_返済期間</label>
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbKariireGakuHensaiKikan" />
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
@@ -440,6 +581,9 @@
                         <option value="01 元利均等返済">01 元利均等返済</option>
                         <option value="02 元金均等返済">02 元金均等返済</option>
                     </select>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
@@ -449,6 +593,9 @@
                         <option value="01有">01有</option>
                         <option value="02無">02無</option>
                     </select>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
@@ -461,6 +608,9 @@
                         <option value="04">04:4年</option>
                         <option value="05">05:5年以上</option>
                     </select>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
         </div>
@@ -471,6 +621,9 @@
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.dbSonotaName" />
                     <span  class="errorMessage" v-if="flagErrorDbSonotaNameNotEntered">入力してください。</span>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
@@ -481,6 +634,9 @@
                     <!-- <div>{{ flagBlankDbSonotaKingaku }}</div> -->
                     <!-- 测试用代码在上面 -->
                     <span  class="errorMessage" v-if="flagErrorDbSonotaKingakuNotEntered">入力してください。</span>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
@@ -488,6 +644,9 @@
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbSonotaHensaiKikan" />
                     <span  class="errorMessage" v-if="flagErrorDbSonotaHensaiKikanNotEntered">入力してください。</span>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
@@ -507,6 +666,12 @@
                 <label class="description">災害融資の借入希望額、その他の借入内容（万円）</label>
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbSogoKingaku" />
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
@@ -514,6 +679,9 @@
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.dbKinyuKikanName" />
                     <span  class="errorMessage" v-if="flagErrorDbKinyuKikanNameNotEntered">入力してください。</span>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
             <div>
@@ -521,6 +689,9 @@
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.dbShitemName" />
                     <span  class="errorMessage" v-if="flagErrorDbShitemNameNotEntered">入力してください。</span>
+                    <span  class="errorMessage" v-if="">
+
+                    </span>
                 </div>
             </div>
         </div>
