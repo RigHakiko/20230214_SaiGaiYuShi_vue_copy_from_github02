@@ -53,7 +53,10 @@
             <div>
                 <label class="description">被災住宅の修理が不能又は困難である</label>
                 <div class="kiho">
-                    <input type="checkbox"  v-model="buildingZhy.dbHigaiJokyoDaikiboHankaiOrHankai" value="困難である" />困難である
+                    <input type="checkbox"  v-model="buildingZhy.dbHigaiJokyoDaikiboHankaiOrHankai" 
+                    true-value="困難である"
+                    false-value=""
+                    />困難である
                 </div>
             </div>
 
