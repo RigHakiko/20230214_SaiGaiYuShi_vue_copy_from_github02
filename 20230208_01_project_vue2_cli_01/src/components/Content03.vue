@@ -609,7 +609,7 @@ export default {
 
 
             //各个错误flag
-            flagErrorDbHisaijutakuShuruiNotSelected: false,
+            // flagErrorDbHisaijutakuShuruiNotSelected: false,
 
             // flag
 
@@ -650,7 +650,19 @@ export default {
             this.buildingZhy.dbSonotaHensaiKikan,
             this.buildingZhy.dbSonotaNenHensai12No1,
             this.buildingZhy.dbKinyuKikanName, this.buildingZhy.dbShitemName];
-        }
+        },
+
+        flagErrorDbSonotaNameNotEntered () { return false},
+        flagErrorDbSonotaNameTooLong () { return false},
+        flagErrorDbSonotaKingakuNotEntered () { return false},
+        flagErrorDbSonotaKingakuFormat () { return false},
+        flagErrorDbSonotaHensaiKikanNotEntered () { return false},
+        flagErrorDbSonotaHensaiKikanFormat () { return false},
+        flagErrorDbKinyuKikanNameNotEntered () { return false},
+        flagErrorDbKinyuKikanNameTooLong () { return false},
+        flagErrorDbShitemNameNotEntered () { return false},
+        flagErrorDbShitemNameTooLong () { return false}
+
     }
 }
 
