@@ -475,6 +475,9 @@
                 <label class="description">その他_借入金額（万円）</label>
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbSonotaKingaku" />
+                    <!-- 测试用代码在下面 -->
+                    <!-- <div>{{ flagBlankDbSonotaKingaku }}</div> -->
+                    <!-- 测试用代码在上面 -->
                     <span  class="errorMessage" v-if="flagErrorDbSonotaKingakuNotEntered">入力してください。</span>
                 </div>
             </div>
@@ -671,7 +674,7 @@ export default {
             return this.buildingZhy.dbSonotaName == "";
         },
         flagBlankDbSonotaKingaku() {
-            return this.buildingZhy.dbSogoKingaku == "";
+            return this.buildingZhy.dbSonotaKingaku == "";
         },
         flagBlankDbSonotaHensaiKikan() {
             return this.buildingZhy.dbSonotaHensaiKikan == "";
