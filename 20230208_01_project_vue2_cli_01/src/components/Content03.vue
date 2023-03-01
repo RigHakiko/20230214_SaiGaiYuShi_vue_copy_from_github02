@@ -136,7 +136,7 @@
             <div>
                 <label class="description">防災集団移転事業に係る住宅再建を行う</label>
                 <div class="kiho">
-                    <input type="checkbox" value="該当" v-model="buildingZhy.dbBousaiSyudanItenJigyo" />該当
+                    <input type="checkbox" true-value="該当" false-value="" v-model="buildingZhy.dbBousaiSyudanItenJigyo" />該当
 
                 </div>
             </div>
