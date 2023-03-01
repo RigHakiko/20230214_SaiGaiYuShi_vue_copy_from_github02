@@ -468,24 +468,28 @@
                 <label class="description">その他_借入先名称等</label>
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.dbSonotaName" />
+                    <span  class="errorMessage" v-if="flagErrorDbSonotaNameNotEntered">入力してください。</span>
                 </div>
             </div>
             <div>
                 <label class="description">その他_借入金額（万円）</label>
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbSonotaKingaku" />
+                    <span  class="errorMessage" v-if="flagErrorDbSonotaKingakuNotEntered">入力してください。</span>
                 </div>
             </div>
             <div>
                 <label class="description">その他_返済期間　（年）</label>
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbSonotaHensaiKikan" />
+                    <span  class="errorMessage" v-if="flagErrorDbSonotaHensaiKikanNotEntered">入力してください。</span>
                 </div>
             </div>
             <div>
                 <label class="description">その他_年間返済額の1/12（円）</label>
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbSonotaNenHensai12No1" />
+                    <span  class="errorMessage" v-if="flagErrorDbSonotaNenHensai12No1NotEntered">入力してください。</span>
                 </div>
             </div>
             <div>
@@ -504,12 +508,14 @@
                 <label class="description">金融機関名</label>
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.dbKinyuKikanName" />
+                    <span  class="errorMessage" v-if="flagErrorDbKinyuKikanNameNotEntered">入力してください。</span>
                 </div>
             </div>
             <div>
                 <label class="description">支店名</label>
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.dbShitemName" />
+                    <span  class="errorMessage" v-if="flagErrorDbShitemNameNotEntered">入力してください。</span>
                 </div>
             </div>
         </div>
@@ -602,8 +608,6 @@ export default {
             //被災住宅の修理が不能又は困難である可选, 默认是可选, true
             flagOptionalityDBHigaiJokyoDaikiboHankaiOrHankai: true,
 
-            //强制要求填写その他, 默认是不强制, 为false
-            flagObligatorySonota: false,
 
             // num: 1
 
@@ -649,20 +653,81 @@ export default {
             this.buildingZhy.dbSonotaKingaku,
             this.buildingZhy.dbSonotaHensaiKikan,
             this.buildingZhy.dbSonotaNenHensai12No1,
-            this.buildingZhy.dbKinyuKikanName, this.buildingZhy.dbShitemName];
+            this.buildingZhy.dbKinyuKikanName,
+            this.buildingZhy.dbShitemName];
         },
 
-        flagErrorDbSonotaNameNotEntered() { return false },
-        flagErrorDbSonotaNameTooLong() { return false },
-        flagErrorDbSonotaKingakuNotEntered() { return false },
-        flagErrorDbSonotaKingakuFormat() { return false },
-        flagErrorDbSonotaHensaiKikanNotEntered() { return false },
-        flagErrorDbSonotaHensaiKikanFormat() { return false },
-        flagErrorDbKinyuKikanNameNotEntered() { return false },
-        flagErrorDbKinyuKikanNameTooLong() { return false },
-        flagErrorDbShitemNameNotEntered() { return false },
-        flagErrorDbShitemNameTooLong() { return false }
+        //强制要求填写その他 
+        flagObligatorySonota() {
+            return !(this.flagBlankDbSonotaName &&
+                this.flagBlankDbSonotaKingaku &&
+                this.flagBlankDbSonotaHensaiKikan &&
+                this.flagBlankDbSonotaNenHensai12No1 &&
+                this.flagBlankDbKonyuKikanName &&
+                this.flagBlankDbShitemName)
+        },
 
+        flagBlankDbSonotaName() {
+            return this.buildingZhy.dbSonotaName == "";
+        },
+        flagBlankDbSonotaKingaku() {
+            return this.buildingZhy.dbSogoKingaku == "";
+        },
+        flagBlankDbSonotaHensaiKikan() {
+            return this.buildingZhy.dbSonotaHensaiKikan == "";
+        },
+        flagBlankDbSonotaNenHensai12No1() {
+            return this.buildingZhy.dbSonotaNenHensai12No1 == "";
+        },
+        flagBlankDbKonyuKikanName() {
+            return this.buildingZhy.dbKinyuKikanName == "";
+        },
+        flagBlankDbShitemName() {
+            return this.buildingZhy.dbShitemName == "";
+        },
+
+
+
+
+        flagErrorDbSonotaNameNotEntered() {
+            return this.flagObligatorySonota && (this.flagBlankDbSonotaName)
+        },
+        // flagErrorDbSonotaNameTooLong() {
+        //     return this.buildingZhy.dbSonotaName.length > 100
+        // },
+        flagErrorDbSonotaKingakuNotEntered() {
+            return this.flagObligatorySonota &&( this.flagBlankDbSonotaKingaku)
+        },
+        // flagErrorDbSonotaKingakuFormat() {
+        //     return false
+        // },
+        flagErrorDbSonotaHensaiKikanNotEntered() {
+            return this.flagObligatorySonota &&( this.flagBlankDbSonotaHensaiKikan)
+        },
+        // flagErrorDbSonotaHensaiKikanFormat() {
+        //     return false;
+        // },
+
+        flagErrorDbSonotaNenHensai12No1NotEntered(){
+            return this.flagObligatorySonota &&(this.flagBlankDbSonotaNenHensai12No1);
+        },
+        // flagErrorDbSonotaNenHensai12No1Format(){
+        //     return false;
+        // },
+
+        flagErrorDbKinyuKikanNameNotEntered() {
+            return this.flagObligatorySonota &&( this.flagBlankDbKonyuKikanName);
+        },
+        // flagErrorDbKinyuKikanNameTooLong() {
+        //     return false
+        // },
+        flagErrorDbShitemNameNotEntered() {
+            return this.flagObligatorySonota &&( this.flagBlankDbShitemName);
+            return this.buildingZhy.dbShitemName == ""
+        },
+        // flagErrorDbShitemNameTooLong() {
+        //     return false
+        // }
     }
 }
 
@@ -672,5 +737,8 @@ export default {
     display: inline-block;
     width: 300px;
     text-align: right;
+}
+.errorMessage {
+    color: red;
 }
 </style>
