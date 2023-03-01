@@ -53,10 +53,8 @@
             <div>
                 <label class="description">被災住宅の修理が不能又は困難である</label>
                 <div class="kiho">
-                    <input type="checkbox"  v-model="buildingZhy.dbHigaiJokyoDaikiboHankaiOrHankai" 
-                    true-value="困難である"
-                    false-value=""
-                    />困難である
+                    <input type="checkbox" v-model="buildingZhy.dbHigaiJokyoDaikiboHankaiOrHankai" true-value="困難である"
+                        false-value="" />困難である
                 </div>
             </div>
 
@@ -70,7 +68,7 @@
             <div>
                 <label class="description">敷地の面積（㎡）</label>
                 <div class="kiho">
-                    <input type="number" v-model="buildingZhy.dbBukken_Menseki"/>
+                    <input type="number" v-model="buildingZhy.dbBukken_Menseki" />
                 </div>
             </div>
             <div>
@@ -84,7 +82,7 @@
                     </select>
                 </div>
             </div>
-<!-- 拷贝用的代码
+            <!-- 拷贝用的代码
                 <div>
                 <label class="description"></label>
                 <div class="kiho">
@@ -93,11 +91,11 @@
             </div>
  -->
 
-            
+
             <div>
                 <label class="description">物件_敷地（所在地）_市郡</label>
-                <div class="kiho"  >
-                    <input type="text" v-model="buildingZhy.dbBukkenAddressShigun" >
+                <div class="kiho">
+                    <input type="text" v-model="buildingZhy.dbBukkenAddressShigun">
                 </div>
             </div>
 
@@ -105,17 +103,17 @@
                 <label class="description">物件_敷地（所在地）_町村</label>
                 <div class="kiho">
 
-                    <input type="text" v-model="buildingZhy.dbBukkenAddressChoson"/>
-                </div>
+                    <input type="text" v-model="buildingZhy.dbBukkenAddressChoson" />
                 </div>
             </div>
+        </div>
 
-            <div>
-                <label class="description">物件_敷地（所在地）_番地</label>
-                <div class="kiho">
+        <div>
+            <label class="description">物件_敷地（所在地）_番地</label>
+            <div class="kiho">
 
-                    <input type="text" v-model="buildingZhy.aplBukkenAddressBanchi"/>
-                </div>
+                <input type="text" v-model="buildingZhy.aplBukkenAddressBanchi" />
+            </div>
 
             <div>
                 <label class="description">物件_敷地（所在地）_郵便番号</label>
@@ -155,13 +153,13 @@
             <div>
                 <label class="description">建物の床面積_住宅部分</label>
                 <div class="kiho">
-                    <input type="number" v-model="buildingZhy.dbBukken_Tatemono_Jutaku"/>
+                    <input type="number" v-model="buildingZhy.dbBukken_Tatemono_Jutaku" />
                 </div>
             </div>
             <div>
                 <label class="description">建物の床面積_非住宅部分</label>
                 <div class="kiho">
-                    <input type="number" v-model="buildingZhy.dbBukken_Tatemono_HiJutaku"/>
+                    <input type="number" v-model="buildingZhy.dbBukken_Tatemono_HiJutaku" />
 
                 </div>
             </div>
@@ -340,7 +338,7 @@
                 <label class="description">資金の受取予定年月_最終資金_月</label>
                 <div class="kiho">
                     <select v-model="buildingZhy.dbShikinDateSaishuShikinMonth">
-                         <option></option>
+                        <option></option>
                         <option></option>
                         <option></option>
                         <option></option>
@@ -382,7 +380,7 @@
             <div>
                 <label class="description">仲介業者又は販売代理_担当者名_姓</label>
                 <div class="kiho">
-                    <input type="text" v-model="buildingZhy.dbChukaiHanbaiTantoshaNameSei"/>
+                    <input type="text" v-model="buildingZhy.dbChukaiHanbaiTantoshaNameSei" />
                 </div>
             </div>
         </div>
@@ -397,13 +395,13 @@
             <div>
                 <label class="description">土地取得費</label>
                 <div class="kiho">
-                    <input type="number" v-model="buildingZhy.dbHiyouTochiSyotokuHi"  />
+                    <input type="number" v-model="buildingZhy.dbHiyouTochiSyotokuHi" />
                 </div>
             </div>
             <div>
                 <label class="description">費用合計</label>
                 <div class="kiho">
-                    <input type="number"  v-model="buildingZhy.dbHiyouTotal" />
+                    <input type="number" v-model="buildingZhy.dbHiyouTotal" />
                 </div>
             </div>
         </div>
@@ -412,25 +410,25 @@
             <div>
                 <label class="description">借入希望額_借入金額</label>
                 <div class="kiho">
-                    <input type="number" v-model="buildingZhy.dbKariireGakuKingaku"  />
+                    <input type="number" v-model="buildingZhy.dbKariireGakuKingaku" />
                 </div>
             </div>
             <div>
                 <label class="description">借入希望額_金利(不能超过10.00)</label>
                 <div class="kiho">
-                    <input type="number"  v-model="buildingZhy.dbKariireGakuKinri" />
+                    <input type="number" v-model="buildingZhy.dbKariireGakuKinri" />
                 </div>
             </div>
             <div>
                 <label class="description">借入希望額_返済期間</label>
                 <div class="kiho">
-                    <input type="number"  v-model="buildingZhy.dbKariireGakuHensaiKikan" />
+                    <input type="number" v-model="buildingZhy.dbKariireGakuHensaiKikan" />
                 </div>
             </div>
             <div>
                 <label class="description">借入希望額_年間返済額の1/12</label>
                 <div class="kiho">
-                    <input type="number" v-model="buildingZhy.dbKariireGakuNenHensai12No1"  />
+                    <input type="number" v-model="buildingZhy.dbKariireGakuNenHensai12No1" />
                 </div>
             </div>
             <div>
@@ -469,49 +467,49 @@
             <div>
                 <label class="description">その他_借入先名称等</label>
                 <div class="kiho">
-                    <input type="text"  v-model="buildingZhy.dbSonotaName" />
+                    <input type="text" v-model="buildingZhy.dbSonotaName" />
                 </div>
             </div>
             <div>
                 <label class="description">その他_借入金額（万円）</label>
                 <div class="kiho">
-                    <input type="number" v-model="buildingZhy.dbSonotaKingaku"  />
+                    <input type="number" v-model="buildingZhy.dbSonotaKingaku" />
                 </div>
             </div>
             <div>
                 <label class="description">その他_返済期間　（年）</label>
                 <div class="kiho">
-                    <input type="number"  v-model="buildingZhy.dbSonotaHensaiKikan" />
+                    <input type="number" v-model="buildingZhy.dbSonotaHensaiKikan" />
                 </div>
             </div>
             <div>
                 <label class="description">その他_年間返済額の1/12（円）</label>
                 <div class="kiho">
-                    <input type="number"  v-model="buildingZhy.dbSonotaNenHensai12No1" />
+                    <input type="number" v-model="buildingZhy.dbSonotaNenHensai12No1" />
                 </div>
             </div>
             <div>
                 <label class="description">建設に要する費用（再掲）（万円）</label>
                 <div class="kiho">
-                    <input type="number"  v-model="buildingZhy.dbHiyouTotal" />
+                    <input type="number" v-model="buildingZhy.dbHiyouTotal" />
                 </div>
             </div>
             <div>
                 <label class="description">災害融資の借入希望額、その他の借入内容（万円）</label>
                 <div class="kiho">
-                    <input type="number"  v-model="buildingZhy.dbSogoKingaku" />
+                    <input type="number" v-model="buildingZhy.dbSogoKingaku" />
                 </div>
             </div>
             <div>
                 <label class="description">金融機関名</label>
                 <div class="kiho">
-                    <input type="text" v-model="buildingZhy.dbKinyuKikanName"  />
+                    <input type="text" v-model="buildingZhy.dbKinyuKikanName" />
                 </div>
             </div>
             <div>
                 <label class="description">支店名</label>
                 <div class="kiho">
-                    <input type="text"  v-model="buildingZhy.dbShitemName" />
+                    <input type="text" v-model="buildingZhy.dbShitemName" />
                 </div>
             </div>
         </div>
@@ -616,7 +614,7 @@ export default {
             // flag
 
 
-            prefectures: {"1":"北海道","2":"青森県","3":"岩手県","04":"宮城県","5":"秋田県","6":"山形県","7":"福島県","8":"茨城県","9":"栃木県","10":"群馬県","11":"埼玉県","12":"千葉県","13":"東京都","14":"神奈川県","15":"新潟県","16":"富山県","17":"石川県","18":"福井県","19":"山梨県","20":"長野県","21":"岐阜県","22":"静岡県","23":"愛知県","24":"三重県","25":"滋賀県","26":"京都府","27":"大阪府","28":"兵庫県","29":"奈良県","30":"和歌山県","31":"鳥取県","32":"島根県","33":"岡山県","34":"広島県","35":"山口県","36":"徳島県","37":"香川県","38":"愛媛県","39":"高知県","40":"福岡県","41":"佐賀県","42":"長崎県","43":"熊本県","44":"大分県","45":"宮崎県","46":"鹿児島県","47":"沖縄県"}
+            prefectures: { "1": "北海道", "2": "青森県", "3": "岩手県", "04": "宮城県", "5": "秋田県", "6": "山形県", "7": "福島県", "8": "茨城県", "9": "栃木県", "10": "群馬県", "11": "埼玉県", "12": "千葉県", "13": "東京都", "14": "神奈川県", "15": "新潟県", "16": "富山県", "17": "石川県", "18": "福井県", "19": "山梨県", "20": "長野県", "21": "岐阜県", "22": "静岡県", "23": "愛知県", "24": "三重県", "25": "滋賀県", "26": "京都府", "27": "大阪府", "28": "兵庫県", "29": "奈良県", "30": "和歌山県", "31": "鳥取県", "32": "島根県", "33": "岡山県", "34": "広島県", "35": "山口県", "36": "徳島県", "37": "香川県", "38": "愛媛県", "39": "高知県", "40": "福岡県", "41": "佐賀県", "42": "長崎県", "43": "熊本県", "44": "大分県", "45": "宮崎県", "46": "鹿児島県", "47": "沖縄県" }
         }
     },
     methods: {
@@ -629,7 +627,7 @@ export default {
             num = 3;
             console.log(this.num)
         },
-        next(){
+        next() {
             axios.post("http://localhost:8813/BuildingZhy/save", this.buildingZhy);
             console.log(this.buildingZhy);
         }
@@ -637,19 +635,21 @@ export default {
 
     },
     watch: {
-        
+        'listenSonota': function () {
+
+        }
     },
     created() {
 
     },
-    computed : {
-        listenSonota : function(){
+    computed: {
+        listenSonota: function () {
             // let c = [this.buildingZhy.dbSonotaName];
-            return [this.buildingZhy.dbSonotaName, 
-            this.buildingZhy.dbSonotaKingaku, 
-            this.buildingZhy.dbSonotaHensaiKikan, 
-        this.buildingZhy.dbSonotaNenHensai12No1,
-    this.buildingZhy.dbKinyuKikanName,this.buildingZhy.dbShitemName];
+            return [this.buildingZhy.dbSonotaName,
+            this.buildingZhy.dbSonotaKingaku,
+            this.buildingZhy.dbSonotaHensaiKikan,
+            this.buildingZhy.dbSonotaNenHensai12No1,
+            this.buildingZhy.dbKinyuKikanName, this.buildingZhy.dbShitemName];
         }
     }
 }
