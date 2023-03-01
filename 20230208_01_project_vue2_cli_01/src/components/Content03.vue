@@ -14,7 +14,7 @@
                         <option value="賃貸住宅">賃貸住宅</option>
                     </select>
                     <!-- 下面是测试用代码 -->
-                    <span  class="errorMessage" v-if="flagErrorDbHisaijutakuShuruiNotSelected">
+                    <span class="errorMessage" v-if="flagErrorDbHisaijutakuShuruiNotSelected">
                         被災住宅の種類を選択してください
                     </span>
                     <!-- 上面是测试用代码 -->
@@ -28,8 +28,8 @@
                         <option value="申込本人が借りている">申込本人が借りている</option>
                         <option value="上記以外">上記以外</option>
                     </select>
-                    
-                    <span  class="errorMessage" v-if="flagErrorDbHisaijutakuShoyuu">
+
+                    <span class="errorMessage" v-if="flagErrorDbHisaijutakuShoyuu">
                         被災住宅の所有等を選択してください
                     </span>
                 </div>
@@ -43,7 +43,7 @@
                         <option value="03半壊">03半壊</option>
                         <option value="04避難指示あり">04避難指示あり</option>
                     </select>
-                    <span  class="errorMessage" v-if="flagErrorDbHigaiJokyo">
+                    <span class="errorMessage" v-if="flagErrorDbHigaiJokyo">
                         被害状況を選択してください
                     </span>
                 </div>
@@ -81,10 +81,10 @@
                 <label class="description">敷地の面積（㎡）</label>
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbBukken_Menseki" />
-                    <span  class="errorMessage" v-if="flagErrorDbBukken_MensekiNotEntered">
+                    <span class="errorMessage" v-if="flagErrorDbBukken_MensekiNotEntered">
                         敷地の面積（㎡）を入力してください。
                     </span>
-                    <span  class="errorMessage" v-if="flagErrorDbBukken_MensekiFormat">
+                    <span class="errorMessage" v-if="flagErrorDbBukken_MensekiFormat">
                         フォーマットが間違っています、最大5桁までの正整数を入力してください。
                     </span>
                 </div>
@@ -98,7 +98,7 @@
                         <option></option>
                         <option></option> -->
                     </select>
-                    <span  class="errorMessage" v-if="flagErrorAplBukkenAddressTodofukenNotSelected">
+                    <span class="errorMessage" v-if="flagErrorAplBukkenAddressTodofukenNotSelected">
                         物件_敷地（所在地）_都道府県を選択してください。
                     </span>
                 </div>
@@ -117,7 +117,7 @@
                 <label class="description">物件_敷地（所在地）_市郡</label>
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.dbBukkenAddressShigun">
-                    <span  class="errorMessage" v-if="flagErrorDbBukkenAddressShigunTooLong">
+                    <span class="errorMessage" v-if="flagErrorDbBukkenAddressShigunTooLong">
                         入力した文字が長すぎます。再入力してください。
                     </span>
                 </div>
@@ -128,7 +128,7 @@
                 <div class="kiho">
 
                     <input type="text" v-model="buildingZhy.dbBukkenAddressChoson" />
-                    <span  class="errorMessage" v-if="flagErrorDbBukkenAddressChosonTooLong">
+                    <span class="errorMessage" v-if="flagErrorDbBukkenAddressChosonTooLong">
                         入力した文字が長すぎます。再入力してください。
                     </span>
                 </div>
@@ -140,20 +140,20 @@
             <div class="kiho">
 
                 <input type="text" v-model="buildingZhy.aplBukkenAddressBanchi" />
-                    <span  class="errorMessage" v-if="flagErrorAplBukkenAddressBanchiTooLong">
-                        入力した文字が長すぎます。再入力してください。
-                    </span>
+                <span class="errorMessage" v-if="flagErrorAplBukkenAddressBanchiTooLong">
+                    入力した文字が長すぎます。再入力してください。
+                </span>
             </div>
 
             <div>
                 <label class="description">物件_敷地（所在地）_郵便番号</label>
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.aplBukkenAddressPostCode3" />
-                    <span  class="errorMessage" v-if="flagErrorAplBukkenAddressPostCode3NotEntered">
+                    <span class="errorMessage" v-if="flagErrorAplBukkenAddressPostCode3NotEntered">
                         郵便番号を入力してください。
                     </span>
-                    <span  class="errorMessage" v-if="flagErrorAplBukkenAddressPostCode3TooLong">
-                        フォーマットが間違っています、再入力してください。 
+                    <span class="errorMessage" v-if="flagErrorAplBukkenAddressPostCode3TooLong">
+                        フォーマットが間違っています、再入力してください。
                     </span>
                 </div>
             </div>
@@ -183,7 +183,7 @@
                         <option value="03 賃貸借">03 賃貸借</option>
                         <option value="04 使用貸借">04 使用貸借</option>
                     </select>
-                    <span  class="errorMessage" v-if="flagErrorDbBukkenShikichiNoShoyuKankeiNotSelected">
+                    <span class="errorMessage" v-if="flagErrorDbBukkenShikichiNoShoyuKankeiNotSelected">
                         敷地の所有関係を選択してください。
                     </span>
                 </div>
@@ -193,22 +193,22 @@
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbBukken_Tatemono_Jutaku" />
                 </div>
-                    <span  class="errorMessage" v-if="flagErrorDbBukken_Tatemono_JutakuNotEntered">
-                        建物の床面積_住宅部分を入力してください。
-                    </span>
-                    <span  class="errorMessage" v-if="flagErrorDbBukken_Tatemono_JutakuFormat">
-                        フォーマットが間違っています、再入力してください。
-                    </span>
+                <span class="errorMessage" v-if="flagErrorDbBukken_Tatemono_JutakuNotEntered">
+                    建物の床面積_住宅部分を入力してください。
+                </span>
+                <span class="errorMessage" v-if="flagErrorDbBukken_Tatemono_JutakuFormat">
+                    フォーマットが間違っています、再入力してください。
+                </span>
             </div>
             <div>
                 <label class="description">建物の床面積_非住宅部分</label>
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbBukken_Tatemono_HiJutaku" />
 
-                    <span  class="errorMessage" v-if="flagErrorDbBukken_Tatemono_HiJutakuNotEntered">
+                    <span class="errorMessage" v-if="flagErrorDbBukken_Tatemono_HiJutakuNotEntered">
                         入力してください。
                     </span>
-                    <span  class="errorMessage" v-if="flagErrorDbBukken_Tatemono_HiJutakuFormat">
+                    <span class="errorMessage" v-if="flagErrorDbBukken_Tatemono_HiJutakuFormat">
                         フォーマットが間違っています、再入力してください。
                     </span>
                 </div>
@@ -221,7 +221,7 @@
                         <option value="02耐火">02耐火</option>
                         <option value="03準耐火">03準耐火</option>
                     </select>
-                    <span  class="errorMessage" v-if="flagErrorDbBukken_KozoNotSelected">
+                    <span class="errorMessage" v-if="flagErrorDbBukken_KozoNotSelected">
                         選択してください。
                     </span>
                 </div>
@@ -235,7 +235,7 @@
                         <option value="03重ね建て">03重ね建て</option>
                         <option value="04共同建て">04共同建て</option>
                     </select>
-                    <span  class="errorMessage" v-if="flagErrorDbBukken_TatekataKodateKeishikiNotSelected">
+                    <span class="errorMessage" v-if="flagErrorDbBukken_TatekataKodateKeishikiNotSelected">
                         選択してください。
                     </span>
                 </div>
@@ -250,7 +250,7 @@
                         <option></option>
                         <option></option>
                     </select>
-                    <span  class="errorMessage" v-if="flagErrorDbNyukyoYoteiDateYearNotSelected">
+                    <span class="errorMessage" v-if="flagErrorDbNyukyoYoteiDateYearNotSelected">
                         選択してください。
                     </span>
                 </div>
@@ -272,7 +272,7 @@
                         <option></option>
                         <option></option>
                     </select>
-                    <span  class="errorMessage" v-if="flagErrorDbNyukyoYoteiDateMonthNotSelected">
+                    <span class="errorMessage" v-if="flagErrorDbNyukyoYoteiDateMonthNotSelected">
                         選択してください。
                     </span>
                 </div>
@@ -286,7 +286,7 @@
                         <option value="03賃貸住宅">03賃貸住宅</option>
                         <option value="04その他">04その他</option>
                     </select>
-                    <span  class="errorMessage" v-if="flagErrorDbJutakuYotoNotSelected">
+                    <span class="errorMessage" v-if="flagErrorDbJutakuYotoNotSelected">
                         選択してください。
                     </span>
                 </div>
@@ -301,7 +301,7 @@
                         <option></option>
                         <option></option>
                     </select>
-                    <span  class="errorMessage" v-if="flagErrorDbBukken_KojiKanryoDate_YearNotSelected">
+                    <span class="errorMessage" v-if="flagErrorDbBukken_KojiKanryoDate_YearNotSelected">
                         選択してください。
                     </span>
                 </div>
@@ -323,7 +323,7 @@
                         <option></option>
                         <option></option>
                     </select>
-                    <span  class="errorMessage" v-if="flagErrorDbBukken_KojiKanryoDate_MonthNotSelected">
+                    <span class="errorMessage" v-if="flagErrorDbBukken_KojiKanryoDate_MonthNotSelected">
                         選択してください。
                     </span>
                 </div>
@@ -341,7 +341,7 @@
                         <option></option>
                         <option></option>
                     </select>
-                    <span  class="errorMessage" v-if="flagErrorDbShikinDateTochiShikinYear">
+                    <span class="errorMessage" v-if="flagErrorDbShikinDateTochiShikinYear">
                         土地先行資金の受取予定年月は、「中間資金の受取予定年月」「最終資金の受取予定年月」より後の年月を指定できません。
                     </span>
                 </div>
@@ -363,7 +363,7 @@
                         <option></option>
                         <option></option>
                     </select>
-                    <span  class="errorMessage" v-if="flagErrorDbShikinDateTochiShikinMonth">
+                    <span class="errorMessage" v-if="flagErrorDbShikinDateTochiShikinMonth">
                         土地先行資金の受取予定年月は、「中間資金の受取予定年月」「最終資金の受取予定年月」より後の年月を指定できません。
                     </span>
                 </div>
@@ -378,7 +378,7 @@
                         <option></option>
                         <option></option>
                     </select>
-                    <span  class="errorMessage" v-if="flagErrorDbShikinDateChukanShikinYear">
+                    <span class="errorMessage" v-if="flagErrorDbShikinDateChukanShikinYear">
                         中間資金の受取予定年月は、「最終資金の受取予定年月」より後の年月を指定できません。
                     </span>
                 </div>
@@ -400,7 +400,7 @@
                         <option></option>
                         <option></option>
                     </select>
-                    <span  class="errorMessage" v-if="flagErrorDbShikinDateChukanShikinMonth">
+                    <span class="errorMessage" v-if="flagErrorDbShikinDateChukanShikinMonth">
                         中間資金の受取予定年月は、「最終資金の受取予定年月」より後の年月を指定できません。
                     </span>
                 </div>
@@ -415,7 +415,7 @@
                         <option></option>
                         <option></option>
                     </select>
-                    <span  class="errorMessage" v-if="flagErrorDbShikinDateSaishuShikinYearNotSelected">
+                    <span class="errorMessage" v-if="flagErrorDbShikinDateSaishuShikinYearNotSelected">
                         選択してください。
                     </span>
                 </div>
@@ -437,7 +437,7 @@
                         <option></option>
                         <option></option>
                     </select>
-                    <span  class="errorMessage" v-if="flagErrorDbShikinDateSaishuShikinMonthNotSelected">
+                    <span class="errorMessage" v-if="flagErrorDbShikinDateSaishuShikinMonthNotSelected">
                         選択してください。
                     </span>
                 </div>
@@ -449,10 +449,10 @@
                 <label class="description">会社名称</label>
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.dbKariireIninKaishaName" />
-                    <span  class="errorMessage" v-if="flagErrorDbKariireIninKaishaNameNotEntered">
+                    <span class="errorMessage" v-if="flagErrorDbKariireIninKaishaNameNotEntered">
                         入力してください。
                     </span>
-                    <span  class="errorMessage" v-if="flagErrorDbKariireIninKaishaNameTooLong">
+                    <span class="errorMessage" v-if="flagErrorDbKariireIninKaishaNameTooLong">
                         入力した文字が長すぎます。再入力してください。
                     </span>
                 </div>
@@ -461,10 +461,10 @@
                 <label class="description">仲介業者又は販売代理_名称（カナ）</label>
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.dbChukaiHanbaiNameKana" />
-                    <span  class="errorMessage" v-if="flagErrorDbChukaiHanbaiNameKanaNotEntered">
+                    <span class="errorMessage" v-if="flagErrorDbChukaiHanbaiNameKanaNotEntered">
                         フォーマットが間違っています、再入力してください。
                     </span>
-                    <span  class="errorMessage" v-if="flagErrorDbChukaiHanbaiNameKanaTooLong">
+                    <span class="errorMessage" v-if="flagErrorDbChukaiHanbaiNameKanaTooLong">
                         入力した文字が長すぎます。再入力してください。
                     </span>
                 </div>
@@ -476,10 +476,10 @@
                 <label class="description">仲介業者又は販売代理_担当者名_名</label>
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.dbChukaiHanbaiTantoshaNameMei" />
-                    <span  class="errorMessage" v-if="flagErrorDbChukaiHanbaiTantoshaNameMeiNotEntered">
+                    <span class="errorMessage" v-if="flagErrorDbChukaiHanbaiTantoshaNameMeiNotEntered">
                         入力してください。
                     </span>
-                    <span  class="errorMessage" v-if="flagErrorDbChukaiHanbaiTantoshaNameMeiTooLong">
+                    <span class="errorMessage" v-if="flagErrorDbChukaiHanbaiTantoshaNameMeiTooLong">
                         入力した文字が長すぎます。再入力してください。
                     </span>
                 </div>
@@ -488,10 +488,10 @@
                 <label class="description">仲介業者又は販売代理_担当者名_姓</label>
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.dbChukaiHanbaiTantoshaNameSei" />
-                    <span  class="errorMessage" v-if="flagErrorDbChukaiHanbaiTantoshaNameSeiNotEntered">
+                    <span class="errorMessage" v-if="flagErrorDbChukaiHanbaiTantoshaNameSeiNotEntered">
                         入力してください。
                     </span>
-                    <span  class="errorMessage" v-if="flagErrorDbChukaiHanbaiTantoshaNameSeiTooLong">
+                    <span class="errorMessage" v-if="flagErrorDbChukaiHanbaiTantoshaNameSeiTooLong">
                         入力した文字が長すぎます。再入力してください。
                     </span>
                 </div>
@@ -503,10 +503,10 @@
                 <label class="description">建設費</label>
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbHiyouKensetsuHi" />
-                    <span  class="errorMessage" v-if="flagErrorDbHiyouKensetsuHiNotEntered">
+                    <span class="errorMessage" v-if="flagErrorDbHiyouKensetsuHiNotEntered">
                         入力してください。
                     </span>
-                    <span  class="errorMessage" v-if="flagErrorDbHiyouKensetsuHiFormat">
+                    <span class="errorMessage" v-if="flagErrorDbHiyouKensetsuHiFormat">
                         フォーマットが間違っています、最大5桁までの正整数を入力してください。
                     </span>
                 </div>
@@ -515,10 +515,10 @@
                 <label class="description">土地取得費</label>
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbHiyouTochiSyotokuHi" />
-                    <span  class="errorMessage" v-if="flagErrorDbHiyouTochiSyotokuHiNotEntered">
+                    <span class="errorMessage" v-if="flagErrorDbHiyouTochiSyotokuHiNotEntered">
                         入力してください。
                     </span>
-                    <span  class="errorMessage" v-if="flagErrorDbHiyouTochiSyotokuHiFormat">
+                    <span class="errorMessage" v-if="flagErrorDbHiyouTochiSyotokuHiFormat">
                         フォーマットが間違っています、最大5桁までの正整数を入力してください。
                     </span>
                 </div>
@@ -536,10 +536,10 @@
                 <label class="description">借入希望額_借入金額</label>
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbKariireGakuKingaku" />
-                    <span  class="errorMessage" v-if="flagErrorDbKariireGakuKingakuNotEntered">
+                    <span class="errorMessage" v-if="flagErrorDbKariireGakuKingakuNotEntered">
                         入力してください。
                     </span>
-                    <span  class="errorMessage" v-if="flagErrorDbKariireGakuKingakuFormat">
+                    <span class="errorMessage" v-if="flagErrorDbKariireGakuKingakuFormat">
                         フォーマットが間違っています、最大5桁までの正整数を入力してください。
                     </span>
                 </div>
@@ -548,10 +548,10 @@
                 <label class="description">借入希望額_金利(不能超过10.00)</label>
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbKariireGakuKinri" />
-                    <span  class="errorMessage" v-if="flagErrorDbKariireGakuKinriNotEntered">
+                    <span class="errorMessage" v-if="flagErrorDbKariireGakuKinriNotEntered">
                         入力してください。
                     </span>
-                    <span  class="errorMessage" v-if="flagErrorDbKariireGakuKinriFormat">
+                    <span class="errorMessage" v-if="flagErrorDbKariireGakuKinriFormat">
                         フォーマットが間違っています、最大5桁までの整数を入力してください。
                     </span>
                 </div>
@@ -560,10 +560,10 @@
                 <label class="description">借入希望額_返済期間</label>
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbKariireGakuHensaiKikan" />
-                    <span  class="errorMessage" v-if="flagErrorDbKariireGakuHensaiKikanNotEntered">
+                    <span class="errorMessage" v-if="flagErrorDbKariireGakuHensaiKikanNotEntered">
                         入力してください。
                     </span>
-                    <span  class="errorMessage" v-if="flagErrorDBKariireGakuHensaiKikanFormat">
+                    <span class="errorMessage" v-if="flagErrorDBKariireGakuHensaiKikanFormat">
                         フォーマットが間違っています、100未満正整数を入力してください。
                     </span>
                 </div>
@@ -581,7 +581,7 @@
                         <option value="01 元利均等返済">01 元利均等返済</option>
                         <option value="02 元金均等返済">02 元金均等返済</option>
                     </select>
-                    <span  class="errorMessage" v-if="flagErrorDbHensaiHouhouNotSelected">
+                    <span class="errorMessage" v-if="flagErrorDbHensaiHouhouNotSelected">
                         選択してください。
                     </span>
                 </div>
@@ -593,7 +593,7 @@
                         <option value="01有">01有</option>
                         <option value="02無">02無</option>
                     </select>
-                    <span  class="errorMessage" v-if="flagErrorDbHisaiShinzokuDokyoAriNotSelected">
+                    <span class="errorMessage" v-if="flagErrorDbHisaiShinzokuDokyoAriNotSelected">
                         選択してください。
                     </span>
                 </div>
@@ -608,7 +608,7 @@
                         <option value="04">04:4年</option>
                         <option value="05">05:5年以上</option>
                     </select>
-                    <span  class="errorMessage" v-if="flagErrorDbSueokiKikanNoNensuNotSelected">
+                    <span class="errorMessage" v-if="flagErrorDbSueokiKikanNoNensuNotSelected">
                         選択してください。
                     </span>
                 </div>
@@ -620,8 +620,8 @@
                 <label class="description">その他_借入先名称等</label>
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.dbSonotaName" />
-                    <span  class="errorMessage" v-if="flagErrorDbSonotaNameNotEntered">入力してください。</span>
-                    <span  class="errorMessage" v-if="flagErrorDbSonotaNameTooLong">
+                    <span class="errorMessage" v-if="flagErrorDbSonotaNameNotEntered">入力してください。</span>
+                    <span class="errorMessage" v-if="flagErrorDbSonotaNameTooLong">
                         入力した文字が長すぎます。再入力してください。
                     </span>
                 </div>
@@ -633,8 +633,8 @@
                     <!-- 测试用代码在下面 -->
                     <!-- <div>{{ flagBlankDbSonotaKingaku }}</div> -->
                     <!-- 测试用代码在上面 -->
-                    <span  class="errorMessage" v-if="flagErrorDbSonotaKingakuNotEntered">入力してください。</span>
-                    <span  class="errorMessage" v-if="flagErrorDbSonotaKingakuFormat">
+                    <span class="errorMessage" v-if="flagErrorDbSonotaKingakuNotEntered">入力してください。</span>
+                    <span class="errorMessage" v-if="flagErrorDbSonotaKingakuFormat">
                         フォーマットが間違っています、最大5桁までの正整数を入力してください。
                     </span>
                 </div>
@@ -643,8 +643,8 @@
                 <label class="description">その他_返済期間　（年）</label>
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbSonotaHensaiKikan" />
-                    <span  class="errorMessage" v-if="flagErrorDbSonotaHensaiKikanNotEntered">入力してください。</span>
-                    <span  class="errorMessage" v-if="flagErrorDbSonotaHensaiKikanFormat">
+                    <span class="errorMessage" v-if="flagErrorDbSonotaHensaiKikanNotEntered">入力してください。</span>
+                    <span class="errorMessage" v-if="flagErrorDbSonotaHensaiKikanFormat">
                         フォーマットが間違っています、100未満正整数を入力してください。
                     </span>
                 </div>
@@ -653,7 +653,7 @@
                 <label class="description">その他_年間返済額の1/12（円）</label>
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbSonotaNenHensai12No1" />
-                    <span  class="errorMessage" v-if="flagErrorDbSonotaNenHensai12No1NotEntered">入力してください。</span>
+                    <span class="errorMessage" v-if="flagErrorDbSonotaNenHensai12No1NotEntered">入力してください。</span>
                 </div>
             </div>
             <div>
@@ -678,8 +678,8 @@
                 <label class="description">金融機関名</label>
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.dbKinyuKikanName" />
-                    <span  class="errorMessage" v-if="flagErrorDbKinyuKikanNameNotEntered">入力してください。</span>
-                    <span  class="errorMessage" v-if="flagErrorDbKinyuKikanNameTooLong">
+                    <span class="errorMessage" v-if="flagErrorDbKinyuKikanNameNotEntered">入力してください。</span>
+                    <span class="errorMessage" v-if="flagErrorDbKinyuKikanNameTooLong">
                         入力した文字が長すぎます。再入力してください。
                     </span>
                 </div>
@@ -688,8 +688,8 @@
                 <label class="description">支店名</label>
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.dbShitemName" />
-                    <span  class="errorMessage" v-if="flagErrorDbShitemNameNotEntered">入力してください。</span>
-                    <span  class="errorMessage" v-if="flagErrorDbShitemNameTooLong">
+                    <span class="errorMessage" v-if="flagErrorDbShitemNameNotEntered">入力してください。</span>
+                    <span class="errorMessage" v-if="flagErrorDbShitemNameTooLong">
                         入力した文字が長すぎます。再入力してください。
                     </span>
                 </div>
@@ -815,9 +815,13 @@ export default {
 
     },
     watch: {
-        'listenSonota': function () {
+        // 'listenSonota': function () {
 
-        }
+        // }
+
+        'buildingZhy.': function () {
+
+        },
     },
     created() {
 
@@ -863,177 +867,177 @@ export default {
         },
 
         // 下面是各个error message
-        flagErrorDbHisaijutakuShuruiNotSelected(){
+        flagErrorDbHisaijutakuShuruiNotSelected() {
             return this.buildingZhy.dbHisaijutakuShurui == "";
         },
-        flagErrorDbHisaijutakuShoyuu(){
+        flagErrorDbHisaijutakuShoyuu() {
             return this.buildingZhy.dbHisaijutakuShoyuu == "";
         },
-        flagErrorDbHigaiJokyo(){
+        flagErrorDbHigaiJokyo() {
             return this.buildingZhy.dbHigaiJokyo == "";
         },
 
-        flagErrorDbBukken_MensekiNotEntered (){
+        flagErrorDbBukken_MensekiNotEntered() {
             return this.buildingZhy.dbBukken_Menseki == "";
         },
-        flagErrorDbBukken_MensekiFormat(){
+        flagErrorDbBukken_MensekiFormat() {
             return false;
         },
-        flagErrorAplBukkenAddressTodofukenNotSelected(){
+        flagErrorAplBukkenAddressTodofukenNotSelected() {
             return this.buildingZhy.aplBukkenAddressTodofuken == "";
         },
-        flagErrorDbBukkenAddressShigunTooLong(){
+        flagErrorDbBukkenAddressShigunTooLong() {
             return false;
         },
-        flagErrorDbBukkenAddressChosonTooLong(){
+        flagErrorDbBukkenAddressChosonTooLong() {
             return false;
         },
-        flagErrorAplBukkenAddressBanchiTooLong(){
+        flagErrorAplBukkenAddressBanchiTooLong() {
             return false;
         },
-        flagErrorAplBukkenAddressPostCode3NotEntered(){
+        flagErrorAplBukkenAddressPostCode3NotEntered() {
             return this.buildingZhy.aplBukkenAddressPostCode3 == "";
         },
-        flagErrorAplBukkenAddressPostCode3TooLong(){
+        flagErrorAplBukkenAddressPostCode3TooLong() {
             return false;
         },
-        flagErrorDbBukkenShikichiNoShoyuKankeiNotSelected(){
+        flagErrorDbBukkenShikichiNoShoyuKankeiNotSelected() {
             return this.buildingZhy.dbBukkenShikichiNoShoyuKankei == "";
         },
-        flagErrorDbBukken_Tatemono_JutakuNotEntered(){
+        flagErrorDbBukken_Tatemono_JutakuNotEntered() {
             return this.buildingZhy.dbBukken_Tatemono_Jutaku == "";
         },
-        flagErrorDbBukken_Tatemono_JutakuFormat(){
+        flagErrorDbBukken_Tatemono_JutakuFormat() {
             return false;
         },
-        flagErrorDbBukken_Tatemono_HiJutakuNotEntered(){
+        flagErrorDbBukken_Tatemono_HiJutakuNotEntered() {
             return this.buildingZhy.dbBukken_Tatemono_HiJutaku == "";
         },
-        flagErrorDbBukken_Tatemono_HiJutakuFormat(){
+        flagErrorDbBukken_Tatemono_HiJutakuFormat() {
             return false;
         },
-        flagErrorDbBukken_KozoNotSelected(){
+        flagErrorDbBukken_KozoNotSelected() {
             return this.buildingZhy.dbBukken_Kozo == "";
         },
-        flagErrorDbBukken_TatekataKodateKeishikiNotSelected(){
+        flagErrorDbBukken_TatekataKodateKeishikiNotSelected() {
             return this.buildingZhy.dbBukken_TatekataKodateKeishiki == "";
         },
-        flagErrorDbNyukyoYoteiDateYearNotSelected(){
+        flagErrorDbNyukyoYoteiDateYearNotSelected() {
             return this.buildingZhy.dbNyukyoYoteiDateYear == "";
         },
-        flagErrorDbNyukyoYoteiDateMonthNotSelected(){
+        flagErrorDbNyukyoYoteiDateMonthNotSelected() {
             return this.buildingZhy.dbNyukyoYoteiDateMonth == "";
-       },
-       flagErrorDbJutakuYotoNotSelected(){
-        
+        },
+        flagErrorDbJutakuYotoNotSelected() {
+
             return this.buildingZhy.dbJutakuYoto == "";
-       },
-       flagErrorDbBukken_KojiKanryoDate_YearNotSelected(){
+        },
+        flagErrorDbBukken_KojiKanryoDate_YearNotSelected() {
 
             return this.buildingZhy.dbBukken_KojiKanryoDate_Year == "";
-       },
-       flagErrorDbBukken_KojiKanryoDate_MonthNotSelected(){
+        },
+        flagErrorDbBukken_KojiKanryoDate_MonthNotSelected() {
 
             return this.buildingZhy.dbBukken_KojiKanryoDate_Month == "";
-       },
-       flagErrorDbShikinDateTochiShikinYear(){
+        },
+        flagErrorDbShikinDateTochiShikinYear() {
 
-       },
-       flagErrorDbShikinDateTochiShikinMonth(){
+        },
+        flagErrorDbShikinDateTochiShikinMonth() {
 
-       },
-       flagErrorDbShikinDateChukanShikinYear(){
+        },
+        flagErrorDbShikinDateChukanShikinYear() {
 
-       },
-       flagErrorDbShikinDateChukanShikinMonth(){
+        },
+        flagErrorDbShikinDateChukanShikinMonth() {
 
-       },
-       flagErrorDbShikinDateSaishuShikinYearNotSelected(){
+        },
+        flagErrorDbShikinDateSaishuShikinYearNotSelected() {
 
             return this.buildingZhy.dbShikinDateSaishuShikinYear == "";
-       },
-       flagErrorDbShikinDateSaishuShikinMonthNotSelected(){
+        },
+        flagErrorDbShikinDateSaishuShikinMonthNotSelected() {
 
             return this.buildingZhy.dbShikinDateSaishuShikinMonth == "";
-       },
-       flagErrorDbKariireIninKaishaNameNotEntered(){
+        },
+        flagErrorDbKariireIninKaishaNameNotEntered() {
 
             return this.buildingZhy.dbKariireIninKaishaName == "";
-       },
-       flagErrorDbKariireIninKaishaNameTooLong(){
+        },
+        flagErrorDbKariireIninKaishaNameTooLong() {
 
-       },
-       flagErrorDbChukaiHanbaiNameKanaNotEntered(){
+        },
+        flagErrorDbChukaiHanbaiNameKanaNotEntered() {
 
             return this.buildingZhy.dbChukaiHanbaiNameKana == "";
-       },
-       flagErrorDbChukaiHanbaiNameKanaTooLong(){
+        },
+        flagErrorDbChukaiHanbaiNameKanaTooLong() {
 
-       },
-       flagErrorDbChukaiHanbaiTantoshaNameMeiNotEntered(){
+        },
+        flagErrorDbChukaiHanbaiTantoshaNameMeiNotEntered() {
 
             return this.buildingZhy.dbChukaiHanbaiTantoshaNameMei == "";
-       },
- 
-       flagErrorDbChukaiHanbaiTantoshaNameMeiTooLong(){
+        },
 
-       },
-       flagErrorDbChukaiHanbaiTantoshaNameSeiNotEntered(){
+        flagErrorDbChukaiHanbaiTantoshaNameMeiTooLong() {
+
+        },
+        flagErrorDbChukaiHanbaiTantoshaNameSeiNotEntered() {
 
             return this.buildingZhy.dbChukaiHanbaiTantoshaNameSei == "";
-       },
-       flagErrorDbChukaiHanbaiTantoshaNameSeiTooLong(){
+        },
+        flagErrorDbChukaiHanbaiTantoshaNameSeiTooLong() {
 
-       },
-       flagErrorDbHiyouKensetsuHiNotEntered(){
+        },
+        flagErrorDbHiyouKensetsuHiNotEntered() {
 
             return this.buildingZhy.dbHiyouKensetsuHi == "";
-       },
-       flagErrorDbHiyouKensetsuHiFormat(){
+        },
+        flagErrorDbHiyouKensetsuHiFormat() {
 
-       },
-       flagErrorDbHiyouTochiSyotokuHiNotEntered(){
+        },
+        flagErrorDbHiyouTochiSyotokuHiNotEntered() {
 
             return this.buildingZhy.dbHiyouTochiSyotokuHi == "";
-       },
-       flagErrorDbHiyouTochiSyotokuHiFormat(){
+        },
+        flagErrorDbHiyouTochiSyotokuHiFormat() {
 
-       },
-       flagErrorDbKariireGakuKingakuNotEntered(){
+        },
+        flagErrorDbKariireGakuKingakuNotEntered() {
 
             return this.buildingZhy.dbKariireGakuKingaku == "";
-       },
-       flagErrorDbKariireGakuKingakuFormat(){
+        },
+        flagErrorDbKariireGakuKingakuFormat() {
 
-       },
-       flagErrorDbKariireGakuKinriNotEntered(){
+        },
+        flagErrorDbKariireGakuKinriNotEntered() {
 
             return this.buildingZhy.dbKariireGakuKinri == "";
-       },
-       flagErrorDbKariireGakuKinriFormat(){
+        },
+        flagErrorDbKariireGakuKinriFormat() {
 
-       },
-       flagErrorDbKariireGakuHensaiKikanNotEntered(){
+        },
+        flagErrorDbKariireGakuHensaiKikanNotEntered() {
 
             return this.buildingZhy.dbKariireGakuHensaiKikan == "";
-       },
-       flagErrorDBKariireGakuHensaiKikanFormat(){
+        },
+        flagErrorDBKariireGakuHensaiKikanFormat() {
 
-       },
-       flagErrorDbHensaiHouhouNotSelected(){
+        },
+        flagErrorDbHensaiHouhouNotSelected() {
 
             return this.buildingZhy.dbHensaiHouhou == "";
-       },
-       flagErrorDbHisaiShinzokuDokyoAriNotSelected(){
+        },
+        flagErrorDbHisaiShinzokuDokyoAriNotSelected() {
 
-       },
-       flagErrorDbSueokiKikanNoNensuNotSelected(){
+        },
+        flagErrorDbSueokiKikanNoNensuNotSelected() {
 
             return this.buildingZhy.dbSueokiKikanNoNensu == "";
-       },
- 
+        },
 
-       // その他のエラーメッセージ
+
+        // その他のエラーメッセージ
         flagErrorDbSonotaNameNotEntered() {
             return this.flagObligatorySonota && (this.flagBlankDbSonotaName)
         },
@@ -1041,13 +1045,13 @@ export default {
             return this.buildingZhy.dbSonotaName.length > 100
         },
         flagErrorDbSonotaKingakuNotEntered() {
-            return this.flagObligatorySonota &&( this.flagBlankDbSonotaKingaku)
+            return this.flagObligatorySonota && (this.flagBlankDbSonotaKingaku)
         },
         flagErrorDbSonotaKingakuFormat() {
             return false
         },
         flagErrorDbSonotaHensaiKikanNotEntered() {
-            return this.flagObligatorySonota &&( this.flagBlankDbSonotaHensaiKikan)
+            return this.flagObligatorySonota && (this.flagBlankDbSonotaHensaiKikan)
         },
         flagErrorDbSonotaHensaiKikanFormat() {
             return false;
@@ -1061,13 +1065,13 @@ export default {
         // },
 
         flagErrorDbKinyuKikanNameNotEntered() {
-            return this.flagObligatorySonota &&( this.flagBlankDbKonyuKikanName);
+            return this.flagObligatorySonota && (this.flagBlankDbKonyuKikanName);
         },
         flagErrorDbKinyuKikanNameTooLong() {
             return false
         },
         flagErrorDbShitemNameNotEntered() {
-            return this.flagObligatorySonota &&( this.flagBlankDbShitemName);
+            return this.flagObligatorySonota && (this.flagBlankDbShitemName);
         },
         flagErrorDbShitemNameTooLong() {
             return false
@@ -1082,6 +1086,7 @@ export default {
     width: 300px;
     text-align: right;
 }
+
 .errorMessage {
     color: red;
 }
