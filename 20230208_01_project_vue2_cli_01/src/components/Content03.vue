@@ -15,7 +15,7 @@
                     </select>
                     <!-- 下面是测试用代码 -->
                     <span  class="errorMessage" v-if="flagErrorDbHisaijutakuShuruiNotSelected">
-
+                        被災住宅の種類を選択してください
                     </span>
                     <!-- 上面是测试用代码 -->
                 </div>
@@ -30,7 +30,7 @@
                     </select>
                     
                     <span  class="errorMessage" v-if="flagErrorDbHisaijutakuShoyuu">
-
+                        被災住宅の所有等を選択してください
                     </span>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                         <option value="04避難指示あり">04避難指示あり</option>
                     </select>
                     <span  class="errorMessage" v-if="flagErrorDbHigaiJokyo">
-
+                        被害状況を選択してください
                     </span>
                 </div>
             </div>
@@ -82,10 +82,10 @@
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbBukken_Menseki" />
                     <span  class="errorMessage" v-if="flagErrorDbBukken_MensekiNotEntered">
-
+                        敷地の面積（㎡）を入力してください。
                     </span>
                     <span  class="errorMessage" v-if="flagErrorDbBukken_MensekiFormat">
-
+                        フォーマットが間違っています、最大5桁までの正整数を入力してください。
                     </span>
                 </div>
             </div>
@@ -99,7 +99,7 @@
                         <option></option> -->
                     </select>
                     <span  class="errorMessage" v-if="flagErrorAplBukkenAddressTodofukenNotSelected">
-
+                        物件_敷地（所在地）_都道府県を選択してください。
                     </span>
                 </div>
             </div>
@@ -118,7 +118,7 @@
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.dbBukkenAddressShigun">
                     <span  class="errorMessage" v-if="flagErrorDbBukkenAddressShigunTooLong">
-
+                        入力した文字が長すぎます。再入力してください。
                     </span>
                 </div>
             </div>
@@ -129,7 +129,7 @@
 
                     <input type="text" v-model="buildingZhy.dbBukkenAddressChoson" />
                     <span  class="errorMessage" v-if="flagErrorDbBukkenAddressChosonTooLong">
-
+                        入力した文字が長すぎます。再入力してください。
                     </span>
                 </div>
             </div>
@@ -141,7 +141,7 @@
 
                 <input type="text" v-model="buildingZhy.aplBukkenAddressBanchi" />
                     <span  class="errorMessage" v-if="flagErrorAplBukkenAddressBanchiTooLong">
-
+                        入力した文字が長すぎます。再入力してください。
                     </span>
             </div>
 
@@ -150,10 +150,10 @@
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.aplBukkenAddressPostCode3" />
                     <span  class="errorMessage" v-if="flagErrorAplBukkenAddressPostCode3NotEntered">
-
+                        郵便番号を入力してください。
                     </span>
                     <span  class="errorMessage" v-if="flagErrorAplBukkenAddressPostCode3TooLong">
-
+                        フォーマットが間違っています、再入力してください。 
                     </span>
                 </div>
             </div>
@@ -184,7 +184,7 @@
                         <option value="04 使用貸借">04 使用貸借</option>
                     </select>
                     <span  class="errorMessage" v-if="flagErrorDbBukkenShikichiNoShoyuKankeiNotSelected">
-
+                        敷地の所有関係を選択してください。
                     </span>
                 </div>
             </div>
@@ -194,10 +194,10 @@
                     <input type="number" v-model="buildingZhy.dbBukken_Tatemono_Jutaku" />
                 </div>
                     <span  class="errorMessage" v-if="flagErrorDbBukken_Tatemono_JutakuNotEntered">
-
+                        建物の床面積_住宅部分を入力してください。
                     </span>
                     <span  class="errorMessage" v-if="flagErrorDbBukken_Tatemono_JutakuFormat">
-
+                        フォーマットが間違っています、再入力してください。
                     </span>
             </div>
             <div>
@@ -206,10 +206,10 @@
                     <input type="number" v-model="buildingZhy.dbBukken_Tatemono_HiJutaku" />
 
                     <span  class="errorMessage" v-if="flagErrorDbBukken_Tatemono_HiJutakuNotEntered">
-
+                        入力してください。
                     </span>
                     <span  class="errorMessage" v-if="flagErrorDbBukken_Tatemono_HiJutakuFormat">
-
+                        フォーマットが間違っています、再入力してください。
                     </span>
                 </div>
             </div>
@@ -222,7 +222,7 @@
                         <option value="03準耐火">03準耐火</option>
                     </select>
                     <span  class="errorMessage" v-if="flagErrorDbBukken_KozoNotSelected">
-
+                        選択してください。
                     </span>
                 </div>
             </div>
@@ -236,7 +236,7 @@
                         <option value="04共同建て">04共同建て</option>
                     </select>
                     <span  class="errorMessage" v-if="flagErrorDbBukken_TatekataKodateKeishikiNotSelected">
-
+                        選択してください。
                     </span>
                 </div>
             </div>
@@ -251,7 +251,7 @@
                         <option></option>
                     </select>
                     <span  class="errorMessage" v-if="flagErrorDbNyukyoYoteiDateYearNotSelected">
-
+                        選択してください。
                     </span>
                 </div>
             </div>
@@ -273,7 +273,7 @@
                         <option></option>
                     </select>
                     <span  class="errorMessage" v-if="flagErrorDbNyukyoYoteiDateMonthNotSelected">
-
+                        選択してください。
                     </span>
                 </div>
             </div>
@@ -287,7 +287,7 @@
                         <option value="04その他">04その他</option>
                     </select>
                     <span  class="errorMessage" v-if="flagErrorDbJutakuYotoNotSelected">
-
+                        選択してください。
                     </span>
                 </div>
             </div>
@@ -302,7 +302,7 @@
                         <option></option>
                     </select>
                     <span  class="errorMessage" v-if="flagErrorDbBukken_KojiKanryoDate_YearNotSelected">
-
+                        選択してください。
                     </span>
                 </div>
             </div>
@@ -324,7 +324,7 @@
                         <option></option>
                     </select>
                     <span  class="errorMessage" v-if="flagErrorDbBukken_KojiKanryoDate_MonthNotSelected">
-
+                        選択してください。
                     </span>
                 </div>
             </div>
@@ -342,7 +342,7 @@
                         <option></option>
                     </select>
                     <span  class="errorMessage" v-if="flagErrorDbShikinDateTochiShikinYear">
-
+                        土地先行資金の受取予定年月は、「中間資金の受取予定年月」「最終資金の受取予定年月」より後の年月を指定できません。
                     </span>
                 </div>
             </div>
@@ -364,7 +364,7 @@
                         <option></option>
                     </select>
                     <span  class="errorMessage" v-if="flagErrorDbShikinDateTochiShikinMonth">
-
+                        土地先行資金の受取予定年月は、「中間資金の受取予定年月」「最終資金の受取予定年月」より後の年月を指定できません。
                     </span>
                 </div>
             </div>
@@ -379,7 +379,7 @@
                         <option></option>
                     </select>
                     <span  class="errorMessage" v-if="flagErrorDbShikinDateChukanShikinYear">
-
+                        中間資金の受取予定年月は、「最終資金の受取予定年月」より後の年月を指定できません。
                     </span>
                 </div>
             </div>
@@ -401,7 +401,7 @@
                         <option></option>
                     </select>
                     <span  class="errorMessage" v-if="flagErrorDbShikinDateChukanShikinMonth">
-
+                        中間資金の受取予定年月は、「最終資金の受取予定年月」より後の年月を指定できません。
                     </span>
                 </div>
             </div>
@@ -416,7 +416,7 @@
                         <option></option>
                     </select>
                     <span  class="errorMessage" v-if="flagErrorDbShikinDateSaishuShikinYearNotSelected">
-
+                        選択してください。
                     </span>
                 </div>
             </div>
@@ -438,7 +438,7 @@
                         <option></option>
                     </select>
                     <span  class="errorMessage" v-if="flagErrorDbShikinDateSaishuShikinMonthNotSelected">
-
+                        選択してください。
                     </span>
                 </div>
             </div>
@@ -450,10 +450,10 @@
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.dbKariireIninKaishaName" />
                     <span  class="errorMessage" v-if="flagErrorDbKariireIninKaishaNameNotEntered">
-
+                        入力してください。
                     </span>
                     <span  class="errorMessage" v-if="flagErrorDbKariireIninKaishaNameTooLong">
-
+                        入力した文字が長すぎます。再入力してください。
                     </span>
                 </div>
             </div>
@@ -462,10 +462,10 @@
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.dbChukaiHanbaiNameKana" />
                     <span  class="errorMessage" v-if="flagErrorDbChukaiHanbaiNameKanaNotEntered">
-
+                        フォーマットが間違っています、再入力してください。
                     </span>
                     <span  class="errorMessage" v-if="flagErrorDbChukaiHanbaiNameKanaTooLong">
-
+                        入力した文字が長すぎます。再入力してください。
                     </span>
                 </div>
             </div>
@@ -477,10 +477,10 @@
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.dbChukaiHanbaiTantoshaNameMei" />
                     <span  class="errorMessage" v-if="flagErrorDbChukaiHanbaiTantoshaNameMeiNotEntered">
-
+                        入力してください。
                     </span>
                     <span  class="errorMessage" v-if="flagErrorDbChukaiHanbaiTantoshaNameMeiTooLong">
-
+                        入力した文字が長すぎます。再入力してください。
                     </span>
                 </div>
             </div>
@@ -489,10 +489,10 @@
                 <div class="kiho">
                     <input type="text" v-model="buildingZhy.dbChukaiHanbaiTantoshaNameSei" />
                     <span  class="errorMessage" v-if="flagErrorDbChukaiHanbaiTantoshaNameSeiNotEntered">
-
+                        入力してください。
                     </span>
                     <span  class="errorMessage" v-if="flagErrorDbChukaiHanbaiTantoshaNameSeiTooLong">
-
+                        入力した文字が長すぎます。再入力してください。
                     </span>
                 </div>
             </div>
@@ -504,10 +504,10 @@
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbHiyouKensetsuHi" />
                     <span  class="errorMessage" v-if="flagErrorDbHiyouKensetsuHiNotEntered">
-
+                        入力してください。
                     </span>
                     <span  class="errorMessage" v-if="flagErrorDbHiyouKensetsuHiFormat">
-
+                        フォーマットが間違っています、最大5桁までの正整数を入力してください。
                     </span>
                 </div>
             </div>
@@ -516,10 +516,10 @@
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbHiyouTochiSyotokuHi" />
                     <span  class="errorMessage" v-if="flagErrorDbHiyouTochiSyotokuHiNotEntered">
-
+                        入力してください。
                     </span>
                     <span  class="errorMessage" v-if="flagErrorDbHiyouTochiSyotokuHiFormat">
-
+                        フォーマットが間違っています、最大5桁までの正整数を入力してください。
                     </span>
                 </div>
             </div>
@@ -537,10 +537,10 @@
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbKariireGakuKingaku" />
                     <span  class="errorMessage" v-if="flagErrorDbKariireGakuKingakuNotEntered">
-
+                        入力してください。
                     </span>
                     <span  class="errorMessage" v-if="flagErrorDbKariireGakuKingakuFormat">
-
+                        フォーマットが間違っています、最大5桁までの正整数を入力してください。
                     </span>
                 </div>
             </div>
@@ -549,10 +549,10 @@
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbKariireGakuKinri" />
                     <span  class="errorMessage" v-if="flagErrorDbKariireGakuKinriNotEntered">
-
+                        入力してください。
                     </span>
                     <span  class="errorMessage" v-if="flagErrorDbKariireGakuKinriFormat">
-
+                        フォーマットが間違っています、最大5桁までの整数を入力してください。
                     </span>
                 </div>
             </div>
@@ -561,10 +561,10 @@
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbKariireGakuHensaiKikan" />
                     <span  class="errorMessage" v-if="flagErrorDbKariireGakuHensaiKikanNotEntered">
-
+                        入力してください。
                     </span>
                     <span  class="errorMessage" v-if="flagErrorDBKariireGakuHensaiKikanFormat">
-
+                        フォーマットが間違っています、100未満正整数を入力してください。
                     </span>
                 </div>
             </div>
@@ -582,7 +582,7 @@
                         <option value="02 元金均等返済">02 元金均等返済</option>
                     </select>
                     <span  class="errorMessage" v-if="flagErrorDbHensaiHouhouNotSelected">
-
+                        選択してください。
                     </span>
                 </div>
             </div>
@@ -594,7 +594,7 @@
                         <option value="02無">02無</option>
                     </select>
                     <span  class="errorMessage" v-if="flagErrorDbHisaiShinzokuDokyoAriNotSelected">
-
+                        選択してください。
                     </span>
                 </div>
             </div>
@@ -609,7 +609,7 @@
                         <option value="05">05:5年以上</option>
                     </select>
                     <span  class="errorMessage" v-if="flagErrorDbSueokiKikanNoNensuNotSelected">
-
+                        選択してください。
                     </span>
                 </div>
             </div>
@@ -622,7 +622,7 @@
                     <input type="text" v-model="buildingZhy.dbSonotaName" />
                     <span  class="errorMessage" v-if="flagErrorDbSonotaNameNotEntered">入力してください。</span>
                     <span  class="errorMessage" v-if="flagErrorDbSonotaNameTooLong">
-
+                        入力した文字が長すぎます。再入力してください。
                     </span>
                 </div>
             </div>
@@ -635,7 +635,7 @@
                     <!-- 测试用代码在上面 -->
                     <span  class="errorMessage" v-if="flagErrorDbSonotaKingakuNotEntered">入力してください。</span>
                     <span  class="errorMessage" v-if="flagErrorDbSonotaKingakuFormat">
-
+                        フォーマットが間違っています、最大5桁までの正整数を入力してください。
                     </span>
                 </div>
             </div>
@@ -645,7 +645,7 @@
                     <input type="number" v-model="buildingZhy.dbSonotaHensaiKikan" />
                     <span  class="errorMessage" v-if="flagErrorDbSonotaHensaiKikanNotEntered">入力してください。</span>
                     <span  class="errorMessage" v-if="flagErrorDbSonotaHensaiKikanFormat">
-
+                        フォーマットが間違っています、100未満正整数を入力してください。
                     </span>
                 </div>
             </div>
@@ -680,7 +680,7 @@
                     <input type="text" v-model="buildingZhy.dbKinyuKikanName" />
                     <span  class="errorMessage" v-if="flagErrorDbKinyuKikanNameNotEntered">入力してください。</span>
                     <span  class="errorMessage" v-if="flagErrorDbKinyuKikanNameTooLong">
-
+                        入力した文字が長すぎます。再入力してください。
                     </span>
                 </div>
             </div>
@@ -690,7 +690,7 @@
                     <input type="text" v-model="buildingZhy.dbShitemName" />
                     <span  class="errorMessage" v-if="flagErrorDbShitemNameNotEntered">入力してください。</span>
                     <span  class="errorMessage" v-if="flagErrorDbShitemNameTooLong">
-
+                        入力した文字が長すぎます。再入力してください。
                     </span>
                 </div>
             </div>
