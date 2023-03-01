@@ -652,16 +652,16 @@ export default {
             this.buildingZhy.dbKinyuKikanName, this.buildingZhy.dbShitemName];
         },
 
-        flagErrorDbSonotaNameNotEntered () { return false},
-        flagErrorDbSonotaNameTooLong () { return false},
-        flagErrorDbSonotaKingakuNotEntered () { return false},
-        flagErrorDbSonotaKingakuFormat () { return false},
-        flagErrorDbSonotaHensaiKikanNotEntered () { return false},
-        flagErrorDbSonotaHensaiKikanFormat () { return false},
-        flagErrorDbKinyuKikanNameNotEntered () { return false},
-        flagErrorDbKinyuKikanNameTooLong () { return false},
-        flagErrorDbShitemNameNotEntered () { return false},
-        flagErrorDbShitemNameTooLong () { return false}
+        flagErrorDbSonotaNameNotEntered() { return false },
+        flagErrorDbSonotaNameTooLong() { return false },
+        flagErrorDbSonotaKingakuNotEntered() { return false },
+        flagErrorDbSonotaKingakuFormat() { return false },
+        flagErrorDbSonotaHensaiKikanNotEntered() { return false },
+        flagErrorDbSonotaHensaiKikanFormat() { return false },
+        flagErrorDbKinyuKikanNameNotEntered() { return false },
+        flagErrorDbKinyuKikanNameTooLong() { return false },
+        flagErrorDbShitemNameNotEntered() { return false },
+        flagErrorDbShitemNameTooLong() { return false }
 
     }
 }
