@@ -653,7 +653,7 @@
                 <label class="description">その他_年間返済額の1/12（円）</label>
                 <div class="kiho">
                     <input type="number" v-model="buildingZhy.dbSonotaNenHensai12No1" />
-                    <span class="errorMessage" v-if="flagErrorDbSonotaNenHensai12No1NotEntered">入力してください。</span>
+                    <!-- <span class="errorMessage" v-if="flagErrorDbSonotaNenHensai12No1NotEntered">入力してください。</span> -->
                 </div>
             </div>
             <div>
