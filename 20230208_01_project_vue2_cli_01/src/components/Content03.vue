@@ -637,10 +637,20 @@ export default {
 
     },
     watch: {
-
+        
     },
     created() {
 
+    },
+    computed : {
+        listenSonota : function(){
+            // let c = [this.buildingZhy.dbSonotaName];
+            return [this.buildingZhy.dbSonotaName, 
+            this.buildingZhy.dbSonotaKingaku, 
+            this.buildingZhy.dbSonotaHensaiKikan, 
+        this.buildingZhy.dbSonotaNenHensai12No1,
+    this.buildingZhy.dbKinyuKikanName,this.buildingZhy.dbShitemName];
+        }
     }
 }
 
