@@ -13,6 +13,8 @@
                         <option value="マイホーム">マイホーム</option>
                         <option value="賃貸住宅">賃貸住宅</option>
                     </select>
+                    <!-- 下面是测试用代码 -->
+                    <!-- 上面是测试用代码 -->
                 </div>
             </div>
             <div>
@@ -689,48 +691,216 @@ export default {
             return this.buildingZhy.dbShitemName == "";
         },
 
+        // 下面是各个error message
+        flagErrorDbHisaijutakuShuruiNotSelected(){
+            return this.buildingZhy.dbHisaijutakuShurui == "";
+        },
+        flagErrorDbHisaijutakuShoyuu(){
+            return this.buildingZhy.dbHisaijutakuShoyuu == "";
+        },
+        flagErrorDbHigaiJokyo(){
+            return this.buildingZhy.dbHigaiJokyo == "";
+        },
 
+        flagErrorDbBukken_MensekiNotEntered (){
+            return this.buildingZhy.dbBukken_Menseki == "";
+        },
+        flagErrorDbBukken_MensekiFormat(){
+            return false;
+        },
+        flagErrorAplBukkenAddressTodofukenNotSelected(){
+            return this.buildingZhy.aplBukkenAddressTodofuken == "";
+        },
+        flagErrorDbBukkenAddressShigunTooLong(){
+            return false;
+        },
+        flagErrorDbBukkenAddressChosonTooLong(){
+            return false;
+        },
+        flagErrorAplBukkenAddressBanchiTooLong(){
+            return false;
+        },
+        flagErrorAplBukkenAddressPostCode3NotEntered(){
+            return this.buildingZhy.aplBukkenAddressPostCode3 == "";
+        },
+        flagErrorAplBukkenAddressPostCode3TooLong(){
+            return false;
+        },
+        flagErrorDbBukkenShikichiNoShoyuKankeiNotSelected(){
+            return this.buildingZhy.dbBukkenShikichiNoShoyuKankei == "";
+        },
+        flagErrorDbBukken_Tatemono_JutakuNotEntered(){
+            return this.buildingZhy.dbBukken_Tatemono_Jutaku == "";
+        },
+        flagErrorDbBukken_Tatemono_JutakuFormat(){
+            return false;
+        },
+        flagErrorDbBukken_Tatemono_HiJutakuNotEntered(){
+            return this.buildingZhy.dbBukken_Tatemono_HiJutaku == "";
+        },
+        flagErrorDbBukken_Tatemono_HiJutakuFormat(){
+            return false;
+        },
+        flagErrorDbBukken_KozoNotSelected(){
+            return this.buildingZhy.dbBukken_Kozo == "";
+        },
+        flagErrorDbBukken_TatekataKodateKeishikiNotSelected(){
+            return this.buildingZhy.dbBukken_TatekataKodateKeishiki == "";
+        },
+        flagErrorDbNyukyoYoteiDateYearNotSelected(){
+            return this.buildingZhy.dbNyukyoYoteiDateYear == "";
+        },
+        flagErrorDbNyukyoYoteiDateMonthNotSelected(){
+            return this.buildingZhy.dbNyukyoYoteiDateMonth == "";
+       },
+       flagErrorDbJutakuYotoNotSelected(){
+        
+            return this.buildingZhy.dbJutakuYoto == "";
+       },
+       flagErrorDbBukken_KojiKanryoDate_YearNotSelected(){
 
+            return this.buildingZhy.dbBukken_KojiKanryoDate_Year == "";
+       },
+       flagErrorDbBukken_KojiKanryoDate_MonthNotSelected(){
 
+            return this.buildingZhy.dbBukken_KojiKanryoDate_Month == "";
+       },
+       flagErrorDbShikinDateTochiShikinYear(){
+
+       },
+       flagErrorDbShikinDateTochiShikinMonth(){
+
+       },
+       flagErrorDbShikinDateChukanShikinYear(){
+
+       },
+       flagErrorDbShikinDateChukanShikinMonth(){
+
+       },
+       flagErrorDbShikinDateSaishuShikinYearNotSelected(){
+
+            return this.buildingZhy.dbShikinDateSaishuShikinYear == "";
+       },
+       flagErrorDbShikinDateSaishuShikinMonthNotSelected(){
+
+            return this.buildingZhy.dbShikinDateSaishuShikinMonth == "";
+       },
+       flagErrorDbKariireIninKaishaNameNotEntered(){
+
+            return this.buildingZhy.dbKariireIninKaishaName == "";
+       },
+       flagErrorDbKariireIninKaishaNameTooLong(){
+
+       },
+       flagErrorDbChukaiHanbaiNameKanaNotEntered(){
+
+            return this.buildingZhy.dbChukaiHanbaiNameKana == "";
+       },
+       flagErrorDbChukaiHanbaiNameKanaTooLong(){
+
+       },
+       flagErrorDbChukaiHanbaiTantoshaNameMeiNotEntered(){
+
+            return this.buildingZhy.dbChukaiHanbaiTantoshaNameMei == "";
+       },
+ 
+       flagErrorDbChukaiHanbaiTantoshaNameMeiTooLong(){
+
+       },
+       flagErrorDbChukaiHanbaiTantoshaNameSeiNotEntered(){
+
+            return this.buildingZhy.dbChukaiHanbaiTantoshaNameSei == "";
+       },
+       flagErrorDbChukaiHanbaiTantoshaNameSeiTooLong(){
+
+       },
+       flagErrorDbHiyouKensetsuHiNotEntered(){
+
+            return this.buildingZhy.dbHiyouKensetsuHi == "";
+       },
+       flagErrorDbHiyouKensetsuHiFormat(){
+
+       },
+       flagErrorDbHiyouTochiSyotokuHiNotEntered(){
+
+            return this.buildingZhy.dbHiyouTochiSyotokuHi == "";
+       },
+       flagErrorDbHiyouTochiSyotokuHiFormat(){
+
+       },
+       flagErrorDbKariireGakuKingakuNotEntered(){
+
+            return this.buildingZhy.dbKariireGakuKingaku == "";
+       },
+       flagErrorDbKariireGakuKingakuFormat(){
+
+       },
+       flagErrorDbKariireGakuKinriNotEntered(){
+
+            return this.buildingZhy.dbKariireGakuKinri == "";
+       },
+       flagErrorDbKariireGakuKinriFormat(){
+
+       },
+       flagErrorDbKariireGakuHensaiKikanNotEntered(){
+
+            return this.buildingZhy.dbKariireGakuHensaiKikan == "";
+       },
+       flagErrorDBKariireGakuHensaiKikanFormat(){
+
+       },
+       flagErrorDbHensaiHouhouNotSelected(){
+
+            return this.buildingZhy.dbHensaiHouhou == "";
+       },
+       flagErrorDbHisaiShinzokuDokyoAriNotSelected(){
+
+       },
+       flagErrorDbSueokiKikanNoNensuNotSelected(){
+
+            return this.buildingZhy.dbSueokiKikanNoNensu == "";
+       },
+ 
+
+       // その他のエラーメッセージ
         flagErrorDbSonotaNameNotEntered() {
             return this.flagObligatorySonota && (this.flagBlankDbSonotaName)
         },
-        // flagErrorDbSonotaNameTooLong() {
-        //     return this.buildingZhy.dbSonotaName.length > 100
-        // },
+        flagErrorDbSonotaNameTooLong() {
+            return this.buildingZhy.dbSonotaName.length > 100
+        },
         flagErrorDbSonotaKingakuNotEntered() {
             return this.flagObligatorySonota &&( this.flagBlankDbSonotaKingaku)
         },
-        // flagErrorDbSonotaKingakuFormat() {
-        //     return false
-        // },
+        flagErrorDbSonotaKingakuFormat() {
+            return false
+        },
         flagErrorDbSonotaHensaiKikanNotEntered() {
             return this.flagObligatorySonota &&( this.flagBlankDbSonotaHensaiKikan)
         },
-        // flagErrorDbSonotaHensaiKikanFormat() {
-        //     return false;
-        // },
+        flagErrorDbSonotaHensaiKikanFormat() {
+            return false;
+        },
 
         flagErrorDbSonotaNenHensai12No1NotEntered(){
             return this.flagObligatorySonota &&(this.flagBlankDbSonotaNenHensai12No1);
         },
-        // flagErrorDbSonotaNenHensai12No1Format(){
-        //     return false;
-        // },
+        flagErrorDbSonotaNenHensai12No1Format(){
+            return false;
+        },
 
         flagErrorDbKinyuKikanNameNotEntered() {
             return this.flagObligatorySonota &&( this.flagBlankDbKonyuKikanName);
         },
-        // flagErrorDbKinyuKikanNameTooLong() {
-        //     return false
-        // },
+        flagErrorDbKinyuKikanNameTooLong() {
+            return false
+        },
         flagErrorDbShitemNameNotEntered() {
             return this.flagObligatorySonota &&( this.flagBlankDbShitemName);
-            return this.buildingZhy.dbShitemName == ""
         },
-        // flagErrorDbShitemNameTooLong() {
-        //     return false
-        // }
+        flagErrorDbShitemNameTooLong() {
+            return false
+        }
     }
 }
 
