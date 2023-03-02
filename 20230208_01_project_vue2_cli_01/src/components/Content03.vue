@@ -25,7 +25,7 @@
                 <div class="kiho">
                     <select v-model="buildingZhy.dbHisaijutakuShoyuu">
                         <option value="申込本人が所有している">申込本人が所有している</option>
-                        <option value="申込本人が借りている">申込本人が借りている</option>
+                        <option value="申込本人が借りている" v-if="flagHideSelectMyHome">申込本人が借りている</option>
                         <option value="上記以外">上記以外</option>
                     </select>
 
@@ -1075,6 +1075,10 @@ export default {
         },
         flagErrorDbShitemNameTooLong() {
             return false
+        },
+
+        flagHideSelectMyHome(){
+            return this.buildingZhy.dbHisaijutakuShurui == "マイホーム";
         }
     }
 }
