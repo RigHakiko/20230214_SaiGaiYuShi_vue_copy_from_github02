@@ -821,6 +821,17 @@ export default {
                 array.push(this.currentYear+offset+i);
             }
             return array;
+        },
+        transDateToNumber(year, month){
+            let num;
+            // year += '';
+            // month += '';
+            if(year != '' && month != ''){
+                num =(''+year + (month<10? '0' + month: '' + month) ) * 1;
+                return num;
+            } else{
+                return 0;
+            }
         }
 
 
@@ -1137,21 +1148,24 @@ export default {
         //         return null;
         //     }
         // },
-        dbShikinDateTochiShikinYearAndMonth(){
-            let num;
-            if(this.buildingZhy.dbShikinDateTochiShikinYear != '' && this.buildingZhy.dbShikinDateTochiShikinMonth != ''){
-                num = (this.buildingZhy.dbShikinDateTochiShikinYear +(this.buildingZhy.dbShikinDateTochiShikinMonth < 10? '0': '')+ this.buildingZhy.dbShikinDateTochiShikinMonth) * 1;
+        // dbShikinDateTochiShikinYearAndMonth(){
+        //     let num;
+        //     if(this.buildingZhy.dbShikinDateTochiShikinYear != '' && this.buildingZhy.dbShikinDateTochiShikinMonth != ''){
+        //         num = (this.buildingZhy.dbShikinDateTochiShikinYear +(this.buildingZhy.dbShikinDateTochiShikinMonth < 10? '0': '')+ this.buildingZhy.dbShikinDateTochiShikinMonth) * 1;
                 
-                { // 测试代码
-                    console.log(num)
-                }
-                return num;
-            } else{
-                { // 测试代码
-                    console.log(num)
-                }
-                return 0;
-            }
+        //         { // 测试代码
+        //             console.log(num)
+        //         }
+        //         return num;
+        //     } else{
+        //         { // 测试代码
+        //             console.log(num)
+        //         }
+        //         return 0;
+        //     }
+        // },
+        dbShikinDateTochiShikinYearAndMonth(){
+            return this.transDateToNumber(this.buildingZhy.dbShikinDateTochiShikinYear, this.buildingZhy.dbShikinDateTochiShikinMonth);
         },
         dbShikinDateChukanShikinYearAndMonth(){
             let num;
