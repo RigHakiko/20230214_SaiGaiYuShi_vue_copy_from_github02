@@ -4,6 +4,9 @@
         <div class="representDiv">
             <span class="represent">*は必須項目です。</span>
         </div>
+        <!-- below test -->
+        {{ dbShikinDateTochiShikinYearAndMonth }}
+        <!-- above test -->
         <div>
             <h2>被災住宅の状況</h2>
             <div>
@@ -1124,17 +1127,32 @@ export default {
         dbShikinDateSaishuShikinYearCandidateArray(){
             return this.getYearsArray(1, 5);
         },
+        // dbShikinDateTochiShikinYearAndMonth(){
+        //     if(this.buildingZhy.dbShikinDateChukanShikinYear != '' && this.buildingZhy.dbShikinDateChukanShikinMonth != ''){
+        //         let array  = new Array();
+        //         array.push(this.buildingZhy.dbShikinDateChukanShikinYear);
+        //         array.push(this.buildingZhy.dbShikinDateChukanShikinMonth);
+        //         return array;
+        //     } else{
+        //         return null;
+        //     }
+        // },
         dbShikinDateTochiShikinYearAndMonth(){
+            let num;
             if(this.buildingZhy.dbShikinDateChukanShikinYear != '' && this.buildingZhy.dbShikinDateChukanShikinMonth != ''){
-                let array  = new Array();
-                array.push(this.buildingZhy.dbShikinDateChukanShikinYear);
-                array.push(this.buildingZhy.dbShikinDateChukanShikinMonth);
-                return array;
+                num = (this.buildingZhy.dbShikinDateChukanShikinYear + this.buildingZhy.dbShikinDateChukanShikinMonth) +0;
+                
+                { // 测试代码
+                    console.log(num)
+                }
+                return num;
             } else{
-                return null;
+                { // 测试代码
+                    console.log(num)
+                }
+                return 0;
             }
         },
-
      }
 }
 
