@@ -810,6 +810,13 @@ export default {
         next() {
             axios.post("http://localhost:8813/BuildingZhy/save", this.buildingZhy);
             console.log(this.buildingZhy);
+        }, 
+        getYearsArray(offset, quantity){
+            let array = new Array();
+            for(i = 0; i< quantity;i++){
+                array.push(this.currentYear+offset+i);
+            }
+            return array;
         }
 
 
@@ -1079,6 +1086,10 @@ export default {
 
         flagHideSelectMyHome(){
             return this.buildingZhy.dbHisaijutakuShurui == "マイホーム";
+        },
+
+        currentYear(){
+            return new Date().getFullYear();
         }
     }
 }
