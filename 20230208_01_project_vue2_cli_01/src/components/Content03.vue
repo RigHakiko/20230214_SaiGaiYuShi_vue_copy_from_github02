@@ -830,6 +830,17 @@ export default {
         'buildingZhy.': function () {
 
         },
+        flagHideSelectMyHome : function(){
+            if(this.flagHideSelectMyHome){
+                if(this.buildingZhy.dbHisaijutakuShoyuu == "申込本人が借りている"){
+                    this.buildingZhy.dbHisaijutakuShoyuu = "";
+                    { // for test
+                        console.log("test");
+                        console.log(this.buildingZhy.dbHisaijutakuShoyuu);
+                    }
+                }
+            }
+        }
     },
     created() {
 
