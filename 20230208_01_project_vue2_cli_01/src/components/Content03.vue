@@ -1140,7 +1140,7 @@ export default {
         dbShikinDateTochiShikinYearAndMonth(){
             let num;
             if(this.buildingZhy.dbShikinDateTochiShikinYear != '' && this.buildingZhy.dbShikinDateTochiShikinMonth != ''){
-                num = (this.buildingZhy.dbShikinDateTochiShikinYear + this.buildingZhy.dbShikinDateTochiShikinMonth) +0;
+                num = (this.buildingZhy.dbShikinDateTochiShikinYear + this.buildingZhy.dbShikinDateTochiShikinMonth) * 1;
                 
                 { // 测试代码
                     console.log(num)
