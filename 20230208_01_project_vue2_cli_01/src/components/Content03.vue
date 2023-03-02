@@ -840,7 +840,10 @@ export default {
                     }
                 }
             }
-        }
+        },
+       
+
+        
     },
     created() {
 
@@ -1120,8 +1123,19 @@ export default {
         },
         dbShikinDateSaishuShikinYearCandidateArray(){
             return this.getYearsArray(1, 5);
-        }
-    }
+        },
+        dbShikinDateTochiShikinYearAndMonth(){
+            if(this.buildingZhy.dbShikinDateChukanShikinYear != '' && this.buildingZhy.dbShikinDateChukanShikinMonth != ''){
+                let array  = new Array();
+                array.push(this.buildingZhy.dbShikinDateChukanShikinYear);
+                array.push(this.buildingZhy.dbShikinDateChukanShikinMonth);
+                return array;
+            } else{
+                return null;
+            }
+        },
+
+     }
 }
 
 </script>
