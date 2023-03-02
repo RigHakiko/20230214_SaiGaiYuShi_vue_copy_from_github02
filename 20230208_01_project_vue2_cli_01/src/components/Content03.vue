@@ -833,7 +833,7 @@ export default {
         flagHideSelectMyHome : function(){
             if(this.flagHideSelectMyHome){
                 if(this.buildingZhy.dbHisaijutakuShoyuu == "申込本人が借りている"){
-                    this.buildingZhy.dbHisaijutakuShoyuu = "";
+                    this.buildingZhy.dbHisaijutakuShoyuu = null;
                     { // for test
                         console.log("test");
                         console.log(this.buildingZhy.dbHisaijutakuShoyuu);
@@ -890,7 +890,7 @@ export default {
             return this.buildingZhy.dbHisaijutakuShurui == "";
         },
         flagErrorDbHisaijutakuShoyuu() {
-            return this.buildingZhy.dbHisaijutakuShoyuu == "";
+            return this.buildingZhy.dbHisaijutakuShoyuu == "" || this.buildingZhy.dbHisaijutakuShoyuu == null;
         },
         flagErrorDbHigaiJokyo() {
             return this.buildingZhy.dbHigaiJokyo == "";
