@@ -244,12 +244,12 @@
                 <label class="description">入居予定年（年）</label>
                 <div class="kiho">
                     <select v-model="buildingZhy.dbNyukyoYoteiDateYear">
-                        <option v-for=" year in dbNyukyoYoteiDateYearCandidatedArray">{{ year }}</option>
+                        <option v-for=" year in dbNyukyoYoteiDateYearCandidatedArray" :value="year">{{ year }}</option>
+                        <!-- <option></option>
                         <option></option>
                         <option></option>
                         <option></option>
-                        <option></option>
-                        <option></option>
+                        <option></option> -->
                     </select>
                     <span class="errorMessage" v-if="flagErrorDbNyukyoYoteiDateYearNotSelected">
                         選択してください。
@@ -296,11 +296,11 @@
                 <label class="description">物件_工事完了予定年月_年</label>
                 <div class="kiho">
                     <select v-model="buildingZhy.dbBukken_KojiKanryoDate_Year">
+                        <option v-for="year in dbBukken_KojiKanryoDate_YearCandidateArray" :value="year">{{ year }}</option>
+                        <!-- <option></option>
                         <option></option>
                         <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
+                        <option></option> -->
                     </select>
                     <span class="errorMessage" v-if="flagErrorDbBukken_KojiKanryoDate_YearNotSelected">
                         選択してください。
@@ -336,11 +336,11 @@
                 <label class="description">資金の受取予定年月_土地先行資金_年</label>
                 <div class="kiho">
                     <select v-model="buildingZhy.dbShikinDateTochiShikinYear">
+                        <option v-for="year in dbShikinDateTochiShikinYearCandidateArray" :value="year">{{ year }}</option>
+                        <!-- <option></option>
                         <option></option>
                         <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
+                        <option></option> -->
                     </select>
                     <span class="errorMessage" v-if="flagErrorDbShikinDateTochiShikinYear">
                         土地先行資金の受取予定年月は、「中間資金の受取予定年月」「最終資金の受取予定年月」より後の年月を指定できません。
@@ -374,10 +374,10 @@
                 <label class="description">資金の受取予定年月_中間資金_年</label>
                 <div class="kiho">
                     <select v-model="buildingZhy.dbShikinDateChukanShikinYear">
+                        <option v-for="year in dbShikinDateChukanShikinYearCandidateArray" :value="year">{{ year }}</option>
+                        <!-- <option></option>
                         <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
+                        <option></option> -->
                     </select>
                     <span class="errorMessage" v-if="flagErrorDbShikinDateChukanShikinYear">
                         中間資金の受取予定年月は、「最終資金の受取予定年月」より後の年月を指定できません。
@@ -410,11 +410,11 @@
                 <label class="description">資金の受取予定年月_最終資金_年</label>
                 <div class="kiho">
                     <select v-model="buildingZhy.dbShikinDateSaishuShikinYear">
+                        <option v-for="year in dbShikinDateSaishuShikinYearCandidateArray" :value="year">{{ year }}</option>
+                        <!-- <option></option>
                         <option></option>
                         <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
+                        <option></option> -->
                     </select>
                     <span class="errorMessage" v-if="flagErrorDbShikinDateSaishuShikinYearNotSelected">
                         選択してください。
@@ -814,7 +814,7 @@ export default {
         }, 
         getYearsArray(offset, quantity){
             let array = new Array();
-            for(i = 0; i< quantity;i++){
+            for(let i = 0; i< quantity;i++){
                 array.push(this.currentYear+offset+i);
             }
             return array;
@@ -1095,8 +1095,21 @@ export default {
 
         dbNyukyoYoteiDateYearCandidatedArray(){
             return this.getYearsArray(-1, 5);
-        }
+        },
+        dbBukken_KojiKanryoDate_YearCandidateArray(){
+            return this.getYearsArray(-1, 5);
+        },
 
+        dbShikinDateTochiShikinYearCandidateArray(){
+            return this.getYearsArray(-1, 5);
+        },
+
+        dbShikinDateChukanShikinYearCandidateArray(){
+            return this.getYearsArray(0, 5);
+        },
+        dbShikinDateSaishuShikinYearCandidateArray(){
+            return this.getYearsArray(1, 5);
+        }
     }
 }
 
