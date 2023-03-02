@@ -260,18 +260,18 @@
                 <label class="description">入居予定月（月）</label>
                 <div class="kiho">
                     <select v-model="buildingZhy.dbNyukyoYoteiDateMonth">
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
                     </select>
                     <span class="errorMessage" v-if="flagErrorDbNyukyoYoteiDateMonthNotSelected">
                         選択してください。
@@ -311,18 +311,18 @@
                 <label class="description">物件_工事完了予定年月_月</label>
                 <div class="kiho">
                     <select v-model="buildingZhy.dbBukken_KojiKanryoDate_Month">
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
                     </select>
                     <span class="errorMessage" v-if="flagErrorDbBukken_KojiKanryoDate_MonthNotSelected">
                         選択してください。
@@ -351,18 +351,18 @@
                 <label class="description">資金の受取予定年月_土地先行資金_月</label>
                 <div class="kiho">
                     <select v-model="buildingZhy.dbShikinDateTochiShikinMonth">
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
                     </select>
                     <span class="errorMessage" v-if="flagErrorDbShikinDateTochiShikinMonth">
                         土地先行資金の受取予定年月は、「中間資金の受取予定年月」「最終資金の受取予定年月」より後の年月を指定できません。
@@ -388,18 +388,18 @@
                 <label class="description">資金の受取予定年月_中間資金_月</label>
                 <div class="kiho">
                     <select v-model="buildingZhy.dbShikinDateChukanShikinMonth">
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
                     </select>
                     <span class="errorMessage" v-if="flagErrorDbShikinDateChukanShikinMonth">
                         中間資金の受取予定年月は、「最終資金の受取予定年月」より後の年月を指定できません。
@@ -425,18 +425,18 @@
                 <label class="description">資金の受取予定年月_最終資金_月</label>
                 <div class="kiho">
                     <select v-model="buildingZhy.dbShikinDateSaishuShikinMonth">
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
-                        <option></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
                     </select>
                     <span class="errorMessage" v-if="flagErrorDbShikinDateSaishuShikinMonthNotSelected">
                         選択してください。
