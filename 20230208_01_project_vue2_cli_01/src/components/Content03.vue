@@ -1139,8 +1139,8 @@ export default {
         // },
         dbShikinDateTochiShikinYearAndMonth(){
             let num;
-            if(this.buildingZhy.dbShikinDateChukanShikinYear != '' && this.buildingZhy.dbShikinDateChukanShikinMonth != ''){
-                num = (this.buildingZhy.dbShikinDateChukanShikinYear + this.buildingZhy.dbShikinDateChukanShikinMonth) +0;
+            if(this.buildingZhy.dbShikinDateTochiShikinYear != '' && this.buildingZhy.dbShikinDateTochiShikinMonth != ''){
+                num = (this.buildingZhy.dbShikinDateTochiShikinYear + this.buildingZhy.dbShikinDateTochiShikinMonth) +0;
                 
                 { // 测试代码
                     console.log(num)
