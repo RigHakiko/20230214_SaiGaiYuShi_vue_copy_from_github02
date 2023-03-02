@@ -244,6 +244,7 @@
                 <label class="description">入居予定年（年）</label>
                 <div class="kiho">
                     <select v-model="buildingZhy.dbNyukyoYoteiDateYear">
+                        <option v-for=" year in dbNyukyoYoteiDateYearCandidatedArray">{{ year }}</option>
                         <option></option>
                         <option></option>
                         <option></option>
@@ -1090,7 +1091,12 @@ export default {
 
         currentYear(){
             return new Date().getFullYear();
+        },
+
+        dbNyukyoYoteiDateYearCandidatedArray(){
+            return this.getYearsArray(-1, 5);
         }
+
     }
 }
 
