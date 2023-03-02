@@ -1140,7 +1140,7 @@ export default {
         dbShikinDateTochiShikinYearAndMonth(){
             let num;
             if(this.buildingZhy.dbShikinDateTochiShikinYear != '' && this.buildingZhy.dbShikinDateTochiShikinMonth != ''){
-                num = (this.buildingZhy.dbShikinDateTochiShikinYear + this.buildingZhy.dbShikinDateTochiShikinMonth) * 1;
+                num = (this.buildingZhy.dbShikinDateTochiShikinYear +(this.buildingZhy.dbShikinDateTochiShikinMonth < 10? '0': '')+ this.buildingZhy.dbShikinDateTochiShikinMonth) * 1;
                 
                 { // 测试代码
                     console.log(num)
@@ -1150,6 +1150,24 @@ export default {
                 { // 测试代码
                     console.log(num)
                 }
+                return 0;
+            }
+        },
+        dbShikinDateChukanShikinYearAndMonth(){
+            let num;
+            if(this.buildingZhy.dbShikinDateChukanShikinYear != '' && this.buildingZhy.dbShikinDateChukanShikinMonth != ''){
+                num = (this.buildingZhy.dbShikinDateChukanShikinYear +(this.buildingZhy.dbShikinDateChukanShikinMonth < 10? '0': '')+ this.buildingZhy.dbShikinDateChukanShikinMonth) * 1;
+                return num;
+            } else{
+                return 0;
+            }
+        },
+        dbShikinDateSaishuShikinYearAndMonth(){
+            let num;
+            if(this.buildingZhy.dbShikinDateSaishuShikinYear != '' && this.buildingZhy.dbShikinDateSaishuShikinMonth != ''){
+                num = (this.buildingZhy.dbShikinDateSaishuShikinYear +(this.buildingZhy.dbShikinDateSaishuShikinMonth < 10? '0': '')+ this.buildingZhy.dbShikinDateSaishuShikinMonth) * 1;
+                return num;
+            } else{
                 return 0;
             }
         },
