@@ -1168,22 +1168,10 @@ export default {
             return this.transDateToNumber(this.buildingZhy.dbShikinDateTochiShikinYear, this.buildingZhy.dbShikinDateTochiShikinMonth);
         },
         dbShikinDateChukanShikinYearAndMonth(){
-            let num;
-            if(this.buildingZhy.dbShikinDateChukanShikinYear != '' && this.buildingZhy.dbShikinDateChukanShikinMonth != ''){
-                num = (this.buildingZhy.dbShikinDateChukanShikinYear +(this.buildingZhy.dbShikinDateChukanShikinMonth < 10? '0': '')+ this.buildingZhy.dbShikinDateChukanShikinMonth) * 1;
-                return num;
-            } else{
-                return 0;
-            }
+            return this.transDateToNumber(this.buildingZhy.dbShikinDateChukanShikinYear, this.buildingZhy.dbShikinDateChukanShikinMonth);
         },
         dbShikinDateSaishuShikinYearAndMonth(){
-            let num;
-            if(this.buildingZhy.dbShikinDateSaishuShikinYear != '' && this.buildingZhy.dbShikinDateSaishuShikinMonth != ''){
-                num = (this.buildingZhy.dbShikinDateSaishuShikinYear +(this.buildingZhy.dbShikinDateSaishuShikinMonth < 10? '0': '')+ this.buildingZhy.dbShikinDateSaishuShikinMonth) * 1;
-                return num;
-            } else{
-                return 0;
-            }
+            return this.transDateToNumber(this.buildingZhy.dbShikinDateSaishuShikinYear, this.buildingZhy.dbShikinDateSaishuShikinMonth);
         },
      }
 }
