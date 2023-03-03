@@ -807,6 +807,10 @@ export default {
 
             // 只对 \ 转义了
             regMenseki : new RegExp('^(?!0\\d)\\d{1,3}(\\.\\d{1,2})?$'),   
+
+            regKinri: new RegExp('^[0-9](\\.[0-9]{1,2})?$'),
+
+
             
         }
     },
@@ -851,6 +855,11 @@ export default {
             } else{
                 return false;
             }
+        },
+        fillKinriByZero(){
+            this.buildingZhy.dbKariireGakuKinri=this.buildingZhy.dbKariireGakuKinri
+
+                 
         }
 
 
@@ -897,7 +906,7 @@ export default {
             this.buildingZhy.dbShitemName];
         },
 
-        //强制要求填写その他 
+        //强制要求填写その他
         flagObligatorySonota() {
             return !(this.flagBlankDbSonotaName &&
                 this.flagBlankDbSonotaKingaku &&
@@ -1077,7 +1086,7 @@ export default {
             return this.buildingZhy.dbKariireGakuKinri == "";
         },
         flagErrorDbKariireGakuKinriFormat() {
-
+            return !this.regKinri.test(this.buildingZhy.dbKariireGakuKinri);
         },
         flagErrorDbKariireGakuHensaiKikanNotEntered() {
 
