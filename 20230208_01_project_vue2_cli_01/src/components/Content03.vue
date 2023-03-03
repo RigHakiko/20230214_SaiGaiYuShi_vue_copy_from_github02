@@ -534,7 +534,7 @@
             <div>
                 <label class="description">費用合計</label>
                 <div class="kiho">
-                    <input type="number" v-model="buildingZhy.dbHiyouTotal" />
+                    <input type="number" v-model="buildingZhy.dbHiyouTotal" disabled/>
                 </div>
             </div>
         </div>
@@ -667,7 +667,7 @@
             <div>
                 <label class="description">建設に要する費用（再掲）（万円）</label>
                 <div class="kiho">
-                    <input type="number" v-model="buildingZhy.dbHiyouTotal" />
+                    <input type="number" v-model="buildingZhy.dbHiyouTotal" disabled/>
                 </div>
             </div>
             <div>
