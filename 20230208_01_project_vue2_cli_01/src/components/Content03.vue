@@ -73,7 +73,8 @@
             <div>
                 <label class="description">被災住宅の修理が不能又は困難である</label>
                 <div class="kiho">
-                    <input type="checkbox" v-model="buildingZhy.dbHigaiJokyoDaikiboHankaiOrHankai" true-value="困難である"
+                    <input :disabled="flagZenkai
+                    " type="checkbox" v-model="buildingZhy.dbHigaiJokyoDaikiboHankaiOrHankai" true-value="困難である"
                         false-value="" />困難である
                 </div>
             </div>
@@ -860,7 +861,47 @@ export default {
         fillKinriByZero(){
             let str = (this.buildingZhy.dbKariireGakuKinri * 1).toFixed(2);
             this.buildingZhy.dbKariireGakuKinri=str;
-        }
+        },
+
+        // 英数字的全角转换为半角
+        // 英数字の全角-半角変換
+        zenkakuAlphNum2hankaku(str) {
+            return str.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function (s) {
+                return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+            });
+        },
+        // カタカナ的全角转换为半角
+        // カタカナの全角から半角への変換
+        zenkakuKana2Hankaku(str) {
+            var kanaMap = {
+                "ガ": "ｶﾞ", "ギ": "ｷﾞ", "グ": "ｸﾞ", "ゲ": "ｹﾞ", "ゴ": "ｺﾞ",
+                "ザ": "ｻﾞ", "ジ": "ｼﾞ", "ズ": "ｽﾞ", "ゼ": "ｾﾞ", "ゾ": "ｿﾞ",
+                "ダ": "ﾀﾞ", "ヂ": "ﾁﾞ", "ヅ": "ﾂﾞ", "デ": "ﾃﾞ", "ド": "ﾄﾞ",
+                "バ": "ﾊﾞ", "ビ": "ﾋﾞ", "ブ": "ﾌﾞ", "ベ": "ﾍﾞ", "ボ": "ﾎﾞ",
+                "パ": "ﾊﾟ", "ピ": "ﾋﾟ", "プ": "ﾌﾟ", "ペ": "ﾍﾟ", "ポ": "ﾎﾟ",
+                "ヴ": "ｳﾞ", "ヷ": "ﾜﾞ", "ヺ": "ｦﾞ",
+                "ア": "ｱ", "イ": "ｲ", "ウ": "ｳ", "エ": "ｴ", "オ": "ｵ",
+                "カ": "ｶ", "キ": "ｷ", "ク": "ｸ", "ケ": "ｹ", "コ": "ｺ",
+                "サ": "ｻ", "シ": "ｼ", "ス": "ｽ", "セ": "ｾ", "ソ": "ｿ",
+                "タ": "ﾀ", "チ": "ﾁ", "ツ": "ﾂ", "テ": "ﾃ", "ト": "ﾄ",
+                "ナ": "ﾅ", "ニ": "ﾆ", "ヌ": "ﾇ", "ネ": "ﾈ", "ノ": "ﾉ",
+                "ハ": "ﾊ", "ヒ": "ﾋ", "フ": "ﾌ", "ヘ": "ﾍ", "ホ": "ﾎ",
+                "マ": "ﾏ", "ミ": "ﾐ", "ム": "ﾑ", "メ": "ﾒ", "モ": "ﾓ",
+                "ヤ": "ﾔ", "ユ": "ﾕ", "ヨ": "ﾖ",
+                "ラ": "ﾗ", "リ": "ﾘ", "ル": "ﾙ", "レ": "ﾚ", "ロ": "ﾛ",
+                "ワ": "ﾜ", "ヲ": "ｦ", "ン": "ﾝ",
+                "ァ": "ｧ", "ィ": "ｨ", "ゥ": "ｩ", "ェ": "ｪ", "ォ": "ｫ",
+                "ッ": "ｯ", "ャ": "ｬ", "ュ": "ｭ", "ョ": "ｮ",
+                "。": "｡", "、": "､", "ー": "ｰ", "「": "｢", "」": "｣", "・": "･"
+            }
+            let reg = new RegExp('(' + Object.keys(kanaMap).join('|') + ')', 'g');
+            return str
+                .replace(reg, function (match) {
+                    return kanaMap[match];
+                })
+                .replace(/゛/g, 'ﾞ')
+                .replace(/゜/g, 'ﾟ');
+        },
 
 
     },
@@ -883,6 +924,14 @@ export default {
                 }
             }
         },
+        flagZenkai: function(){
+            if(this.flagZenkai){
+                this.buildingZhy.dbHigaiJokyoDaikiboHankaiOrHankai = '';
+            }
+        },
+        'buildingZhy.dbChukaiHanbaiNameKana' : function(){
+            this.buildingZhy.dbChukaiHanbaiNameKana = this.zenkakuKana2Hankaku(this.buildingZhy.dbChukaiHanbaiNameKana);
+        }
        
 
         
@@ -1244,6 +1293,9 @@ export default {
                     return  Math.pow(this.buildingZhy.dbKariireGakuKinri * 1000000 / 12 / 100, 1+ this.buildingZhy.dbKariireGakuKinri *  12 / 100);
                    }
                 }
+        },
+        flagZenkai(){
+            return this.buildingZhy.dbHigaiJokyo == "01全壊";
         }
 
      }
