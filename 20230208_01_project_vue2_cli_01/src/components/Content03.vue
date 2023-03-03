@@ -825,6 +825,7 @@ export default {
             console.log(this.num)
         },
         next() {
+            this.fillKinriByZero();
             axios.post("http://localhost:8813/BuildingZhy/save", this.buildingZhy);
             console.log(this.buildingZhy);
         }, 
@@ -857,9 +858,8 @@ export default {
             }
         },
         fillKinriByZero(){
-            this.buildingZhy.dbKariireGakuKinri=this.buildingZhy.dbKariireGakuKinri
-
-                 
+            let str = (this.buildingZhy.dbKariireGakuKinri * 1).toFixed(2);
+            this.buildingZhy.dbKariireGakuKinri=str;
         }
 
 
