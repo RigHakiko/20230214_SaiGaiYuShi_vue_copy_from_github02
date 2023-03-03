@@ -894,6 +894,9 @@ export default {
         this.$watch('computedDbSogoKingaku', (newValue, oldValue) =>{
             this.buildingZhy.dbSogoKingaku = newValue;
         });
+        this.$watch('computedSonotaNenHensai12No1', (newValue, oldValue)=>{
+            this.buildingZhy.dbKariireGakuNenHensai12No1 = newValue;
+        });
     },
     computed: {
         listenSonota: function () {
@@ -1223,11 +1226,16 @@ export default {
                 return 0;
             }
             if(this.buildingZhy.dbHensaiHouhou == "01 元利均等返済"){
-                if( this.buildingZhy.dbKariireGakuKinri == '' || this.buildingZhy.dbKariireGakuKinri == null ||this.buildingZhy.dbSonotaHensaiKikan == '' || this.buildingZhy.dbSonotaHensaiKikan == null ){
+                { // 测试代码
+                    console.log(this.buildingZhy.dbKariireGakuKinri == '' || this.buildingZhy.dbKariireGakuKinri == null ||this.buildingZhy.dbKariireGakuHensaiKikan == '' || this.buildingZhy.dbKariireGakuHensaiKikan == null);
+                    console.log(this.buildingZhy.dbKariireGakuKinri);
+                    console.log(this.buildingZhy.dbKariireGakuHensaiKikan);
+                }
+                if( this.buildingZhy.dbKariireGakuKinri == '' || this.buildingZhy.dbKariireGakuKinri == null ||this.buildingZhy.dbKariireGakuHensaiKikan == '' || this.buildingZhy.dbKariireGakuHensaiKikan == null ){
                     return 0;
                 } else{
 
-                return (this.buildingZhy.dbKariireGakuKinri * 1000000 / 12 / 100) + 1000000/(this.buildingZhy.dbSonotaHensaiKikan);
+                return (this.buildingZhy.dbKariireGakuKinri * 1000000 / 12 / 100) + 1000000/(this.buildingZhy.dbKariireGakuHensaiKikan * 12);
                 } 
             }else if(this.buildingZhy.dbHensaiHouhou == "02 元金均等返済"){
                    if( this.buildingZhy.dbKariireGakuKinri == '' || this.buildingZhy.dbKariireGakuKinri == null ){
