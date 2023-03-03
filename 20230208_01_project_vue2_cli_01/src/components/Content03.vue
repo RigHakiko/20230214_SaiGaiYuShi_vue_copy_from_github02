@@ -6,6 +6,8 @@
         </div>
         <!-- below test -->
         {{ dbShikinDateTochiShikinYearAndMonth }}
+        {{ dbShikinDateChukanShikinYearAndMonth }}
+        {{ dbShikinDateSaishuShikinYearAndMonth }}
         <!-- above test -->
         <div>
             <h2>被災住宅の状況</h2>
@@ -977,7 +979,7 @@ export default {
             return this.buildingZhy.dbBukken_KojiKanryoDate_Month == "";
         },
         flagErrorDbShikinDateTochiShikinYear() {
-
+            
         },
         flagErrorDbShikinDateTochiShikinMonth() {
 
