@@ -1217,6 +1217,25 @@ export default {
             let sonotaKingaku = (this.buildingZhy.dbSonotaKingaku == null || this.buildingZhy.dbSonotaKingaku == ''? 0: this.buildingZhy.dbSonotaKingaku * 1);
             let kariireGakuKingaku =(this.buildingZhy.dbKariireGakuKingaku == null || this.buildingZhy.dbKariireGakuKingaku == ''? 0: this.buildingZhy.dbKariireGakuKingaku * 1);
             return  sonotaKingaku + kariireGakuKingaku;
+        },
+        computedSonotaNenHensai12No1(){
+            if(this.buildingZhy.dbHensaiHouhou ==null || this.buildingZhy.dbHensaiHouhou == ""){
+                return 0;
+            }
+            if(this.buildingZhy.dbHensaiHouhou == "01 元利均等返済"){
+                if( this.buildingZhy.dbKariireGakuKinri == '' || this.buildingZhy.dbKariireGakuKinri == null ||this.buildingZhy.dbSonotaHensaiKikan == '' || this.buildingZhy.dbSonotaHensaiKikan == null ){
+                    return 0;
+                } else{
+
+                return (this.buildingZhy.dbKariireGakuKinri * 1000000 / 12 / 100) + 1000000/(this.buildingZhy.dbSonotaHensaiKikan);
+                } 
+            }else if(this.buildingZhy.dbHensaiHouhou == "02 元金均等返済"){
+                   if( this.buildingZhy.dbKariireGakuKinri == '' || this.buildingZhy.dbKariireGakuKinri == null ){
+                        return 0;
+                   } else {
+                    return  Math.pow(this.buildingZhy.dbKariireGakuKinri * 1000000 / 12 / 100, 1+ this.buildingZhy.dbKariireGakuKinri *  12 / 100);
+                   }
+                }
         }
 
      }
