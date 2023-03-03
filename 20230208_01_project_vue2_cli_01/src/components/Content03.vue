@@ -8,6 +8,8 @@
         {{ dbShikinDateTochiShikinYearAndMonth }}
         {{ dbShikinDateChukanShikinYearAndMonth }}
         {{ dbShikinDateSaishuShikinYearAndMonth }}
+        {{ computeddbHiyouTotal }}
+        {{ buildingZhy.dbHiyouTotal }}
         <!-- above test -->
         <div>
             <h2>被災住宅の状況</h2>
@@ -763,7 +765,7 @@ export default {
 
                 dbHiyouKensetsuHi: '',
                 dbHiyouTochiSyotokuHi: '',
-                dbHiyouTotal: '',
+                dbHiyouTotal: this.computeddbHiyouTotal,
 
                 dbKariireGakuKingaku: '',
                 dbKariireGakuKinri: '',
@@ -1191,6 +1193,11 @@ export default {
         dbShikinDateSaishuShikinYearAndMonth(){
             return this.transDateToNumber(this.buildingZhy.dbShikinDateSaishuShikinYear, this.buildingZhy.dbShikinDateSaishuShikinMonth);
         },
+        computeddbHiyouTotal(){
+            let hiyouKensetsuHi = (this.buildingZhy.dbHiyouKensetsuHi == null || this.buildingZhy.dbHiyouKensetsuHi == ''? 0: this.buildingZhy.dbHiyouKensetsuHi * 1);
+            let hiyouTochiSyotokuHi = (this.buildingZhy.dbHiyouTochiSyotokuHi == null || this.buildingZhy.dbHiyouTochiSyotokuHi == '' ? 0: this.buildingZhy.dbHiyouTochiSyotokuHi * 1);
+            return hiyouKensetsuHi + hiyouTochiSyotokuHi;
+        }
 
      }
 }
