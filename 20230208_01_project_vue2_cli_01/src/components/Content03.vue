@@ -8,7 +8,7 @@
         {{ dbShikinDateTochiShikinYearAndMonth }}
         {{ dbShikinDateChukanShikinYearAndMonth }}
         {{ dbShikinDateSaishuShikinYearAndMonth }}
-        <!-- {{ computeddbHiyouTotal }} -->
+        {{ computedDbHiyouTotal }}
         {{ buildingZhy.dbHiyouTotal }}
         <!-- above test -->
         <div>
