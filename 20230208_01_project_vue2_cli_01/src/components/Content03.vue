@@ -765,7 +765,7 @@ export default {
 
                 dbHiyouKensetsuHi: '',
                 dbHiyouTochiSyotokuHi: '',
-                dbHiyouTotal: this.computeddbHiyouTotal,
+                dbHiyouTotal: '',
 
                 dbKariireGakuKingaku: '',
                 dbKariireGakuKinri: '',
@@ -878,7 +878,9 @@ export default {
         
     },
     created() {
-
+        this.$watch('computedDbHiyouTotal', (newValue, oldValue) =>{
+            this.buildingZhy.dbHiyouTotal = newValue;
+        })
     },
     computed: {
         listenSonota: function () {
@@ -1193,7 +1195,7 @@ export default {
         dbShikinDateSaishuShikinYearAndMonth(){
             return this.transDateToNumber(this.buildingZhy.dbShikinDateSaishuShikinYear, this.buildingZhy.dbShikinDateSaishuShikinMonth);
         },
-        computeddbHiyouTotal(){
+        computedDbHiyouTotal(){
             let hiyouKensetsuHi = (this.buildingZhy.dbHiyouKensetsuHi == null || this.buildingZhy.dbHiyouKensetsuHi == ''? 0: this.buildingZhy.dbHiyouKensetsuHi * 1);
             let hiyouTochiSyotokuHi = (this.buildingZhy.dbHiyouTochiSyotokuHi == null || this.buildingZhy.dbHiyouTochiSyotokuHi == '' ? 0: this.buildingZhy.dbHiyouTochiSyotokuHi * 1);
             return hiyouKensetsuHi + hiyouTochiSyotokuHi;
