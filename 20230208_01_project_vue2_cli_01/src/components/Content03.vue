@@ -960,13 +960,13 @@ export default {
             return this.buildingZhy.dbBukken_Tatemono_Jutaku == "";
         },
         flagErrorDbBukken_Tatemono_JutakuFormat() {
-            return false;
+            return !this.regMenseki.test(this.buildingZhy.dbBukken_Tatemono_Jutaku + '');
         },
         flagErrorDbBukken_Tatemono_HiJutakuNotEntered() {
             return this.buildingZhy.dbBukken_Tatemono_HiJutaku == "";
         },
         flagErrorDbBukken_Tatemono_HiJutakuFormat() {
-            return false;
+            return !this.regMenseki.test(this.buildingZhy.dbBukken_Tatemono_HiJutaku + '');
         },
         flagErrorDbBukken_KozoNotSelected() {
             return this.buildingZhy.dbBukken_Kozo == "";
