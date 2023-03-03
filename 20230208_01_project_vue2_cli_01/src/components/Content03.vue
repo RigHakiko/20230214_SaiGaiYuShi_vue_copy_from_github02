@@ -834,6 +834,16 @@ export default {
             } else{
                 return 0;
             }
+        },
+        dateCompareDate1GreatThanDate2(date1, date2 ){
+            date1 = date1 *1;
+            date2 = date2 *1;
+
+            if (date1 >= 0 && date2 >= 0 &&date1 > date2 ){
+                return true;
+            } else{
+                return false;
+            }
         }
 
 
@@ -1175,6 +1185,7 @@ export default {
         dbShikinDateSaishuShikinYearAndMonth(){
             return this.transDateToNumber(this.buildingZhy.dbShikinDateSaishuShikinYear, this.buildingZhy.dbShikinDateSaishuShikinMonth);
         },
+
      }
 }
 
