@@ -839,7 +839,7 @@ export default {
             date1 = date1 *1;
             date2 = date2 *1;
 
-            if (date1 >= 0 && date2 >= 0 &&date1 > date2 ){
+            if (date1 > 0 && date2 > 0 &&date1 > date2 ){
                 return true;
             } else{
                 return false;
@@ -989,16 +989,18 @@ export default {
             return this.buildingZhy.dbBukken_KojiKanryoDate_Month == "";
         },
         flagErrorDbShikinDateTochiShikinYear() {
-            
+            return this.dateCompareDate1GreatThanDate2(this.dbShikinDateTochiShikinYearAndMonth, this.dbShikinDateChukanShikinYearAndMonth) || this.dateCompareDate1GreatThanDate2(this.dbShikinDateTochiShikinYearAndMonth,this.dbShikinDateSaishuShikinYearAndMonth);
         },
         flagErrorDbShikinDateTochiShikinMonth() {
 
+            return this.dateCompareDate1GreatThanDate2(this.dbShikinDateTochiShikinYearAndMonth, this.dbShikinDateChukanShikinYearAndMonth) || this.dateCompareDate1GreatThanDate2(this.dbShikinDateTochiShikinYearAndMonth,this.dbShikinDateSaishuShikinYearAndMonth);
         },
         flagErrorDbShikinDateChukanShikinYear() {
-
+            return this.dateCompareDate1GreatThanDate2(this.dbShikinDateChukanShikinYearAndMonth, this.dbShikinDateSaishuShikinYearAndMonth);
         },
         flagErrorDbShikinDateChukanShikinMonth() {
 
+            return this.dateCompareDate1GreatThanDate2(this.dbShikinDateChukanShikinYearAndMonth, this.dbShikinDateSaishuShikinYearAndMonth);
         },
         flagErrorDbShikinDateSaishuShikinYearNotSelected() {
 
