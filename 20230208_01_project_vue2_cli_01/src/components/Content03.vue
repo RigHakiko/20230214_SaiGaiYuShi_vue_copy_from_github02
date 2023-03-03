@@ -10,6 +10,7 @@
         {{ dbShikinDateSaishuShikinYearAndMonth }}
         {{ computedDbHiyouTotal }}
         {{ buildingZhy.dbHiyouTotal }}
+        {{ computedDbSogoKingaku }}
         <!-- above test -->
         <div>
             <h2>被災住宅の状況</h2>
@@ -880,7 +881,10 @@ export default {
     created() {
         this.$watch('computedDbHiyouTotal', (newValue, oldValue) =>{
             this.buildingZhy.dbHiyouTotal = newValue;
-        })
+        });
+        this.$watch('computedDbSogoKingaku', (newValue, oldValue) =>{
+            this.buildingZhy.dbSogoKingaku = newValue;
+        });
     },
     computed: {
         listenSonota: function () {
@@ -1199,6 +1203,11 @@ export default {
             let hiyouKensetsuHi = (this.buildingZhy.dbHiyouKensetsuHi == null || this.buildingZhy.dbHiyouKensetsuHi == ''? 0: this.buildingZhy.dbHiyouKensetsuHi * 1);
             let hiyouTochiSyotokuHi = (this.buildingZhy.dbHiyouTochiSyotokuHi == null || this.buildingZhy.dbHiyouTochiSyotokuHi == '' ? 0: this.buildingZhy.dbHiyouTochiSyotokuHi * 1);
             return hiyouKensetsuHi + hiyouTochiSyotokuHi;
+        },
+        computedDbSogoKingaku(){
+            let sonotaKingaku = (this.buildingZhy.dbSonotaKingaku == null || this.buildingZhy.dbSonotaKingaku == ''? 0: this.buildingZhy.dbSonotaKingaku * 1);
+            let kariireGakuKingaku =(this.buildingZhy.dbKariireGakuKingaku == null || this.buildingZhy.dbKariireGakuKingaku == ''? 0: this.buildingZhy.dbKariireGakuKingaku * 1);
+            return  sonotaKingaku + kariireGakuKingaku;
         }
 
      }
